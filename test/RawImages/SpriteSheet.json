@@ -1,0 +1,76 @@
+{"frames": [
+
+{
+	"filename": "PetaxCaminando_1.png",
+	"frame": {"x":2,"y":644,"w":48,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":48,"h":105},
+	"sourceSize": {"w":48,"h":105}
+},
+{
+	"filename": "PetaxCaminando_2.png",
+	"frame": {"x":2,"y":537,"w":48,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":48,"h":105},
+	"sourceSize": {"w":48,"h":105}
+},
+{
+	"filename": "PetaxCaminando_3.png",
+	"frame": {"x":2,"y":323,"w":49,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":49,"h":105},
+	"sourceSize": {"w":49,"h":105}
+},
+{
+	"filename": "PetaxCaminando_4.png",
+	"frame": {"x":2,"y":430,"w":48,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":48,"h":105},
+	"sourceSize": {"w":48,"h":105}
+},
+{
+	"filename": "PetaxParado_1.png",
+	"frame": {"x":2,"y":2,"w":51,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":51,"h":105},
+	"sourceSize": {"w":51,"h":105}
+},
+{
+	"filename": "PetaxParado_2.png",
+	"frame": {"x":2,"y":216,"w":49,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":49,"h":105},
+	"sourceSize": {"w":49,"h":105}
+},
+{
+	"filename": "PetaxParado_3.png",
+	"frame": {"x":2,"y":109,"w":50,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":105},
+	"sourceSize": {"w":50,"h":105}
+},
+{
+	"filename": "PetaxParado_4.png",
+	"frame": {"x":2,"y":751,"w":46,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":46,"h":105},
+	"sourceSize": {"w":46,"h":105}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "SpriteSheet.png",
+	"format": "RGBA4444",
+	"size": {"w":55,"h":858},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:33a06bbbce33476fc1862d70b1feb36e:6146d7e94c0474f212512552e7af19c9:160eb6758fe4007ba8592b420f92bb0b$"
+}
+}
