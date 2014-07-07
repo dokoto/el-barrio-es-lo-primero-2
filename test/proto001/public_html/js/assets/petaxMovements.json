@@ -67,10 +67,10 @@
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker ",
 	"version": "1.0",
-	"image": "SpriteSheet.png",
+	"image": "petaxMovements.png",
 	"format": "RGBA4444",
 	"size": {"w":55,"h":858},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:33a06bbbce33476fc1862d70b1feb36e:6146d7e94c0474f212512552e7af19c9:160eb6758fe4007ba8592b420f92bb0b$"
+	"smartupdate": "$TexturePacker:SmartUpdate:5469c7d98422534069d3baca04f49f28:6146d7e94c0474f212512552e7af19c9:2acf565ab7401681944f0395059de091$"
 }
 }
