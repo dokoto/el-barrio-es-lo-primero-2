@@ -184,5 +184,6 @@ function processCallBack(obj1, obj2) {
 
 function checkIfCollide(body1, body2)
 {
-    return false;
+    console.log(body1.x, body1.y, body2.x, body2.y);
+    return true;
 }
