@@ -104,15 +104,14 @@ function update() {
     //game.physics.arcade.collide(player, player2, collisionHandler, processCallBack, this);  
     
     // Reset the x (horizontal) velocity
-    player.body.velocity.x = 0;
-    player.body.velocity.y = 0;
+    player.body.setZeroVelocity();
 
     // Check if the left arrow key is being pressed
     if (cursors.left.isDown)
     {
         // Set the 'player' sprite's x velocity to a negative number:
         //  have it move left on the screen.
-        player.body.velocity.x = -hozMove;
+        player.body.moveLeft(hozMove);
 
         // Check if 'facing' is not "left"
         if (facing !== "left")
@@ -126,7 +125,7 @@ function update() {
     {
         // Set the 'player' sprite's x velocity to a positive number:
         //  have it move right on the screen.
-        player.body.velocity.x = hozMove;
+        player.body.moveRight(hozMove);
 
         // Check if 'facing' is not "right"
         if (facing !== "right")
@@ -137,11 +136,11 @@ function update() {
     }
     else if (cursors.up.isDown)
     {
-        player.body.velocity.y = -hozMove;
+        player.body.moveUp(hozMove);
     }
     else if (cursors.down.isDown)
     {
-        player.body.velocity.y = hozMove;
+        player.body.moveDown(hozMove);
     }
 
     // Check if the jumpButton (SPACEBAR) is down AND
