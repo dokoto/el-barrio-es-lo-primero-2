@@ -54,10 +54,11 @@ function create() {
     // based on 'Tile Layer 1' from the available tiles.
     layer = map.createLayer('mainLayer');
     limits = game.physics.p2.convertCollisionObjects(map, "limits");
+    game.physics.p2.setPostBroadphaseCallback(checkIfCollide, this);
 
     // Set the collision range 
     //  Here, the range is from 0 (the first tile) to the fifth (last tile).
-    map.setCollisionBetween(1, 5);
+    //map.setCollisionBetween(1, 5);
 
     // Tell the layer to resize the game 'world' to match its size
     layer.resizeWorld();
@@ -100,7 +101,7 @@ function update() {
     // Using the physics.arcade system, check if 'player' is colliding
     //  with any tiles within 'layer'. If so, seperate them.
     //game.physics.arcade.collide(player, layer);
-    //game.physics.arcade.collide(player, player2, collisionHandler, processCallBack, this);
+    //game.physics.arcade.collide(player, player2, collisionHandler, processCallBack, this);  
     
     // Reset the x (horizontal) velocity
     player.body.velocity.x = 0;
@@ -181,3 +182,8 @@ function processCallBack(obj1, obj2) {
         console.log("Colision FALSE");
         return true;    
 }    
+
+function checkIfCollide(body1, body2)
+{
+    return false;
+}
