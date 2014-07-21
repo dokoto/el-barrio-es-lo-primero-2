@@ -1,45 +1,64 @@
-var game;
-var player1;
-var land1;
-var cursors;
-var map;
-
-var PLAYER_SCALE = 1.8;
-
-$(document).ready(function() {
-   console.log("Begin Proto GAME 1");
-   game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });            
-});
+var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
-    game.load.atlas('petaxMovements', 'js/assets/petaxMovements.png', 'js/assets/petaxMovements.json');
-    game.load.image('landPhase1', 'js/assets/bg/fase_1_background.png');
+
+
+    game.load.spritesheet('border', 'js/assets/border.png', 10, 10);    
+    game.load.tilemap('map', 'js/assets/level2.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.image('background', 'js/assets/fase_1_backgorund.png');
+    game.load.spritesheet('character', 'js/assets/character.png', 30, 48);
+
 }
- 
+
+var cursors;
+var map;
+var limits;
+
+var layer;
+var sprite;
+
 function create() {
-    land1 = game.add.tileSprite(0, 0, 1679, 600, 'landPhase1');
-    game.world.setBounds(0, 0, 1679, 600);    
-    
-    player1 = game.add.sprite(((game.world.width - game.camera.width) / 2)+100, game.world.height, 'petaxMovements');
-    player1.scale.setTo(PLAYER_SCALE, PLAYER_SCALE);
-    player1.anchor.setTo(0.5, 0.5);
-    player1.animations.add('walking', [0, 1, 2, 3], 10, true);
-    player1.animations.add('stop', [4, 5, 6, 7], 8, true);
-    
-    game.physics.enable(player1, Phaser.Physics.ARCADE);
-    player1.body.drag.set(0.2);
-    player1.body.maxVelocity.setTo(400, 400);
-    player1.body.collideWorldBounds = true;
 
-    
-    game.camera.deadzone = new Phaser.Rectangle(10, 10, 800, 600);
-    game.camera.x = (game.world.width - game.camera.width) / 2;
+    map = game.add.tilemap('map');
+    map.addTilesetImage('background');
+    map.setCollisionBetween(1, 12);
 
-    cursors = game.input.keyboard.createCursorKeys();    
+    layer = map.createLayer('mainLayer');
+    layer.resizeWorld();
+
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
+    limits = game.add.group();
+    limits.enableBody = true;
+
+    //  And now we convert all of the Tiled objects with an ID of 34 into sprites within the coins group
+    map.createFromObjects('Limites', 1, 'lim', 0, true, false, limits);
+
+    sprite = game.add.sprit(100, 500, 'character');
+    sprite.anchor.set(0.5);
+
+    game.physics.arcade.enable(sprite);
+
+    //  This adjusts the collision body size.
+    sprite.body.setSize(32, 32, 16, 16);
+
+    //  We'll set a lower max angular velocity here to keep it from going totally nuts
+    sprite.body.maxAngular = 500;
+
+    //  Apply a drag otherwise the sprite will just spin and never slow down
+    sprite.body.angularDrag = 50;
+
+    game.camera.follow(sprite);
+
+    cursors = game.input.keyboard.createCursorKeys();
+
 }
-
 
 function update() {
+
+    game.physics.arcade.collide(sprite, layer);
+    game.physics.arcade.overlap(sprite, coins, collectCoin, null, this);
+
     player1.body.velocity.x = 0;
     player1.body.velocity.y = 0;
     
@@ -110,10 +129,13 @@ function update() {
     }        
     else
         player1.animations.play('stop');
+
+
 }
 
 function render() {
 
-    game.debug.cameraInfo(game.camera, 32, 32);
-    game.debug.spriteCoords(player1, 32, 200);    
+    game.debug.body(sprite);
+
 }
+
