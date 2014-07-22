@@ -1,104 +1,133 @@
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update:update, render: render });
 
 function preload() {
-    game.load.tilemap('map', 'js/assets/level3.json', null, Phaser.Tilemap.TILED_JSON);
-    game.load.image('background', 'js/assets/fase_1_backgorund.png');
-    game.load.spritesheet('character', 'js/assets/character.png', 30, 48);
+    game.load.tilemap('TiledMap', 'js/assets/level_1.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.image('BackGroundImage', 'js/assets/level_1_backgorund.png');    
+    game.load.spritesheet('LimitPointsImage', 'js/assets/border.png', 10, 10);
+    game.load.atlas('Player1Movements', 'js/assets/petaxMovements.png', 'js/assets/petaxMovements.json');
 }
 
-var map; // The tilemap
-var bg;
-var layer; // A layer within a tileset
-var player; // The player-controller sprite
-var facing = "left"; // Which direction the character is facing (default is 'left')
-var cursors; // A reference to the keys to use for input detection
-var hozMove = 160; // The amount to move horizontally
-var vertMove = -120; // The amount to move vertically (when 'jumping')
+var map;
+var limitPoints;
+var player1; 
+var cursors; 
+var backGround;
+var PLAYER_SCALE = 1.2;
 
-function create() {
+function create() {            
+    backGround = game.add.tileSprite(0, 0, 1679, 600, 'BackGroundImage');
+    game.world.setBounds(0, 0, 1679, 600); 
     
-    game.physics.startSystem(Phaser.Physics.P2JS);
-    game.stage.backgroundColor = '#FFFFFF'; // white
+    map = game.add.tilemap('TiledMap');
+    map.setCollisionBetween(1, 12);
     
-    map = game.add.tilemap('map');
-    bg = game.add.tileSprite(0, 0, 1670, 600, 'background');
-
     layer = map.createLayer('PatternLayer');
     layer.resizeWorld();
     
-    obj1 = game.physics.p2.convertCollisionObjects(map, "ObjectsLayer");
-    game.physics.p2.setPostBroadphaseCallback(checkIfCollide, this);
+    game.physics.startSystem(Phaser.Physics.ARCADE);    
     
-    player = game.add.sprite(50, 50, 'character');    
-    game.physics.p2.enable(player);
+    limitPoints = game.add.group();
+    limitPoints.enableBody = true;
+    map.createFromObjects('ObjectsLayer', 1, 'LimitPointsImage', 0, true, false, limitPoints);
     
-    game.camera.follow(player);
+    player1 = game.add.sprite(((game.world.width - game.camera.width) / 2)+100, game.world.height, 'Player1Movements');
+    player1.scale.setTo(PLAYER_SCALE, PLAYER_SCALE);
+    player1.anchor.setTo(0.5, 0.5);
+    player1.animations.add('walking', [0, 1, 2, 3], 10, true);
+    player1.animations.add('stop', [4, 5, 6, 7], 8, true);
+    
+    game.physics.enable(player1, Phaser.Physics.ARCADE);
+    player1.body.drag.set(0.2);
+    player1.body.maxVelocity.setTo(400, 400);
+    player1.body.collideWorldBounds = true;
+
+    
+    game.camera.deadzone = new Phaser.Rectangle(10, 10, 800, 600);
+    game.camera.x = (game.world.width - game.camera.width) / 2;
+
     cursors = game.input.keyboard.createCursorKeys();
 
 }
 
 function update() {
 
-    player.body.setZeroVelocity();
+    game.physics.arcade.collide(player1, layer);
+    game.physics.arcade.overlap(player1, limitPoints, collideCallback, processCallback, this);
 
-    // Check if the left arrow key is being pressed
-    if (cursors.left.isDown)
+    player1.body.velocity.x = 0;
+    player1.body.velocity.y = 0;
+    
+    // CAMERA    
+    if (Math.abs(game.camera.x-player1.x) <= Math.abs(player1.width) )
     {
-        // Set the 'player' sprite's x velocity to a negative number:
-        //  have it move left on the screen.
-        player.body.moveLeft(hozMove);
-
-        // Check if 'facing' is not "left"
-        if (facing !== "left")
-        {
-            // Set 'facing' to "left"
-            facing = "left";
-        }
+        game.camera.x -= 5;
     }
-    // Check if the right arrow key is being pressed
+    else if (Math.abs(Math.abs((game.camera.x-player1.x)) - game.camera.width) <= Math.abs(player1.width) )
+    {
+        game.camera.x += 5;
+    }
+    
+    // MOVEMENTS
+    if (cursors.down.isDown && cursors.right.isDown)
+    {
+        player1.body.velocity.x = 150;
+        player1.body.velocity.y = 150;
+        player1.animations.play('walking');
+    }
+    if (cursors.down.isDown && cursors.left.isDown)
+    {
+        player1.body.velocity.x = -150;
+        player1.body.velocity.y = 150;
+        player1.animations.play('walking');
+    }
+    if (cursors.up.isDown && cursors.right.isDown)
+    {
+        player1.body.velocity.x = 150;
+        player1.body.velocity.y = -150;
+        player1.animations.play('walking');
+    }
+    if (cursors.up.isDown && cursors.left.isDown)
+    {
+        player1.body.velocity.x = -150;
+        player1.body.velocity.y = -150;
+        player1.animations.play('walking');
+    }
     else if (cursors.right.isDown)
     {
-        // Set the 'player' sprite's x velocity to a positive number:
-        //  have it move right on the screen.
-        player.body.moveRight(hozMove);
-
-        // Check if 'facing' is not "right"
-        if (facing !== "right")
-        {
-            // Set 'facing' to "right"
-            facing = "right";
-        }
+        player1.body.velocity.x = 150;
+        player1.scale.x = PLAYER_SCALE;
+        player1.animations.play('walking');
+    }
+    else if (cursors.left.isDown)
+    {
+        player1.body.velocity.x = -150;
+        player1.scale.x = -PLAYER_SCALE;
+        player1.animations.play('walking');
     }
     else if (cursors.up.isDown)
     {
-        player.body.moveUp(hozMove);
+        player1.body.velocity.y = -150;
+        player1.animations.play('walking');
     }
     else if (cursors.down.isDown)
     {
-        player.body.moveDown(hozMove);
-    }
-
-    // Check if 'facing' is "left"
-    if (facing === "left") {
-        // Set the 'player' to the second (1) frame
-        //  ('facing' is "left")
-        player.frame = 1;
-    } else {
-        // Set the 'player' to the first (0) frame
-        //  ('facing' is "right").
-        player.frame = 0;
-    }
+        player1.body.velocity.y = 150;
+        player1.animations.play('walking');
+    }        
+    else
+        player1.animations.play('stop')
 
 }  
 
-function checkIfCollide(body1, body2)
+function collideCallback(body1, body2)
 {
-    console.log(body1.x, body1.y, body2.x, body2.y);
+}
+
+function processCallback(body1, body2)
+{
     return true;
 }
 
 function render() {
-
-    game.debug.body(player);
 
 }
