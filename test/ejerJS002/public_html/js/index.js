@@ -4,38 +4,49 @@ var mapa, imagen, player1, cursors;
 var PLAYER_SCALE = 0.4;
 
 function preload() {
-    game.load.tilemap('map', 'js/assets/nivel_1.json', null, Phaser.Tilemap.TILED_JSON);
-    game.load.image('background', 'js/assets/fase_1_backgorund.png');
-    game.load.atlas('petaxMovements', 'js/assets/petaxMovements.png', 'js/assets/petaxMovements.json');
+    game.load.tilemap('TiledMap', 'js/assets/level_1.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.image('BackGroundImage', 'js/assets/level_1_backgorund.png');    
+    game.load.spritesheet('LimitPointsImage', 'js/assets/border.png', 10, 10);
+    game.load.atlas('Player1Movements', 'js/assets/petaxMovements.png', 'js/assets/petaxMovements.json');
 }
 
+var map;
+var limitPoints;
+var player1; 
+var cursors; 
+var backGround;
+var PLAYER_SCALE = 1.2;
 
-function create() {
+function create() {            
+    backGround = game.add.tileSprite(0, 0, 1679, 600, 'BackGroundImage');
+    game.world.setBounds(0, 0, 1679, 600); 
     
-    game.physics.startSystem(Phaser.Physics.P2JS);
-
-    game.stage.backgroundColor = '#2d2d2d';
-
-    mapa = game.add.tilemap('map');
+    map = game.add.tilemap('TiledMap');
+    map.setCollisionBetween(1, 12);
     
-    game.add.tileSprite(0, 0, 1679, 600, 'background');
-
-    layer = mapa.createLayer('PatternLayer');
-
+    layer = map.createLayer('PatternLayer');
     layer.resizeWorld();
-
-    var a = game.physics.p2.convertCollisionObjects(mapa, "ObjectLayer");
-
-    player1 = game.add.sprite(500, 520, 'petaxMovements');
-    game.physics.p2.enable(player1);
+    
+    game.physics.startSystem(Phaser.Physics.ARCADE);    
+    
+    limitPoints = game.add.group();
+    limitPoints.enableBody = true;
+    map.createFromObjects('ObjectsLayer', 1, 'LimitPointsImage', 0, true, false, limitPoints);
+    
+    player1 = game.add.sprite(((game.world.width - game.camera.width) / 2)+100, game.world.height, 'Player1Movements');
     player1.scale.setTo(PLAYER_SCALE, PLAYER_SCALE);
     player1.anchor.setTo(0.5, 0.5);
     player1.animations.add('walking', [0, 1, 2, 3], 10, true);
-    player1.animations.add('stop', [4, 5, 6, 7], 8, true);    
+    player1.animations.add('stop', [4, 5, 6, 7], 8, true);
+    
+    game.physics.enable(player1, Phaser.Physics.ARCADE);
+    player1.body.drag.set(0.2);
+    player1.body.maxVelocity.setTo(400, 400);
+    player1.body.collideWorldBounds = true;
 
-    game.camera.follow(player1);
-
-    game.physics.p2.setPostBroadphaseCallback(collideCallBack, this);
+    
+    game.camera.deadzone = new Phaser.Rectangle(10, 10, 800, 600);
+    game.camera.x = (game.world.width - game.camera.width) / 2;
 
     cursors = game.input.keyboard.createCursorKeys();
 
@@ -43,9 +54,23 @@ function create() {
 
 function update() {
 
-    player1.body.setZeroVelocity();
+    game.physics.arcade.collide(player1, layer);
+    game.physics.arcade.overlap(player1, limitPoints, collideCallback, processCallback, this);
 
-// MOVEMENTS
+    player1.body.velocity.x = 0;
+    player1.body.velocity.y = 0;
+    
+    // CAMERA    
+    if (Math.abs(game.camera.x-player1.x) <= Math.abs(player1.width) )
+    {
+        game.camera.x -= 5;
+    }
+    else if (Math.abs(Math.abs((game.camera.x-player1.x)) - game.camera.width) <= Math.abs(player1.width) )
+    {
+        game.camera.x += 5;
+    }
+    
+    // MOVEMENTS
     if (cursors.down.isDown && cursors.right.isDown)
     {
         player1.body.velocity.x = 150;
@@ -93,14 +118,19 @@ function update() {
         player1.animations.play('walking');
     }        
     else
-        player1.animations.play('stop');
+        player1.animations.play('stop')
 
 }  
 
-function collideCallBack(body1, body2) {
-    
+function collideCallback(body1, body2)
+{
+}
+
+function processCallback(body1, body2)
+{
     return true;
 } 
 
 function render() {
+
 }
