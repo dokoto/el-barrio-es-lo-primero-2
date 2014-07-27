@@ -1,104 +1,106 @@
-var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update:update, render: render });
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+
+var mapa, imagen, player1, cursors;
+var PLAYER_SCALE = 0.4;
 
 function preload() {
-    game.load.tilemap('map', 'js/assets/level3.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.tilemap('map', 'js/assets/nivel_1.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.image('background', 'js/assets/fase_1_backgorund.png');
-    game.load.spritesheet('character', 'js/assets/character.png', 30, 48);
+    game.load.atlas('petaxMovements', 'js/assets/petaxMovements.png', 'js/assets/petaxMovements.json');
 }
 
-var map; // The tilemap
-var bg;
-var layer; // A layer within a tileset
-var player; // The player-controller sprite
-var facing = "left"; // Which direction the character is facing (default is 'left')
-var cursors; // A reference to the keys to use for input detection
-var hozMove = 160; // The amount to move horizontally
-var vertMove = -120; // The amount to move vertically (when 'jumping')
 
 function create() {
     
     game.physics.startSystem(Phaser.Physics.P2JS);
-    game.stage.backgroundColor = '#FFFFFF'; // white
-    
-    map = game.add.tilemap('map');
-    bg = game.add.tileSprite(0, 0, 1670, 600, 'background');
 
-    layer = map.createLayer('PatternLayer');
+    game.stage.backgroundColor = '#2d2d2d';
+
+    mapa = game.add.tilemap('map');
+    
+    game.add.tileSprite(0, 0, 1679, 600, 'background');
+
+    layer = mapa.createLayer('PatternLayer');
+
     layer.resizeWorld();
-    
-    obj1 = game.physics.p2.convertCollisionObjects(map, "ObjectsLayer");
-    game.physics.p2.setPostBroadphaseCallback(checkIfCollide, this);
-    
-    player = game.add.sprite(50, 50, 'character');    
-    game.physics.p2.enable(player);
-    
-    game.camera.follow(player);
+
+    var a = game.physics.p2.convertCollisionObjects(mapa, "ObjectLayer");
+
+    player1 = game.add.sprite(500, 520, 'petaxMovements');
+    game.physics.p2.enable(player1);
+    player1.scale.setTo(PLAYER_SCALE, PLAYER_SCALE);
+    player1.anchor.setTo(0.5, 0.5);
+    player1.animations.add('walking', [0, 1, 2, 3], 10, true);
+    player1.animations.add('stop', [4, 5, 6, 7], 8, true);    
+
+    game.camera.follow(player1);
+
+    game.physics.p2.setPostBroadphaseCallback(collideCallBack, this);
+
     cursors = game.input.keyboard.createCursorKeys();
 
 }
 
 function update() {
 
-    player.body.setZeroVelocity();
+    player1.body.setZeroVelocity();
 
-    // Check if the left arrow key is being pressed
-    if (cursors.left.isDown)
+// MOVEMENTS
+    if (cursors.down.isDown && cursors.right.isDown)
     {
-        // Set the 'player' sprite's x velocity to a negative number:
-        //  have it move left on the screen.
-        player.body.moveLeft(hozMove);
-
-        // Check if 'facing' is not "left"
-        if (facing !== "left")
-        {
-            // Set 'facing' to "left"
-            facing = "left";
-        }
+        player1.body.velocity.x = 150;
+        player1.body.velocity.y = 150;
+        player1.animations.play('walking');
     }
-    // Check if the right arrow key is being pressed
+    if (cursors.down.isDown && cursors.left.isDown)
+    {
+        player1.body.velocity.x = -150;
+        player1.body.velocity.y = 150;
+        player1.animations.play('walking');
+    }
+    if (cursors.up.isDown && cursors.right.isDown)
+    {
+        player1.body.velocity.x = 150;
+        player1.body.velocity.y = -150;
+        player1.animations.play('walking');
+    }
+    if (cursors.up.isDown && cursors.left.isDown)
+    {
+        player1.body.velocity.x = -150;
+        player1.body.velocity.y = -150;
+        player1.animations.play('walking');
+    }
     else if (cursors.right.isDown)
     {
-        // Set the 'player' sprite's x velocity to a positive number:
-        //  have it move right on the screen.
-        player.body.moveRight(hozMove);
-
-        // Check if 'facing' is not "right"
-        if (facing !== "right")
-        {
-            // Set 'facing' to "right"
-            facing = "right";
-        }
+        player1.body.velocity.x = 150;
+        player1.scale.x = PLAYER_SCALE;
+        player1.animations.play('walking');
+    }
+    else if (cursors.left.isDown)
+    {
+        player1.body.velocity.x = -150;
+        player1.scale.x = -PLAYER_SCALE;
+        player1.animations.play('walking');
     }
     else if (cursors.up.isDown)
     {
-        player.body.moveUp(hozMove);
+        player1.body.velocity.y = -150;
+        player1.animations.play('walking');
     }
     else if (cursors.down.isDown)
     {
-        player.body.moveDown(hozMove);
-    }
-
-    // Check if 'facing' is "left"
-    if (facing === "left") {
-        // Set the 'player' to the second (1) frame
-        //  ('facing' is "left")
-        player.frame = 1;
-    } else {
-        // Set the 'player' to the first (0) frame
-        //  ('facing' is "right").
-        player.frame = 0;
-    }
+        player1.body.velocity.y = 150;
+        player1.animations.play('walking');
+    }        
+    else
+        player1.animations.play('stop');
 
 }  
 
-function checkIfCollide(body1, body2)
-{
-    console.log(body1.x, body1.y, body2.x, body2.y);
+function collideCallBack(body1, body2) {
+    
     return true;
-}
+} 
 
 function render() {
-
-    game.debug.body(player);
-
 }
