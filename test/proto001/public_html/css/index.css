@@ -1,9 +1,0 @@
-canvas
-{
-    position: absolute;
-    width: 800px;
-    height: 600px;
-    left: calc( (100% - 800px)/2 );
-    top: calc( (100% - 600px)/2 );
-}
-
