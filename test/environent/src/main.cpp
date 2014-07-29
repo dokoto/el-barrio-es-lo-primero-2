@@ -12,6 +12,9 @@ SDL_Surface* gScreenSurface = NULL;
 //The image we will load and show on the screen
 SDL_Surface* gHelloWorld = NULL;
 
+// Base path
+char *data_path = NULL;
+
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
@@ -19,12 +22,14 @@ const int SCREEN_HEIGHT = 480;
 bool init();
 bool loadMedia(const string& path);
 void close();
+void InitializeDataPath();
 
 
 
 int main( int argc, char* args[] )
 {
     //Start up SDL and create window
+    InitializeDataPath();
     if( !init() )
     {
         printf( "Failed to initialize!\n" );
@@ -56,6 +61,7 @@ int main( int argc, char* args[] )
 
 void close()
 {
+    free(data_path);
     //Deallocate surface
     SDL_FreeSurface( gHelloWorld );
     gHelloWorld = NULL;
@@ -77,15 +83,28 @@ bool loadMedia(const string& path )
     gHelloWorld = SDL_LoadBMP( path.c_str() );
     if( gHelloWorld == NULL )
     {
-        printf( "Unable to load image %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
+        //printf( "Unable to load image %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
+        SDL_LogMessage(SDL_LOG_CATEGORY_VIDEO, SDL_LOG_PRIORITY_ERROR, "Unable to load image %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
         success = false;
     }
 
     return success;
 }
 
+void InitializeDataPath()
+{
+    char *base_path = SDL_GetBasePath();
+    if (base_path) {
+        data_path = SDL_strdup(base_path);
+        SDL_free(base_path);
+    } else {
+        data_path = SDL_strdup("./");
+    }
+}
+
 bool init()
 {
+    SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "SDL is initilizing...");
     //Initialization flag
     bool success = true;
 

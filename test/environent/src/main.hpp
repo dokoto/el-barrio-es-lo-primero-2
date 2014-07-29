@@ -5,7 +5,8 @@
 #include <stdexcept>
 #include <string>
 #include <iostream>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_opengl.h>
+#include <SDL.h>
+#include <SDL_filesystem.h>
+#include <SDL_log.h>
 
 #endif
