@@ -1,57 +1,115 @@
 #include "main.hpp"
 
+using namespace std;
 
-SDL_Window* win = nullptr;
-SDL_Renderer* ren = nullptr;
-SDL_GLContext con;
 
- void DestroyAndQuit(SDL_Window* win, SDL_Renderer* ren, SDL_GLContext& con)
+//The window we'll be rendering to
+SDL_Window* gWindow = NULL;
+	
+//The surface contained by the window
+SDL_Surface* gScreenSurface = NULL;
+
+//The image we will load and show on the screen
+SDL_Surface* gHelloWorld = NULL;
+
+//Screen dimension constants
+const int SCREEN_WIDTH = 640;
+const int SCREEN_HEIGHT = 480;
+
+bool init();
+bool loadMedia(const string& path);
+void close();
+
+
+
+int main( int argc, char* args[] )
 {
-  if (ren)
-    SDL_DestroyRenderer(ren);
-  if (win)
-    SDL_DestroyWindow(win);
-  if (con)
-    SDL_GL_DeleteContext(con);
-  SDL_Quit();
+    //Start up SDL and create window
+    if( !init() )
+    {
+        printf( "Failed to initialize!\n" );
+    }
+    else
+    {
+        //Load media
+        if( !loadMedia("../img/4bpp.bmp") )
+        {
+            printf( "Failed to load media!\n" );
+        }
+        else
+        {
+            //Apply the image
+            SDL_BlitSurface( gHelloWorld, NULL, gScreenSurface, NULL );
+            //Update the surface
+            SDL_UpdateWindowSurface( gWindow );
+            //Wait two seconds
+            SDL_Delay( 2000 );
+        }
+    }
+
+    //Free resources and close SDL
+    close();
+
+    return 0;
 }
 
 
-int main(int argc, char **argv) try {
-  if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
-    throw std::runtime_error("SDL_Init failed.");
-  }
+void close()
+{
+    //Deallocate surface
+    SDL_FreeSurface( gHelloWorld );
+    gHelloWorld = NULL;
 
-  win = SDL_CreateWindow("SDL ENVIRONMENT TESTING", 0, 0, 640, 480, SDL_WINDOW_OPENGL);
-  if (!win) {
-    throw std::runtime_error("SDL_CreateWindow failed.");
-  }
+    //Destroy window
+    SDL_DestroyWindow( gWindow );
+    gWindow = NULL;
 
-  ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
-  if (!ren) {
-    throw std::runtime_error("SDL_CreateRenderer failed.");
-  }
+    //Quit SDL subsystems
+    SDL_Quit();
+}
 
-  con = SDL_GL_CreateContext(win);
-  if (!con) {
-    throw std::runtime_error("SDL_GL_CreateContext failed.");
-  }
+bool loadMedia(const string& path )
+{
+    //Loading success flag
+    bool success = true;
 
-  SDL_RenderClear(ren);
-  SDL_RenderPresent(ren);
+    //Load splash image
+    gHelloWorld = SDL_LoadBMP( path.c_str() );
+    if( gHelloWorld == NULL )
+    {
+        printf( "Unable to load image %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
+        success = false;
+    }
 
-  glClearColor(0, 1, 1, 1);
-  glClear(GL_COLOR_BUFFER_BIT);
-  SDL_GL_SwapWindow(win);
+    return success;
+}
 
-  SDL_Delay(2000);
+bool init()
+{
+    //Initialization flag
+    bool success = true;
 
-  DestroyAndQuit(win, ren, con);
+    //Initialize SDL
+    if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
+    {
+        printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
+        success = false;
+    }
+    else
+    {
+        //Create window
+        gWindow = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+        if( gWindow == NULL )
+        {
+            printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
+            success = false;
+        }
+        else
+        {
+            //Get window surface
+            gScreenSurface = SDL_GetWindowSurface( gWindow );
+        }
+    }
 
-  return 0;
- } catch(std::exception& ex) {
-  std::cerr << ex.what() << ": " << SDL_GetError() << "\n";
-  DestroyAndQuit(win, ren, con);
-  return 1;
- }
- 
+    return success;
+}
