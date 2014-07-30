@@ -30,7 +30,9 @@ MESSAGE( "======================================================================
 
 add_executable(${TARGET} 
 				main.cpp
-				main.hpp					
+				main.hpp
+				contrib/jsoncpp.cpp
+				contrib/json.h					
 				)
 
 
@@ -47,25 +49,14 @@ IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 	
 	PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
 	PKG_SEARCH_MODULE(SDL2IMAGE REQUIRED SDL2_image>=2.0.0)
+	PKG_SEARCH_MODULE(SDL2MIXER REQUIRED SDL2_mixer>=2.0.0)
+	PKG_SEARCH_MODULE(SDL2TTF REQUIRED SDL2_ttf>=2.0.0)
 		
-	INCLUDE_DIRECTORIES(${SDL2_INCLUDE_DIRS} ${SDL2IMAGE_INCLUDE_DIRS})	
+	INCLUDE_DIRECTORIES(${SDL2_INCLUDE_DIRS} ${SDL2IMAGE_INCLUDE_DIRS} ${SDL2MIXER_INCLUDE_DIRS} ${SDL2TTF_INCLUDE_DIRS})	
 	
-	TARGET_LINK_LIBRARIES(${TARGET} ${SDL2_LIBRARIES} ${SDL2IMAGE_LIBRARIES})
+	TARGET_LINK_LIBRARIES(${TARGET} ${SDL2_LIBRARIES} ${SDL2IMAGE_LIBRARIES} ${SDL2MIXER_LIBRARIES} ${SDL2TTF_LIBRARIES})
 	
-	
-    #Find_Package ( SDL2 REQUIRED )
-    #FIND_PATH(LIBSDL_IMAGE_INCLUDE SDL_image.h "/usr/local/include/SDL2")	  
-	#FIND_LIBRARY(LIBSDL_IMAGE_LIBRARY NAMES SDL2_image libSDL2_image PATHS /usr/local/lib)
-	#Find_Package ( SDL2_image REQUIRED ) 
-	#Find_Package ( SDL2_ttf REQUIRED )
-	#Find_Package ( SDL2_mixer REQUIRED )
 
-	#IF ( NOT SDL_FOUND )
-	#	MESSAGE ( FATAL_ERROR "Librerias SDL no encontradas. Son dependencias obligatorias(SDL, Image, Mixer, TTF)" )
-	#ENDIF( NOT SDL_FOUND )
-	#target_link_libraries ( ${TARGET} ${SDL_LIBRARY} ${SDLIMAGE_LIBRARY} ${SDLTTF_LIBRARY} ${SDLMIXER_LIBRARY})
-	#include_directories ( ${LIBSDL_IMAGE_INCLUDE})
-	#target_link_libraries ( ${TARGET} ${SDL_LIBRARY} ${LIBSDL_IMAGE_LIBRARY})
 
 ELSE()
 	IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")

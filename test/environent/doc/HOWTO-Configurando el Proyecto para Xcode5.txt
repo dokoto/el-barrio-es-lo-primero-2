@@ -10,26 +10,10 @@ ej: cmake -DCMAKE_BUILD_TYPE=Debug -G Xcode ../../../src
 
 * Nota: Esto instalando SDL2 con brew funciona
 
-3º EL_BARRIO_ES_LO_PRIMERO->TARGET->Build Rules
- - Crear nueva regla con nombre: Copy Resources
- - Meter el siguiente script 
+3º EL_BARRIO_ES_LO_PRIMERO->TARGET->Build Phases
+ - Editor->Add Build Phase->Add Run Script Build Phase
+ - Copiar el contenido de bash/syncResourcesOSX.sh sin la primera linea "#!/bin/bash" al hueco 
 
-	#!/bin/bash
-	FOLDER_LEVEL="../../../../" ;
-	IMG_FOLDER="img" ;
-	AUDIO_FOLDER="audio" ;
-	TTF_FOLDER="ttf" ;
 	
-	if [ ! -d $FOLDER_LEVEL"$IMG_FOLDER" ]; then
-		echo $IMG_FOLDER ", no found" ;
-	fi
-	
-	if [ ! -d $FOLDER_LEVEL"$AUDIO_FOLDER" ]; then
-		echo $AUDIO_FOLDER ", no found" ;
-	fi
-	
-	if [ ! -d $FOLDER_LEVEL"$TTF_FOLDER" ]; then
-		echo $TTF_FOLDER ", no found" ;
-	fi
 	
 	
