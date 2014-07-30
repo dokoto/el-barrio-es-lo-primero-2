@@ -1,3 +1,11 @@
+/*
+ * COSAS QUE QUEDAN PROBADAS EN ESTE MODULE-TEST
+ * Se usan con exito las tres librerias principales de SDL: SDL2_image, SDL2_mixer, SDL2_ttf
+ * Se usa el sistema de log de SDL
+ * Se usa la libreria jsoncpp para cargar el fichero properties
+ * Se usan un bashscript en build-phase de xcode para copiar los directorios de recursos a nivel del binario. Dirs: img, audio, ttf, conf
+ */
+
 #include "main.hpp"
 
 using namespace std;
@@ -76,8 +84,16 @@ void readProperties(const string& propertiesPath)
     Json::Reader reader;
     
     std::ifstream fileDescrip(propertiesPath, ifstream::binary);
-    bool parsedSuccess = reader.parse(json_example, root, false);
-    
+    bool parsedSuccess = reader.parse(fileDescrip, root, false);
+    if(!parsedSuccess)
+    {
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Error parsing properties.");
+    }
+    Json::Value log = root["log"];
+    //cout << log.toStyledString() << endl;
+    Json::Value typeLog = log["priority"];
+    //cout << typeLog.toStyledString() << endl;
+    string valConver = typeLog.asString();
 }
 
 void close()
@@ -128,6 +144,7 @@ bool loadMedia(const string& imgPath, const string& audioPath, const string& ttf
 
 bool init()
 {
+    readProperties("conf/conf.json");
     SDL_LogSetAllPriority(SDL_LOG_PRIORITY_VERBOSE);
     SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "SDL is initilizing...");
     //Initialization flag
@@ -142,7 +159,7 @@ bool init()
     else
     {
         //Create window
-        gWindow = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+        gWindow = SDL_CreateWindow( "TESTING-MODULE-1 : ENVIRONMENT", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
         if( gWindow == NULL )
         {
             SDL_LogMessage(SDL_LOG_CATEGORY_VIDEO, SDL_LOG_PRIORITY_ERROR, "SDL Error: %s\n", SDL_GetError());
