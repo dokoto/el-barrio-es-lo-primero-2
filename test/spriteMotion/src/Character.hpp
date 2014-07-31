@@ -28,10 +28,6 @@ namespace barrio {
     private:
         SDL_Renderer* renderer;
         int currentAnimationFrame;
-        int velocityX;
-        int velocityY;
-        int posX;
-        int posY;
         std::string currentAnimation;
         std::map<std::string, std::vector<SDL_Rect>> animations;
         

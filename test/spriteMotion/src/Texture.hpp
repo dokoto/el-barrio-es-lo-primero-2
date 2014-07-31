@@ -36,21 +36,16 @@ namespace barrio {
         
         void render(const int x, const int y, SDL_Renderer*& renderer, SDL_Rect* clip = NULL );
         
-        int getWidth(void)
-        {
-            return width;
-        }
-        
-        int getHeight(void)
-        {
-            return height;
-        }
+        int velocityX;
+        int velocityY;
+        int posX;
+        int posY;
+        int width;
+        int height;
         
     private:
         SDL_Texture* texture;
         
-        int width;
-        int height;
     };
 }
 

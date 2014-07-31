@@ -3,7 +3,6 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include <Box2D/Box2D.h>
 
 #include "Colors.hpp"
 
@@ -20,9 +19,7 @@ namespace barrio {
         const int SCREEN_WIDTH;
         const int SCREEN_HEIGHT;
         SDL_Window* window;
-        SDL_Renderer* renderer;
-        b2Vec2 physicsGravity;
-        b2World* physicsWorld;
+        SDL_Renderer* renderer;        
         
     private:
         void loadMedia(void);

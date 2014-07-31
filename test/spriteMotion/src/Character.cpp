@@ -11,10 +11,6 @@ namespace barrio {
     Character::Character(SDL_Renderer*& lrenderer):
         renderer(lrenderer),
         currentAnimationFrame(-1),
-        velocityX(0),
-        velocityY(0),
-        posX(0),
-        posY(0),
         currentAnimation("")
     {
         

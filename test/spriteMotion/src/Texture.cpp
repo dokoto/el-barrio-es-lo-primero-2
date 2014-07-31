@@ -4,6 +4,10 @@ namespace barrio {
     
     Texture::Texture() :
     texture(NULL),
+    velocityX(0),
+    velocityY(0),
+    posX(0),
+    posY(0),
     width(0),
     height(0)
     {

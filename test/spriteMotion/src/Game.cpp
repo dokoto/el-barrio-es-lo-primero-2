@@ -12,9 +12,7 @@ namespace barrio {
         SCREEN_WIDTH(800),
         SCREEN_HEIGHT(600),
         window(nullptr),
-        renderer(nullptr),
-        physicsWorld(nullptr)
-    
+        renderer(nullptr)    
     {
         SDL_LogSetAllPriority(SDL_LOG_PRIORITY_VERBOSE);
         if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
@@ -57,37 +55,14 @@ namespace barrio {
                         SDL_LogMessage(SDL_LOG_CATEGORY_VIDEO, SDL_LOG_PRIORITY_ERROR, "SDL2 image system initialization has failed because: %s", SDL_GetError());
                         throw error::SYS_IMAGE_INIT_FAIL;
                     }
-                    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "SDL2 image system is initilization...OK");
-                    
-                    physicsGravity.x = 0.0f;
-                    physicsGravity.y = -10.0f;
-                    physicsWorld = new b2World(physicsGravity);
-                    if (physicsWorld != nullptr)
-                    {
-                        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE,
-                                       "Physics World initialization with gravity[%f/%f]...OK", physicsGravity.x, physicsGravity.y);
-                    }
-                    else
-                    {
-                        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Physics World initialization has failed because: %s", SDL_GetError());
-                        throw error::PHYSICS_INIT_FAIL;
-                    }
-                    
+                    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "SDL2 image system is initilization...OK");                    
                 }
             }
         }
     }
     
     Game::~Game()
-    {
-        //Destroy physics
-        if (physicsWorld == nullptr)
-        {
-            delete physicsWorld;
-            physicsWorld = nullptr;
-            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Destroy Physics World...OK");
-        }
-        
+    {        
         //Destroy window
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Destroy Render...OK");
         SDL_DestroyRenderer( renderer );
