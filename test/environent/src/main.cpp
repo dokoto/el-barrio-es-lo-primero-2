@@ -8,7 +8,7 @@
 
 #include "main.hpp"
 
-using namespace std;
+using namespace std; 
 
 
 //The window we'll be rendering to
@@ -89,6 +89,19 @@ void readProperties(const string& propertiesPath)
     {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Error parsing properties.");
     }
+    for(Json::Value::iterator it = root.begin(); it != root.end(); it++)
+    {
+        cout << it.key() << endl;
+        for(Json::Value::iterator ita = (*it).begin(); ita != (*it).end(); ita++)
+        {
+            cout << ita.key().toStyledString() << endl;
+            cout << (*ita)["x"].asInt() << endl;
+        }
+        //Json::Value content = (*it);
+        //cout << content["x"].asInt() << endl;
+        //cout << (*it).asInt() << endl;
+    }
+    
     Json::Value log = root["log"];
     //cout << log.toStyledString() << endl;
     Json::Value typeLog = log["priority"];
@@ -144,7 +157,7 @@ bool loadMedia(const string& imgPath, const string& audioPath, const string& ttf
 
 bool init()
 {
-    readProperties("conf/conf.json");
+    readProperties("conf/spriteSheets/player.json");
     SDL_LogSetAllPriority(SDL_LOG_PRIORITY_VERBOSE);
     SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "SDL is initilizing...");
     //Initialization flag
