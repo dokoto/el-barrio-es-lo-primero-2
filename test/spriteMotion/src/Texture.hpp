@@ -12,8 +12,8 @@ namespace barrio {
     class Texture
     {
     public:
-        Texture();
-        virtual ~Texture();
+        Texture(void);
+        virtual ~Texture(void);
         
         bool loadFromFile(const std::string& path, SDL_Renderer*& renderer );
         
@@ -34,17 +34,21 @@ namespace barrio {
             SDL_SetTextureAlphaMod( texture, alpha );
         }
         
-        void render(const int x, const int y, SDL_Renderer*& renderer, SDL_Rect* clip = NULL );
+        void render(const int x, const int y, SDL_Renderer*& renderer, SDL_Rect* clip = nullptr );        
         
-        int velocityX;
-        int velocityY;
-        int posX;
-        int posY;
-        int width;
-        int height;
         
     private:
         SDL_Texture* texture;
+        int width;
+        int height;        
+        
+    public:
+        int getWidth() const { return this->width; }
+        void setWidth(const int width){ this->width = width; }
+        
+        int getHeight() const { return this->height; }
+        void setHeight(const int height){ this->height = height; }
+        
         
     };
 }

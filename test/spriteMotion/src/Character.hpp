@@ -5,14 +5,14 @@
 #include <map>
 #include <vector>
 
-#include "Texture.hpp"
+#include "Sprite.hpp"
 
 namespace barrio {
     
-    class Character : public Texture
+    class Character : public Sprite
     {
     public:
-        Character(SDL_Renderer*& lrenderer);
+        Character(const std::string& name, SDL_Renderer*& lrenderer, Physics* world);
         ~Character();
         
         void loadAcctions(const std::string& spriteSheetsJsonPath, const std::string& spriteSheetsPngPath)
@@ -21,9 +21,11 @@ namespace barrio {
             loadSpriteSheetsPng(spriteSheetsPngPath);
         }
         
-        void addSpriteToWorld(int x, int y);
+        void addSpriteToWorld(const int x, const int y);
         void playAnimation(const std::string& animationName);
         void stopAnimation();
+        void setVelocity(SDL_Point velocity);
+        
     
     private:
         SDL_Renderer* renderer;

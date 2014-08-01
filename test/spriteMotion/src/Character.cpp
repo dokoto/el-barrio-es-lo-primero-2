@@ -8,12 +8,12 @@
 namespace barrio {
     using namespace std;
     
-    Character::Character(SDL_Renderer*& lrenderer):
-        renderer(lrenderer),
-        currentAnimationFrame(-1),
-        currentAnimation("")
-    {
-        
+    Character::Character(const std::string& name, SDL_Renderer*& lrenderer, Physics* world):
+    Sprite{name, world},
+    renderer{lrenderer},
+    currentAnimationFrame{0},
+    currentAnimation{""}
+    {        
     }
     
     Character::~Character()
@@ -21,21 +21,32 @@ namespace barrio {
         
     }
     
-    void Character::addSpriteToWorld(int x, int y)
+    void Character::addSpriteToWorld(const int x, const int y)
     {
+        this->setPosition(SDL_Point{x, y});
+        this->physicsWorld->addSpritePolygon(this->getName(), this->getWidth(), this->getHeight(),
+                                             b2Vec2{this->physicsWorld->convIN_X(x), this->physicsWorld->convIN_Y(y)} );
         Texture::render(x, y, renderer);
     }
     
     void Character::playAnimation(const std::string& animationName)
     {
-        SDL_Rect currentClip = animations[animationName].at(currentAnimationFrame/animations[animationName].size());
-        //Texture::render(<#const int x#>, <#const int y#>, renderer);
+        //unsigned frame = static_cast<unsigned>(currentAnimationFrame) / static_cast<unsigned>(animations[animationName].size());
+        SDL_Rect currentClip = animations[animationName].at(static_cast<unsigned>(currentAnimationFrame));
+        b2Vec2 position = this->getPhysicsBody()->GetPosition();
+        render(this->physicsWorld->convOUT_X(position.x), this->physicsWorld->convOUT_Y(position.y), renderer, &currentClip);
+        currentAnimationFrame = (currentAnimationFrame == animations[animationName].size()) ? 0 : currentAnimationFrame +1;
     }
     
     void Character::stopAnimation()
     {
         currentAnimation.clear();
-        currentAnimationFrame = -1;
+        currentAnimationFrame = 0;
+    }
+    
+    void Character::setVelocity(SDL_Point velocity)
+    {
+        this->getPhysicsBody()->SetLinearVelocity(b2Vec2{this->physicsWorld->convIN_X(velocity.x), this->physicsWorld->convIN_Y(velocity.y)});
     }
     
     void Character::loadSpriteSheetsJson(const std::string& spriteSheetsJsonPath)
@@ -58,7 +69,7 @@ namespace barrio {
                         spriteCoords.push_back(rect);
                     }
                     
-                    animations.insert(pair<std::string, vector<SDL_Rect>>(it.key().toStyledString(), spriteCoords));
+                    animations.insert(make_pair(it.key().asString(), spriteCoords));
                 }
             }
         }

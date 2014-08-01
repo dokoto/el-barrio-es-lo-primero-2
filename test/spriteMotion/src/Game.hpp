@@ -5,6 +5,7 @@
 #include <SDL2/SDL_image.h>
 
 #include "Colors.hpp"
+#include "Physics.hpp"
 
 namespace barrio {
     
@@ -16,10 +17,11 @@ namespace barrio {
         void gameLoop(void);
         
     private:
-        const int SCREEN_WIDTH;
-        const int SCREEN_HEIGHT;
+        static constexpr int SCREEN_WIDTH = 800;
+        static constexpr int SCREEN_HEIGHT = 600;
         SDL_Window* window;
-        SDL_Renderer* renderer;        
+        SDL_Renderer* renderer;
+        Physics* physicsWorld;
         
     private:
         void loadMedia(void);

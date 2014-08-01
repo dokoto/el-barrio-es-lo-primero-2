@@ -37,7 +37,11 @@ add_executable(${TARGET}
 				Game.hpp
 				Colors.hpp
 				Character.cpp
-				Character.hpp				
+				Character.hpp		
+				Sprite.cpp
+				Sprite.hpp
+				Physics.cpp
+				Physics.hpp		
 				contrib/jsoncpp.cpp
 				contrib/json.h					
 				)

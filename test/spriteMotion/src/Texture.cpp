@@ -2,19 +2,15 @@
 
 namespace barrio {
     
-    Texture::Texture() :
-    texture(NULL),
-    velocityX(0),
-    velocityY(0),
-    posX(0),
-    posY(0),
-    width(0),
-    height(0)
+    Texture::Texture(void) :
+    texture{nullptr},
+    width{0},
+    height{0}
     {
         
     }
     
-    Texture::~Texture()
+    Texture::~Texture(void)
     {
         destroy();
     }
@@ -23,10 +19,10 @@ namespace barrio {
     {
         destroy();
         
-        SDL_Texture* newTexture = NULL;
+        SDL_Texture* newTexture = nullptr;
         
         SDL_Surface* loadedSurface = IMG_Load( path.c_str() );
-        if( loadedSurface == NULL )
+        if( loadedSurface == nullptr )
         {
             SDL_LogMessage(SDL_LOG_CATEGORY_VIDEO, SDL_LOG_PRIORITY_ERROR, "Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError());
         }
@@ -35,7 +31,7 @@ namespace barrio {
             SDL_SetColorKey( loadedSurface, SDL_TRUE, SDL_MapRGB( loadedSurface->format, 0, 0xFF, 0xFF ) );
             
             newTexture = SDL_CreateTextureFromSurface( renderer, loadedSurface );
-            if( newTexture == NULL )
+            if( newTexture == nullptr )
             {
                 SDL_LogMessage(SDL_LOG_CATEGORY_VIDEO, SDL_LOG_PRIORITY_ERROR, "Unable to create texture from %s! SDL Error: %s\n",
                                path.c_str(), SDL_GetError() );
@@ -55,10 +51,10 @@ namespace barrio {
     
     void Texture::destroy(void)
     {
-        if( texture != NULL )
+        if( texture != nullptr )
         {
             SDL_DestroyTexture( texture );
-            texture = NULL;
+            texture = nullptr;
             width = 0;
             height = 0;
         }
@@ -67,7 +63,7 @@ namespace barrio {
     void Texture::render(const int x, const int y, SDL_Renderer*& renderer, SDL_Rect* clip)
     {
         SDL_Rect renderQuad = { x, y, width, height };
-        if( clip != NULL )
+        if( clip != nullptr )
         {
             renderQuad.w = clip->w;
             renderQuad.h = clip->h;

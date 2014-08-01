@@ -1,4 +1,5 @@
 #include "Game.hpp"
+#include "Character.hpp"
 
 #include <stdexcept>
 #include "errorsCodes.hpp"
@@ -9,10 +10,9 @@ namespace barrio {
     using namespace std;
     
     Game::Game() :
-        SCREEN_WIDTH(800),
-        SCREEN_HEIGHT(600),
-        window(nullptr),
-        renderer(nullptr)    
+    window{nullptr},
+    renderer{nullptr},
+    physicsWorld{nullptr}
     {
         SDL_LogSetAllPriority(SDL_LOG_PRIORITY_VERBOSE);
         if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
@@ -55,14 +55,18 @@ namespace barrio {
                         SDL_LogMessage(SDL_LOG_CATEGORY_VIDEO, SDL_LOG_PRIORITY_ERROR, "SDL2 image system initialization has failed because: %s", SDL_GetError());
                         throw error::SYS_IMAGE_INIT_FAIL;
                     }
-                    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "SDL2 image system is initilization...OK");                    
+                    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "SDL2 image system is initilization...OK");
+                    physicsWorld = new Physics(b2Vec2{0.0f, 0.0f}, SCREEN_WIDTH, SCREEN_HEIGHT);
                 }
             }
         }
     }
     
     Game::~Game()
-    {        
+    {
+        //Destroy Physics World
+        delete physicsWorld;
+        
         //Destroy window
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Destroy Render...OK");
         SDL_DestroyRenderer( renderer );
@@ -86,6 +90,12 @@ namespace barrio {
     {
         bool quit = false;
         SDL_Event e;
+        
+        Character player("player", renderer, physicsWorld);
+        player.loadAcctions("conf/spriteSheets/player.json", "img/foo.png");
+        player.addSpriteToWorld(100, 300);
+        player.setVelocity(SDL_Point{20, 0});
+        
         while (quit == false)
         {
             while( SDL_PollEvent( &e ) != 0 )
@@ -95,10 +105,11 @@ namespace barrio {
                     quit = true;
                 }
             }
-            
+            physicsWorld->Step();
             SDL_SetRenderDrawColor( renderer, color::WHITE, color::WHITE, color::WHITE, color::WHITE );
             SDL_RenderClear( renderer );
             
+            player.playAnimation("walking");
             
             SDL_RenderPresent( renderer );
         }
