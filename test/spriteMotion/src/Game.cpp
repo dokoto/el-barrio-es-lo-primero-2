@@ -10,9 +10,11 @@ namespace barrio {
     using namespace std;
     
     Game::Game() :
-    window{nullptr},
-    renderer{nullptr},
-    physicsWorld{nullptr}
+    
+        window{nullptr},
+        renderer{nullptr},
+        physicsWorld{nullptr}
+    
     {
         SDL_LogSetAllPriority(SDL_LOG_PRIORITY_VERBOSE);
         if( SDL_Init( SDL_INIT_VIDEO ) < 0 )

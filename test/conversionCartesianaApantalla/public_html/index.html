@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MAPEO DE COORDENADAS DE BOX2D A PANTALLA</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery-2.0.3.min.js"></script>
+        <script src="js/index.js"></script>
+    </head>
+    <body>
+        <div id="data" style="border:1px solid #000000; width: 1080px; height:20px; right: 10px; padding: 10px">
+            <label for="CoorX">Coordenada X </label>
+            <input type="text" id="CoorX" value="0.00"/>
+            <label for="CoorY">Coordenada Y </label>
+            <input type="text" id="CoorY" value="0.00"/>
+            <label for="Shift">Intervalo de Desplazaiento</label>
+            <input type="text" id="Shift" value="0.34"/>
+            <button id="Draw">Pintar</button>
+            <button id="Clean">Limpiar Pantalla</button>
+        </div>
+        <canvas id="dLayer" width="1100" height="600" style="border:1px solid #000000; margin-top: 10px;"></canvas>        
+    </body>
+</html> 

@@ -21,12 +21,6 @@ namespace barrio {
         }
         
         b2Body* getBody(const std::string& spriteNamme);
-        
-        float32 convIN_X(const int x);
-        int convOUT_X(const float32 x);
-
-        float32 convIN_Y(const int y);
-        int convOUT_Y(const float32 y);
 
     private:
         b2Vec2 gravity;

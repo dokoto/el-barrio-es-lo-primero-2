@@ -68,40 +68,6 @@ namespace barrio {
         
         return nullptr;
         
-    }
-    
-    float32 Physics::convIN_X(const int x)
-    {
-        float32 hh = static_cast<float32>(-x) / RATIO_CONV;
-        if (x < middle_width)
-            return static_cast<float32>(-x) / RATIO_CONV;
-        else
-            return static_cast<float32>(x) / RATIO_CONV;
-    }
-    
-    float32 Physics::convIN_Y(const int y)
-    {
-        if (y < middle_height)
-            return static_cast<float32>(-y) / RATIO_CONV;
-        else
-            return static_cast<float32>(y) / RATIO_CONV;
-    }
-    
-    int Physics::convOUT_X(const float32 x)
-    {
-        if (x < 0)
-            return static_cast<int>(-x) * static_cast<int>(RATIO_CONV);
-        else
-            return (static_cast<int>(x) * static_cast<int>(RATIO_CONV)) + middle_width;
-    }
-        
-    int Physics::convOUT_Y(const float32 y)
-    {
-        if (y < 0)
-            return static_cast<int>(-y) * static_cast<int>(RATIO_CONV);
-        else
-            return (static_cast<int>(y) * static_cast<int>(RATIO_CONV)) + middle_height;
-    }
-    
+    }        
 }
 
