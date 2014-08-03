@@ -2,11 +2,21 @@
 #include "errorsCodes.hpp"
 
 namespace barrio {
-    Sprite::Sprite(const std::string& lname, Physics* world):
-    name{lname},
-    velocity{0, 0},
-    position{0, 0},
-    physicsWorld{world}
+    
+    using namespace std;
+    
+    Sprite::Sprite(const std::string& lname):
+    name{lname}
+    {
+        
+    }
+    
+    Sprite::~Sprite(void)
+    {
+        
+    }
+    
+    void Sprite::addToPhysicsWorld(Physics* world, const float32 physicsPosX, const float32 physicsPosY)
     {
         if (world == nullptr)
         {
@@ -14,11 +24,15 @@ namespace barrio {
             throw error::PHYSICS_MANDATORY;
         }
         
-    }
-    
-    Sprite::~Sprite(void)
-    {
-        
+        float32 width = this->getPhysicsWidth(), height = this->getPhysicsHeight();
+        string name = this->getName();
+        if (width == 0.0f && height == 0.0f)
+        {
+            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Sprite dimensions are 0.0f, please load PNG and JSON datas first with Character->loadAnimations().");
+            throw error::SPRITE_DIMENSIONS_NOT_FOUND;
+        }
+        physicsWorld->addSpritePolygon(name, width, height, b2Vec2{physicsPosX, physicsPosY});
+        body = physicsWorld->getBody(name);
     }
     
 }

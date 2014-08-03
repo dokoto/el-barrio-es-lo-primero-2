@@ -13,32 +13,35 @@ namespace barrio {
     class Sprite : public Texture
     {
     public:
-        Sprite(const std::string& lname, Physics* world);
+        Sprite(const std::string& lname);
         ~Sprite(void);
         
     private:
         std::string name;
-        SDL_Point velocity;
-        SDL_Point position;
         
     protected:
         Physics* physicsWorld;
+        b2Body* body;
         
     public:
         b2Body* getPhysicsBody()
         {
-            return physicsWorld->getBody(this->getName());
+            return body;
         }
         
         std::string getName() const { return this->name; }
         void setName(const std::string& name){ this->name = name; }
         
-        const SDL_Point getVelocity() const { return this->velocity; }
-        void setVelocity(const SDL_Point& velocity){ this->velocity.x = velocity.x; this->velocity.y = velocity.y; }
+        const b2Vec2 getVelocity() const { return body->GetLinearVelocity(); }
+        void setVelocity(const b2Vec2& velocity){ body->SetLinearVelocity(velocity); }
         
-        const SDL_Point getPosition() const { return this->position; }
-        void setPosition(const SDL_Point& position){ this->position.x = position.x; this->position.y = position.y; }    
-            
+        const b2Vec2 getPosition() { return body->GetPosition(); }
+        void setPosition(const b2Vec2& position){ body->GetPosition(); }
+        
+        float32 getPhysicsWidth() { return physicsWorld->convPixelsToCartesian(this->getWidth()); }
+        float32 getPhysicsHeight() { return physicsWorld->convPixelsToCartesian(this->getHeight()); }
+        
+        void addToPhysicsWorld(Physics* world, const float32 physicsPosX, const float32 physicsPosY);
         
     };
     

@@ -60,18 +60,5 @@ namespace barrio {
         }
     }
     
-    void Texture::render(const int x, const int y, SDL_Renderer*& renderer, SDL_Rect* clip)
-    {
-        SDL_Rect renderQuad = { x, y, width, height };
-        if( clip != nullptr )
-        {
-            renderQuad.w = clip->w;
-            renderQuad.h = clip->h;
-        }
-        
-        SDL_RenderCopy( renderer, texture, clip, &renderQuad );
-    }
-    
-    
 }
 

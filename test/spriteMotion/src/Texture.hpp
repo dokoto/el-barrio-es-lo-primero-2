@@ -32,10 +32,12 @@ namespace barrio {
         void setAlpha(const Uint8 alpha )
         {
             SDL_SetTextureAlphaMod( texture, alpha );
+        }                
+        
+        SDL_Texture* getSDLTexture()
+        {
+            return texture;
         }
-        
-        void render(const int x, const int y, SDL_Renderer*& renderer, SDL_Rect* clip = nullptr );        
-        
         
     private:
         SDL_Texture* texture;

@@ -2,6 +2,7 @@
 #define __EL_BARRIO_ES_LO_PRIMERO__Physics__
 
 #include <map>
+#include <utility>
 #include <string>
 #include <SDL2/SDL.h>
 #include <Box2D/Box2D.h>
@@ -12,21 +13,23 @@ namespace barrio {
     class Physics
     {
     public:
-        Physics(const b2Vec2 gravity, const int width, const int height);
+        Physics(const b2Vec2 gravity, const int lwidth, const int lheight);
         ~Physics(void);
         void addSpritePolygon(const std::string& spriteName, const float spriteWidth, const float spriteHeight, const b2Vec2& spritePosition);
         void Step(void)
         {
             world->Step(timeStep, this->velocityIterations, this->positionIterations);
         }
-        
+        float32 convPixelsToCartesian(const int pixels)
+        {
+            return pixels / RATIO_CONV;
+        }
         b2Body* getBody(const std::string& spriteNamme);
 
     private:
         b2Vec2 gravity;
         b2World* world;
-        int middle_width;
-        int middle_height;
+        int width, height;
         std::map<std::string, b2Body*> bodies;
         static constexpr float32 frequency = 60.0f;
         static constexpr int32 velocityIterations = 8;

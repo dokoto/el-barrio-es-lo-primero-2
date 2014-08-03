@@ -2,13 +2,13 @@
 #include "errorsCodes.hpp"
 
 namespace barrio {
-
+    
     using namespace std;
     
-    Physics::Physics(const b2Vec2 gravity, const int width, const int height):
+    Physics::Physics(const b2Vec2 gravity, const int lwidth, const int lheight):
     world(nullptr),
-    middle_width(width/2),
-    middle_height(height/2)
+    width(lwidth),
+    height(lheight)
     {
         world = new b2World{gravity};
         if (world != nullptr)
@@ -37,25 +37,37 @@ namespace barrio {
     
     void Physics::addSpritePolygon(const std::string& spriteName, const float spriteWidth, const float spriteHeight, const b2Vec2& spritePosition)
     {
-        map<string, b2Body*>::iterator it;
-        it = bodies.find(spriteName);
-        if (it != bodies.end())
+        if (!bodies.empty())
         {
-            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Duplicate Physics body name", "llklk");
-            throw error::PHYSICS_BODY_NAME_DUPLICATE;
+            map<string, b2Body*>::iterator it;
+            it = bodies.find(spriteName);
+            if (it != bodies.end())
+            {
+                SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Duplicate Physics body name", "llklk");
+                throw error::PHYSICS_BODY_NAME_DUPLICATE;
+            }
         }
+        
         b2BodyDef bodyDef;
+        bodyDef.type = b2_dynamicBody;
         bodyDef.position.Set(spritePosition.x, spritePosition.y);
         b2Body* body = world->CreateBody(&bodyDef);
-        b2PolygonShape box;
-        box.SetAsBox(spriteWidth, spriteHeight);
-        body->CreateFixture(&box, 0.0f);
+        
+        b2PolygonShape dynamicBox;
+        dynamicBox.SetAsBox(spriteWidth, spriteHeight);
+        
+        b2FixtureDef fixtureDef;
+        fixtureDef.shape = &dynamicBox;
+        fixtureDef.density = 1.0f;
+        fixtureDef.friction = 0.3f;
+        
+        body->CreateFixture(&fixtureDef);
         
         bodies.insert(make_pair(spriteName, body));
     }
     
     b2Body* Physics::getBody(const std::string& spriteName)
-    {        
+    {
         map<string, b2Body*>::iterator it;
         it = bodies.find(spriteName);
         if (it == bodies.end())

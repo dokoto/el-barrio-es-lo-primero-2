@@ -6,30 +6,30 @@
 #include <vector>
 
 #include "Sprite.hpp"
+#include "Animation.hpp"
 
 namespace barrio {
     
     class Character : public Sprite
     {
     public:
-        Character(const std::string& name, SDL_Renderer*& lrenderer, Physics* world);
+        Character(const std::string& name, SDL_Renderer*& lrenderer);
         ~Character();
         
-        void loadAcctions(const std::string& spriteSheetsJsonPath, const std::string& spriteSheetsPngPath)
+        void loadAnimations(const std::string& spriteSheetsJsonPath, const std::string& spriteSheetsPngPath)
         {
             loadSpriteSheetsJson(spriteSheetsJsonPath);
             loadSpriteSheetsPng(spriteSheetsPngPath);
         }
         
-        void addSpriteToWorld(const int x, const int y);
-        void playAnimation(const std::string& animationName);
+        Animation playAnimation(const std::string& animationName, const size_t delayInFrames);
         void stopAnimation();
-        void setVelocity(SDL_Point velocity);
+        void setVelocity(b2Vec2 velocity);
         
     
     private:
         SDL_Renderer* renderer;
-        int currentAnimationFrame;
+        size_t currentAnimationFrame, delayFrameCount;
         std::string currentAnimation;
         std::map<std::string, std::vector<SDL_Rect>> animations;
         

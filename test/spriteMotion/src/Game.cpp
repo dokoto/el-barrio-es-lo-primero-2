@@ -1,5 +1,5 @@
 #include "Game.hpp"
-#include "Character.hpp"
+
 
 #include <stdexcept>
 #include "errorsCodes.hpp"
@@ -13,7 +13,9 @@ namespace barrio {
     
         window{nullptr},
         renderer{nullptr},
-        physicsWorld{nullptr}
+        physicsWorld{nullptr},
+        camera(nullptr),
+        player(nullptr)
     
     {
         SDL_LogSetAllPriority(SDL_LOG_PRIORITY_VERBOSE);
@@ -32,7 +34,7 @@ namespace barrio {
             }
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Linear texture filtering initilization...OK");
             
-            window = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+            window = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, CAMERA_WIDTH, CAMERA_HEIGHT, SDL_WINDOW_SHOWN );
             if( window == NULL )
             {
                 SDL_LogMessage(SDL_LOG_CATEGORY_VIDEO, SDL_LOG_PRIORITY_ERROR, "Window initialization has failed because: %s", SDL_GetError());
@@ -58,7 +60,8 @@ namespace barrio {
                         throw error::SYS_IMAGE_INIT_FAIL;
                     }
                     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "SDL2 image system is initilization...OK");
-                    physicsWorld = new Physics(b2Vec2{0.0f, 0.0f}, SCREEN_WIDTH, SCREEN_HEIGHT);
+                    physicsWorld = new Physics(b2Vec2{0.0f, 0.0f}, WORLD_WIDTH, WORLD_HEIGHT);
+                    camera = new unique_ptr<Camera>(CAMERA_WIDTH, CAMERA_HEIGHT, WORLD_WIDTH, WORLD_HEIGHT);
                 }
             }
         }
@@ -67,7 +70,22 @@ namespace barrio {
     Game::~Game()
     {
         //Destroy Physics World
-        delete physicsWorld;
+        if(physicsWorld != nullptr)
+        {
+            delete physicsWorld;
+            physicsWorld = nullptr;
+        }
+        
+        if (camera != nullptr)
+        {
+            delete camera;
+            camera = nullptr;
+        }
+        
+        if (player != nullptr)
+        {
+            player = nullptr;
+        }
         
         //Destroy window
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Destroy Render...OK");
@@ -85,18 +103,20 @@ namespace barrio {
     
     void Game::loadMedia(void)
     {
-        
+        camera->setBackground("img/backgorund_1679x600.png", renderer);
+        player = new Character("player", renderer);
+        player->loadAnimations("conf/spriteSheets/player.json", "img/foo.png");
+        player->addToPhysicsWorld(physicsWorld, 5.0f, -1.5f);
+        camera->follow(player);
     }
     
     void Game::gameLoop(void)
     {
         bool quit = false;
         SDL_Event e;
-        
-        Character player("player", renderer, physicsWorld);
-        player.loadAcctions("conf/spriteSheets/player.json", "img/foo.png");
-        player.addSpriteToWorld(100, 300);
-        player.setVelocity(SDL_Point{20, 0});
+        loadMedia();
+                
+        player->setVelocity(b2Vec2{-0.5f, 0.0f});
         
         while (quit == false)
         {
@@ -111,7 +131,8 @@ namespace barrio {
             SDL_SetRenderDrawColor( renderer, color::WHITE, color::WHITE, color::WHITE, color::WHITE );
             SDL_RenderClear( renderer );
             
-            player.playAnimation("walking");
+            camera->renderBackGround(renderer);
+            camera->renderAnimation(player->playAnimation("walking", 10), renderer, player);
             
             SDL_RenderPresent( renderer );
         }
