@@ -13,23 +13,39 @@ namespace barrio {
     class Physics
     {
     public:
-        Physics(const b2Vec2 gravity, const int lwidth, const int lheight);
+        Physics(void) : world(nullptr) {}
         ~Physics(void);
-        void addSpritePolygon(const std::string& spriteName, const float spriteWidth, const float spriteHeight, const b2Vec2& spritePosition);
+        void CreateWorld(const b2Vec2 gravity, const float32 width, const float32 height);
+        Physics(const Physics&& a);
+        
+        void createPolygon(const std::string& spriteName, const float spriteWidth,
+                              const float spriteHeight, const b2Vec2& spritePosition);
+        
+        void createLine(const b2Vec2& pointA, const b2Vec2& pointB);
+        
+        bool bodyExist(const std::string& name);
+        b2Body* getBody(const std::string& spriteNamme);
+        
         void Step(void)
         {
             world->Step(timeStep, this->velocityIterations, this->positionIterations);
         }
+        
         float32 convPixelsToCartesian(const int pixels)
         {
             return pixels / RATIO_CONV;
-        }
-        b2Body* getBody(const std::string& spriteNamme);
-
+        }                
+        
+    private:
+        
+        Physics(const Physics&){}
+        Physics& operator=(const Physics&);
+        void definePhysicsWorldBundaries();
+        
     private:
         b2Vec2 gravity;
         b2World* world;
-        int width, height;
+        float32 cartesianWidth, cartesianHeight;
         std::map<std::string, b2Body*> bodies;
         static constexpr float32 frequency = 60.0f;
         static constexpr int32 velocityIterations = 8;

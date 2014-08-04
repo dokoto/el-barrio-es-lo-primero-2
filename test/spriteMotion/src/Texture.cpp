@@ -4,8 +4,8 @@ namespace barrio {
     
     Texture::Texture(void) :
     texture{nullptr},
-    width{0},
-    height{0}
+    pixelWidth{0},
+    pixelHeight{0}
     {
         
     }
@@ -38,8 +38,8 @@ namespace barrio {
             }
             else
             {
-                width = loadedSurface->w;
-                height = loadedSurface->h;
+                pixelWidth = loadedSurface->w;
+                pixelHeight = loadedSurface->h;
             }
             
             SDL_FreeSurface( loadedSurface );
@@ -53,10 +53,11 @@ namespace barrio {
     {
         if( texture != nullptr )
         {
+            printf("Destroing Texture\n");
             SDL_DestroyTexture( texture );
             texture = nullptr;
-            width = 0;
-            height = 0;
+            pixelWidth = 0;
+            pixelHeight = 0;            
         }
     }
     

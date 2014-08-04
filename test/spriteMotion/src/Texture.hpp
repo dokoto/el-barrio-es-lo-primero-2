@@ -39,17 +39,22 @@ namespace barrio {
             return texture;
         }
         
+        bool isEmpty()
+        {
+            return texture == nullptr;
+        }
+        
     private:
         SDL_Texture* texture;
-        int width;
-        int height;        
+        int pixelWidth;
+        int pixelHeight;
         
     public:
-        int getWidth() const { return this->width; }
-        void setWidth(const int width){ this->width = width; }
+        int getPixelWidth() const { return this->pixelWidth; }
+        void sePixeltWidth(const int pixelWidth) { this->pixelWidth = pixelWidth; }
         
-        int getHeight() const { return this->height; }
-        void setHeight(const int height){ this->height = height; }
+        int getPixelHeight() const { return this->pixelHeight; }
+        void setPixelHeight(const int pixelHeight) { this->pixelHeight = pixelHeight; }
         
         
     };

@@ -2,20 +2,20 @@
 
 
 #include <stdexcept>
+#include <sstream>
 #include "errorsCodes.hpp"
+#include "Colors.hpp"
+#include "Constants.hpp"
+#include "Animation.hpp"
 
 
 namespace barrio {
     
     using namespace std;
     
-    Game::Game() :
-    
+    Game::Game() :    
         window{nullptr},
-        renderer{nullptr},
-        physicsWorld{nullptr},
-        camera(nullptr),
-        player(nullptr)
+        renderer{nullptr}
     
     {
         SDL_LogSetAllPriority(SDL_LOG_PRIORITY_VERBOSE);
@@ -34,7 +34,7 @@ namespace barrio {
             }
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Linear texture filtering initilization...OK");
             
-            window = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, CAMERA_WIDTH, CAMERA_HEIGHT, SDL_WINDOW_SHOWN );
+            window = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, consts::CAMERA_WIDTH_PX, consts::CAMERA_HEIGHT_PX, SDL_WINDOW_SHOWN );
             if( window == NULL )
             {
                 SDL_LogMessage(SDL_LOG_CATEGORY_VIDEO, SDL_LOG_PRIORITY_ERROR, "Window initialization has failed because: %s", SDL_GetError());
@@ -59,34 +59,24 @@ namespace barrio {
                         SDL_LogMessage(SDL_LOG_CATEGORY_VIDEO, SDL_LOG_PRIORITY_ERROR, "SDL2 image system initialization has failed because: %s", SDL_GetError());
                         throw error::SYS_IMAGE_INIT_FAIL;
                     }
-                    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "SDL2 image system is initilization...OK");
-                    physicsWorld = new Physics(b2Vec2{0.0f, 0.0f}, WORLD_WIDTH, WORLD_HEIGHT);
-                    camera = new unique_ptr<Camera>(CAMERA_WIDTH, CAMERA_HEIGHT, WORLD_WIDTH, WORLD_HEIGHT);
+                    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "SDL2 image system initialization...OK");
+                    physicsWorld.CreateWorld(b2Vec2{0.0f, 0.0f}, consts::WORLD_WIDTH_PX / consts::PHYSICS_CONV_FACTOR_PX, consts::WORLD_HEIGHT_PX / consts::PHYSICS_CONV_FACTOR_PX);
+                    camera.CreateCamera(consts::CAMERA_WIDTH_PX, consts::CAMERA_HEIGHT_PX, consts::WORLD_WIDTH_PX, consts::WORLD_HEIGHT_PX);
                 }
             }
+            
+            if (TTF_Init() < 0)
+            {
+                SDL_LogMessage(SDL_LOG_CATEGORY_VIDEO, SDL_LOG_PRIORITY_ERROR, "SDL2 TTF system initialization has failed because: %s", SDL_GetError());
+                throw error::SYS_INIT_TTF_FAIL;
+            }
+            else
+                SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "TTF system initialization...OK");
         }
     }
     
     Game::~Game()
     {
-        //Destroy Physics World
-        if(physicsWorld != nullptr)
-        {
-            delete physicsWorld;
-            physicsWorld = nullptr;
-        }
-        
-        if (camera != nullptr)
-        {
-            delete camera;
-            camera = nullptr;
-        }
-        
-        if (player != nullptr)
-        {
-            player = nullptr;
-        }
-        
         //Destroy window
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Destroy Render...OK");
         SDL_DestroyRenderer( renderer );
@@ -103,11 +93,21 @@ namespace barrio {
     
     void Game::loadMedia(void)
     {
-        camera->setBackground("img/backgorund_1679x600.png", renderer);
-        player = new Character("player", renderer);
-        player->loadAnimations("conf/spriteSheets/player.json", "img/foo.png");
-        player->addToPhysicsWorld(physicsWorld, 5.0f, -1.5f);
-        camera->follow(player);
+        debugInfo.CreateDebugInfo("ttf/ArialNarrowRegular.ttf", 15);
+        camera.setBackground("img/backgorund_1679x600.png", renderer);
+        player.CreateCharacter("player", renderer, &physicsWorld);
+        //player.loadAnimations("conf/spriteSheets/player2.json", "img/player.png");
+        //player.loadAnimations("conf/spriteSheets/player.json", "img/foo.png");
+        player.loadAnimations("conf/spriteSheets/player3.json", "img/point10x5px.png");
+        player.addToPhysicsWorld(0.0f, 0.0f);
+        camera.follow(&player);
+    }
+    
+    string Game::createDebugText()
+    {
+        std::stringstream os;
+        os << "[" << player.getPosition().x << "," << player.getPosition().y << "]";
+        return os.str();
     }
     
     void Game::gameLoop(void)
@@ -115,8 +115,7 @@ namespace barrio {
         bool quit = false;
         SDL_Event e;
         loadMedia();
-                
-        player->setVelocity(b2Vec2{-0.5f, 0.0f});
+        float32 vel = 1.90f;
         
         while (quit == false)
         {
@@ -127,12 +126,40 @@ namespace barrio {
                     quit = true;
                 }
             }
-            physicsWorld->Step();
-            SDL_SetRenderDrawColor( renderer, color::WHITE, color::WHITE, color::WHITE, color::WHITE );
-            SDL_RenderClear( renderer );
             
-            camera->renderBackGround(renderer);
-            camera->renderAnimation(player->playAnimation("walking", 10), renderer, player);
+            physicsWorld.Step();
+            camera.renderBackGround(renderer);
+            
+            const Uint8* currentKeyStates = SDL_GetKeyboardState( NULL );
+            if( currentKeyStates[ SDL_SCANCODE_UP ] )
+            {
+                player.setVelocity(b2Vec2{0.0f, vel});
+                camera.renderAnimation(player.playAnimation("walking", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &player);
+            }
+            else if( currentKeyStates[ SDL_SCANCODE_DOWN ] )
+            {
+                player.setVelocity(b2Vec2{0.0f, -vel});
+                camera.renderAnimation(player.playAnimation("walking", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &player);
+            }
+            else if( currentKeyStates[ SDL_SCANCODE_LEFT ] )
+            {
+                player.setVelocity(b2Vec2{-vel, 0.0f});
+                camera.renderAnimation(player.playAnimation("walking", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &player);
+            }
+            else if( currentKeyStates[ SDL_SCANCODE_RIGHT ] )
+            {
+                player.setVelocity(b2Vec2{vel, 0.0f});
+                camera.renderAnimation(player.playAnimation("walking", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &player);
+            }
+            else
+            {
+                player.setVelocity(b2Vec2{0.0f, 0.0f});
+                camera.renderAnimation(player.playAnimation("stop", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &player);
+            }
+            
+            debugInfo.writeText(createDebugText(), SDL_Color{255, 255, 255, 0}, renderer);
+            camera.renderDebugInfo(renderer, &debugInfo);
+            
             
             SDL_RenderPresent( renderer );
         }

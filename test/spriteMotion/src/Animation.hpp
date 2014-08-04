@@ -14,6 +14,7 @@ private:
     SDL_Rect clipInPx;
     
 public:
+    Animation(void) {}
     Animation(b2Vec2 lcartesianPosition, SDL_Rect lclipInPx) : cartesianPosition(lcartesianPosition), clipInPx(lclipInPx) {};
     Animation(const Animation&& a): cartesianPosition(a.cartesianPosition), clipInPx(a.clipInPx) {};
     const b2Vec2& getCartesianPosition() { return cartesianPosition; }

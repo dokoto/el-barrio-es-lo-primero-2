@@ -5,6 +5,7 @@ namespace error {
     
     enum {
         SYS_INIT_FAIL,
+        SYS_INIT_TTF_FAIL,
         LINEAR_TEXTURE_FAIL,
         WINDOW_INIT_FAIL,
         RENDER_CREATION_FAIL,

@@ -13,11 +13,18 @@ namespace barrio {
     class Sprite : public Texture
     {
     public:
-        Sprite(const std::string& lname);
-        ~Sprite(void);
+        void CreateSprite(const std::string& name, Physics* world);
+        Sprite(void) : physicsWorld(nullptr), body(nullptr) {}
+        virtual ~Sprite(void)
+        {
+            printf("Destroy Physics Sprite %s...OK\n", name.c_str());
+        }
         
     private:
         std::string name;
+        
+        Sprite(const Sprite&){}
+        Sprite& operator=(const Sprite&);
         
     protected:
         Physics* physicsWorld;
@@ -36,12 +43,11 @@ namespace barrio {
         void setVelocity(const b2Vec2& velocity){ body->SetLinearVelocity(velocity); }
         
         const b2Vec2 getPosition() { return body->GetPosition(); }
-        void setPosition(const b2Vec2& position){ body->GetPosition(); }
         
-        float32 getPhysicsWidth() { return physicsWorld->convPixelsToCartesian(this->getWidth()); }
-        float32 getPhysicsHeight() { return physicsWorld->convPixelsToCartesian(this->getHeight()); }
+        float32 getPhysicsWidth() { return physicsWorld->convPixelsToCartesian(this->getPixelWidth()); }
+        float32 getPhysicsHeight() { return physicsWorld->convPixelsToCartesian(this->getPixelHeight()); }
         
-        void addToPhysicsWorld(Physics* world, const float32 physicsPosX, const float32 physicsPosY);
+        void addToPhysicsWorld(const float32 physicsPosX, const float32 physicsPosY);
         
     };
     

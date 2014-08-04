@@ -5,10 +5,10 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
-#include "Colors.hpp"
 #include "Physics.hpp"
 #include "Camera.hpp"
 #include "Character.hpp"
+#include "DebugInfo.hpp"
 
 namespace barrio {
     
@@ -20,18 +20,16 @@ namespace barrio {
         void gameLoop(void);
         
     private:
-        static constexpr int CAMERA_WIDTH = 800;
-        static constexpr int CAMERA_HEIGHT = 600;
-        static constexpr int WORLD_WIDTH = 1679;
-        static constexpr int WORLD_HEIGHT = 600;
         SDL_Window* window;
         SDL_Renderer* renderer;
-        Physics* physicsWorld;
-        std::unique_ptr<Camera> camera;
-        std::shared_ptr<Character> player;
+        Physics physicsWorld;
+        Camera camera;
+        Character player;
+        DebugInfo debugInfo;
         
     private:
         void loadMedia(void);
+        std::string createDebugText();
     };
     
 }

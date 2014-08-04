@@ -9,24 +9,22 @@
 namespace barrio {
     using namespace std;
     
-    Character::Character(const std::string& name, SDL_Renderer*& lrenderer):
-    Sprite{name},
-    renderer{lrenderer},
-    currentAnimationFrame{0},
-    delayFrameCount{0},
-    currentAnimation{""}
-    {        
-    }
-    
-    Character::~Character()
+    void Character::CreateCharacter(const std::string& name, SDL_Renderer*& renderer, Physics* physicsWorld)
     {
-        
+        this->CreateSprite(name, physicsWorld);
+        this->renderer = renderer;
+        this->currentAnimationFrame = 0;
+        this->delayFrameCount = 0;
+        this->currentAnimation = "";
     }
-    
-
     
     Animation Character::playAnimation(const std::string& animationName, const size_t delayInFrames)
     {
+        if (currentAnimation != animationName)
+        {
+            stopAnimation();
+        }
+        this->currentAnimation = animationName;
         SDL_Rect currentClip = animations[animationName].at(currentAnimationFrame);
         b2Vec2 position = this->getPhysicsBody()->GetPosition();
         if (delayFrameCount == delayInFrames)
@@ -44,6 +42,7 @@ namespace barrio {
     {
         currentAnimation.clear();
         currentAnimationFrame = 0;
+        delayFrameCount = 0;
     }
     
     void Character::setVelocity(b2Vec2 velocity)
