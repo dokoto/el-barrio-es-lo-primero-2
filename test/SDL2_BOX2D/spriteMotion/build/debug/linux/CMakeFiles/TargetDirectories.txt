@@ -1,0 +1,1 @@
+/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/linux/CMakeFiles/ElBarrioEsLoPrimero.dir

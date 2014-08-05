@@ -1,0 +1,29 @@
+TZERO_CHECK
+v6
+r1
+cCheck dependencies
+cPhaseScriptExecution CMake\ Rules /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-05BFC6D5CF384854A1551F52.sh
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-05BFC6D5CF384854A1551F52.sh
+c0000000053E08202000000000000010D
+t1407222274
+s269
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies280ec8dbd290b941^b475c8dbd290b941^---0#1#1#--18"Check dependencies36"FA4F82B8-99B7-4630-8880-CB3C36E7D83F-
+
+CPhaseScriptExecution CMake\ Rules /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-05BFC6D5CF384854A1551F52.sh
+s428921563.782226
+e428921563.830645
+r1
+xPhaseScriptExecution
+xCMake Rules
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-05BFC6D5CF384854A1551F52.sh
+oecho ""
+o
+omake -f /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/CMakeScripts/ReRunCMake.make
+omake[1]: `/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/CMakeFiles/cmake.check_cache' is up to date.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection37"Run custom shell script 'CMake Rules'211"PhaseScriptExecution CMake\ Rules /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-05BFC6D5CF384854A1551F52.sh12a2c8dbd290b941^11a6d4dbd290b941^-281"echo ""make -f /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/CMakeScripts/ReRunCMake.makemake[1]: `/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/CMakeFiles/cmake.check_cache' is up to date.3(21%IDEActivityLogMessage2@8"echo ""-428921563#0#8#-0#-----2@127"make -f /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/CMakeScripts/ReRunCMake.make-428921563#9#127#-0#-----2@145"make[1]: `/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/CMakeFiles/cmake.check_cache' is up to date.-428921563#136#145#-0#-----0#0#1#--490"PhaseScriptExecution CMake\ Rules /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-05BFC6D5CF384854A1551F52.sh    cd /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src    /bin/sh -c /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-05BFC6D5CF384854A1551F52.sh36"10F28280-9F5F-4609-AB0D-8B590332CE91-
+bA98B7AFE-17EC-4D7B-88F1-BDEDB101E192
+

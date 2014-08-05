@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7BE591A5-68E5-4D94-8773-2C9831A7F8EF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>EL_BARRIO_ES_LO_PRIMERO</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>CD589CD1-12A6-491F-A3DB-C265B1E30349</key>
+		<string>https://bitbucket.org/manuel_alfaro_sierra/el-barrio-es-lo-primero.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>CD589CD1-12A6-491F-A3DB-C265B1E30349</key>
+		<string>../../../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/manuel_alfaro_sierra/el-barrio-es-lo-primero.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>CD589CD1-12A6-491F-A3DB-C265B1E30349</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CD589CD1-12A6-491F-A3DB-C265B1E30349</string>
+			<key>IDESourceControlWCCName</key>
+			<string>el-barrio-es-lo-primero</string>
+		</dict>
+	</array>
+</dict>
+</plist>

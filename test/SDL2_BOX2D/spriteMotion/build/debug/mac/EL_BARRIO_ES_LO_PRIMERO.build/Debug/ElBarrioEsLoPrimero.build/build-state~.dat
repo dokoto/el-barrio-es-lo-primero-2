@@ -1,0 +1,894 @@
+TElBarrioEsLoPrimero
+v6
+r1
+cCheck dependencies
+cCompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Character.o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Game.o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Physics.o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Sprite.o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Texture.o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Texture.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/jsoncpp.o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/main.o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug/ElBarrioEsLoPrimero normal x86_64
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
+c00000000534CE9EF00000000000000AA
+t1397549551
+s170
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/SDKSettings.plist
+c000000005332FB80000000000000044C
+t1395850112
+s1100
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/CoreServices/SystemVersion.plist
+c000000005332FB8000000000000001DE
+t1395850112
+s478
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug/ElBarrioEsLoPrimero
+t2
+s0
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Character.o
+t1407222278
+s639136
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/ElBarrioEsLoPrimero.LinkFileList
+c0000000053E082020000000000000503
+t1407222274
+s1283
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Game.o
+t1407222278
+s372744
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Physics.o
+t1407222278
+s238168
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Sprite.o
+t1407222278
+s131172
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Texture.o
+t1407222278
+s46204
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/jsoncpp.o
+t1407222279
+s1320216
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/main.o
+t1407222278
+s202892
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.cpp
+c0000000053DF5DA40000000000000AF9
+t1407147428
+s2809
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.cpp
+c0000000053DF90390000000000001C1B
+t1407160377
+s7195
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.cpp
+c0000000053DF51800000000000000E91
+t1407144320
+s3729
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.cpp
+c0000000053DF3AF10000000000000597
+t1407138545
+s1431
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Texture.cpp
+c0000000053DF77F400000000000006CF
+t1407154164
+s1743
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp
+c0000000053D9E7360000000000019C28
+t1406789430
+s105512
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/main.cpp
+c0000000053D9F72000000000000000D6
+t1406793504
+s214
+
+CBuild AST from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.cpp
+r0
+
+CBuild AST from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.cpp
+r0
+
+CBuild AST from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.cpp
+r0
+
+CBuild AST from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.cpp
+r0
+
+CBuild AST from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Texture.cpp
+r0
+
+CBuild AST from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp
+r0
+
+CBuild AST from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/main.cpp
+r0
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies25ceca82b990b941^b952cb82b990b941^---0#1#1#--18"Check dependencies36"677306D4-2180-4BEA-8F36-CBDAFE0AEB1D-
+
+CCompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Character.o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s428915074.794744
+e428915078.796083
+r1
+xCompileC
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Character.o
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.cpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.hpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.hpp
+d/usr/local/include/SDL2/SDL.h
+d/usr/local/include/SDL2/SDL_main.h
+d/usr/local/include/SDL2/SDL_stdinc.h
+d/usr/local/include/SDL2/SDL_config.h
+d/usr/local/include/SDL2/SDL_platform.h
+d/usr/local/include/SDL2/begin_code.h
+d/usr/local/include/SDL2/close_code.h
+d/usr/local/include/SDL2/SDL_assert.h
+d/usr/local/include/SDL2/SDL_atomic.h
+d/usr/local/include/SDL2/SDL_audio.h
+d/usr/local/include/SDL2/SDL_error.h
+d/usr/local/include/SDL2/SDL_endian.h
+d/usr/local/include/SDL2/SDL_mutex.h
+d/usr/local/include/SDL2/SDL_thread.h
+d/usr/local/include/SDL2/SDL_rwops.h
+d/usr/local/include/SDL2/SDL_clipboard.h
+d/usr/local/include/SDL2/SDL_cpuinfo.h
+d/usr/local/include/SDL2/SDL_events.h
+d/usr/local/include/SDL2/SDL_video.h
+d/usr/local/include/SDL2/SDL_pixels.h
+d/usr/local/include/SDL2/SDL_rect.h
+d/usr/local/include/SDL2/SDL_surface.h
+d/usr/local/include/SDL2/SDL_blendmode.h
+d/usr/local/include/SDL2/SDL_keyboard.h
+d/usr/local/include/SDL2/SDL_keycode.h
+d/usr/local/include/SDL2/SDL_scancode.h
+d/usr/local/include/SDL2/SDL_mouse.h
+d/usr/local/include/SDL2/SDL_joystick.h
+d/usr/local/include/SDL2/SDL_gamecontroller.h
+d/usr/local/include/SDL2/SDL_quit.h
+d/usr/local/include/SDL2/SDL_gesture.h
+d/usr/local/include/SDL2/SDL_touch.h
+d/usr/local/include/SDL2/SDL_filesystem.h
+d/usr/local/include/SDL2/SDL_haptic.h
+d/usr/local/include/SDL2/SDL_hints.h
+d/usr/local/include/SDL2/SDL_loadso.h
+d/usr/local/include/SDL2/SDL_log.h
+d/usr/local/include/SDL2/SDL_messagebox.h
+d/usr/local/include/SDL2/SDL_power.h
+d/usr/local/include/SDL2/SDL_render.h
+d/usr/local/include/SDL2/SDL_system.h
+d/usr/local/include/SDL2/SDL_timer.h
+d/usr/local/include/SDL2/SDL_version.h
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Texture.hpp
+d/usr/local/include/SDL2/SDL_image.h
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp
+d/usr/local/include/Box2D/Box2D.h
+d/usr/local/include/Box2D/Common/b2Settings.h
+d/usr/local/include/Box2D/Common/b2Draw.h
+d/usr/local/include/Box2D/Common/b2Math.h
+d/usr/local/include/Box2D/Common/b2Timer.h
+d/usr/local/include/Box2D/Collision/Shapes/b2CircleShape.h
+d/usr/local/include/Box2D/Collision/Shapes/b2Shape.h
+d/usr/local/include/Box2D/Common/b2BlockAllocator.h
+d/usr/local/include/Box2D/Collision/b2Collision.h
+d/usr/local/include/Box2D/Collision/Shapes/b2EdgeShape.h
+d/usr/local/include/Box2D/Collision/Shapes/b2ChainShape.h
+d/usr/local/include/Box2D/Collision/Shapes/b2PolygonShape.h
+d/usr/local/include/Box2D/Collision/b2BroadPhase.h
+d/usr/local/include/Box2D/Collision/b2DynamicTree.h
+d/usr/local/include/Box2D/Common/b2GrowableStack.h
+d/usr/local/include/Box2D/Collision/b2Distance.h
+d/usr/local/include/Box2D/Collision/b2TimeOfImpact.h
+d/usr/local/include/Box2D/Dynamics/b2Body.h
+d/usr/local/include/Box2D/Dynamics/b2Fixture.h
+d/usr/local/include/Box2D/Dynamics/b2WorldCallbacks.h
+d/usr/local/include/Box2D/Dynamics/b2TimeStep.h
+d/usr/local/include/Box2D/Dynamics/b2World.h
+d/usr/local/include/Box2D/Common/b2StackAllocator.h
+d/usr/local/include/Box2D/Dynamics/b2ContactManager.h
+d/usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2DistanceJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2Joint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2FrictionJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2GearJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2MotorJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2MouseJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2PrismaticJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2PulleyJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2RevoluteJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2RopeJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2WeldJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2WheelJoint.h
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Animation.hpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/json.h
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/errorsCodes.hpp
+oIn file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.cpp:1:
+oIn file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.hpp:8:
+oIn file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.hpp:8:
+oIn file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp:8:
+oIn file included from /usr/local/include/Box2D/Box2D.h:54:
+o/usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h:250:14: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+o                m_flags &= ~e_enabledFlag;
+o                        ~~ ^~~~~~~~~~~~~~
+o1 warning generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection99"Compile /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.cpp270"CompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Character.o Character.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler7b87cb82b990b941^4fcbcb86b990b941^-784"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.cpp:1:In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.hpp:8:In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.hpp:8:In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp:8:In file included from /usr/local/include/Box2D/Box2D.h:54:/usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h:250:14: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]                m_flags &= ~e_enabledFlag;                        ~~ ^~~~~~~~~~~~~~1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@63"Implicit conversion changes signedness: 'int' to 'unsigned int'-428915078#18446744073709551615#0#5(2@116"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.cpp:1:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@98"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.cpp0000000000000000^0#9#0#9#9#0#21"Apple LLVM 5.0 Notice--2@116"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.hpp:8:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@98"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.hpp0000000000000000^7#9#7#9#150#0#21"Apple LLVM 5.0 Notice--2@113"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.hpp:8:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@95"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.hpp0000000000000000^7#9#7#9#162#0#21"Apple LLVM 5.0 Notice--2@114"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp:8:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@96"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp0000000000000000^7#9#7#9#174#0#21"Apple LLVM 5.0 Notice--2@58"In file included from /usr/local/include/Box2D/Box2D.h:54:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@39"file:///usr/local/include/Box2D/Box2D.h0000000000000000^53#9#53#9#1911#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@61"file:///usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h0000000000000000^249#13#249#13#7946#0#22"Value Conversion Issue2(3@61"file:///usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h0000000000000000^249#13#249#27#7946#1#3@61"file:///usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h0000000000000000^249#10#249#12#7943#0#-0#0#1#-19%DVTDocumentLocation4@98"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.cpp0000000000000000^2924"CompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Character.o Character.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DCMAKE_INTDIR=\"Debug\" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -Wno-sign-conversion -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug/include -I/usr/local/include -I/usr/local/lib -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/DerivedSources/x86_64 -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/DerivedSources -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug -std=c++11 -DAPPLE -O0 -Wall -Wextra -pedantic -W -Wconversion -Wcast-qual -Wwrite-strings -Wstrict-aliasing -Wpointer-arith -Wcast-align -fno-common -MMD -MT dependencies -MF /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Character.d --serialize-diagnostics /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Character.dia -c /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.cpp -o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Character.o36"7E8D365B-E081-4A68-8C71-523B969FBA31-
+b27315C09-605A-425C-B58D-14960A68656D
+
+CCompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Game.o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s428915074.795018
+e428915078.753316
+r1
+xCompileC
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Game.o
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.cpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.hpp
+d/usr/local/include/SDL2/SDL.h
+d/usr/local/include/SDL2/SDL_main.h
+d/usr/local/include/SDL2/SDL_stdinc.h
+d/usr/local/include/SDL2/SDL_config.h
+d/usr/local/include/SDL2/SDL_platform.h
+d/usr/local/include/SDL2/begin_code.h
+d/usr/local/include/SDL2/close_code.h
+d/usr/local/include/SDL2/SDL_assert.h
+d/usr/local/include/SDL2/SDL_atomic.h
+d/usr/local/include/SDL2/SDL_audio.h
+d/usr/local/include/SDL2/SDL_error.h
+d/usr/local/include/SDL2/SDL_endian.h
+d/usr/local/include/SDL2/SDL_mutex.h
+d/usr/local/include/SDL2/SDL_thread.h
+d/usr/local/include/SDL2/SDL_rwops.h
+d/usr/local/include/SDL2/SDL_clipboard.h
+d/usr/local/include/SDL2/SDL_cpuinfo.h
+d/usr/local/include/SDL2/SDL_events.h
+d/usr/local/include/SDL2/SDL_video.h
+d/usr/local/include/SDL2/SDL_pixels.h
+d/usr/local/include/SDL2/SDL_rect.h
+d/usr/local/include/SDL2/SDL_surface.h
+d/usr/local/include/SDL2/SDL_blendmode.h
+d/usr/local/include/SDL2/SDL_keyboard.h
+d/usr/local/include/SDL2/SDL_keycode.h
+d/usr/local/include/SDL2/SDL_scancode.h
+d/usr/local/include/SDL2/SDL_mouse.h
+d/usr/local/include/SDL2/SDL_joystick.h
+d/usr/local/include/SDL2/SDL_gamecontroller.h
+d/usr/local/include/SDL2/SDL_quit.h
+d/usr/local/include/SDL2/SDL_gesture.h
+d/usr/local/include/SDL2/SDL_touch.h
+d/usr/local/include/SDL2/SDL_filesystem.h
+d/usr/local/include/SDL2/SDL_haptic.h
+d/usr/local/include/SDL2/SDL_hints.h
+d/usr/local/include/SDL2/SDL_loadso.h
+d/usr/local/include/SDL2/SDL_log.h
+d/usr/local/include/SDL2/SDL_messagebox.h
+d/usr/local/include/SDL2/SDL_power.h
+d/usr/local/include/SDL2/SDL_render.h
+d/usr/local/include/SDL2/SDL_system.h
+d/usr/local/include/SDL2/SDL_timer.h
+d/usr/local/include/SDL2/SDL_version.h
+d/usr/local/include/SDL2/SDL_image.h
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp
+d/usr/local/include/Box2D/Box2D.h
+d/usr/local/include/Box2D/Common/b2Settings.h
+d/usr/local/include/Box2D/Common/b2Draw.h
+d/usr/local/include/Box2D/Common/b2Math.h
+d/usr/local/include/Box2D/Common/b2Timer.h
+d/usr/local/include/Box2D/Collision/Shapes/b2CircleShape.h
+d/usr/local/include/Box2D/Collision/Shapes/b2Shape.h
+d/usr/local/include/Box2D/Common/b2BlockAllocator.h
+d/usr/local/include/Box2D/Collision/b2Collision.h
+d/usr/local/include/Box2D/Collision/Shapes/b2EdgeShape.h
+d/usr/local/include/Box2D/Collision/Shapes/b2ChainShape.h
+d/usr/local/include/Box2D/Collision/Shapes/b2PolygonShape.h
+d/usr/local/include/Box2D/Collision/b2BroadPhase.h
+d/usr/local/include/Box2D/Collision/b2DynamicTree.h
+d/usr/local/include/Box2D/Common/b2GrowableStack.h
+d/usr/local/include/Box2D/Collision/b2Distance.h
+d/usr/local/include/Box2D/Collision/b2TimeOfImpact.h
+d/usr/local/include/Box2D/Dynamics/b2Body.h
+d/usr/local/include/Box2D/Dynamics/b2Fixture.h
+d/usr/local/include/Box2D/Dynamics/b2WorldCallbacks.h
+d/usr/local/include/Box2D/Dynamics/b2TimeStep.h
+d/usr/local/include/Box2D/Dynamics/b2World.h
+d/usr/local/include/Box2D/Common/b2StackAllocator.h
+d/usr/local/include/Box2D/Dynamics/b2ContactManager.h
+d/usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2DistanceJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2Joint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2FrictionJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2GearJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2MotorJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2MouseJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2PrismaticJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2PulleyJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2RevoluteJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2RopeJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2WeldJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2WheelJoint.h
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Camera.hpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Texture.hpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.hpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Animation.hpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/DebugInfo.hpp
+d/usr/local/include/SDL2/SDL_ttf.h
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.hpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/errorsCodes.hpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Colors.hpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Constants.hpp
+oIn file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.cpp:1:
+oIn file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.hpp:8:
+oIn file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp:8:
+oIn file included from /usr/local/include/Box2D/Box2D.h:54:
+o/usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h:250:14: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+o                m_flags &= ~e_enabledFlag;
+o                        ~~ ^~~~~~~~~~~~~~
+o1 warning generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection94"Compile /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.cpp260"CompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Game.o Game.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler529ccb82b990b941^56d8c086b990b941^-660"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.cpp:1:In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.hpp:8:In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp:8:In file included from /usr/local/include/Box2D/Box2D.h:54:/usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h:250:14: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]                m_flags &= ~e_enabledFlag;                        ~~ ^~~~~~~~~~~~~~1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@63"Implicit conversion changes signedness: 'int' to 'unsigned int'-428915078#18446744073709551615#0#4(2@111"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.cpp:1:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@93"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.cpp0000000000000000^0#9#0#9#9#0#21"Apple LLVM 5.0 Notice--2@111"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.hpp:8:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@93"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.hpp0000000000000000^7#9#7#9#163#0#21"Apple LLVM 5.0 Notice--2@114"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp:8:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@96"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp0000000000000000^7#9#7#9#174#0#21"Apple LLVM 5.0 Notice--2@58"In file included from /usr/local/include/Box2D/Box2D.h:54:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@39"file:///usr/local/include/Box2D/Box2D.h0000000000000000^53#9#53#9#1911#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@61"file:///usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h0000000000000000^249#13#249#13#7946#0#22"Value Conversion Issue2(3@61"file:///usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h0000000000000000^249#13#249#27#7946#1#3@61"file:///usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h0000000000000000^249#10#249#12#7943#0#-0#0#1#-19%DVTDocumentLocation4@93"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.cpp0000000000000000^2894"CompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Game.o Game.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DCMAKE_INTDIR=\"Debug\" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -Wno-sign-conversion -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug/include -I/usr/local/include -I/usr/local/lib -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/DerivedSources/x86_64 -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/DerivedSources -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug -std=c++11 -DAPPLE -O0 -Wall -Wextra -pedantic -W -Wconversion -Wcast-qual -Wwrite-strings -Wstrict-aliasing -Wpointer-arith -Wcast-align -fno-common -MMD -MT dependencies -MF /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Game.d --serialize-diagnostics /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Game.dia -c /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.cpp -o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Game.o36"DB4193FA-47BF-439A-83FE-7957A52702A1-
+b27315C09-605A-425C-B58D-14960A68656D
+
+CCompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Physics.o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s428915074.795262
+e428915078.606593
+r1
+xCompileC
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Physics.o
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.cpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp
+d/usr/local/include/SDL2/SDL.h
+d/usr/local/include/SDL2/SDL_main.h
+d/usr/local/include/SDL2/SDL_stdinc.h
+d/usr/local/include/SDL2/SDL_config.h
+d/usr/local/include/SDL2/SDL_platform.h
+d/usr/local/include/SDL2/begin_code.h
+d/usr/local/include/SDL2/close_code.h
+d/usr/local/include/SDL2/SDL_assert.h
+d/usr/local/include/SDL2/SDL_atomic.h
+d/usr/local/include/SDL2/SDL_audio.h
+d/usr/local/include/SDL2/SDL_error.h
+d/usr/local/include/SDL2/SDL_endian.h
+d/usr/local/include/SDL2/SDL_mutex.h
+d/usr/local/include/SDL2/SDL_thread.h
+d/usr/local/include/SDL2/SDL_rwops.h
+d/usr/local/include/SDL2/SDL_clipboard.h
+d/usr/local/include/SDL2/SDL_cpuinfo.h
+d/usr/local/include/SDL2/SDL_events.h
+d/usr/local/include/SDL2/SDL_video.h
+d/usr/local/include/SDL2/SDL_pixels.h
+d/usr/local/include/SDL2/SDL_rect.h
+d/usr/local/include/SDL2/SDL_surface.h
+d/usr/local/include/SDL2/SDL_blendmode.h
+d/usr/local/include/SDL2/SDL_keyboard.h
+d/usr/local/include/SDL2/SDL_keycode.h
+d/usr/local/include/SDL2/SDL_scancode.h
+d/usr/local/include/SDL2/SDL_mouse.h
+d/usr/local/include/SDL2/SDL_joystick.h
+d/usr/local/include/SDL2/SDL_gamecontroller.h
+d/usr/local/include/SDL2/SDL_quit.h
+d/usr/local/include/SDL2/SDL_gesture.h
+d/usr/local/include/SDL2/SDL_touch.h
+d/usr/local/include/SDL2/SDL_filesystem.h
+d/usr/local/include/SDL2/SDL_haptic.h
+d/usr/local/include/SDL2/SDL_hints.h
+d/usr/local/include/SDL2/SDL_loadso.h
+d/usr/local/include/SDL2/SDL_log.h
+d/usr/local/include/SDL2/SDL_messagebox.h
+d/usr/local/include/SDL2/SDL_power.h
+d/usr/local/include/SDL2/SDL_render.h
+d/usr/local/include/SDL2/SDL_system.h
+d/usr/local/include/SDL2/SDL_timer.h
+d/usr/local/include/SDL2/SDL_version.h
+d/usr/local/include/Box2D/Box2D.h
+d/usr/local/include/Box2D/Common/b2Settings.h
+d/usr/local/include/Box2D/Common/b2Draw.h
+d/usr/local/include/Box2D/Common/b2Math.h
+d/usr/local/include/Box2D/Common/b2Timer.h
+d/usr/local/include/Box2D/Collision/Shapes/b2CircleShape.h
+d/usr/local/include/Box2D/Collision/Shapes/b2Shape.h
+d/usr/local/include/Box2D/Common/b2BlockAllocator.h
+d/usr/local/include/Box2D/Collision/b2Collision.h
+d/usr/local/include/Box2D/Collision/Shapes/b2EdgeShape.h
+d/usr/local/include/Box2D/Collision/Shapes/b2ChainShape.h
+d/usr/local/include/Box2D/Collision/Shapes/b2PolygonShape.h
+d/usr/local/include/Box2D/Collision/b2BroadPhase.h
+d/usr/local/include/Box2D/Collision/b2DynamicTree.h
+d/usr/local/include/Box2D/Common/b2GrowableStack.h
+d/usr/local/include/Box2D/Collision/b2Distance.h
+d/usr/local/include/Box2D/Collision/b2TimeOfImpact.h
+d/usr/local/include/Box2D/Dynamics/b2Body.h
+d/usr/local/include/Box2D/Dynamics/b2Fixture.h
+d/usr/local/include/Box2D/Dynamics/b2WorldCallbacks.h
+d/usr/local/include/Box2D/Dynamics/b2TimeStep.h
+d/usr/local/include/Box2D/Dynamics/b2World.h
+d/usr/local/include/Box2D/Common/b2StackAllocator.h
+d/usr/local/include/Box2D/Dynamics/b2ContactManager.h
+d/usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2DistanceJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2Joint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2FrictionJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2GearJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2MotorJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2MouseJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2PrismaticJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2PulleyJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2RevoluteJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2RopeJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2WeldJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2WheelJoint.h
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/errorsCodes.hpp
+oIn file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.cpp:1:
+oIn file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp:8:
+oIn file included from /usr/local/include/Box2D/Box2D.h:54:
+o/usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h:250:14: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+o                m_flags &= ~e_enabledFlag;
+o                        ~~ ^~~~~~~~~~~~~~
+o1 warning generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection97"Compile /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.cpp266"CompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Physics.o Physics.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler0fb7cb82b990b941^185c9b86b990b941^-551"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.cpp:1:In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp:8:In file included from /usr/local/include/Box2D/Box2D.h:54:/usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h:250:14: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]                m_flags &= ~e_enabledFlag;                        ~~ ^~~~~~~~~~~~~~1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@63"Implicit conversion changes signedness: 'int' to 'unsigned int'-428915078#18446744073709551615#0#3(2@114"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.cpp:1:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@96"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.cpp0000000000000000^0#9#0#9#9#0#21"Apple LLVM 5.0 Notice--2@114"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp:8:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@96"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp0000000000000000^7#9#7#9#174#0#21"Apple LLVM 5.0 Notice--2@58"In file included from /usr/local/include/Box2D/Box2D.h:54:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@39"file:///usr/local/include/Box2D/Box2D.h0000000000000000^53#9#53#9#1911#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@61"file:///usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h0000000000000000^249#13#249#13#7946#0#22"Value Conversion Issue2(3@61"file:///usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h0000000000000000^249#13#249#27#7946#1#3@61"file:///usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h0000000000000000^249#10#249#12#7943#0#-0#0#1#-19%DVTDocumentLocation4@96"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.cpp0000000000000000^2912"CompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Physics.o Physics.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DCMAKE_INTDIR=\"Debug\" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -Wno-sign-conversion -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug/include -I/usr/local/include -I/usr/local/lib -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/DerivedSources/x86_64 -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/DerivedSources -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug -std=c++11 -DAPPLE -O0 -Wall -Wextra -pedantic -W -Wconversion -Wcast-qual -Wwrite-strings -Wstrict-aliasing -Wpointer-arith -Wcast-align -fno-common -MMD -MT dependencies -MF /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Physics.d --serialize-diagnostics /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Physics.dia -c /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.cpp -o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Physics.o36"D50D2FE2-03D7-4CE7-9518-19CF576F223B-
+b27315C09-605A-425C-B58D-14960A68656D
+
+CCompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Sprite.o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s428915074.795561
+e428915078.606580
+r1
+xCompileC
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Sprite.o
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.cpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.hpp
+d/usr/local/include/SDL2/SDL.h
+d/usr/local/include/SDL2/SDL_main.h
+d/usr/local/include/SDL2/SDL_stdinc.h
+d/usr/local/include/SDL2/SDL_config.h
+d/usr/local/include/SDL2/SDL_platform.h
+d/usr/local/include/SDL2/begin_code.h
+d/usr/local/include/SDL2/close_code.h
+d/usr/local/include/SDL2/SDL_assert.h
+d/usr/local/include/SDL2/SDL_atomic.h
+d/usr/local/include/SDL2/SDL_audio.h
+d/usr/local/include/SDL2/SDL_error.h
+d/usr/local/include/SDL2/SDL_endian.h
+d/usr/local/include/SDL2/SDL_mutex.h
+d/usr/local/include/SDL2/SDL_thread.h
+d/usr/local/include/SDL2/SDL_rwops.h
+d/usr/local/include/SDL2/SDL_clipboard.h
+d/usr/local/include/SDL2/SDL_cpuinfo.h
+d/usr/local/include/SDL2/SDL_events.h
+d/usr/local/include/SDL2/SDL_video.h
+d/usr/local/include/SDL2/SDL_pixels.h
+d/usr/local/include/SDL2/SDL_rect.h
+d/usr/local/include/SDL2/SDL_surface.h
+d/usr/local/include/SDL2/SDL_blendmode.h
+d/usr/local/include/SDL2/SDL_keyboard.h
+d/usr/local/include/SDL2/SDL_keycode.h
+d/usr/local/include/SDL2/SDL_scancode.h
+d/usr/local/include/SDL2/SDL_mouse.h
+d/usr/local/include/SDL2/SDL_joystick.h
+d/usr/local/include/SDL2/SDL_gamecontroller.h
+d/usr/local/include/SDL2/SDL_quit.h
+d/usr/local/include/SDL2/SDL_gesture.h
+d/usr/local/include/SDL2/SDL_touch.h
+d/usr/local/include/SDL2/SDL_filesystem.h
+d/usr/local/include/SDL2/SDL_haptic.h
+d/usr/local/include/SDL2/SDL_hints.h
+d/usr/local/include/SDL2/SDL_loadso.h
+d/usr/local/include/SDL2/SDL_log.h
+d/usr/local/include/SDL2/SDL_messagebox.h
+d/usr/local/include/SDL2/SDL_power.h
+d/usr/local/include/SDL2/SDL_render.h
+d/usr/local/include/SDL2/SDL_system.h
+d/usr/local/include/SDL2/SDL_timer.h
+d/usr/local/include/SDL2/SDL_version.h
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Texture.hpp
+d/usr/local/include/SDL2/SDL_image.h
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp
+d/usr/local/include/Box2D/Box2D.h
+d/usr/local/include/Box2D/Common/b2Settings.h
+d/usr/local/include/Box2D/Common/b2Draw.h
+d/usr/local/include/Box2D/Common/b2Math.h
+d/usr/local/include/Box2D/Common/b2Timer.h
+d/usr/local/include/Box2D/Collision/Shapes/b2CircleShape.h
+d/usr/local/include/Box2D/Collision/Shapes/b2Shape.h
+d/usr/local/include/Box2D/Common/b2BlockAllocator.h
+d/usr/local/include/Box2D/Collision/b2Collision.h
+d/usr/local/include/Box2D/Collision/Shapes/b2EdgeShape.h
+d/usr/local/include/Box2D/Collision/Shapes/b2ChainShape.h
+d/usr/local/include/Box2D/Collision/Shapes/b2PolygonShape.h
+d/usr/local/include/Box2D/Collision/b2BroadPhase.h
+d/usr/local/include/Box2D/Collision/b2DynamicTree.h
+d/usr/local/include/Box2D/Common/b2GrowableStack.h
+d/usr/local/include/Box2D/Collision/b2Distance.h
+d/usr/local/include/Box2D/Collision/b2TimeOfImpact.h
+d/usr/local/include/Box2D/Dynamics/b2Body.h
+d/usr/local/include/Box2D/Dynamics/b2Fixture.h
+d/usr/local/include/Box2D/Dynamics/b2WorldCallbacks.h
+d/usr/local/include/Box2D/Dynamics/b2TimeStep.h
+d/usr/local/include/Box2D/Dynamics/b2World.h
+d/usr/local/include/Box2D/Common/b2StackAllocator.h
+d/usr/local/include/Box2D/Dynamics/b2ContactManager.h
+d/usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2DistanceJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2Joint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2FrictionJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2GearJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2MotorJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2MouseJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2PrismaticJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2PulleyJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2RevoluteJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2RopeJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2WeldJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2WheelJoint.h
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/errorsCodes.hpp
+oIn file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.cpp:1:
+oIn file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.hpp:8:
+oIn file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp:8:
+oIn file included from /usr/local/include/Box2D/Box2D.h:54:
+o/usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h:250:14: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+o                m_flags &= ~e_enabledFlag;
+o                        ~~ ^~~~~~~~~~~~~~
+o1 warning generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection96"Compile /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.cpp264"CompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Sprite.o Sprite.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler1ec3cb82b990b941^de559b86b990b941^-664"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.cpp:1:In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.hpp:8:In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp:8:In file included from /usr/local/include/Box2D/Box2D.h:54:/usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h:250:14: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]                m_flags &= ~e_enabledFlag;                        ~~ ^~~~~~~~~~~~~~1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@63"Implicit conversion changes signedness: 'int' to 'unsigned int'-428915078#18446744073709551615#0#4(2@113"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.cpp:1:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@95"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.cpp0000000000000000^0#9#0#9#9#0#21"Apple LLVM 5.0 Notice--2@113"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.hpp:8:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@95"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.hpp0000000000000000^7#9#7#9#162#0#21"Apple LLVM 5.0 Notice--2@114"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp:8:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@96"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp0000000000000000^7#9#7#9#174#0#21"Apple LLVM 5.0 Notice--2@58"In file included from /usr/local/include/Box2D/Box2D.h:54:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@39"file:///usr/local/include/Box2D/Box2D.h0000000000000000^53#9#53#9#1911#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@61"file:///usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h0000000000000000^249#13#249#13#7946#0#22"Value Conversion Issue2(3@61"file:///usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h0000000000000000^249#13#249#27#7946#1#3@61"file:///usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h0000000000000000^249#10#249#12#7943#0#-0#0#1#-19%DVTDocumentLocation4@95"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.cpp0000000000000000^2906"CompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Sprite.o Sprite.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DCMAKE_INTDIR=\"Debug\" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -Wno-sign-conversion -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug/include -I/usr/local/include -I/usr/local/lib -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/DerivedSources/x86_64 -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/DerivedSources -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug -std=c++11 -DAPPLE -O0 -Wall -Wextra -pedantic -W -Wconversion -Wcast-qual -Wwrite-strings -Wstrict-aliasing -Wpointer-arith -Wcast-align -fno-common -MMD -MT dependencies -MF /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Sprite.d --serialize-diagnostics /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Sprite.dia -c /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.cpp -o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Sprite.o36"9A51F9A8-5407-4D34-B939-14E206BBC87A-
+b27315C09-605A-425C-B58D-14960A68656D
+
+CCompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Texture.o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Texture.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s428915074.796056
+e428915078.437220
+r1
+xCompileC
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Texture.o
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Texture.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Texture.cpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Texture.hpp
+d/usr/local/include/SDL2/SDL.h
+d/usr/local/include/SDL2/SDL_main.h
+d/usr/local/include/SDL2/SDL_stdinc.h
+d/usr/local/include/SDL2/SDL_config.h
+d/usr/local/include/SDL2/SDL_platform.h
+d/usr/local/include/SDL2/begin_code.h
+d/usr/local/include/SDL2/close_code.h
+d/usr/local/include/SDL2/SDL_assert.h
+d/usr/local/include/SDL2/SDL_atomic.h
+d/usr/local/include/SDL2/SDL_audio.h
+d/usr/local/include/SDL2/SDL_error.h
+d/usr/local/include/SDL2/SDL_endian.h
+d/usr/local/include/SDL2/SDL_mutex.h
+d/usr/local/include/SDL2/SDL_thread.h
+d/usr/local/include/SDL2/SDL_rwops.h
+d/usr/local/include/SDL2/SDL_clipboard.h
+d/usr/local/include/SDL2/SDL_cpuinfo.h
+d/usr/local/include/SDL2/SDL_events.h
+d/usr/local/include/SDL2/SDL_video.h
+d/usr/local/include/SDL2/SDL_pixels.h
+d/usr/local/include/SDL2/SDL_rect.h
+d/usr/local/include/SDL2/SDL_surface.h
+d/usr/local/include/SDL2/SDL_blendmode.h
+d/usr/local/include/SDL2/SDL_keyboard.h
+d/usr/local/include/SDL2/SDL_keycode.h
+d/usr/local/include/SDL2/SDL_scancode.h
+d/usr/local/include/SDL2/SDL_mouse.h
+d/usr/local/include/SDL2/SDL_joystick.h
+d/usr/local/include/SDL2/SDL_gamecontroller.h
+d/usr/local/include/SDL2/SDL_quit.h
+d/usr/local/include/SDL2/SDL_gesture.h
+d/usr/local/include/SDL2/SDL_touch.h
+d/usr/local/include/SDL2/SDL_filesystem.h
+d/usr/local/include/SDL2/SDL_haptic.h
+d/usr/local/include/SDL2/SDL_hints.h
+d/usr/local/include/SDL2/SDL_loadso.h
+d/usr/local/include/SDL2/SDL_log.h
+d/usr/local/include/SDL2/SDL_messagebox.h
+d/usr/local/include/SDL2/SDL_power.h
+d/usr/local/include/SDL2/SDL_render.h
+d/usr/local/include/SDL2/SDL_system.h
+d/usr/local/include/SDL2/SDL_timer.h
+d/usr/local/include/SDL2/SDL_version.h
+d/usr/local/include/SDL2/SDL_image.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection97"Compile /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Texture.cpp266"CompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Texture.o Texture.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compilercde4cb82b990b941^e9ed6f86b990b941^---0#0#1#-19%DVTDocumentLocation2@96"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Texture.cpp0000000000000000^2912"CompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Texture.o Texture.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DCMAKE_INTDIR=\"Debug\" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -Wno-sign-conversion -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug/include -I/usr/local/include -I/usr/local/lib -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/DerivedSources/x86_64 -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/DerivedSources -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug -std=c++11 -DAPPLE -O0 -Wall -Wextra -pedantic -W -Wconversion -Wcast-qual -Wwrite-strings -Wstrict-aliasing -Wpointer-arith -Wcast-align -fno-common -MMD -MT dependencies -MF /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Texture.d --serialize-diagnostics /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Texture.dia -c /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Texture.cpp -o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/Texture.o36"A5C1EAB4-8BF9-4169-9D1A-0FE450AC1361-
+b27315C09-605A-425C-B58D-14960A68656D
+
+CCompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/jsoncpp.o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s428915074.796697
+e428915079.456319
+r1
+xCompileC
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/jsoncpp.o
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/json.h
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:350:44: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o    currentValue().setOffsetLimit(current_ - begin_);
+o    ~~~~~~~~~~~~                  ~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:354:44: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o    currentValue().setOffsetLimit(current_ - begin_);
+o    ~~~~~~~~~~~~                  ~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:364:48: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o    currentValue().setOffsetStart(token.start_ - begin_);
+o    ~~~~~~~~~~~~                  ~~~~~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:365:46: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o    currentValue().setOffsetLimit(token.end_ - begin_);
+o    ~~~~~~~~~~~~                  ~~~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:369:48: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o    currentValue().setOffsetStart(token.start_ - begin_);
+o    ~~~~~~~~~~~~                  ~~~~~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:370:46: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o    currentValue().setOffsetLimit(token.end_ - begin_);
+o    ~~~~~~~~~~~~                  ~~~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:374:48: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o    currentValue().setOffsetStart(token.start_ - begin_);
+o    ~~~~~~~~~~~~                  ~~~~~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:375:46: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o    currentValue().setOffsetLimit(token.end_ - begin_);
+o    ~~~~~~~~~~~~                  ~~~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:383:55: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o      currentValue().setOffsetStart(current_ - begin_ - 1);
+o      ~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~~~^~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:384:46: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o      currentValue().setOffsetLimit(current_ - begin_);
+o      ~~~~~~~~~~~~                  ~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:389:48: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o    currentValue().setOffsetStart(token.start_ - begin_);
+o    ~~~~~~~~~~~~                  ~~~~~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:390:46: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o    currentValue().setOffsetLimit(token.end_ - begin_);
+o    ~~~~~~~~~~~~                  ~~~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:590:51: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o  currentValue().setOffsetStart(tokenStart.start_ - begin_);
+o  ~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:643:51: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o  currentValue().setOffsetStart(tokenStart.start_ - begin_);
+o  ~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:683:46: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o  currentValue().setOffsetStart(token.start_ - begin_);
+o  ~~~~~~~~~~~~                  ~~~~~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:684:44: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o  currentValue().setOffsetLimit(token.end_ - begin_);
+o  ~~~~~~~~~~~~                  ~~~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:714:25: warning: implicit conversion changes signedness: 'int' to 'Value::UInt' (aka 'unsigned int') [-Wsign-conversion]
+o    Value::UInt digit(c - '0');
+o                ~~~~~ ~~^~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:741:46: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o  currentValue().setOffsetStart(token.start_ - begin_);
+o  ~~~~~~~~~~~~                  ~~~~~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:742:44: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o  currentValue().setOffsetLimit(token.end_ - begin_);
+o  ~~~~~~~~~~~~                  ~~~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:766:34: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o    memcpy(buffer, token.start_, length);
+o    ~~~~~~                       ^~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:787:46: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o  currentValue().setOffsetStart(token.start_ - begin_);
+o  ~~~~~~~~~~~~                  ~~~~~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:788:44: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o  currentValue().setOffsetLimit(token.end_ - begin_);
+o  ~~~~~~~~~~~~                  ~~~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:793:45: warning: implicit conversion changes signedness: 'long' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+o  decoded.reserve(token.end_ - token.start_ - 2);
+o  ~~~~~~~         ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:888:20: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+o      unicode += c - '0';
+o              ~~ ~~^~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:890:26: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+o      unicode += c - 'a' + 10;
+o              ~~ ~~~~~~~~^~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:892:26: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+o      unicode += c - 'A' + 10;
+o              ~~ ~~~~~~~~^~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:917:22: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+o      errors_.resize(errorCount); // discard errors caused by recovery
+o      ~~~~~~~        ^~~~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:921:18: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+o  errors_.resize(errorCount);
+o  ~~~~~~~        ^~~~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:1007:51: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o    structured.offset_start = error.token_.start_ - begin_;
+o                            ~ ~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:1008:49: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+o    structured.offset_limit = error.token_.end_ - begin_;
+o                            ~ ~~~~~~~~~~~~~~~~~~^~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:2284:19: warning: implicit conversion turns floating-point number into integer: 'const double' to 'bool' [-Wconversion]
+o    return value_.real_ ? true : false;
+o    ~~~~~~ ~~~~~~~^~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:3249:16: warning: implicit conversion changes signedness: 'ArrayIndex' (aka 'unsigned int') to 'int' [-Wsign-conversion]
+o    int size = value.size();
+o        ~~~~   ^~~~~~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:3387:14: warning: implicit conversion changes signedness: 'ArrayIndex' (aka 'unsigned int') to 'int' [-Wsign-conversion]
+o  int size = value.size();
+o      ~~~~   ^~~~~~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:3398:26: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+o    childValues_.reserve(size);
+o    ~~~~~~~~~~~~         ^~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:3403:38: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+o      lineLength += int(childValues_[index].length());
+o                        ~~~~~~~~~~~~ ^~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:3434:60: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+ovoid StyledWriter::indent() { indentString_ += std::string(indentSize_, ' '); }
+o                                               ~~~         ^~~~~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:3438:47: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+o  indentString_.resize(indentString_.size() - indentSize_);
+o                                            ~ ^~~~~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:3610:14: warning: implicit conversion changes signedness: 'ArrayIndex' (aka 'unsigned int') to 'int' [-Wsign-conversion]
+o  int size = value.size();
+o      ~~~~   ^~~~~~~~~~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:3621:26: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+o    childValues_.reserve(size);
+o    ~~~~~~~~~~~~         ^~~~
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:3626:38: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+o      lineLength += int(childValues_[index].length());
+o                        ~~~~~~~~~~~~ ^~~~~
+o40 warnings generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection105"Compile /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp274"CompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/jsoncpp.o contrib/jsoncpp.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compilera015cc82b990b941^17f4f287b990b941^-12484"/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:350:44: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]    currentValue().setOffsetLimit(current_ - begin_);    ~~~~~~~~~~~~                  ~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:354:44: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]    currentValue().setOffsetLimit(current_ - begin_);    ~~~~~~~~~~~~                  ~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:364:48: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]    currentValue().setOffsetStart(token.start_ - begin_);    ~~~~~~~~~~~~                  ~~~~~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:365:46: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]    currentValue().setOffsetLimit(token.end_ - begin_);    ~~~~~~~~~~~~                  ~~~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:369:48: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]    currentValue().setOffsetStart(token.start_ - begin_);    ~~~~~~~~~~~~                  ~~~~~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:370:46: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]    currentValue().setOffsetLimit(token.end_ - begin_);    ~~~~~~~~~~~~                  ~~~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:374:48: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]    currentValue().setOffsetStart(token.start_ - begin_);    ~~~~~~~~~~~~                  ~~~~~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:375:46: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]    currentValue().setOffsetLimit(token.end_ - begin_);    ~~~~~~~~~~~~                  ~~~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:383:55: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]      currentValue().setOffsetStart(current_ - begin_ - 1);      ~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~~~^~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:384:46: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]      currentValue().setOffsetLimit(current_ - begin_);      ~~~~~~~~~~~~                  ~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:389:48: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]    currentValue().setOffsetStart(token.start_ - begin_);    ~~~~~~~~~~~~                  ~~~~~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:390:46: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]    currentValue().setOffsetLimit(token.end_ - begin_);    ~~~~~~~~~~~~                  ~~~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:590:51: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]  currentValue().setOffsetStart(tokenStart.start_ - begin_);  ~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:643:51: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]  currentValue().setOffsetStart(tokenStart.start_ - begin_);  ~~~~~~~~~~~~                  ~~~~~~~~~~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:683:46: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]  currentValue().setOffsetStart(token.start_ - begin_);  ~~~~~~~~~~~~                  ~~~~~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:684:44: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]  currentValue().setOffsetLimit(token.end_ - begin_);  ~~~~~~~~~~~~                  ~~~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:714:25: warning: implicit conversion changes signedness: 'int' to 'Value::UInt' (aka 'unsigned int') [-Wsign-conversion]    Value::UInt digit(c - '0');                ~~~~~ ~~^~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:741:46: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]  currentValue().setOffsetStart(token.start_ - begin_);  ~~~~~~~~~~~~                  ~~~~~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:742:44: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]  currentValue().setOffsetLimit(token.end_ - begin_);  ~~~~~~~~~~~~                  ~~~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:766:34: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]    memcpy(buffer, token.start_, length);    ~~~~~~                       ^~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:787:46: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]  currentValue().setOffsetStart(token.start_ - begin_);  ~~~~~~~~~~~~                  ~~~~~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:788:44: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]  currentValue().setOffsetLimit(token.end_ - begin_);  ~~~~~~~~~~~~                  ~~~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:793:45: warning: implicit conversion changes signedness: 'long' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]  decoded.reserve(token.end_ - token.start_ - 2);  ~~~~~~~         ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:888:20: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]      unicode += c - '0';              ~~ ~~^~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:890:26: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]      unicode += c - 'a' + 10;              ~~ ~~~~~~~~^~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:892:26: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]      unicode += c - 'A' + 10;              ~~ ~~~~~~~~^~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:917:22: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]      errors_.resize(errorCount); // discard errors caused by recovery      ~~~~~~~        ^~~~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:921:18: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]  errors_.resize(errorCount);  ~~~~~~~        ^~~~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:1007:51: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]    structured.offset_start = error.token_.start_ - begin_;                            ~ ~~~~~~~~~~~~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:1008:49: warning: implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]    structured.offset_limit = error.token_.end_ - begin_;                            ~ ~~~~~~~~~~~~~~~~~~^~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:2284:19: warning: implicit conversion turns floating-point number into integer: 'const double' to 'bool' [-Wconversion]    return value_.real_ ? true : false;    ~~~~~~ ~~~~~~~^~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:3249:16: warning: implicit conversion changes signedness: 'ArrayIndex' (aka 'unsigned int') to 'int' [-Wsign-conversion]    int size = value.size();        ~~~~   ^~~~~~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:3387:14: warning: implicit conversion changes signedness: 'ArrayIndex' (aka 'unsigned int') to 'int' [-Wsign-conversion]  int size = value.size();      ~~~~   ^~~~~~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:3398:26: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]    childValues_.reserve(size);    ~~~~~~~~~~~~         ^~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:3403:38: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]      lineLength += int(childValues_[index].length());                        ~~~~~~~~~~~~ ^~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:3434:60: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]void StyledWriter::indent() { indentString_ += std::string(indentSize_, ' '); }                                               ~~~         ^~~~~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:3438:47: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]  indentString_.resize(indentString_.size() - indentSize_);                                            ~ ^~~~~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:3610:14: warning: implicit conversion changes signedness: 'ArrayIndex' (aka 'unsigned int') to 'int' [-Wsign-conversion]  int size = value.size();      ~~~~   ^~~~~~~~~~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:3621:26: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]    childValues_.reserve(size);    ~~~~~~~~~~~~         ^~~~/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp:3626:38: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]      lineLength += int(childValues_[index].length());                        ~~~~~~~~~~~~ ^~~~~40 warnings generated.40(36%IDEClangDiagnosticActivityLogMessage2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^349#43#349#43#11443#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^349#34#349#51#11434#11#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^349#4#349#16#11404#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^353#43#353#43#11567#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^353#34#353#51#11558#11#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^353#4#353#16#11528#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^363#47#363#47#11819#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^363#34#363#55#11806#15#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^363#4#363#16#11776#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^364#45#364#45#11875#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^364#34#364#53#11864#13#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^364#4#364#16#11834#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^368#47#368#47#11991#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^368#34#368#55#11978#15#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^368#4#368#16#11948#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^369#45#369#45#12047#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^369#34#369#53#12036#13#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^369#4#369#16#12006#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^373#47#373#47#12164#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^373#34#373#55#12151#15#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^373#4#373#16#12121#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^374#45#374#45#12220#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^374#34#374#53#12209#13#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^374#4#374#16#12179#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^382#54#382#54#12515#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^382#36#382#57#12497#20#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^382#6#382#18#12467#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^383#45#383#45#12566#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^383#36#383#53#12557#11#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^383#6#383#18#12527#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^388#47#388#47#12681#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^388#34#388#55#12668#15#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^388#4#388#16#12638#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^389#45#389#45#12737#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^389#34#389#53#12726#13#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^389#4#389#16#12696#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^589#50#589#50#16943#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^589#32#589#58#16925#20#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^589#2#589#14#16895#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^642#50#642#50#18782#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^642#32#642#58#18764#20#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^642#2#642#14#18734#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^682#45#682#45#19830#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^682#32#682#53#19817#15#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^682#2#682#14#19787#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^683#43#683#43#19884#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^683#32#683#51#19873#13#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^683#2#683#14#19843#0#-2@83"Implicit conversion changes signedness: 'int' to 'Value::UInt' (aka 'unsigned int')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^713#24#713#24#21016#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^713#22#713#29#21014#4#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^713#16#713#21#21008#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^740#45#740#45#21931#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^740#32#740#53#21918#15#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^740#2#740#14#21888#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^741#43#741#43#21985#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^741#32#741#51#21974#13#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^741#2#741#14#21944#0#-2@79"Implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^765#33#765#33#22727#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^765#33#765#39#22727#0#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^765#4#765#10#22698#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^786#45#786#45#23310#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^786#32#786#53#23297#15#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^786#2#786#14#23267#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^787#43#787#43#23364#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^787#32#787#51#23353#13#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^787#2#787#14#23323#0#-2@83"Implicit conversion changes signedness: 'long' to 'size_type' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^792#44#792#44#23501#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^792#18#792#47#23475#28#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^792#2#792#9#23459#0#-2@63"Implicit conversion changes signedness: 'int' to 'unsigned int'-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^887#19#887#19#26274#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^887#17#887#24#26272#4#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^887#14#887#16#26269#0#-2@63"Implicit conversion changes signedness: 'int' to 'unsigned int'-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^889#25#889#25#26341#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^889#17#889#29#26333#10#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^889#14#889#16#26330#0#-2@63"Implicit conversion changes signedness: 'int' to 'unsigned int'-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^891#25#891#25#26407#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^891#17#891#29#26399#10#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^891#14#891#16#26396#0#-2@82"Implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^916#21#916#21#26975#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^916#21#916#31#26975#0#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^916#6#916#13#26960#0#-2@82"Implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^920#17#920#17#27131#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^920#17#920#27#27131#0#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^920#2#920#9#27116#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^1006#50#1006#50#29740#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^1006#30#1006#58#29720#22#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^1006#28#1006#29#29718#0#-2@80"Implicit conversion changes signedness: 'long' to 'size_t' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^1007#48#1007#48#29798#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^1007#30#1007#56#29780#20#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^1007#28#1007#29#29778#0#-2@86"Implicit conversion turns floating-point number into integer: 'const double' to 'bool'-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^2283#18#2283#18#65374#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^2283#11#2283#23#65367#7#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^2283#4#2283#10#65360#0#-2@82"Implicit conversion changes signedness: 'ArrayIndex' (aka 'unsigned int') to 'int'-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3248#15#3248#15#92067#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3248#15#3248#27#92067#11#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3248#8#3248#12#92060#0#-2@82"Implicit conversion changes signedness: 'ArrayIndex' (aka 'unsigned int') to 'int'-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3386#13#3386#13#95762#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3386#13#3386#25#95762#11#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3386#6#3386#10#95755#0#-2@82"Implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3397#25#3397#25#96190#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3397#25#3397#29#96190#0#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3397#4#3397#16#96169#0#-2@82"Implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3402#37#3402#37#96408#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3402#37#3402#42#96408#0#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3402#24#3402#36#96395#0#-2@82"Implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3433#59#3433#59#97146#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3433#59#3433#70#97146#0#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3433#47#3433#50#97134#0#-2@64"Implicit conversion changes signedness: 'int' to 'unsigned long'-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3437#46#3437#46#97298#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3437#46#3437#57#97298#0#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3437#44#3437#45#97296#0#-2@82"Implicit conversion changes signedness: 'ArrayIndex' (aka 'unsigned int') to 'int'-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3609#13#3609#13#102112#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3609#13#3609#25#102112#11#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3609#6#3609#10#102105#0#-2@82"Implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3620#25#3620#25#102540#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3620#25#3620#29#102540#0#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3620#4#3620#16#102519#0#-2@82"Implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long')-428915079#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3625#37#3625#37#102758#0#22"Value Conversion Issue2(3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3625#37#3625#42#102758#0#3@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^3625#24#3625#36#102745#0#-0#0#1#-19%DVTDocumentLocation4@104"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp0000000000000000^2928"CompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/jsoncpp.o contrib/jsoncpp.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DCMAKE_INTDIR=\"Debug\" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -Wno-sign-conversion -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug/include -I/usr/local/include -I/usr/local/lib -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/DerivedSources/x86_64 -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/DerivedSources -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug -std=c++11 -DAPPLE -O0 -Wall -Wextra -pedantic -W -Wconversion -Wcast-qual -Wwrite-strings -Wstrict-aliasing -Wpointer-arith -Wcast-align -fno-common -MMD -MT dependencies -MF /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/jsoncpp.d --serialize-diagnostics /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/jsoncpp.dia -c /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/contrib/jsoncpp.cpp -o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/jsoncpp.o36"B13BF492-95ED-4862-BAF5-AD7B9B382A63-
+b27315C09-605A-425C-B58D-14960A68656D
+
+CCompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/main.o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s428915074.797185
+e428915078.607328
+r1
+xCompileC
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/main.o
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/main.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/main.cpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/main.hpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.hpp
+d/usr/local/include/SDL2/SDL.h
+d/usr/local/include/SDL2/SDL_main.h
+d/usr/local/include/SDL2/SDL_stdinc.h
+d/usr/local/include/SDL2/SDL_config.h
+d/usr/local/include/SDL2/SDL_platform.h
+d/usr/local/include/SDL2/begin_code.h
+d/usr/local/include/SDL2/close_code.h
+d/usr/local/include/SDL2/SDL_assert.h
+d/usr/local/include/SDL2/SDL_atomic.h
+d/usr/local/include/SDL2/SDL_audio.h
+d/usr/local/include/SDL2/SDL_error.h
+d/usr/local/include/SDL2/SDL_endian.h
+d/usr/local/include/SDL2/SDL_mutex.h
+d/usr/local/include/SDL2/SDL_thread.h
+d/usr/local/include/SDL2/SDL_rwops.h
+d/usr/local/include/SDL2/SDL_clipboard.h
+d/usr/local/include/SDL2/SDL_cpuinfo.h
+d/usr/local/include/SDL2/SDL_events.h
+d/usr/local/include/SDL2/SDL_video.h
+d/usr/local/include/SDL2/SDL_pixels.h
+d/usr/local/include/SDL2/SDL_rect.h
+d/usr/local/include/SDL2/SDL_surface.h
+d/usr/local/include/SDL2/SDL_blendmode.h
+d/usr/local/include/SDL2/SDL_keyboard.h
+d/usr/local/include/SDL2/SDL_keycode.h
+d/usr/local/include/SDL2/SDL_scancode.h
+d/usr/local/include/SDL2/SDL_mouse.h
+d/usr/local/include/SDL2/SDL_joystick.h
+d/usr/local/include/SDL2/SDL_gamecontroller.h
+d/usr/local/include/SDL2/SDL_quit.h
+d/usr/local/include/SDL2/SDL_gesture.h
+d/usr/local/include/SDL2/SDL_touch.h
+d/usr/local/include/SDL2/SDL_filesystem.h
+d/usr/local/include/SDL2/SDL_haptic.h
+d/usr/local/include/SDL2/SDL_hints.h
+d/usr/local/include/SDL2/SDL_loadso.h
+d/usr/local/include/SDL2/SDL_log.h
+d/usr/local/include/SDL2/SDL_messagebox.h
+d/usr/local/include/SDL2/SDL_power.h
+d/usr/local/include/SDL2/SDL_render.h
+d/usr/local/include/SDL2/SDL_system.h
+d/usr/local/include/SDL2/SDL_timer.h
+d/usr/local/include/SDL2/SDL_version.h
+d/usr/local/include/SDL2/SDL_image.h
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp
+d/usr/local/include/Box2D/Box2D.h
+d/usr/local/include/Box2D/Common/b2Settings.h
+d/usr/local/include/Box2D/Common/b2Draw.h
+d/usr/local/include/Box2D/Common/b2Math.h
+d/usr/local/include/Box2D/Common/b2Timer.h
+d/usr/local/include/Box2D/Collision/Shapes/b2CircleShape.h
+d/usr/local/include/Box2D/Collision/Shapes/b2Shape.h
+d/usr/local/include/Box2D/Common/b2BlockAllocator.h
+d/usr/local/include/Box2D/Collision/b2Collision.h
+d/usr/local/include/Box2D/Collision/Shapes/b2EdgeShape.h
+d/usr/local/include/Box2D/Collision/Shapes/b2ChainShape.h
+d/usr/local/include/Box2D/Collision/Shapes/b2PolygonShape.h
+d/usr/local/include/Box2D/Collision/b2BroadPhase.h
+d/usr/local/include/Box2D/Collision/b2DynamicTree.h
+d/usr/local/include/Box2D/Common/b2GrowableStack.h
+d/usr/local/include/Box2D/Collision/b2Distance.h
+d/usr/local/include/Box2D/Collision/b2TimeOfImpact.h
+d/usr/local/include/Box2D/Dynamics/b2Body.h
+d/usr/local/include/Box2D/Dynamics/b2Fixture.h
+d/usr/local/include/Box2D/Dynamics/b2WorldCallbacks.h
+d/usr/local/include/Box2D/Dynamics/b2TimeStep.h
+d/usr/local/include/Box2D/Dynamics/b2World.h
+d/usr/local/include/Box2D/Common/b2StackAllocator.h
+d/usr/local/include/Box2D/Dynamics/b2ContactManager.h
+d/usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2DistanceJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2Joint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2FrictionJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2GearJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2MotorJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2MouseJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2PrismaticJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2PulleyJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2RevoluteJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2RopeJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2WeldJoint.h
+d/usr/local/include/Box2D/Dynamics/Joints/b2WheelJoint.h
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Camera.hpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Texture.hpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Sprite.hpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Animation.hpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/DebugInfo.hpp
+d/usr/local/include/SDL2/SDL_ttf.h
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Character.hpp
+oIn file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/main.cpp:1:
+oIn file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/main.hpp:4:
+oIn file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.hpp:8:
+oIn file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp:8:
+oIn file included from /usr/local/include/Box2D/Box2D.h:54:
+o/usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h:250:14: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+o                m_flags &= ~e_enabledFlag;
+o                        ~~ ^~~~~~~~~~~~~~
+o1 warning generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection94"Compile /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/main.cpp260"CompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/main.o main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler6841cc82b990b941^ea799b86b990b941^-772"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/main.cpp:1:In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/main.hpp:4:In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.hpp:8:In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp:8:In file included from /usr/local/include/Box2D/Box2D.h:54:/usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h:250:14: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]                m_flags &= ~e_enabledFlag;                        ~~ ^~~~~~~~~~~~~~1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@63"Implicit conversion changes signedness: 'int' to 'unsigned int'-428915078#18446744073709551615#0#5(2@111"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/main.cpp:1:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@93"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/main.cpp0000000000000000^0#9#0#9#9#0#21"Apple LLVM 5.0 Notice--2@111"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/main.hpp:4:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@93"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/main.hpp0000000000000000^3#9#3#9#46#0#21"Apple LLVM 5.0 Notice--2@111"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.hpp:8:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@93"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Game.hpp0000000000000000^7#9#7#9#163#0#21"Apple LLVM 5.0 Notice--2@114"In file included from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp:8:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@96"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/Physics.hpp0000000000000000^7#9#7#9#174#0#21"Apple LLVM 5.0 Notice--2@58"In file included from /usr/local/include/Box2D/Box2D.h:54:-428915078#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@39"file:///usr/local/include/Box2D/Box2D.h0000000000000000^53#9#53#9#1911#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@61"file:///usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h0000000000000000^249#13#249#13#7946#0#22"Value Conversion Issue2(3@61"file:///usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h0000000000000000^249#13#249#27#7946#1#3@61"file:///usr/local/include/Box2D/Dynamics/Contacts/b2Contact.h0000000000000000^249#10#249#12#7943#0#-0#0#1#-19%DVTDocumentLocation4@93"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/main.cpp0000000000000000^2894"CompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/main.o main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DCMAKE_INTDIR=\"Debug\" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -Wno-sign-conversion -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug/include -I/usr/local/include -I/usr/local/lib -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/DerivedSources/x86_64 -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/DerivedSources -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug -std=c++11 -DAPPLE -O0 -Wall -Wextra -pedantic -W -Wconversion -Wcast-qual -Wwrite-strings -Wstrict-aliasing -Wpointer-arith -Wcast-align -fno-common -MMD -MT dependencies -MF /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/main.d --serialize-diagnostics /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/main.dia -c /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src/main.cpp -o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/main.o36"74BC71C8-44AB-4750-8D07-0C3625270EE5-
+b27315C09-605A-425C-B58D-14960A68656D
+
+CLd /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug/ElBarrioEsLoPrimero normal x86_64
+s428915079.470225
+e428915080.297906
+r0
+xLd
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug/ElBarrioEsLoPrimero
+xnormal
+xx86_64
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/ElBarrioEsLoPrimero.LinkFileList
+old: library not found for -lSDL2
+oclang: error: linker command failed with exit code 1 (use -v to see invocation)
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection120"Link /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug/ElBarrioEsLoPrimero132"Ld /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug/ElBarrioEsLoPrimero normal x86_6479737887b990b941^42424c88b990b941^-113"ld: library not found for -lSDL2clang: error: linker command failed with exit code 1 (use -v to see invocation)2(21%IDEActivityLogMessage2@28"Library not found for -lSDL2-428915080#0#33#-0#-23%DVTTextDocumentLocation3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#31"Apple Mach-O Linker (ld) Notice--2@65"Linker command failed with exit code 1 (use -v to see invocation)-428915080#33#80#-2#-3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#30"Apple Mach-O Linker (ld) Error--0#0#1#--1572"Ld /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug/ElBarrioEsLoPrimero normal x86_64    cd /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/src    export MACOSX_DEPLOYMENT_TARGET=10.9    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -L/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug -F/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug -filelist /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/ElBarrioEsLoPrimero.LinkFileList -mmacosx-version-min=10.9 -Wl,-search_paths_first -Wl,-headerpad_max_install_names -lSDL2 -lSDL2_image -lSDL2 -lSDL2_mixer -lSDL2 -lSDL2_ttf -lSDL2 /usr/local/lib/libSDL2_gfx.dylib /usr/local/lib/libBox2D.dylib -lSDL2_image -lSDL2_mixer -lSDL2_ttf /usr/local/lib/libSDL2_gfx.dylib /usr/local/lib/libBox2D.dylib -Xlinker -dependency_info -Xlinker /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/ElBarrioEsLoPrimero_dependency_info.dat -o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/Debug/ElBarrioEsLoPrimero36"86D3361C-3287-49B0-B81E-8B4F9AC37C2F-
+b27315C09-605A-425C-B58D-14960A68656D
+
+CPhaseScriptExecution Run\ Script /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/spriteMotion/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Script-2F506B831990B9760000C87D.sh
+r0
+

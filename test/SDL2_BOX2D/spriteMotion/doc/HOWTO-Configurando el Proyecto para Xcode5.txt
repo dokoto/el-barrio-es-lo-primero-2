@@ -1,0 +1,19 @@
+1º cmake -DCMAKE_BUILD_TYPE=[Debug|Release] -G Xcode [PATH]
+ej: cmake -DCMAKE_BUILD_TYPE=Debug -G Xcode ../../../src
+
+2º 
+ - Abrir el proyecto con Xcode :*.xcodeproj
+ - Selecionar como Active Scheme : ElBarrioEsLoPrimero-> 64-bit
+ - EL_BARRIO_ES_LO_PRIMERO->TARGET->Build Settings->Search Paths :
+   Header Search Paths = /usr/local/include
+   Library Search Paths = /usr/local/lib
+
+* Nota: Esto instalando SDL2 con brew funciona
+
+3º EL_BARRIO_ES_LO_PRIMERO->TARGET->Build Phases
+ - Editor->Add Build Phase->Add Run Script Build Phase
+ - Copiar el contenido de bash/syncResourcesOSX.sh sin la primera linea "#!/bin/bash" al hueco 
+
+	
+	
+	

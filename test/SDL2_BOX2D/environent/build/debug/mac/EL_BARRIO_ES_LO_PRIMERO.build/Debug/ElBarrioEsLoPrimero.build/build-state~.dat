@@ -1,0 +1,130 @@
+TElBarrioEsLoPrimero
+v6
+r1
+cCheck dependencies
+cCompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/jsoncpp.o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/contrib/jsoncpp.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/main.o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/SDKSettings.plist
+c000000005332FB80000000000000044C
+t1395850112
+s1100
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/CoreServices/SystemVersion.plist
+c000000005332FB8000000000000001DE
+t1395850112
+s478
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/jsoncpp.o
+t2
+s0
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/main.o
+t2
+s0
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/contrib/jsoncpp.cpp
+c0000000053D8F4BF0000000000019C2D
+t1406727359
+s105517
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/main.cpp
+c0000000053D8E0FE0000000000000EAA
+t1406722302
+s3754
+
+CBuild AST from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/contrib/jsoncpp.cpp
+r0
+
+CBuild AST from /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/main.cpp
+r0
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciese09cbdce2d89b941^392bbece2d89b941^---0#1#1#--18"Check dependencies36"7AC20D4A-AF10-40C7-BC39-1B29CAD60600-
+
+CCompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/jsoncpp.o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/contrib/jsoncpp.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s428420558.743344
+e428420559.429115
+r0
+xCompileC
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/jsoncpp.o
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/contrib/jsoncpp.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/contrib/jsoncpp.cpp:76:10: fatal error: 'json/json.h' file not found
+o#include "json/json.h"
+o         ^
+o1 error generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection103"Compile /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/contrib/jsoncpp.cpp272"CompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/jsoncpp.o contrib/jsoncpp.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compilercc5ebece2d89b941^62d86dcf2d89b941^-198"/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/contrib/jsoncpp.cpp:76:10: fatal error: 'json/json.h' file not found#include "json/json.h"         ^1 error generated.1(36%IDEClangDiagnosticActivityLogMessage2@28"'json/json.h' file not found-428420559#18446744073709551615#0#-2#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@102"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/contrib/jsoncpp.cpp0000000000000000^75#9#75#9#3190#0#29"Lexical or Preprocessor Issue--0#0#1#-19%DVTDocumentLocation4@102"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/contrib/jsoncpp.cpp0000000000000000^2891"CompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/jsoncpp.o contrib/jsoncpp.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DCMAKE_INTDIR=\"Debug\" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -Wno-sign-conversion -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/Debug/include -I/usr/local/include -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/DerivedSources/x86_64 -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/DerivedSources -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/Debug -std=c++11 -DAPPLE -O0 -Wall -Wextra -pedantic -W -Wconversion -Wcast-qual -Wwrite-strings -Wstrict-aliasing -Wpointer-arith -Wcast-align -fno-common -MMD -MT dependencies -MF /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/jsoncpp.d --serialize-diagnostics /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/jsoncpp.dia -c /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/contrib/jsoncpp.cpp -o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/jsoncpp.o36"E621B7D1-721D-4F50-B2D4-DC57B38FAB33-
+b68960A17-B8E7-43C9-8E0C-E03D972C68CB
+
+CCompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/main.o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s428420558.743599
+e428420559.833721
+r1
+xCompileC
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/main.o
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/main.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/main.cpp
+d/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/main.hpp
+d/usr/local/include/SDL2/SDL.h
+d/usr/local/include/SDL2/SDL_main.h
+d/usr/local/include/SDL2/SDL_stdinc.h
+d/usr/local/include/SDL2/SDL_config.h
+d/usr/local/include/SDL2/SDL_platform.h
+d/usr/local/include/SDL2/begin_code.h
+d/usr/local/include/SDL2/close_code.h
+d/usr/local/include/SDL2/SDL_assert.h
+d/usr/local/include/SDL2/SDL_atomic.h
+d/usr/local/include/SDL2/SDL_audio.h
+d/usr/local/include/SDL2/SDL_error.h
+d/usr/local/include/SDL2/SDL_endian.h
+d/usr/local/include/SDL2/SDL_mutex.h
+d/usr/local/include/SDL2/SDL_thread.h
+d/usr/local/include/SDL2/SDL_rwops.h
+d/usr/local/include/SDL2/SDL_clipboard.h
+d/usr/local/include/SDL2/SDL_cpuinfo.h
+d/usr/local/include/SDL2/SDL_events.h
+d/usr/local/include/SDL2/SDL_video.h
+d/usr/local/include/SDL2/SDL_pixels.h
+d/usr/local/include/SDL2/SDL_rect.h
+d/usr/local/include/SDL2/SDL_surface.h
+d/usr/local/include/SDL2/SDL_blendmode.h
+d/usr/local/include/SDL2/SDL_keyboard.h
+d/usr/local/include/SDL2/SDL_keycode.h
+d/usr/local/include/SDL2/SDL_scancode.h
+d/usr/local/include/SDL2/SDL_mouse.h
+d/usr/local/include/SDL2/SDL_joystick.h
+d/usr/local/include/SDL2/SDL_gamecontroller.h
+d/usr/local/include/SDL2/SDL_quit.h
+d/usr/local/include/SDL2/SDL_gesture.h
+d/usr/local/include/SDL2/SDL_touch.h
+d/usr/local/include/SDL2/SDL_filesystem.h
+d/usr/local/include/SDL2/SDL_haptic.h
+d/usr/local/include/SDL2/SDL_hints.h
+d/usr/local/include/SDL2/SDL_loadso.h
+d/usr/local/include/SDL2/SDL_log.h
+d/usr/local/include/SDL2/SDL_messagebox.h
+d/usr/local/include/SDL2/SDL_power.h
+d/usr/local/include/SDL2/SDL_render.h
+d/usr/local/include/SDL2/SDL_system.h
+d/usr/local/include/SDL2/SDL_timer.h
+d/usr/local/include/SDL2/SDL_version.h
+d/usr/local/include/SDL2/SDL_mixer.h
+d/usr/local/include/SDL2/SDL_ttf.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection92"Compile /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/main.cpp258"CompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/main.o main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compilerf46cbece2d89b941^c171d5cf2d89b941^---0#0#1#-19%DVTDocumentLocation2@91"file:///Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/main.cpp0000000000000000^2857"CompileC /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/main.o main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DCMAKE_INTDIR=\"Debug\" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -Wno-sign-conversion -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/Debug/include -I/usr/local/include -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/DerivedSources/x86_64 -I/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/DerivedSources -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/Debug -std=c++11 -DAPPLE -O0 -Wall -Wextra -pedantic -W -Wconversion -Wcast-qual -Wwrite-strings -Wstrict-aliasing -Wpointer-arith -Wcast-align -fno-common -MMD -MT dependencies -MF /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/main.d --serialize-diagnostics /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/main.dia -c /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src/main.cpp -o /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Objects-normal/x86_64/main.o36"54E52337-853E-47E6-9131-843C7FCFD393-
+b68960A17-B8E7-43C9-8E0C-E03D972C68CB
+
+CLd /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/Debug/ElBarrioEsLoPrimero normal x86_64
+r0
+
+CPhaseScriptExecution Run\ Script /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ElBarrioEsLoPrimero.build/Script-2F9BEA6019892D9B006BEA9E.sh
+r0
+

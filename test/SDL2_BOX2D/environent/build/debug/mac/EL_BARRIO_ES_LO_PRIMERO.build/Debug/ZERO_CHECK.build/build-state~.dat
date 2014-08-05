@@ -1,0 +1,29 @@
+TZERO_CHECK
+v6
+r1
+cCheck dependencies
+cPhaseScriptExecution CMake\ Rules /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-FC366AC5B23A424F96687F82.sh
+
+N/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-FC366AC5B23A424F96687F82.sh
+c0000000053D8F64E0000000000000109
+t1406727758
+s265
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies7f6a9cce2d89b941^69199dce2d89b941^---0#1#1#--18"Check dependencies36"3D35615D-EFE6-41A9-BE94-50DC15BC4545-
+
+CPhaseScriptExecution CMake\ Rules /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-FC366AC5B23A424F96687F82.sh
+s428420558.614640
+e428420558.738676
+r1
+xPhaseScriptExecution
+xCMake Rules
+x/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-FC366AC5B23A424F96687F82.sh
+oecho ""
+o
+omake -f /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/CMakeScripts/ReRunCMake.make
+omake[1]: `/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/CMakeFiles/cmake.check_cache' is up to date.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection37"Run custom shell script 'CMake Rules'209"PhaseScriptExecution CMake\ Rules /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-FC366AC5B23A424F96687F82.shb0ab9dce2d89b941^0c1fbdce2d89b941^-277"echo ""make -f /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/CMakeScripts/ReRunCMake.makemake[1]: `/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/CMakeFiles/cmake.check_cache' is up to date.3(21%IDEActivityLogMessage2@8"echo ""-428420558#0#8#-0#-----2@125"make -f /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/CMakeScripts/ReRunCMake.make-428420558#9#125#-0#-----2@143"make[1]: `/Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/CMakeFiles/cmake.check_cache' is up to date.-428420558#134#143#-0#-----0#0#1#--484"PhaseScriptExecution CMake\ Rules /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-FC366AC5B23A424F96687F82.sh    cd /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/src    /bin/sh -c /Users/uxioromero/Documents/tmp/el-barrio-es-lo-primero/test/environent/build/debug/mac/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-FC366AC5B23A424F96687F82.sh36"A75384EB-5465-4971-ACB9-EF72A077FA44-
+b793523E0-40B0-44C3-B9F5-DDD70B7B2794
+
