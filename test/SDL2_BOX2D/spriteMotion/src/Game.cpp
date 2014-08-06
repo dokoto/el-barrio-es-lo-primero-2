@@ -110,7 +110,8 @@ namespace barrio {
         
         furnitures.CreateFurnitures("furnituresTest", renderer, &physicsWorld);
         furnitures.loadFurnitures("conf/spriteSheets/furniture_1.json", "img/furnitures_1.png");
-        furnitures.addToPhysicsWorld();
+        furnitures.addToPhysicsWorld("objeto1", -6.0f, 2.0f);
+        furnitures.addToPhysicsWorld("objeto2", 6.0f, -3.0f);
         
         camera.follow(&players[0]);
     }

@@ -20,7 +20,6 @@ namespace barrio {
         destroy();
         
         SDL_Texture* newTexture = nullptr;
-        
         SDL_Surface* loadedSurface = IMG_Load( path.c_str() );
         if( loadedSurface == nullptr )
         {

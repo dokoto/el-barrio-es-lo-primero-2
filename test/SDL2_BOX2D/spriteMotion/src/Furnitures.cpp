@@ -16,38 +16,38 @@ namespace barrio {
         this->renderer = renderer;
     }
     
-    void Furnitures::addToPhysicsWorld(void)
+    void Furnitures::addToPhysicsWorld(const std::string& furnitureName, const float32 cartesianPosX, const float32 cartesianPosY)
     {
         float32 cartesianWidth = 0.0f, cartesianHeight = 0.0f;
-        float32 cartesianPosX = 0.0f, cartesianPosY = 0.0f;
-        for(map<std::string, SDL_Rect>::iterator it = furnitures.begin(); it != furnitures.end(); it++)
+        map<string, furnituresBodies>::iterator it;
+        it = furnitures.find(furnitureName);
+        if (it != furnitures.end())
         {
-            cartesianWidth = Utils::convWidthScreenToCartesian(it->second.w);
-            cartesianHeight = Utils::convHeightScreenToCartesian(it->second.h);
-            cartesianPosX = Utils::convXScreenToCartesian(it->second.x);
-            cartesianPosY = Utils::convYScreenToCartesian(it->second.y);
-            
+            cartesianWidth = Utils::convWidthScreenToCartesian(it->second.clip.w);
+            cartesianHeight = Utils::convHeightScreenToCartesian(it->second.clip.h);
             addToPhysicsWorldAsStaticPolygon(it->first, cartesianPosX, cartesianPosY, cartesianWidth, cartesianHeight);
-
-            cartesianWidth = 0.0f, cartesianHeight = 0.0f;
-            cartesianPosX = 0.0f, cartesianPosY = 0.0f;
         }
+        else
+        {
+            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Furniture %s not found:", furnitureName.c_str());
+            throw error::FURNITURE_NOT_FOUND;
+        }        
     }
     
     Clip Furnitures::getFurnitureClip(const std::string& furnitureName)
     {
-        map<string, SDL_Rect>::iterator it;
+        map<string, furnituresBodies>::iterator it;
         it = furnitures.find(furnitureName);
         if (it != furnitures.end())
         {
-            SDL_Rect rect = furnitures[furnitureName];
-            b2Vec2 position = this->getPhysicsBody()->GetPosition();
-            return Clip{position, rect};
+            furnituresBodies rect = furnitures[furnitureName];
+            b2Vec2 position = rect.body->GetPosition();
+            return Clip{position, rect.clip};
         }
         else
         {
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Furniture %s not found:", furnitureName.c_str());
-            return Clip{};
+            throw error::READ_SPRITESHEETS_JSON_FAIL;
         }
     }
     
@@ -64,14 +64,15 @@ namespace barrio {
             {
                 for(Json::Value::iterator it = jsonRoot.begin(); it != jsonRoot.end(); it++)
                 {
-                    
-                    SDL_Rect rect = {(*it)["x"].asInt(), (*it)["y"].asInt(), (*it)["w"].asInt(), (*it)["h"].asInt()};
+                    furnituresBodies rect;
+                    rect.clip = {(*it)["x"].asInt(), (*it)["y"].asInt(), (*it)["w"].asInt(), (*it)["h"].asInt()};
+                    rect.body = nullptr;
                     if (zoomX != 1 && zoomY != 1)
                     {
-                        rect.x *= zoomX;
-                        rect.y *= zoomY;
-                        rect.w *= zoomX;
-                        rect.h *= zoomY;
+                        rect.clip.x *= zoomX;
+                        rect.clip.y *= zoomY;
+                        rect.clip.w *= zoomX;
+                        rect.clip.h *= zoomY;
                     }
                     
                     furnitures.insert(make_pair(it.key().asString(), rect));

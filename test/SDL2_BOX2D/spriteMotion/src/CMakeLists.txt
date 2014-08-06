@@ -28,15 +28,17 @@ MESSAGE( STATUS "WATCOM                      : " ${WATCOM} )
 MESSAGE( "==========================================================================" )
 
 add_executable(${TARGET} 
-Animation.hpp
 Camera.cpp
 Camera.hpp
 Character.cpp
 Character.hpp
+Clip.hpp
 Colors.hpp
 Constants.hpp
 DebugInfo.cpp
 DebugInfo.hpp
+Furnitures.cpp
+Furnitures.hpp
 Game.cpp
 Game.hpp
 Physics.cpp
@@ -45,6 +47,7 @@ Sprite.cpp
 Sprite.hpp
 Texture.cpp
 Texture.hpp
+Utils.hpp
 errorsCodes.hpp
 main.cpp
 main.hpp	
