@@ -3,6 +3,7 @@
 #include "Camera.hpp"
 #include "errorsCodes.hpp"
 #include "Constants.hpp"
+#include "Utils.hpp"
 
 namespace barrio {
     using namespace std;
@@ -42,7 +43,7 @@ namespace barrio {
             if (this->spriteToFollow != nullptr)
             {                
                 b2Vec2 cartesianPos = spriteToFollow->getPosition();
-                SDL_Point ScreenPoint = this->convCartesianToScreen(cartesianPos);
+                SDL_Point ScreenPoint = Utils::convCartesianToScreen(cartesianPos);
                 this->cameraFollowObj(ScreenPoint, this->camera_position);
             }
             else
@@ -56,28 +57,38 @@ namespace barrio {
         }
     }
     
-    void Camera::renderAnimation(Animation animation, SDL_Renderer*& renderer, Texture* obj)
+    void Camera::renderClip(Clip clip, SDL_Renderer*& renderer, Texture* obj)
     {
-        this->renderObj(animation.getCartesianPosition(), animation.getclipInPx(), renderer, obj);
+        this->renderObj(clip.getCartesianPosition(), clip.getclipInPx(), renderer, obj);
     }
     
     void Camera::renderDebugInfo(SDL_Renderer*& renderer, DebugInfo* obj)
     {
+        const int pixelMargin = 20;
+        SDL_SetRenderDrawColor(renderer, color::BLACK, color::BLACK, color::BLACK, color::WHITE);
+        SDL_Rect r = SDL_Rect{2, 2, obj->getPixelWidth()+pixelMargin, obj->getPixelHeight()+pixelMargin};
+        SDL_RenderFillRect(renderer, &r);
+        
+        SDL_SetRenderDrawColor(renderer, color::WHITE, color::WHITE, color::WHITE, color::WHITE);
+        SDL_RenderDrawLine(renderer, consts::CAMERA_WIDTH_PX/2, 0, consts::CAMERA_WIDTH_PX/2, consts::CAMERA_HEIGHT_PX);
+        SDL_RenderDrawLine(renderer, 0, consts::CAMERA_HEIGHT_PX/2, consts::CAMERA_WIDTH_PX, consts::CAMERA_HEIGHT_PX/2);
+        
         SDL_Rect renderQuad = { 10, 10, obj->getPixelWidth(), obj->getPixelHeight() };
         SDL_RenderCopy( renderer, obj->getTexture(), NULL, &renderQuad );
     }
     
     void Camera::renderObj(const b2Vec2& cartesianPosition, const SDL_Rect& clip, SDL_Renderer*& renderer, Texture* obj)
     {
-        SDL_Point ScreenPoint = this->convCartesianToScreen(cartesianPosition);
+        SDL_Point ScreenPoint = Utils::convCartesianToScreen(cartesianPosition);
         
         if (ScreenPoint.x >= camera_position.x && ScreenPoint.x <= (camera_position.x + camera_width))
         {
             // Se aplica la diferencia entre la posicion horizontal del punto y la posicion horizontal de la camara
             ScreenPoint.x = ScreenPoint.x - camera_position.x;
             
-            ScreenPoint.x = ScreenPoint.x - clip.w;
-            ScreenPoint.y = ScreenPoint.y - clip.h;
+            // Temporal: Pruebas para fijar los marjenes del mundo
+            ScreenPoint.x = ScreenPoint.x - (clip.w/2);
+            ScreenPoint.y = ScreenPoint.y - (clip.h/2);
             
             this->render(ScreenPoint, clip, renderer, obj);
         }
@@ -92,37 +103,7 @@ namespace barrio {
         renderQuad.h = clip.h;
         
         SDL_RenderCopyEx( renderer, obj->getSDLTexture(), &clip, &renderQuad, angle, &center, flip );
-    }
-    
-    
-    SDL_Point Camera::convCartesianToScreen(const b2Vec2& CartesianCoords)
-    {
-        SDL_Point ScreenCooeds;
-        
-        if (CartesianCoords.x < 0.0f)
-        {
-            float32 result = world_middle_width - ( std::abs(CartesianCoords.x) * consts::PHYSICS_CONV_FACTOR_PX);
-            ScreenCooeds.x = static_cast<int>(result);
-        }
-        else
-        {
-            float32 result = world_middle_width + ( std::abs(CartesianCoords.x) * consts::PHYSICS_CONV_FACTOR_PX);
-            ScreenCooeds.x = static_cast<int>(result);
-        }
-        
-        if (CartesianCoords.y < 0)
-        {
-            float32 result = world_middle_height + ( std::abs(CartesianCoords.y) * consts::PHYSICS_CONV_FACTOR_PX);
-            ScreenCooeds.y = static_cast<int>(result);
-        }
-        else
-        {
-            float32 result = world_middle_height - ( std::abs(CartesianCoords.y) * consts::PHYSICS_CONV_FACTOR_PX);
-            ScreenCooeds.y = static_cast<int>(result);
-        }
-        
-        return ScreenCooeds;
-    }
+    }    
     
     void Camera::cameraFollowObj(const SDL_Point& screenPosition, SDL_Point& camera_position)
     {

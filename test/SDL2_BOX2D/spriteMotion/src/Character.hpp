@@ -6,7 +6,7 @@
 #include <vector>
 
 #include "Sprite.hpp"
-#include "Animation.hpp"
+#include "Clip.hpp"
 
 namespace barrio {
     
@@ -17,14 +17,14 @@ namespace barrio {
         Character(): renderer(nullptr) {}
         ~Character() {}
         
-        void loadAnimations(const std::string& spriteSheetsJsonPath, const std::string& spriteSheetsPngPath, const double zoomX = 1.0, const double zoomY = 1.0)
+        void loadAnimations(const std::string& jsonSheetpath, const std::string& pngSheetPath, const double zoomX = 1.0, const double zoomY = 1.0)
         {
-            loadSpriteSheetsJson(spriteSheetsJsonPath, zoomX, zoomY);
-            loadSpriteSheetsPng(spriteSheetsPngPath, zoomX, zoomY);
+            loadJsonSheet(jsonSheetpath, zoomX, zoomY);
+            loadPngSheet(pngSheetPath, zoomX, zoomY);
         }
         
         void addToPhysicsWorld(const float32 cartesianPosX, const float32 cartesianPosY);
-        Animation playAnimation(const std::string& animationName, const size_t delayInFrames);
+        Clip playAnimation(const std::string& animationName, const size_t delayInFrames);
         void stopAnimation();
         void setVelocity(b2Vec2 velocity);
         
@@ -39,10 +39,10 @@ namespace barrio {
         std::string currentAnimation;
         std::map<std::string, std::vector<SDL_Rect>> animations;
         
-        void loadSpriteSheetsJson(const std::string& spriteSheetsJsonPath, const double zoomX = 1.0, const double zoomY = 1.0);
-        void loadSpriteSheetsPng(const std::string& spriteSheetsPngPath, const double zoomX = 1.0, const double zoomY = 1.0)
+        void loadJsonSheet(const std::string& jsonSheetPath, const double zoomX = 1.0, const double zoomY = 1.0);
+        void loadPngSheet(const std::string& pngSheetPath, const double zoomX = 1.0, const double zoomY = 1.0)
         {
-            loadFromFile(spriteSheetsPngPath, renderer, zoomX, zoomY);
+            loadFromFile(pngSheetPath, renderer, zoomX, zoomY);
         }
     };
     

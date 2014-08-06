@@ -6,6 +6,7 @@
 
 #include "Texture.hpp"
 #include "Physics.hpp"
+#include "Utils.hpp"
 
 namespace barrio {
     
@@ -31,6 +32,7 @@ namespace barrio {
         b2Body* body;
         
     public:
+        
         b2Body* getPhysicsBody()
         {
             return body;
@@ -44,10 +46,11 @@ namespace barrio {
         
         const b2Vec2 getPosition() { return body->GetPosition(); }
         
-        float32 getPhysicsFullTextureWidth() { return physicsWorld->convPixelsToCartesian(this->getPixelWidth()); }
-        float32 getPhysicsFullTextureHeight() { return physicsWorld->convPixelsToCartesian(this->getPixelHeight()); }
+        float32 getPhysicsFullTextureWidth() { return Utils::convWidthScreenToCartesian(this->getPixelWidth()); }
+        float32 getPhysicsFullTextureHeight() { return Utils::convHeightScreenToCartesian(this->getPixelHeight()); }
         
-        void addToPhysicsWorld(const float32 cartesianPosX, const float32 cartesianPosY, const float32 cartesianWidth, const float32 cartesianHeight);
+        void addToPhysicsWorldAsPolygon(const std::string& name, const float32 cartesianPosX, const float32 cartesianPosY, const float32 cartesianWidth, const float32 cartesianHeight);
+        void addToPhysicsWorldAsStaticPolygon(const std::string& name, const float32 cartesianPosX, const float32 cartesianPosY, const float32 cartesianWidth, const float32 cartesianHeight);
         
     };
     

@@ -4,6 +4,7 @@
 
 #include "contrib/json.h"
 #include "errorsCodes.hpp"
+#include "Utils.hpp"
 
 
 namespace barrio {
@@ -18,7 +19,7 @@ namespace barrio {
         this->currentAnimation = "";
     }
     
-    Animation Character::playAnimation(const std::string& animationName, const size_t delayInFrames)
+    Clip Character::playAnimation(const std::string& animationName, const size_t delayInFrames)
     {
         if (currentAnimation != animationName)
         {
@@ -34,7 +35,7 @@ namespace barrio {
         }
         currentAnimationFrame = (currentAnimationFrame == animations[animationName].size()) ? 0 : currentAnimationFrame;
         delayFrameCount++;
-        return Animation {position, currentClip};
+        return Clip {position, currentClip};
 
     }
     
@@ -52,18 +53,18 @@ namespace barrio {
     
     void Character::addToPhysicsWorld(const float32 cartesianPosX, const float32 cartesianPosY)
     {
-        float32 cartesianWidth = physicsWorld->convPixelsToCartesian(animations.begin()->second.at(0).w);
-        float32 cartesianHeight = physicsWorld->convPixelsToCartesian(animations.begin()->second.at(0).h);
-        Sprite::addToPhysicsWorld(cartesianPosX, cartesianPosY, cartesianWidth, cartesianHeight);
+        float32 cartesianWidth = Utils::convWidthScreenToCartesian(animations.begin()->second.at(0).w);
+        float32 cartesianHeight = Utils::convHeightScreenToCartesian(animations.begin()->second.at(0).h);
+        addToPhysicsWorldAsPolygon(getName(), cartesianPosX, cartesianPosY, cartesianWidth, cartesianHeight);
     }
     
-    void Character::loadSpriteSheetsJson(const std::string& spriteSheetsJsonPath, const double zoomX, const double zoomY)
+    void Character::loadJsonSheet(const std::string& jsonSheetPath, const double zoomX, const double zoomY)
     {
         Json::Reader jsonReader;
         Json::Value jsonRoot;
         ifstream jsonFile;
         
-        jsonFile.open(spriteSheetsJsonPath.c_str(), ios::binary);
+        jsonFile.open(jsonSheetPath.c_str(), ios::binary);
         if (jsonFile.is_open())
         {
             if (jsonReader.parse(jsonFile, jsonRoot))
@@ -91,7 +92,7 @@ namespace barrio {
         else
         {
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR,
-                           "Error reading Json SpriteSheet file in : %s because:", spriteSheetsJsonPath.c_str(), strerror( errno ));
+                           "Error reading Json SpriteSheet file in : %s because:", jsonSheetPath.c_str(), strerror( errno ));
             throw error::READ_SPRITESHEETS_JSON_FAIL;
         }
         

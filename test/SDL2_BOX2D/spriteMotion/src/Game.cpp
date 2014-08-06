@@ -6,7 +6,7 @@
 #include "errorsCodes.hpp"
 #include "Colors.hpp"
 #include "Constants.hpp"
-#include "Animation.hpp"
+#include "Clip.hpp"
 
 
 namespace barrio {
@@ -95,21 +95,33 @@ namespace barrio {
     {
         debugInfo.CreateDebugInfo("ttf/ArialNarrowRegular.ttf", 15);
         camera.setBackground("img/backgorund_1679x600.png", renderer);
-        player.CreateCharacter("player", renderer, &physicsWorld);
+        
+        players[0].CreateCharacter("player1", renderer, &physicsWorld);
+        players[1].CreateCharacter("player2", renderer, &physicsWorld);
         //player.loadAnimations("conf/spriteSheets/player2.json", "img/player.png");
         //player.loadAnimations("conf/spriteSheets/player.json", "img/foo.png");
-        player.loadAnimations("conf/spriteSheets/player3.json", "img/point10x5px.png", 8.0, 8.0);
-        player.addToPhysicsWorld(0.0f, 0.0f);
-        camera.follow(&player);
+        
+        players[0].loadAnimations("conf/spriteSheets/player3.json", "img/point10x5px.png", 8.0, 8.0);
+        players[1].loadAnimations("conf/spriteSheets/player3.json", "img/point10x5px.png", 16.0, 16.0);
+        
+        players[0].addToPhysicsWorld(0.0f, 0.0f);
+        players[1].addToPhysicsWorld(3.0f, 0.0f);
+        
+        
+        furnitures.CreateFurnitures("furnituresTest", renderer, &physicsWorld);
+        furnitures.loadFurnitures("conf/spriteSheets/furniture_1.json", "img/furnitures_1.png");
+        furnitures.addToPhysicsWorld();
+        
+        camera.follow(&players[0]);
     }
     
     string Game::createDebugText()
     {
         std::stringstream os;
-        os << "[" << roundf(player.getPosition().x * 100) << "," << roundf(player.getPosition().y * 100) / 100 << "]";
+        os << "[ " << roundf(players[0].getPosition().x * 100.00f) / 100.00f << " , " << roundf(players[0].getPosition().y * 100.00f) / 100.00f << " ]";
         return os.str();
     }
-    
+        
     void Game::gameLoop(void)
     {
         bool quit = false;
@@ -133,33 +145,36 @@ namespace barrio {
             const Uint8* currentKeyStates = SDL_GetKeyboardState( NULL );
             if( currentKeyStates[ SDL_SCANCODE_UP ] )
             {
-                player.setVelocity(b2Vec2{0.0f, vel});
-                camera.renderAnimation(player.playAnimation("walking", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &player);
+                players[0].setVelocity(b2Vec2{0.0f, vel});
+                camera.renderClip(players[0].playAnimation("walking", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &players[0]);
             }
             else if( currentKeyStates[ SDL_SCANCODE_DOWN ] )
             {
-                player.setVelocity(b2Vec2{0.0f, -vel});
-                camera.renderAnimation(player.playAnimation("walking", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &player);
+                players[0].setVelocity(b2Vec2{0.0f, -vel});
+                camera.renderClip(players[0].playAnimation("walking", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &players[0]);
             }
             else if( currentKeyStates[ SDL_SCANCODE_LEFT ] )
             {
-                player.setVelocity(b2Vec2{-vel, 0.0f});
-                camera.renderAnimation(player.playAnimation("walking", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &player);
+                players[0].setVelocity(b2Vec2{-vel, 0.0f});
+                camera.renderClip(players[0].playAnimation("walking", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &players[0]);
             }
             else if( currentKeyStates[ SDL_SCANCODE_RIGHT ] )
             {
-                player.setVelocity(b2Vec2{vel, 0.0f});
-                camera.renderAnimation(player.playAnimation("walking", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &player);
+                players[0].setVelocity(b2Vec2{vel, 0.0f});
+                camera.renderClip(players[0].playAnimation("walking", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &players[0]);
             }
             else
             {
-                player.setVelocity(b2Vec2{0.0f, 0.0f});
-                camera.renderAnimation(player.playAnimation("stop", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &player);
+                players[0].setVelocity(b2Vec2{0.0f, 0.0f});
+                camera.renderClip(players[0].playAnimation("stop", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &players[0]);
             }
             
-            debugInfo.writeText(createDebugText(), SDL_Color{246, 0, 4, 0}, renderer);
-            camera.renderDebugInfo(renderer, &debugInfo);
+            camera.renderClip(players[1].playAnimation("stop", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &players[1]);
+            camera.renderClip(furnitures.getFurnitureClip("objeto1"), renderer, &furnitures);
+            camera.renderClip(furnitures.getFurnitureClip("objeto2"), renderer, &furnitures);
             
+            debugInfo.writeText(createDebugText(), SDL_Color{246, 0, 4, 0}, renderer);
+            camera.renderDebugInfo(renderer, &debugInfo);            
             
             SDL_RenderPresent( renderer );
         }

@@ -12,14 +12,15 @@ namespace barrio {
     
     class Physics
     {
-    public:
+    public:        
         Physics(void) : world(nullptr) {}
         ~Physics(void);
         void CreateWorld(const b2Vec2 gravity, const float32 cartesianWidth, const float32 cartesianHeight);
         Physics(const Physics&& a);
         
         void createPolygon(const std::string& spriteName, const float cartesianSpriteWidth, const float cartesianSpriteHeight, const b2Vec2& cartesianSpritePosition);
-        
+        void createStaticPolygon(const std::string& bodyName, const float cartesianSpriteWidth, const float cartesianSpriteHeight, const b2Vec2& cartesianSpritePosition);
+        void setWorldBundaries();
         void createLine(const b2Vec2& pointA, const b2Vec2& pointB);
         
         bool bodyExist(const std::string& name);
@@ -28,18 +29,12 @@ namespace barrio {
         void Step(void)
         {
             world->Step(timeStep, this->velocityIterations, this->positionIterations);
-        }
-        
-        float32 convPixelsToCartesian(const int pixels)
-        {
-            return pixels / RATIO_CONV;
-        }                
+        }              
         
     private:
         
         Physics(const Physics&){}
         Physics& operator=(const Physics&);
-        void definePhysicsWorldBundaries();
         
     private:
         b2Vec2 gravity;

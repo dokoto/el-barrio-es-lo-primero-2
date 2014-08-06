@@ -3,7 +3,7 @@
 
 #include "Texture.hpp"
 #include "Sprite.hpp"
-#include "Animation.hpp"
+#include "Clip.hpp"
 #include <Box2D/Box2D.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -24,8 +24,7 @@ namespace barrio {
         void renderBackGround(SDL_Renderer*& renderer);
         void renderObj(const b2Vec2& cartesianPosition, const SDL_Rect& clip, SDL_Renderer*& renderer, Texture* obj);
         void renderDebugInfo(SDL_Renderer*& renderer, DebugInfo* obj);
-        void renderAnimation(Animation animation, SDL_Renderer*& renderer, Texture* obj);
-        SDL_Point convCartesianToScreen(const b2Vec2& CartesianCoords);
+        void renderClip(Clip clip, SDL_Renderer*& renderer, Texture* obj);
         void cameraFollowObj(const SDL_Point& screenPosition, SDL_Point& camera_position);
         
         void follow(Sprite* spriteToFollow)

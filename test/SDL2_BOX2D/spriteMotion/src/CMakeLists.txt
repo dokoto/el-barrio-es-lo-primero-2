@@ -28,23 +28,28 @@ MESSAGE( STATUS "WATCOM                      : " ${WATCOM} )
 MESSAGE( "==========================================================================" )
 
 add_executable(${TARGET} 
-				main.cpp
-				main.hpp
-				errorsCodes.hpp
-				Texture.cpp
-				Texture.hpp
-				Game.cpp
-				Game.hpp
-				Colors.hpp
-				Character.cpp
-				Character.hpp		
-				Sprite.cpp
-				Sprite.hpp
-				Physics.cpp
-				Physics.hpp		
-				contrib/jsoncpp.cpp
-				contrib/json.h					
-				)
+Animation.hpp
+Camera.cpp
+Camera.hpp
+Character.cpp
+Character.hpp
+Colors.hpp
+Constants.hpp
+DebugInfo.cpp
+DebugInfo.hpp
+Game.cpp
+Game.hpp
+Physics.cpp
+Physics.hpp
+Sprite.cpp
+Sprite.hpp
+Texture.cpp
+Texture.hpp
+errorsCodes.hpp
+main.cpp
+main.hpp	
+contrib/jsoncpp.cpp
+contrib/json.h)
 
 
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")	

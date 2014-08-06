@@ -16,8 +16,6 @@ namespace barrio {
         Texture(void);
         virtual ~Texture(void);
         
-        bool loadFromFile(const std::string& path, SDL_Renderer*& renderer, const double zoomX = 1.0, const double zoomY = 1.0);
-        
         void destroy(void);
         
         void setColor(const Uint8 red, const Uint8 green, const Uint8 blue )
@@ -45,11 +43,13 @@ namespace barrio {
             return texture == nullptr;
         }
         
+        bool loadFromFile(const std::string& path, SDL_Renderer*& renderer, const double zoomX = 1.0, const double zoomY = 1.0);
+        
     private:
         SDL_Texture* texture;
         int pixelWidth;
         int pixelHeight;
-        
+                
     public:
         int getPixelWidth() const { return this->pixelWidth; }
         void sePixelWidth(const int pixelWidth) { this->pixelWidth = pixelWidth; }

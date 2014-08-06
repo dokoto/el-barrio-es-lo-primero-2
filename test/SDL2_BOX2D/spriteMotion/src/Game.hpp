@@ -9,6 +9,7 @@
 #include "Camera.hpp"
 #include "Character.hpp"
 #include "DebugInfo.hpp"
+#include "Furnitures.hpp"
 
 namespace barrio {
     
@@ -24,7 +25,8 @@ namespace barrio {
         SDL_Renderer* renderer;
         Physics physicsWorld;
         Camera camera;
-        Character player;
+        Character players[2];
+        Furnitures furnitures;
         DebugInfo debugInfo;
         
     private:

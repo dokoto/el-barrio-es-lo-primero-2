@@ -5,6 +5,7 @@
 
 namespace color {
     const Uint8 WHITE = 0xFF;
+    const Uint8 BLACK = 0x00;
 }
 
 #endif
