@@ -10,43 +10,43 @@ namespace barrio {
     
     using namespace std;
     
-    void Furnitures::CreateFurnitures(const std::string& name, SDL_Renderer*& renderer, Physics* physicsWorld)
+    void Furnitures::CreateFurnitures(const std::string& FurnituresName, SDL_Renderer*& renderer, Physics* physicsWorld, SDL_Color transparentColor)
     {
-        this->CreateSprite(name, physicsWorld);
+        this->CreateSprite(FurnituresName, transparentColor, physicsWorld);
         this->renderer = renderer;
     }
     
-    void Furnitures::addToPhysicsWorld(const std::string& furnitureName, const float32 cartesianPosX, const float32 cartesianPosY)
+    void Furnitures::addToPhysicsWorld(const std::string& furnitureElemenName, const float32 cartesianPosX, const float32 cartesianPosY)
     {
         float32 cartesianWidth = 0.0f, cartesianHeight = 0.0f;
-        map<string, furnituresBodies>::iterator it;
-        it = furnitures.find(furnitureName);
-        if (it != furnitures.end())
+        map<string, SDL_Rect>::iterator it;
+        it = furnituresPixelDimensions.find(furnitureElemenName);
+        if (it != furnituresPixelDimensions.end())
         {
-            cartesianWidth = Utils::convWidthScreenToCartesian(it->second.clip.w);
-            cartesianHeight = Utils::convHeightScreenToCartesian(it->second.clip.h);
+            cartesianWidth = Utils::convWidthScreenToCartesian(it->second.w);
+            cartesianHeight = Utils::convHeightScreenToCartesian(it->second.h);
             addToPhysicsWorldAsStaticPolygon(it->first, cartesianPosX, cartesianPosY, cartesianWidth, cartesianHeight);
         }
         else
         {
-            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Furniture %s not found:", furnitureName.c_str());
+            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Furniture %s not found:", furnitureElemenName.c_str());
             throw error::FURNITURE_NOT_FOUND;
         }        
     }
     
-    Clip Furnitures::getFurnitureClip(const std::string& furnitureName)
+    Clip Furnitures::getFurnitureClip(const std::string& furnitureElemenName)
     {
-        map<string, furnituresBodies>::iterator it;
-        it = furnitures.find(furnitureName);
-        if (it != furnitures.end())
+        map<string, SDL_Rect>::iterator it;
+        it = furnituresPixelDimensions.find(furnitureElemenName);
+        if (it != furnituresPixelDimensions.end())
         {
-            furnituresBodies rect = furnitures[furnitureName];
-            b2Vec2 position = rect.body->GetPosition();
-            return Clip{position, rect.clip};
+            SDL_Rect rect = furnituresPixelDimensions[furnitureElemenName];
+            b2Vec2 position = getPhysicsPosition(furnitureElemenName);
+            return Clip{position, rect};
         }
         else
         {
-            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Furniture %s not found:", furnitureName.c_str());
+            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Furniture %s not found:", furnitureElemenName.c_str());
             throw error::READ_SPRITESHEETS_JSON_FAIL;
         }
     }
@@ -64,18 +64,18 @@ namespace barrio {
             {
                 for(Json::Value::iterator it = jsonRoot.begin(); it != jsonRoot.end(); it++)
                 {
-                    furnituresBodies rect;
-                    rect.clip = {(*it)["x"].asInt(), (*it)["y"].asInt(), (*it)["w"].asInt(), (*it)["h"].asInt()};
-                    rect.body = nullptr;
+                    SDL_Rect rect;
+                    rect = {(*it)["x"].asInt(), (*it)["y"].asInt(), (*it)["w"].asInt(), (*it)["h"].asInt()};
+                    
                     if (zoomX != 1 && zoomY != 1)
                     {
-                        rect.clip.x *= zoomX;
-                        rect.clip.y *= zoomY;
-                        rect.clip.w *= zoomX;
-                        rect.clip.h *= zoomY;
+                        rect.x *= zoomX;
+                        rect.y *= zoomY;
+                        rect.w *= zoomX;
+                        rect.h *= zoomY;
                     }
                     
-                    furnitures.insert(make_pair(it.key().asString(), rect));
+                    furnituresPixelDimensions.insert(make_pair(it.key().asString(), rect));
                 }
             }
         }

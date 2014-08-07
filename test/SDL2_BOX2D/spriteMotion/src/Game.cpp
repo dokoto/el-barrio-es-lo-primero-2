@@ -107,8 +107,7 @@ namespace barrio {
         players[0].addToPhysicsWorld(0.0f, 0.0f);
         players[1].addToPhysicsWorld(3.0f, 0.0f);
         
-        
-        furnitures.CreateFurnitures("furnituresTest", renderer, &physicsWorld);
+        furnitures.CreateFurnitures("furnituresTest", renderer, &physicsWorld, SDL_Color{0, 255, 0, 0});
         furnitures.loadFurnitures("conf/spriteSheets/furniture_1.json", "img/furnitures_1.png");
         furnitures.addToPhysicsWorld("objeto1", -6.0f, 2.0f);
         furnitures.addToPhysicsWorld("objeto2", 6.0f, -3.0f);

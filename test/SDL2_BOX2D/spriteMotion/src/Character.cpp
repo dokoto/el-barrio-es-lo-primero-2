@@ -10,9 +10,9 @@
 namespace barrio {
     using namespace std;
     
-    void Character::CreateCharacter(const std::string& name, SDL_Renderer*& renderer, Physics* physicsWorld)
+    void Character::CreateCharacter(const std::string& name, SDL_Renderer*& renderer, Physics* physicsWorld, SDL_Color transparentColor)
     {
-        this->CreateSprite(name, physicsWorld);
+        this->CreateSprite(name, transparentColor, physicsWorld);
         this->renderer = renderer;
         this->currentAnimationFrame = 0;
         this->delayFrameCount = 0;
@@ -27,7 +27,7 @@ namespace barrio {
         }
         this->currentAnimation = animationName;
         SDL_Rect currentClip = animations[animationName].at(currentAnimationFrame);
-        b2Vec2 position = this->getPhysicsBody()->GetPosition();
+        b2Vec2 position = getPhysicsBody(getSpriteName())->GetPosition();
         if (delayFrameCount == delayInFrames)
         {
             delayFrameCount = 0;
@@ -46,16 +46,12 @@ namespace barrio {
         delayFrameCount = 0;
     }
     
-    void Character::setVelocity(b2Vec2 velocity)
-    {
-        this->getPhysicsBody()->SetLinearVelocity(velocity);
-    }
     
     void Character::addToPhysicsWorld(const float32 cartesianPosX, const float32 cartesianPosY)
     {
         float32 cartesianWidth = Utils::convWidthScreenToCartesian(animations.begin()->second.at(0).w);
         float32 cartesianHeight = Utils::convHeightScreenToCartesian(animations.begin()->second.at(0).h);
-        addToPhysicsWorldAsPolygon(getName(), cartesianPosX, cartesianPosY, cartesianWidth, cartesianHeight);
+        addToPhysicsWorldAsPolygon(getSpriteName(), cartesianPosX, cartesianPosY, cartesianWidth, cartesianHeight);
     }
     
     void Character::loadJsonSheet(const std::string& jsonSheetPath, const double zoomX, const double zoomY)

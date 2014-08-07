@@ -14,42 +14,49 @@ namespace barrio {
     class Sprite : public Texture
     {
     public:
-        void CreateSprite(const std::string& name, Physics* world);
-        Sprite(void) : physicsWorld(nullptr), body(nullptr) {}
+        void CreateSprite(const std::string& spriteName, SDL_Color transparentColor, Physics* world);
+        Sprite(void) : physicsWorld(nullptr) {}
         virtual ~Sprite(void)
         {
-            printf("Destroy Physics Sprite %s...OK\n", name.c_str());
+            printf("Destroy Physics Sprite %s...OK\n", spriteName.c_str());
         }
         
     private:
-        std::string name;
+        std::string spriteName;
         
         Sprite(const Sprite&){}
         Sprite& operator=(const Sprite&);
         
     protected:
         Physics* physicsWorld;
-        b2Body* body;
         
     public:
         
-        b2Body* getPhysicsBody()
+        inline b2Vec2 getPhysicsPosition (const std::string& physicsBodyName) const
         {
-            return body;
+            return physicsWorld->getBody(physicsBodyName)->GetPosition();
         }
         
-        std::string getName() const { return this->name; }
-        void setName(const std::string& name){ this->name = name; }
+        inline b2Body* getPhysicsBody (const std::string& physicsBodyName) const
+        {
+            return physicsWorld->getBody(physicsBodyName);
+        }
         
-        const b2Vec2 getVelocity() const { return body->GetLinearVelocity(); }
-        void setVelocity(const b2Vec2& velocity){ body->SetLinearVelocity(velocity); }
+        std::string getSpriteName() const { return this->spriteName; }
+        void setSpriteName(const std::string& spriteName){ this->spriteName = spriteName; }
+                        
+        inline float32 getPhysicsFullTextureWidth()
+        {
+            return Utils::convWidthScreenToCartesian(this->getPixelWidth());
+        }
         
-        const b2Vec2 getPosition() { return body->GetPosition(); }
-        
-        float32 getPhysicsFullTextureWidth() { return Utils::convWidthScreenToCartesian(this->getPixelWidth()); }
-        float32 getPhysicsFullTextureHeight() { return Utils::convHeightScreenToCartesian(this->getPixelHeight()); }
+        inline float32 getPhysicsFullTextureHeight()
+        {
+            return Utils::convHeightScreenToCartesian(this->getPixelHeight());
+        }
         
         void addToPhysicsWorldAsPolygon(const std::string& name, const float32 cartesianPosX, const float32 cartesianPosY, const float32 cartesianWidth, const float32 cartesianHeight);
+        
         void addToPhysicsWorldAsStaticPolygon(const std::string& name, const float32 cartesianPosX, const float32 cartesianPosY, const float32 cartesianWidth, const float32 cartesianHeight);
         
     };

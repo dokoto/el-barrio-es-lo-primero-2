@@ -42,7 +42,10 @@ namespace barrio {
                 }
             }
             
-            SDL_SetColorKey( loadedSurface, SDL_TRUE, SDL_MapRGB( loadedSurface->format, 0, 0xFF, 0xFF ) );
+            if (SDL_SetColorKey( loadedSurface, SDL_TRUE, SDL_MapRGB( loadedSurface->format, transparentColor.r, transparentColor.g, transparentColor.b ) ) != 0)
+            {
+                SDL_LogMessage(SDL_LOG_CATEGORY_VIDEO, SDL_LOG_PRIORITY_WARN, "Unable to set transparent color.");
+            }
             
             newTexture = SDL_CreateTextureFromSurface( renderer, loadedSurface );
             if( newTexture == nullptr )

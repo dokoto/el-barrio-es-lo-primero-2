@@ -2,7 +2,7 @@
 #define __EL_BARRIO_ES_LO_PRIMERO__Camera__
 
 #include "Texture.hpp"
-#include "Sprite.hpp"
+#include "Character.hpp"
 #include "Clip.hpp"
 #include <Box2D/Box2D.h>
 #include <SDL2/SDL.h>
@@ -27,7 +27,7 @@ namespace barrio {
         void renderClip(Clip clip, SDL_Renderer*& renderer, Texture* obj);
         void cameraFollowObj(const SDL_Point& screenPosition, SDL_Point& camera_position);
         
-        void follow(Sprite* spriteToFollow)
+        void follow(Character* spriteToFollow)
         {
             this->spriteToFollow = spriteToFollow;
             oldCartesianPosOfFollowSprite = spriteToFollow->getPosition();
@@ -35,6 +35,7 @@ namespace barrio {
         
         void setBackground(const std::string& backGroundPath, SDL_Renderer*& renderer)
         {
+            background.setTransparentColor(SDL_Color{0xFF, 0xFF, 0xFF, 0});
             background.loadFromFile(backGroundPath, renderer);
         }
         
@@ -66,7 +67,7 @@ namespace barrio {
         double angle;
         SDL_Point center;
         SDL_RendererFlip flip;
-        Sprite* spriteToFollow;
+        Character* spriteToFollow;
         Texture background;
         b2Vec2 oldCartesianPosOfFollowSprite;
         

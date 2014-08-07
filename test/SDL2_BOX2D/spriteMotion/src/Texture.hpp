@@ -23,6 +23,11 @@ namespace barrio {
             SDL_SetTextureColorMod( texture, red, green, blue );
         }
         
+        void setTransparentColor(SDL_Color transparentColor = {0xFF, 0xFF, 0xFF, 0})
+        {
+            this->transparentColor = transparentColor;
+        }
+        
         void setBlendMode( SDL_BlendMode blending )
         {
             SDL_SetTextureBlendMode( texture, blending );
@@ -47,6 +52,7 @@ namespace barrio {
         
     private:
         SDL_Texture* texture;
+        SDL_Color transparentColor;
         int pixelWidth;
         int pixelHeight;
                 

@@ -10,17 +10,10 @@
 
 namespace barrio {
     
-    class furnituresBodies
-    {
-    public:
-        SDL_Rect clip;
-        b2Body* body;
-    };
-    
     class Furnitures : public Sprite
     {
     public:
-        void CreateFurnitures(const std::string& name, SDL_Renderer*& lrenderer, Physics* physicsWorld);
+        void CreateFurnitures(const std::string& FurnituresName, SDL_Renderer*& lrenderer, Physics* physicsWorld, SDL_Color transparentColor = {0xFF, 0xFF, 0xFF, 0});
         Furnitures(): renderer(nullptr) {}
         ~Furnitures() {}
         
@@ -30,8 +23,8 @@ namespace barrio {
             loadPngSheet(pngSheetPath, zoomX, zoomY);
         }
         
-        void addToPhysicsWorld(const std::string& furnitureName, const float32 cartesianPosX, const float32 cartesianPosY);
-        Clip getFurnitureClip(const std::string& furnitureName);
+        void addToPhysicsWorld(const std::string& furnitureElemenName, const float32 cartesianPosX, const float32 cartesianPosY);
+        Clip getFurnitureClip(const std::string& furnitureElemenName);
         
     private:
         
@@ -40,7 +33,7 @@ namespace barrio {
         
     private:
         SDL_Renderer* renderer;
-        std::map<std::string, furnituresBodies> furnitures;
+        std::map<std::string, SDL_Rect> furnituresPixelDimensions;
         
         void loadJsonSheet(const std::string& jsonSheetPath, const double zoomX = 1.0, const double zoomY = 1.0);
         void loadPngSheet(const std::string& pngSheetPath, const double zoomX = 1.0, const double zoomY = 1.0)
