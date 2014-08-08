@@ -98,19 +98,23 @@ namespace barrio {
         
         players[0].CreateCharacter("player1", renderer, &physicsWorld);
         players[1].CreateCharacter("player2", renderer, &physicsWorld);
-        //player.loadAnimations("conf/spriteSheets/player2.json", "img/player.png");
-        //player.loadAnimations("conf/spriteSheets/player.json", "img/foo.png");
+
+        //player.loadAnimations("conf/spriteSheets/foo.json", "img/foo.png");
+        //players[0].loadAnimations("conf/spriteSheets/point10x5px.json", "img/point10x5px.png", 8.0, 8.0);
         
-        players[0].loadAnimations("conf/spriteSheets/player3.json", "img/point10x5px.png", 8.0, 8.0);
-        players[1].loadAnimations("conf/spriteSheets/player3.json", "img/point10x5px.png", 16.0, 16.0);
+        players[0].loadAnimations("conf/spriteSheets/player1.json", "img/player1.png", 2.0, 2.0);
+        players[1].loadAnimations("conf/spriteSheets/player2.json", "img/player2.png", 2.0, 2.0);
         
-        players[0].addToPhysicsWorld(0.0f, 0.0f);
-        players[1].addToPhysicsWorld(3.0f, 0.0f);
+        //players[0].loadAnimations("conf/spriteSheets/point10x5px.json", "img/point10x5px.png", 8.0, 8.0);
+        //players[1].loadAnimations("conf/spriteSheets/point10x5px.json", "img/point10x5px.png", 16.0, 16.0);
+        
+        players[0].addToPhysicsWorld(-5.0f, -3.0f);
+        players[1].addToPhysicsWorld(-5.3f, -4.0f);
         
         furnitures.CreateFurnitures("furnituresTest", renderer, &physicsWorld, SDL_Color{0, 255, 0, 0});
         furnitures.loadFurnitures("conf/spriteSheets/furniture_1.json", "img/furnitures_1.png");
         furnitures.addToPhysicsWorld("objeto1", -6.0f, 2.0f);
-        furnitures.addToPhysicsWorld("objeto2", 6.0f, -3.0f);
+        furnitures.addToPhysicsWorld("objeto2", 6.0f, 2.0f);
         
         camera.follow(&players[0]);
     }
@@ -126,9 +130,10 @@ namespace barrio {
     {
         bool quit = false;
         SDL_Event e;
-        loadMedia();
-        float32 vel = 1.90f;
+        string acction;
+        b2Vec2 velocity;
         
+        loadMedia();
         while (quit == false)
         {
             while( SDL_PollEvent( &e ) != 0 )
@@ -142,42 +147,101 @@ namespace barrio {
             physicsWorld.Step();
             camera.renderBackGround(renderer);
             
-            const Uint8* currentKeyStates = SDL_GetKeyboardState( NULL );
-            if( currentKeyStates[ SDL_SCANCODE_UP ] )
-            {
-                players[0].setVelocity(b2Vec2{0.0f, vel});
-                camera.renderClip(players[0].playAnimation("walking", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &players[0]);
-            }
-            else if( currentKeyStates[ SDL_SCANCODE_DOWN ] )
-            {
-                players[0].setVelocity(b2Vec2{0.0f, -vel});
-                camera.renderClip(players[0].playAnimation("walking", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &players[0]);
-            }
-            else if( currentKeyStates[ SDL_SCANCODE_LEFT ] )
-            {
-                players[0].setVelocity(b2Vec2{-vel, 0.0f});
-                camera.renderClip(players[0].playAnimation("walking", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &players[0]);
-            }
-            else if( currentKeyStates[ SDL_SCANCODE_RIGHT ] )
-            {
-                players[0].setVelocity(b2Vec2{vel, 0.0f});
-                camera.renderClip(players[0].playAnimation("walking", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &players[0]);
-            }
-            else
-            {
-                players[0].setVelocity(b2Vec2{0.0f, 0.0f});
-                camera.renderClip(players[0].playAnimation("stop", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &players[0]);
-            }
+            debugInfo.writeText(createDebugText(), SDL_Color{246, 0, 4, 0}, renderer);
+            camera.renderDebugInfo(renderer, &debugInfo);
             
-            camera.renderClip(players[1].playAnimation("stop", consts::DELAY_BETWEEN_ANIMATIONS), renderer, &players[1]);
             camera.renderClip(furnitures.getFurnitureClip("objeto1"), renderer, &furnitures);
             camera.renderClip(furnitures.getFurnitureClip("objeto2"), renderer, &furnitures);
             
-            debugInfo.writeText(createDebugText(), SDL_Color{246, 0, 4, 0}, renderer);
-            camera.renderDebugInfo(renderer, &debugInfo);            
+            handleKeyBoard1(acction, velocity);
+            players[0].setVelocity(velocity);
+            camera.renderClip(players[0].playAnimation(acction, consts::DELAY_BETWEEN_ANIMATIONS), renderer, &players[0]);
+            
+            //handleKeyBoard2(acction, velocity);
+            //players[1].setVelocity(velocity);
+            //camera.renderClip(players[1].playAnimation(acction, consts::DELAY_BETWEEN_ANIMATIONS), renderer, &players[1]);
+            
+            //camera.switchFlipOFF();
+            
+            
+            
             
             SDL_RenderPresent( renderer );
         }
+    }
+    
+    void Game::handleKeyBoard1(std::string& action, b2Vec2& velocity)
+    {
+        float32 vel = 1.90f;
+        const Uint8* currentKeyStates = SDL_GetKeyboardState( NULL );
+        if( currentKeyStates[ SDL_SCANCODE_UP ] )
+        {
+            velocity = {0.0f, vel};
+            action = "walking";
+        }
+        else if( currentKeyStates[ SDL_SCANCODE_DOWN ] )
+        {
+            velocity = {0.0f, -vel};
+            action = "walking";
+        }
+        else if( currentKeyStates[ SDL_SCANCODE_LEFT ] )
+        {
+            players[0].setToFlip(true);
+            velocity = {-vel, 0.0f};
+            action = "walking";
+          }
+        else if( currentKeyStates[ SDL_SCANCODE_RIGHT ] )
+        {
+            players[0].setToFlip(false);
+            velocity = {vel, 0.0f};
+            action = "walking";
+        }
+        else if( currentKeyStates[ SDL_SCANCODE_SPACE ] )
+        {
+            velocity = {0.0f, 0.0f};
+            action = "punch";
+        }
+        else
+        {
+            if (players[0].isAnimationStop())
+            {
+                velocity = {0.0f, 0.0f};
+                action = "stop";
+            }
+        }
+
+    }
+    
+    void Game::handleKeyBoard2(std::string& action, b2Vec2& velocity)
+    {
+        float32 vel = 1.90f;
+        const Uint8* currentKeyStates = SDL_GetKeyboardState( NULL );
+        if( currentKeyStates[ SDL_SCANCODE_W ] )
+        {
+            velocity = {0.0f, vel};
+            action = "walking";
+        }
+        else if( currentKeyStates[ SDL_SCANCODE_S ] )
+        {
+            velocity = {0.0f, -vel};
+            action = "walking";
+        }
+        else if( currentKeyStates[ SDL_SCANCODE_A ] )
+        {
+            velocity = {-vel, 0.0f};
+            action = "walking";
+        }
+        else if( currentKeyStates[ SDL_SCANCODE_D ] )
+        {
+            velocity = {vel, 0.0f};
+            action = "walking";
+        }
+        else
+        {
+            velocity = {0.0f, 0.0f};
+            action = "stop";
+        }
+        
     }
     
 }

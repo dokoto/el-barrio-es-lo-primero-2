@@ -22,7 +22,7 @@ namespace barrio {
         }
         
     private:
-        std::string spriteName;
+        std::string spriteName;        
         
         Sprite(const Sprite&){}
         Sprite& operator=(const Sprite&);
@@ -31,7 +31,7 @@ namespace barrio {
         Physics* physicsWorld;
         
     public:
-        
+                
         inline b2Vec2 getPhysicsPosition (const std::string& physicsBodyName) const
         {
             return physicsWorld->getBody(physicsBodyName)->GetPosition();

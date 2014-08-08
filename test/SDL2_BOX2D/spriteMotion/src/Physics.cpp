@@ -39,14 +39,15 @@ namespace barrio {
         b2Body* edge = world->CreateBody(&groundDef);
         
         
-        b2Vec2 worldBundaries[4];
+        b2Vec2 worldBundaries[5];
         worldBundaries[0].Set(x_minus, y);
         worldBundaries[1].Set(x, y);
         worldBundaries[2].Set(x, y_minus);
         worldBundaries[3].Set(x_minus, y_minus);
+        worldBundaries[4].Set(x_minus, y);
         
         b2ChainShape chain;
-        chain.CreateChain(worldBundaries, 4);
+        chain.CreateChain(worldBundaries, 5);
         
         edge->CreateFixture(&chain, 0.0f);
         

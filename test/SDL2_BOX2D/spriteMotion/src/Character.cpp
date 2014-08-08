@@ -16,32 +16,65 @@ namespace barrio {
         this->renderer = renderer;
         this->currentAnimationFrame = 0;
         this->delayFrameCount = 0;
-        this->currentAnimation = "";
+        this->currentAnimationName = "";
     }
     
     Clip Character::playAnimation(const std::string& animationName, const size_t delayInFrames)
     {
-        if (currentAnimation != animationName)
-        {
-            stopAnimation();
-        }
-        this->currentAnimation = animationName;
-        SDL_Rect currentClip = animations[animationName].at(currentAnimationFrame);
+        if (this->currentAnimationName.empty())
+            this->currentAnimationName = animationName;
+        
+        SDL_Rect currentClip = animations[this->currentAnimationName].at(currentAnimationFrame);
         b2Vec2 position = getPhysicsBody(getSpriteName())->GetPosition();
         if (delayFrameCount == delayInFrames)
         {
             delayFrameCount = 0;
             currentAnimationFrame++;
         }
-        currentAnimationFrame = (currentAnimationFrame == animations[animationName].size()) ? 0 : currentAnimationFrame;
+        if (currentAnimationFrame == animations[this->currentAnimationName].size())
+            stopAnimation();
+        
         delayFrameCount++;
         return Clip {position, currentClip};
-
+    }
+    /*
+    Clip Character::playAnimation(const std::string& animationName, const size_t delayInFrames)
+    {
+        if (this->currentAnimationName != animationName)
+           stopAnimation();
+        
+        this->currentAnimationName = animationName;        
+        SDL_Rect currentClip = animations[this->currentAnimationName].at(currentAnimationFrame);
+        b2Vec2 position = getPhysicsBody(getSpriteName())->GetPosition();
+        if (delayFrameCount == delayInFrames)
+        {
+            delayFrameCount = 0;
+            currentAnimationFrame++;
+            if (currentAnimationName != "stop")
+                printf("[%d] [%d,%d] currentAnimationName: %s\n", currentAnimationFrame, currentClip.x, currentClip.y, this->currentAnimationName.c_str());
+        }
+        
+        currentAnimationFrame = (currentAnimationFrame == animations[this->currentAnimationName].size()) ? 0 : currentAnimationFrame;
+        delayFrameCount++;
+        
+        
+        return Clip {position, currentClip};
+    }
+     */
+    
+    void Character::setToFlip(bool flip)
+    {
+        Sprite::setToFlip(flip);
+    }
+    
+    bool Character::getToFlip(void) const
+    {
+        return Sprite::getToFlip();
     }
     
     void Character::stopAnimation()
     {
-        currentAnimation.clear();
+        currentAnimationName.clear();
         currentAnimationFrame = 0;
         delayFrameCount = 0;
     }

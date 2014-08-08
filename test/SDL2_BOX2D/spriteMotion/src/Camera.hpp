@@ -39,9 +39,6 @@ namespace barrio {
             background.loadFromFile(backGroundPath, renderer);
         }
         
-        void switchHorizontalFlip(void) { flip = SDL_FLIP_HORIZONTAL; };
-        void switchVerticalFlip(void) { flip = SDL_FLIP_VERTICAL; };
-        void switchFlipOFF() { flip = SDL_FLIP_NONE; };
         SDL_RendererFlip getFlip(void) { return flip; }
         
         SDL_Point getCenter(void) { return center; }
@@ -51,7 +48,11 @@ namespace barrio {
         
     private:
         Camera(const Camera&){}
-        Camera& operator=(const Camera&);                
+        Camera& operator=(const Camera&);
+        
+        //void switchHorizontalFlip(void) { flip = SDL_FLIP_HORIZONTAL; };
+        //void switchVerticalFlip(void) { flip = SDL_FLIP_VERTICAL; };
+        //void switchFlipOFF() { flip = SDL_FLIP_NONE; };
         
     private:
         SDL_Point camera_position;

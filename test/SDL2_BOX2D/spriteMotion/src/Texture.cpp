@@ -5,7 +5,8 @@ namespace barrio {
     Texture::Texture(void) :
     texture{nullptr},
     pixelWidth{0},
-    pixelHeight{0}
+    pixelHeight{0},
+    toFlip{false}
     {
         
     }

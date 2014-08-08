@@ -34,6 +34,15 @@ namespace barrio {
         }        
     }
     
+    void Furnitures::setToFlip(bool)
+    {
+    }
+    
+    bool Furnitures::getToFlip(void) const
+    {
+        return false;
+    }
+    
     Clip Furnitures::getFurnitureClip(const std::string& furnitureElemenName)
     {
         map<string, SDL_Rect>::iterator it;

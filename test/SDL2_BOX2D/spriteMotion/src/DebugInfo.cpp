@@ -56,7 +56,7 @@ namespace barrio {
     {
         if( texture != nullptr )
         {
-            printf("Destroing Texture\n");
+            //printf("Destroing Texture\n");
             SDL_DestroyTexture( texture );
             texture = nullptr;
             pixelWidth = 0;

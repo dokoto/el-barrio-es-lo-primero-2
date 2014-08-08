@@ -48,6 +48,9 @@ namespace barrio {
             return texture == nullptr;
         }
         
+        virtual void setToFlip(bool flip){ this->toFlip = flip; }
+        virtual bool getToFlip(void) const { return this->toFlip; }
+        
         bool loadFromFile(const std::string& path, SDL_Renderer*& renderer, const double zoomX = 1.0, const double zoomY = 1.0);
         
     private:
@@ -55,6 +58,7 @@ namespace barrio {
         SDL_Color transparentColor;
         int pixelWidth;
         int pixelHeight;
+        bool toFlip;
                 
     public:
         int getPixelWidth() const { return this->pixelWidth; }

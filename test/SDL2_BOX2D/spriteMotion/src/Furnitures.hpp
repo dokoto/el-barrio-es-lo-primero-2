@@ -26,6 +26,9 @@ namespace barrio {
         void addToPhysicsWorld(const std::string& furnitureElemenName, const float32 cartesianPosX, const float32 cartesianPosY);
         Clip getFurnitureClip(const std::string& furnitureElemenName);
         
+        void setToFlip(bool flip);
+        bool getToFlip(void) const;
+        
     private:
         
         Furnitures(const Furnitures&){}

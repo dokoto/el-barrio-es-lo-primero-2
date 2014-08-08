@@ -32,6 +32,8 @@ namespace barrio {
     private:
         void loadMedia(void);
         std::string createDebugText();
+        void handleKeyBoard1(std::string& action, b2Vec2& velocity);
+        void handleKeyBoard2(std::string& action, b2Vec2& velocity);
     };
     
 }

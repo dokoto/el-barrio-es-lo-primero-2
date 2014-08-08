@@ -38,6 +38,14 @@ namespace barrio {
             return getPhysicsBody(getSpriteName())->GetPosition();
         }
         
+        inline bool isAnimationStop(void)
+        {
+            return currentAnimationName.empty();
+        }
+        
+        void setToFlip(bool flip);
+        bool getToFlip(void) const;
+        
         void addToPhysicsWorld(const float32 cartesianPosX, const float32 cartesianPosY);
         Clip playAnimation(const std::string& animationName, const size_t delayInFrames);
         void stopAnimation();
@@ -50,7 +58,7 @@ namespace barrio {
     private:
         SDL_Renderer* renderer;
         size_t currentAnimationFrame, delayFrameCount;
-        std::string currentAnimation;
+        std::string currentAnimationName;
         std::map<std::string, std::vector<SDL_Rect>> animations;
         
         void loadJsonSheet(const std::string& jsonSheetPath, const double zoomX = 1.0, const double zoomY = 1.0);

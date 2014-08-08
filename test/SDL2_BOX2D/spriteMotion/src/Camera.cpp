@@ -90,7 +90,7 @@ namespace barrio {
             ScreenPoint.x = ScreenPoint.x - (clip.w/2);
             ScreenPoint.y = ScreenPoint.y - (clip.h/2);
             
-            this->render(ScreenPoint, clip, renderer, obj);
+            this->render(ScreenPoint, clip, renderer, obj, 0.0, SDL_Point{0, 0}, (obj->getToFlip())? SDL_FLIP_HORIZONTAL:SDL_FLIP_NONE );
         }
         
     }
