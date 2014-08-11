@@ -102,19 +102,19 @@ namespace barrio {
         //player.loadAnimations("conf/spriteSheets/foo.json", "img/foo.png");
         //players[0].loadAnimations("conf/spriteSheets/point10x5px.json", "img/point10x5px.png", 8.0, 8.0);
         
-        players[0].loadAnimations("conf/spriteSheets/player1.json", "img/player1.png", 2.0, 2.0);
-        players[1].loadAnimations("conf/spriteSheets/player2.json", "img/player2.png", 2.0, 2.0);
+        //players[0].loadAnimations("conf/spriteSheets/player1.json", "img/player1.png", 2.0, 2.0);
+        //players[1].loadAnimations("conf/spriteSheets/player2.json", "img/player2.png", 2.0, 2.0);
         
-        //players[0].loadAnimations("conf/spriteSheets/point10x5px.json", "img/point10x5px.png", 8.0, 8.0);
+        players[0].loadAnimations("conf/spriteSheets/point10x5px.json", "img/point10x5px.png", 5.0, 15.0);
         //players[1].loadAnimations("conf/spriteSheets/point10x5px.json", "img/point10x5px.png", 16.0, 16.0);
         
         players[0].addToPhysicsWorld(-5.0f, -3.0f);
-        players[1].addToPhysicsWorld(-5.3f, -4.0f);
+        //players[1].addToPhysicsWorld(-5.3f, -4.0f);
         
         furnitures.CreateFurnitures("furnituresTest", renderer, &physicsWorld, SDL_Color{0, 255, 0, 0});
         furnitures.loadFurnitures("conf/spriteSheets/furniture_1.json", "img/furnitures_1.png");
         furnitures.addToPhysicsWorld("objeto1", -6.0f, 2.0f);
-        furnitures.addToPhysicsWorld("objeto2", 6.0f, 2.0f);
+        //furnitures.addToPhysicsWorld("objeto2", 6.0f, 2.0f);
         
         camera.follow(&players[0]);
     }
@@ -125,7 +125,87 @@ namespace barrio {
         os << "[ " << roundf(players[0].getPosition().x * 100.00f) / 100.00f << " , " << roundf(players[0].getPosition().y * 100.00f) / 100.00f << " ]";
         return os.str();
     }
+    
+    bool Game::handlePoolEvents(SDL_Event* event)
+    {
+        bool quit = false;
+        static Uint32 ms = 0;
+        while( SDL_PollEvent( event ) != 0 )
+        {
+            if( event->type == SDL_QUIT )
+            {
+                quit = true;
+            }
+            else
+            {
+                if (event->type == SDL_WINDOWEVENT)
+                {
+                    switch (event->window.event)
+                    {
+                        case SDL_WINDOWEVENT_SHOWN:
+                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d shown", event->window.windowID);
+                            ms = 0;
+                            break;
+                        case SDL_WINDOWEVENT_HIDDEN:
+                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d hidden", event->window.windowID);
+                            ms = 300;
+                            break;
+                        case SDL_WINDOWEVENT_EXPOSED:
+                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d exposed", event->window.windowID);
+                            ms = 0;
+                            break;
+                        case SDL_WINDOWEVENT_MOVED:
+                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d moved to %d,%d",
+                                    event->window.windowID, event->window.data1,
+                                    event->window.data2);
+                            ms = 0;
+                            break;
+                        case SDL_WINDOWEVENT_RESIZED:
+                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d resized to %dx%d",
+                                    event->window.windowID, event->window.data1,
+                                    event->window.data2);
+                            ms = 0;
+                            break;
+                        case SDL_WINDOWEVENT_MINIMIZED:
+                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d minimized", event->window.windowID);
+                            ms = 300;
+                            break;
+                        case SDL_WINDOWEVENT_MAXIMIZED:
+                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE,"Window %d maximized", event->window.windowID);
+                            ms = 0;
+                            break;
+                        case SDL_WINDOWEVENT_RESTORED:
+                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d restored", event->window.windowID);
+                            ms = 0;;
+                            break;
+                        case SDL_WINDOWEVENT_FOCUS_GAINED:
+                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d gained keyboard focus",
+                                    event->window.windowID);
+                            ms = 0;
+                            break;
+                        case SDL_WINDOWEVENT_FOCUS_LOST:
+                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d lost keyboard focus",
+                                    event->window.windowID);
+                            ms = 300;
+                            break;
+                        case SDL_WINDOWEVENT_CLOSE:
+                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d closed", event->window.windowID);
+                            ms = 300;
+                            break;
+                        default:
+                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Window %d got unknown event %d",
+                                    event->window.windowID, event->window.event);
+                            ms = 0;
+                            break;
+                    }
+                }
+            }
+        }
         
+        SDL_Delay(ms);
+        return quit;
+    }
+    
     void Game::gameLoop(void)
     {
         bool quit = false;
@@ -136,14 +216,7 @@ namespace barrio {
         loadMedia();
         while (quit == false)
         {
-            while( SDL_PollEvent( &e ) != 0 )
-            {
-                if( e.type == SDL_QUIT )
-                {
-                    quit = true;
-                }
-            }
-            
+            quit = handlePoolEvents(&e);
             physicsWorld.Step();
             camera.renderBackGround(renderer);
             
@@ -151,7 +224,7 @@ namespace barrio {
             camera.renderDebugInfo(renderer, &debugInfo);
             
             camera.renderClip(furnitures.getFurnitureClip("objeto1"), renderer, &furnitures);
-            camera.renderClip(furnitures.getFurnitureClip("objeto2"), renderer, &furnitures);
+            //camera.renderClip(furnitures.getFurnitureClip("objeto2"), renderer, &furnitures);
             
             handleKeyBoard1(acction, velocity);
             players[0].setVelocity(velocity);

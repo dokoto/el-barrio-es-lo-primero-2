@@ -82,8 +82,8 @@ namespace barrio {
     
     void Character::addToPhysicsWorld(const float32 cartesianPosX, const float32 cartesianPosY)
     {
-        float32 cartesianWidth = Utils::convWidthScreenToCartesian(animations.begin()->second.at(0).w);
-        float32 cartesianHeight = Utils::convHeightScreenToCartesian(animations.begin()->second.at(0).h);
+        float32 cartesianWidth = Utils::convWidthScreenToCartesian(animations["stop"].at(0).w);
+        float32 cartesianHeight = Utils::convHeightScreenToCartesian(animations["stop"].at(0).h);
         addToPhysicsWorldAsPolygon(getSpriteName(), cartesianPosX, cartesianPosY, cartesianWidth, cartesianHeight);
     }
     
