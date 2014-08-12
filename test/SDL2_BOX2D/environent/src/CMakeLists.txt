@@ -1,10 +1,19 @@
-#  cmake -DCMAKE_BUILD_TYPE=Debug ../../"El Barrio es lo Primero"/.
-#  cmake -DCMAKE_BUILD_TYPE=Release ../../"El Barrio es lo Primero"/.
-#  cmake -DCMAKE_BUILD_TYPE=Debug -G Xcode ../../"El Barrio es lo Primero"/.
-#  cmake -DCMAKE_BUILD_TYPE=Release -G Xcode ../../"El Barrio es lo Primero"/.
-
+#--------------------------------------------------------------------------------------------------------
+# PARA COMPILAR BOX2D
+# Descargar la version deseada
+# Ir a Box2D/Build
+# $> cmake -DBOX2D_INSTALL=ON -DBOX2D_INSTALL_DOC=ON -DBOX2D_BUILD_SHARED=ON -DBOX2D_BUILD_STATIC=ON -DBOX2D_BUILD_EXAMPLES=OFF -DCMAKE_INSTALL_PREFIX=/opt/local/ ..
+# $> make
+# $> make install
+#--------------------------------------------------------------------------------------------------------
+# VARIANTES PARA COMPILAR EL PROYECTO
+# cmake -DCMAKE_BUILD_TYPE=Debug -G Xcode ../../../src
+# cmake -DCMAKE_BUILD_TYPE=Release -G Xcode ../../../src
+# cmake --debug-output -DCMAKE_BUILD_TYPE=Debug ../../../src
+#--------------------------------------------------------------------------------------------------------
 #  !!!!! USAR SIMPRE CON EJECUTABLES DES-OPTIMIZADOS -O0 !!!!!!
 #  valgrind -v --num-callers=20 --leak-check=yes --leak-resolution=high --show-reachable=yes ./ejecutable
+#--------------------------------------------------------------------------------------------------------
 
 SET(CMAKE_LEGACY_CYGWIN_WIN32 0)
 

@@ -1,0 +1,61 @@
+test/GLFW_BOX2D/environent/build/debug/mac/*
+test/GLFW_BOX2D/spriteWorld/build/debug/mac/*
+
+test/GLFW_BOX2D/environent/build/debug/linux/*
+test/GLFW_BOX2D/spriteWorld/build/debug/linux/*
+
+test/GLFW_BOX2D/environent/build/release/mac/*
+test/GLFW_BOX2D/spriteWorld/build/release/mac/*
+
+test/GLFW_BOX2D/environent/build/release/linux/*
+test/GLFW_BOX2D/spriteWorld/build/release/linux/*
+
+test/SDL2_BOX2D/environent/build/debug/mac/*
+test/SDL2_BOX2D/spriteMotion/build/debug/mac/*
+
+test/SDL2_BOX2D/environent/build/debug/linux/*
+test/SDL2_BOX2D/spriteMotion/build/debug/linux/*
+
+test/SDL2_BOX2D/environent/build/release/mac/*
+test/SDL2_BOX2D/spriteMotion/build/release/mac/*
+
+test/SDL2_BOX2D/environent/build/release/linux/*
+test/SDL2_BOX2D/spriteMotion/build/release/linux/*
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
