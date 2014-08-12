@@ -62,12 +62,15 @@ IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
       add_definitions("-std=c++11 -DAPPLE -O3 -Wall -Wextra -pedantic -W -Wconversion -Wcast-qual -Wwrite-strings -Wstrict-aliasing  -Wpointer-arith -Wcast-align -fno-common") 
     ENDIF()
 
-	FIND_PATH(GLFW_INCLUDE_DIRS glfw3.h "/opt/local/include/GLFW")	  
-	FIND_LIBRARY(GLFW_LIBRARIES NAMES glfw libglfw PATHS /opt/local/lib)
+	FIND_PATH(GLFW_INCLUDE_DIRS GLFW/glfw3.h)	  
+	FIND_LIBRARY(GLFW_LIBRARIES NAMES glfw.a glfw3.a libglfw.a libglfw3.a PATHS /opt/local/lib /usr/local/lib)	
+	MESSAGE( "GLFW3 include location: " ${GLFW_INCLUDE_DIRS} )
+	MESSAGE( "GLFW3 library location: " ${GLFW_LIBRARIES} )
 		
 	FIND_PATH(BOX2D_INCLUDE_DIR  Box2D/Box2D.h)	  
-	FIND_LIBRARY(BOX2D_LIBRARY NAMES Box2D libBox2D PATHS /opt/local/lib)		
-	
+	FIND_LIBRARY(BOX2D_LIBRARY NAMES Box2D.a box2d.a Box2d.a box2D.a libBox2D.a libbox2d.a libBox2d.a libbox2D.a PATHS /opt/local/lib /usr/local/lib)		
+	MESSAGE( "Box2D include location: " ${BOX2D_LIBRARY} )
+	MESSAGE( "Box2D library location: " ${BOX2D_INCLUDE_DIR} )
 	
 	SET(GUI_TYPE MACOSX_BUNDLE)
 	SET(COCOA_FRAMEWORK "-framework Cocoa")
