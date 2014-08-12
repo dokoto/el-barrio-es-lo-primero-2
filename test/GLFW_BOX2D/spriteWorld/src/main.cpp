@@ -1,13 +1,20 @@
 #include "main.hpp"
+#include "RenderGL3.h"
+#include "DebugDraw.h"
+#include "utils.hpp"
 
 namespace
 {
 	GLFWwindow* mainWindow = NULL;
-	int32 testIndex = 0;
-	int32 testSelection = 0;
-	int32 testCount = 0;
-	bool rightMouseDown;
 	b2Vec2 lastp;
+    b2World* world;
+    
+    std::map<std::string, usrdata_t*> objs;
+    float32 timeStep = 0.0f;
+    
+    static constexpr int32 velocityIterations = 8;
+    static constexpr int32 positionIterations = 3;
+    static constexpr float32 settingsHz = 60.0;
 }
 
 static void sResizeWindow(GLFWwindow*, int width, int height)
@@ -19,6 +26,9 @@ static void sResizeWindow(GLFWwindow*, int width, int height)
 //
 static void sKeyCallback(GLFWwindow* mainWindow, int key, int scancode, int action, int mods)
 {
+    B2_NOT_USED(key);
+    B2_NOT_USED(mods);
+    B2_NOT_USED(scancode);
 	if (action == GLFW_PRESS)
 	{
 		switch (key)
@@ -53,18 +63,56 @@ static void sKeyCallback(GLFWwindow* mainWindow, int key, int scancode, int acti
 	// else GLFW_REPEAT
 }
 
-static void sScrollCallback(GLFWwindow*, double, double dy)
+static void sScrollCallback(GLFWwindow* window, double, double dy)
 {
+    B2_NOT_USED(window);
+    B2_NOT_USED(dy);
 }
 
 static void sSimulate()
 {
 	glEnable(GL_DEPTH_TEST);
+    timeStep = settingsHz > 0.0f ? 1.0f / settingsHz : float32(0.0f);
+    world->Step(timeStep, velocityIterations, positionIterations);
+    world->DrawDebugData();
 	glDisable(GL_DEPTH_TEST);
 }
 
-int main(int argc, char** argv)
+static void initPhysicsWorld(void)
 {
+    b2Vec2 gravity(0.0f, 0.0f);
+	world = new b2World(gravity);
+    uint32 flags = 0;
+	flags += 1	* b2Draw::e_shapeBit;
+	flags += 1	* b2Draw::e_jointBit;
+	flags += 0	* b2Draw::e_aabbBit;
+	flags += 0	* b2Draw::e_pairBit;
+	flags += 0	* b2Draw::e_centerOfMassBit;
+	g_debugDraw.SetFlags(flags);
+	world->SetDebugDraw(&g_debugDraw);
+	//world->SetContactListener(&m_ContactListener);
+}
+
+static void initScene(void)
+{
+    // Define the ground body.
+	CreateRect(b2Vec2(-32.0f, 40.0f), b2Vec2(32.0f, 40.0f), CUD("gndUp", GND_UP, NULL, &objs), world);
+	CreateRect(b2Vec2(32.0f, 40.0f), b2Vec2(32.0f, -4.8f), CUD("gndRight", GND_RIGHT, NULL, &objs), world);
+	CreateRect(b2Vec2(32.0f, -4.8f), b2Vec2(-32.0f, -4.8f), CUD("gndDown", GND_DOWN, NULL, &objs), world);
+	CreateRect(b2Vec2(-32.0f, -4.8f), b2Vec2(-32.0f, 40.0f), CUD("gndLeft", GND_LEFT, NULL, &objs), world);
+    
+    // Rectangulo
+	CreateBox( -20.0f, 20.0f, 1.0f, 0.5f, CUD("caja0", BOX, NULL, &objs), world);
+	CreateBox( 10.0f, 20.0f, 15.0f, 0.5f, CUD("caja1", BOX, NULL, &objs), world);
+    
+	// Hero
+	CreateDynBox( -0.5f, -3.0f, 1.0f, 1.0f, 0.45f, 1.0f, 0.25f, CUD("hero", DYNBOX, new enemy_t(2, 1.0f), &objs), world);
+}
+
+int main(const int argc, const char* argv[])
+{
+    B2_NOT_USED(argc);
+    B2_NOT_USED(argv);
 #if defined(_WIN32)
 	// Enable memory-leak reports
 	_CrtSetDbgFlag(_CRTDBG_LEAK_CHECK_DF | _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG));
@@ -114,7 +162,11 @@ int main(int argc, char** argv)
 		exit(EXIT_FAILURE);
 	}
 #endif
-
+    
+    g_debugDraw.Create();
+    initPhysicsWorld();
+    initScene();
+    
 	// Control the frame rate. One draw per monitor refresh.
 	glfwSwapInterval(1);
 
@@ -152,7 +204,7 @@ int main(int argc, char** argv)
 		glfwPollEvents();
 	}
 
-	//g_debugDraw.Destroy();
+	g_debugDraw.Destroy();
 	RenderGLDestroy();
 	glfwTerminate();
 

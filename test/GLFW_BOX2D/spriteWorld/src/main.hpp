@@ -1,9 +1,6 @@
 #ifndef _MAIN_HPP
 #define _MAIN_HPP
 
-#include "RenderGL3.h"
-#include "DebugDraw.h"
-
 #if defined(__APPLE__)
 #include <OpenGL/gl3.h>
 #else
