@@ -14,4 +14,8 @@
 #define snprintf _snprintf
 #endif
 
+#include "RenderGL3.h"
+#include "DebugDraw.h"
+#include "utils.hpp"
+
 #endif

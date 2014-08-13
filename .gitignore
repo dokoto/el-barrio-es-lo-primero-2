@@ -22,6 +22,10 @@ test/SDL2_BOX2D/spriteMotion/build/release/mac/*
 test/SDL2_BOX2D/environent/build/release/linux/*
 test/SDL2_BOX2D/spriteMotion/build/release/linux/*
 
+test/GLFW_BOX2D/spriteWorld/build/debug/mac_xcode
+test/GLFW_BOX2D/spriteWorld/build/release/mac_xcode
+
+
 # Compiled source #
 ###################
 *.com

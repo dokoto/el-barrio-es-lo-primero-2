@@ -1,7 +1,4 @@
 #include "main.hpp"
-#include "RenderGL3.h"
-#include "DebugDraw.h"
-#include "utils.hpp"
 
 namespace
 {
@@ -93,20 +90,22 @@ static void initPhysicsWorld(void)
 	//world->SetContactListener(&m_ContactListener);
 }
 
-static void initScene(void)
+void initScene(void)
 {
     // Define the ground body.
-	CreateRect(b2Vec2(-32.0f, 40.0f), b2Vec2(32.0f, 40.0f), CUD("gndUp", GND_UP, NULL, &objs), world);
-	CreateRect(b2Vec2(32.0f, 40.0f), b2Vec2(32.0f, -4.8f), CUD("gndRight", GND_RIGHT, NULL, &objs), world);
-	CreateRect(b2Vec2(32.0f, -4.8f), b2Vec2(-32.0f, -4.8f), CUD("gndDown", GND_DOWN, NULL, &objs), world);
-	CreateRect(b2Vec2(-32.0f, -4.8f), b2Vec2(-32.0f, 40.0f), CUD("gndLeft", GND_LEFT, NULL, &objs), world);
+    
+    utils::CreateRect(b2Vec2(-32.0f, 40.0f), b2Vec2(32.0f, 40.0f), CUD("gndUp", GND_UP, NULL, &objs), world);
+	utils::CreateRect(b2Vec2(32.0f, 40.0f), b2Vec2(32.0f, -4.8f), CUD("gndRight", GND_RIGHT, NULL, &objs), world);
+	utils::CreateRect(b2Vec2(32.0f, -4.8f), b2Vec2(-32.0f, -4.8f), CUD("gndDown", GND_DOWN, NULL, &objs), world);
+	utils::CreateRect(b2Vec2(-32.0f, -4.8f), b2Vec2(-32.0f, 40.0f), CUD("gndLeft", GND_LEFT, NULL, &objs), world);
     
     // Rectangulo
-	CreateBox( -20.0f, 20.0f, 1.0f, 0.5f, CUD("caja0", BOX, NULL, &objs), world);
-	CreateBox( 10.0f, 20.0f, 15.0f, 0.5f, CUD("caja1", BOX, NULL, &objs), world);
+	utils::CreateBox( -20.0f, 20.0f, 1.0f, 0.5f, CUD("caja0", BOX, NULL, &objs), world);
+	utils::CreateBox( 10.0f, 20.0f, 15.0f, 0.5f, CUD("caja1", BOX, NULL, &objs), world);
     
 	// Hero
-	CreateDynBox( -0.5f, -3.0f, 1.0f, 1.0f, 0.45f, 1.0f, 0.25f, CUD("hero", DYNBOX, new enemy_t(2, 1.0f), &objs), world);
+	utils::CreateDynBox( -0.5f, -3.0f, 1.0f, 1.0f, 0.45f, 1.0f, 0.25f, CUD("hero", DYNBOX, new enemy_t(2, 1.0f), &objs), world);
+     
 }
 
 int main(const int argc, const char* argv[])
