@@ -1,5 +1,15 @@
 #include "main.hpp"
 #include "utils.hpp"
+#include "imgui.h"
+
+struct UIState
+{
+	bool showMenu;
+	int scroll;
+	int scrollarea1;
+	bool mouseOverMenu;
+	bool chooseTest;
+};
 
 namespace
 {
@@ -9,6 +19,7 @@ namespace
     static constexpr unsigned MAX_KEYS = 300;
     
 	GLFWwindow* mainWindow = NULL;
+    UIState ui;
 	b2Vec2 lastp;
     b2World* world;
     
@@ -26,7 +37,7 @@ static void sResizeWindow(GLFWwindow*, int width, int height)
 static void acctions(void)
 {
     b2Body* hero = NULL;
-    static constexpr float32 vel = 8.0f;
+    static constexpr float32 vel = 8.0f, camVel = 0.1f;
     
     if (keys[GLFW_KEY_ESCAPE] == true)
     {
@@ -37,22 +48,26 @@ static void acctions(void)
     {
         hero = utils::getBody("hero", world);
         hero->SetLinearVelocity(b2Vec2{-vel, 0.0f});
+        g_camera.m_center.x -= camVel;
         
     }
     else if(keys[GLFW_KEY_RIGHT] == true)
     {
         hero = utils::getBody("hero", world);
         hero->SetLinearVelocity(b2Vec2{vel, 0.0f});
+        g_camera.m_center.x += camVel;
     }
     else if(keys[GLFW_KEY_DOWN] == true)
     {
         hero = utils::getBody("hero", world);
         hero->SetLinearVelocity(b2Vec2{0.0f, -vel});
+        g_camera.m_center.y -= camVel;
     }
     else if(keys[GLFW_KEY_UP] == true)
     {
         hero = utils::getBody("hero", world);
         hero->SetLinearVelocity(b2Vec2{0.0f, vel});
+        g_camera.m_center.y += camVel;
     }
     else if(keys[GLFW_KEY_SPACE] == true)
     {
@@ -83,6 +98,25 @@ static void sScrollCallback(GLFWwindow* window, double, double dy)
 {
     B2_NOT_USED(window);
     B2_NOT_USED(dy);
+}
+
+static void sCreateUI()
+{
+	ui.showMenu = true;
+	ui.scroll = 0;
+	ui.scrollarea1 = 0;
+	ui.chooseTest = false;
+	ui.mouseOverMenu = false;
+    
+	// Init UI
+    const char* fontPath = "ttf/DroidSans.ttf";
+    
+	if (RenderGLInit(fontPath) == false)
+	{
+		fprintf(stderr, "Could not init GUI renderer.\n");
+		assert(false);
+		return;
+	}
 }
 
 static void sSimulate()
@@ -117,12 +151,17 @@ static void initPhysicsWorld(void)
 
 void initScene(void)
 {
-    // Define the ground body.    
+    // Define the ground body.
+    utils::CreateRect(b2Vec2(-60.0f, 60.0f), b2Vec2(60.0f, 60.0f), CUD("gndUp", GND_UP, NULL, &objs), world);
+	utils::CreateRect(b2Vec2(60.0f, 60.0f), b2Vec2(60.0f, -4.8f), CUD("gndRight", GND_RIGHT, NULL, &objs), world);
+	utils::CreateRect(b2Vec2(60.0f, -4.8f), b2Vec2(-60.0f, -4.8f), CUD("gndDown", GND_DOWN, NULL, &objs), world);
+	utils::CreateRect(b2Vec2(-60.0f, -4.8f), b2Vec2(-60.0f, 60.0f), CUD("gndLeft", GND_LEFT, NULL, &objs), world);
+    /*
     utils::CreateRect(b2Vec2(-32.0f, 40.0f), b2Vec2(32.0f, 40.0f), CUD("gndUp", GND_UP, NULL, &objs), world);
 	utils::CreateRect(b2Vec2(32.0f, 40.0f), b2Vec2(32.0f, -4.8f), CUD("gndRight", GND_RIGHT, NULL, &objs), world);
 	utils::CreateRect(b2Vec2(32.0f, -4.8f), b2Vec2(-32.0f, -4.8f), CUD("gndDown", GND_DOWN, NULL, &objs), world);
 	utils::CreateRect(b2Vec2(-32.0f, -4.8f), b2Vec2(-32.0f, 40.0f), CUD("gndLeft", GND_LEFT, NULL, &objs), world);
-    
+    */
     // Rectangulo
 	utils::CreateBox( -20.0f, 20.0f, 3.0f, 5.0f, CUD("caja0", BOX, NULL, &objs), world);
 	utils::CreateBox( 10.0f, 20.0f, 15.0f, 0.5f, CUD("caja1", BOX, NULL, &objs), world);
@@ -141,8 +180,8 @@ int main(const int argc, const char* argv[])
 	_CrtSetDbgFlag(_CRTDBG_LEAK_CHECK_DF | _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG));
 #endif
 
-    g_camera.m_width = 1024;
-    g_camera.m_height = 640;
+    g_camera.m_width = 640;
+    g_camera.m_height = 480;
     
 	if (glfwInit() == 0)
 	{
@@ -214,8 +253,10 @@ int main(const int argc, const char* argv[])
         frameTime = alpha * frameTime + (1.0 - alpha) * (time2 - time1);
         time1 = time2;
         
-		//glEnable(GL_BLEND);
-        //glEnable(GL_DEPTH_TEST);
+        char buffer[32];
+        snprintf(buffer, 32, "%.1f ms", 1000.0 * frameTime);
+        AddGfxCmdText(5, 5, TEXT_ALIGN_LEFT, buffer, WHITE);
+        
         glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glDisable(GL_BLEND);
