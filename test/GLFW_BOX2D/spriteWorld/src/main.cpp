@@ -1,17 +1,20 @@
 #include "main.hpp"
+#include "utils.hpp"
 
 namespace
 {
+    static constexpr int32 velocityIterations = 8;
+    static constexpr int32 positionIterations = 3;
+    static constexpr float32 settingsHz = 60.0;
+    static constexpr unsigned MAX_KEYS = 300;
+    
 	GLFWwindow* mainWindow = NULL;
 	b2Vec2 lastp;
     b2World* world;
     
     std::map<std::string, usrdata_t*> objs;
     float32 timeStep = 0.0f;
-    
-    static constexpr int32 velocityIterations = 8;
-    static constexpr int32 positionIterations = 3;
-    static constexpr float32 settingsHz = 60.0;
+    bool keys[MAX_KEYS];
 }
 
 static void sResizeWindow(GLFWwindow*, int width, int height)
@@ -20,44 +23,60 @@ static void sResizeWindow(GLFWwindow*, int width, int height)
 	g_camera.m_height = height;
 }
 
+static void acctions(void)
+{
+    b2Body* hero = NULL;
+    static constexpr float32 vel = 8.0f;
+    
+    if (keys[GLFW_KEY_ESCAPE] == true)
+    {
+        glfwSetWindowShouldClose(mainWindow, GL_TRUE);
+        return;
+    }
+    else if(keys[GLFW_KEY_LEFT] == true)
+    {
+        hero = utils::getBody("hero", world);
+        hero->SetLinearVelocity(b2Vec2{-vel, 0.0f});
+        
+    }
+    else if(keys[GLFW_KEY_RIGHT] == true)
+    {
+        hero = utils::getBody("hero", world);
+        hero->SetLinearVelocity(b2Vec2{vel, 0.0f});
+    }
+    else if(keys[GLFW_KEY_DOWN] == true)
+    {
+        hero = utils::getBody("hero", world);
+        hero->SetLinearVelocity(b2Vec2{0.0f, -vel});
+    }
+    else if(keys[GLFW_KEY_UP] == true)
+    {
+        hero = utils::getBody("hero", world);
+        hero->SetLinearVelocity(b2Vec2{0.0f, vel});
+    }
+    else if(keys[GLFW_KEY_SPACE] == true)
+    {
+        
+    }
+    else
+    {
+        hero = utils::getBody("hero", world);
+        hero->SetLinearVelocity(b2Vec2{0.0f, 0.0f});
+    }
+}
+
 //
 static void sKeyCallback(GLFWwindow* mainWindow, int key, int scancode, int action, int mods)
 {
     B2_NOT_USED(key);
     B2_NOT_USED(mods);
     B2_NOT_USED(scancode);
-	if (action == GLFW_PRESS)
-	{
-		switch (key)
-		{
-		case GLFW_KEY_ESCAPE:
-			// Quit
-			glfwSetWindowShouldClose(mainWindow, GL_TRUE);
-			break;
-
-		case GLFW_KEY_LEFT:
-			break;
-
-		case GLFW_KEY_RIGHT:
-			break;
-
-		case GLFW_KEY_DOWN:
-			break;
-
-		case GLFW_KEY_UP:
-			break;
-
-		case GLFW_KEY_SPACE:
-			break;
-
-		default:
-			break;
-		}
-	}
-	else if (action == GLFW_RELEASE)
-	{
-	}
-	// else GLFW_REPEAT
+    B2_NOT_USED(mainWindow);
+    
+    if (action == GLFW_PRESS)
+        keys[key] = true;
+    else if (action == GLFW_RELEASE)
+        keys[key] = false;
 }
 
 static void sScrollCallback(GLFWwindow* window, double, double dy)
@@ -70,37 +89,42 @@ static void sSimulate()
 {
 	glEnable(GL_DEPTH_TEST);
     timeStep = settingsHz > 0.0f ? 1.0f / settingsHz : float32(0.0f);
+    uint32 flags = 0;
+	flags += 1	* b2Draw::e_shapeBit;
+	flags += 1	* b2Draw::e_jointBit;
+	flags += 0	* b2Draw::e_aabbBit;
+	flags += 0	* b2Draw::e_centerOfMassBit;
+	g_debugDraw.SetFlags(flags);
+    
     world->Step(timeStep, velocityIterations, positionIterations);
+    acctions();
     world->DrawDebugData();
+    
+    g_debugDraw.Flush();
+    
 	glDisable(GL_DEPTH_TEST);
+    
 }
 
 static void initPhysicsWorld(void)
 {
     b2Vec2 gravity(0.0f, 0.0f);
 	world = new b2World(gravity);
-    uint32 flags = 0;
-	flags += 1	* b2Draw::e_shapeBit;
-	flags += 1	* b2Draw::e_jointBit;
-	flags += 0	* b2Draw::e_aabbBit;
-	flags += 0	* b2Draw::e_pairBit;
-	flags += 0	* b2Draw::e_centerOfMassBit;
-	g_debugDraw.SetFlags(flags);
+    
 	world->SetDebugDraw(&g_debugDraw);
 	//world->SetContactListener(&m_ContactListener);
 }
 
 void initScene(void)
 {
-    // Define the ground body.
-    
+    // Define the ground body.    
     utils::CreateRect(b2Vec2(-32.0f, 40.0f), b2Vec2(32.0f, 40.0f), CUD("gndUp", GND_UP, NULL, &objs), world);
 	utils::CreateRect(b2Vec2(32.0f, 40.0f), b2Vec2(32.0f, -4.8f), CUD("gndRight", GND_RIGHT, NULL, &objs), world);
 	utils::CreateRect(b2Vec2(32.0f, -4.8f), b2Vec2(-32.0f, -4.8f), CUD("gndDown", GND_DOWN, NULL, &objs), world);
 	utils::CreateRect(b2Vec2(-32.0f, -4.8f), b2Vec2(-32.0f, 40.0f), CUD("gndLeft", GND_LEFT, NULL, &objs), world);
     
     // Rectangulo
-	utils::CreateBox( -20.0f, 20.0f, 1.0f, 0.5f, CUD("caja0", BOX, NULL, &objs), world);
+	utils::CreateBox( -20.0f, 20.0f, 3.0f, 5.0f, CUD("caja0", BOX, NULL, &objs), world);
 	utils::CreateBox( 10.0f, 20.0f, 15.0f, 0.5f, CUD("caja1", BOX, NULL, &objs), world);
     
 	// Hero
@@ -173,6 +197,7 @@ int main(const int argc, const char* argv[])
     double frameTime = 0.0;
    
     glClearColor(0.3f, 0.3f, 0.3f, 1.f);
+    GLenum errCode = 0;
 	
  	while (!glfwWindowShouldClose(mainWindow))
 	{
@@ -182,23 +207,23 @@ int main(const int argc, const char* argv[])
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		sSimulate();
-        
+
         // Measure speed
         double time2 = glfwGetTime();
         double alpha = 0.9f;
         frameTime = alpha * frameTime + (1.0 - alpha) * (time2 - time1);
         time1 = time2;
-
-        char buffer[32];
-        snprintf(buffer, 32, "%.1f ms", 1000.0 * frameTime);
-        AddGfxCmdText(5, 5, TEXT_ALIGN_LEFT, buffer, WHITE);
         
-		glEnable(GL_BLEND);
+		//glEnable(GL_BLEND);
+        //glEnable(GL_DEPTH_TEST);
+        glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		glDisable(GL_DEPTH_TEST);
+		glDisable(GL_BLEND);
 		RenderGLFlush(g_camera.m_width, g_camera.m_height);
-
+        
 		glfwSwapBuffers(mainWindow);
+        
+        errCode = glGetError();
 
 		glfwPollEvents();
 	}

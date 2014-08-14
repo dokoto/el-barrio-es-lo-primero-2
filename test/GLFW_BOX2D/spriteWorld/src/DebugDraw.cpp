@@ -117,7 +117,7 @@ static void sCheckGLError()
 	GLenum errCode = glGetError();
 	if (errCode != GL_NO_ERROR)
 	{
-		fprintf(stderr, "OpenGL error = %d\n", errCode);
+		printf("OpenGL error = %d\n", errCode);
 		assert(false);
 	}
 }
@@ -420,6 +420,7 @@ struct GLRenderLines
     
     void Flush()
 	{
+        
         if (m_count == 0)
             return;
         
