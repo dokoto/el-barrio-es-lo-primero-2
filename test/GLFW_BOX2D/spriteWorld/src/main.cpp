@@ -1,6 +1,7 @@
 #include "main.hpp"
 #include "utils.hpp"
 #include "imgui.h"
+#include <SOIL2/SOIL2.h>
 
 struct UIState
 {
@@ -22,6 +23,7 @@ namespace
     UIState ui;
 	b2Vec2 lastp;
     b2World* world;
+    GLuint tex_2d;
     
     std::map<std::string, usrdata_t*> objs;
     float32 timeStep = 0.0f;
@@ -70,8 +72,7 @@ static void acctions(void)
         g_camera.m_center.y += camVel;
     }
     else if(keys[GLFW_KEY_SPACE] == true)
-    {
-        
+    {        
     }
     else
     {
@@ -119,6 +120,47 @@ static void sCreateUI()
 	}
 }
 
+static void drawTexture_TEST(GLuint& id_tex_2d)
+{
+    glEnable( GL_TEXTURE_2D );
+    glLoadIdentity();
+    glTranslatef( 0, 0, 0.f );
+    glBindTexture( GL_TEXTURE_2D, id_tex_2d );
+    glBegin(GL_QUADS);                              // Draw A Quad
+        glTexCoord2f(0,0);
+        glVertex2f(0,0);
+    
+        glTexCoord2f(1,0);
+        glVertex2f(500,0);
+    
+        glTexCoord2f(1,1);
+        glVertex2f(500,500);
+    
+        glTexCoord2f(0,1);
+        glVertex2f(0,500);
+    glEnd();
+}
+
+void display() {
+    int width, height;
+    glfwGetFramebufferSize(mainWindow, &width, &height);
+    float ratio = width / (float) height;
+    glBegin(GL_TRIANGLES);
+    glColor3f(1.f, 0.f, 0.f);
+    glVertex3f(-0.6f, -0.4f, 0.f);
+    glColor3f(0.f, 1.f, 0.f);
+    glVertex3f(0.6f, -0.4f, 0.f);
+    glColor3f(0.f, 0.f, 1.f);
+    glVertex3f(0.f, 0.6f, 0.f);
+    glEnd();
+    
+    GLenum errCode = glGetError();
+	if (errCode != GL_NO_ERROR)
+	{
+		printf("display ERROR %d\n", errCode);
+	}
+}
+
 static void sSimulate()
 {
 	glEnable(GL_DEPTH_TEST);
@@ -129,11 +171,11 @@ static void sSimulate()
 	flags += 0	* b2Draw::e_aabbBit;
 	flags += 0	* b2Draw::e_centerOfMassBit;
 	g_debugDraw.SetFlags(flags);
-    
     world->Step(timeStep, velocityIterations, positionIterations);
+//  drawTexture_TEST(tex_2d);
+    display();
     acctions();
     world->DrawDebugData();
-    
     g_debugDraw.Flush();
     
 	glDisable(GL_DEPTH_TEST);
@@ -149,27 +191,46 @@ static void initPhysicsWorld(void)
 	//world->SetContactListener(&m_ContactListener);
 }
 
+static void loadTexture_TEST(const char* path, GLuint& id_tex_2d)
+{
+    id_tex_2d = SOIL_load_OGL_texture(path, SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID,
+     SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT);
+
+    if( 0 == tex_2d )
+    {
+        printf( "SOIL loading error: '%s'\n", SOIL_last_result() );
+    }
+}
+
+
 void initScene(void)
 {
-    // Define the ground body.
-    utils::CreateRect(b2Vec2(-60.0f, 60.0f), b2Vec2(60.0f, 60.0f), CUD("gndUp", GND_UP, NULL, &objs), world);
-	utils::CreateRect(b2Vec2(60.0f, 60.0f), b2Vec2(60.0f, -4.8f), CUD("gndRight", GND_RIGHT, NULL, &objs), world);
-	utils::CreateRect(b2Vec2(60.0f, -4.8f), b2Vec2(-60.0f, -4.8f), CUD("gndDown", GND_DOWN, NULL, &objs), world);
-	utils::CreateRect(b2Vec2(-60.0f, -4.8f), b2Vec2(-60.0f, 60.0f), CUD("gndLeft", GND_LEFT, NULL, &objs), world);
-    /*
-    utils::CreateRect(b2Vec2(-32.0f, 40.0f), b2Vec2(32.0f, 40.0f), CUD("gndUp", GND_UP, NULL, &objs), world);
-	utils::CreateRect(b2Vec2(32.0f, 40.0f), b2Vec2(32.0f, -4.8f), CUD("gndRight", GND_RIGHT, NULL, &objs), world);
-	utils::CreateRect(b2Vec2(32.0f, -4.8f), b2Vec2(-32.0f, -4.8f), CUD("gndDown", GND_DOWN, NULL, &objs), world);
-	utils::CreateRect(b2Vec2(-32.0f, -4.8f), b2Vec2(-32.0f, 40.0f), CUD("gndLeft", GND_LEFT, NULL, &objs), world);
-    */
-    // Rectangulo
-	utils::CreateBox( -20.0f, 20.0f, 3.0f, 5.0f, CUD("caja0", BOX, NULL, &objs), world);
-	utils::CreateBox( 10.0f, 20.0f, 15.0f, 0.5f, CUD("caja1", BOX, NULL, &objs), world);
+    g_camera.m_center.x = 0.0f;
+    g_camera.m_center.y = 0.0f;
     
-	// Hero
-	utils::CreateDynBox( -0.5f, -3.0f, 1.0f, 1.0f, 0.45f, 1.0f, 0.25f, CUD("hero", DYNBOX, new enemy_t(2, 1.0f), &objs), world);
-     
+    // Centre
+    utils::CreateBox( 0.0f, 0.0f, 0.2f, 0.2f, CUD("caja0", BOX, NULL, &objs), world);
+    
+    // Player
+    utils::CreateDynBox( -1.5f, -3.5f, 2.0f, 2.0f, 0.45f, 1.0f, 0.25f, CUD("hero", DYNBOX, new enemy_t(2, 1.0f), &objs), world);
+    
+    // Define the ground body.
+    utils::CreateRect(b2Vec2(-10.0f, 10.0f), b2Vec2(10.0f, 10.0f), CUD("gndUp", GND_UP, NULL, &objs), world);
+	utils::CreateRect(b2Vec2(10.0f, 10.0f), b2Vec2(10.0f, -10.0f), CUD("gndRight", GND_RIGHT, NULL, &objs), world);
+	utils::CreateRect(b2Vec2(10.0f, -10.0f), b2Vec2(-10.0f, -10.0f), CUD("gndDown", GND_DOWN, NULL, &objs), world);
+	utils::CreateRect(b2Vec2(-10.0f, -10.0f), b2Vec2(-10.0f, 10.0f), CUD("gndLeft", GND_LEFT, NULL, &objs), world);
+
+    // Load texture TEST
+    loadTexture_TEST("img/test_1.png", tex_2d);
 }
+
+
+void error_callback(int error, const char* description)
+{
+    fprintf(stderr, "Error nº: %d - %s.\n", error, description);
+}
+
+
 
 int main(const int argc, const char* argv[])
 {
@@ -180,8 +241,8 @@ int main(const int argc, const char* argv[])
 	_CrtSetDbgFlag(_CRTDBG_LEAK_CHECK_DF | _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG));
 #endif
 
-    g_camera.m_width = 640;
-    g_camera.m_height = 480;
+    g_camera.m_width = 800;
+    g_camera.m_height = 600;
     
 	if (glfwInit() == 0)
 	{
@@ -190,7 +251,7 @@ int main(const int argc, const char* argv[])
 	}
 
 	char title[64];
-	sprintf(title, "Box2D Testbed Version %d.%d.%d", b2_version.major, b2_version.minor, b2_version.revision);
+	sprintf(title, "El Barrio es lo Primero - TEST GLFW");
 
 #if defined(__APPLE__)
 	// Not sure why, but these settings cause glewInit below to crash.
@@ -214,6 +275,7 @@ int main(const int argc, const char* argv[])
 	glfwSetScrollCallback(mainWindow, sScrollCallback);
 	glfwSetWindowSizeCallback(mainWindow, sResizeWindow);
 	glfwSetKeyCallback(mainWindow, sKeyCallback);
+    glfwSetErrorCallback(error_callback);
 
 #if defined(__APPLE__) == FALSE
 	//glewExperimental = GL_TRUE;
@@ -226,6 +288,7 @@ int main(const int argc, const char* argv[])
 #endif
     
     g_debugDraw.Create();
+    sCreateUI();
     initPhysicsWorld();
     initScene();
     
@@ -259,16 +322,16 @@ int main(const int argc, const char* argv[])
         
         glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		glDisable(GL_BLEND);
+		glDisable(GL_DEPTH_TEST);
 		RenderGLFlush(g_camera.m_width, g_camera.m_height);
         
 		glfwSwapBuffers(mainWindow);
         
         errCode = glGetError();
-
+        
 		glfwPollEvents();
 	}
-
+    
 	g_debugDraw.Destroy();
 	RenderGLDestroy();
 	glfwTerminate();

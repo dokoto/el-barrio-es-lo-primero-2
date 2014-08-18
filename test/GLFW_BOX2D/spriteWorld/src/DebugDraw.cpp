@@ -114,6 +114,7 @@ void Camera::BuildProjectionMatrix(float32* m, float32 zBias)
 //
 static void sCheckGLError()
 {
+    
 	GLenum errCode = glGetError();
 	if (errCode != GL_NO_ERROR)
 	{

@@ -57,16 +57,8 @@ MESSAGE( STATUS "WATCOM                      : " ${WATCOM} )
 MESSAGE( "==========================================================================" )
 
 add_executable(${TARGET} 
-DebugDraw.cpp
-DebugDraw.h
-RenderGL3.cpp
-RenderGL3.h
 main.cpp
 main.hpp
-stb_truetype.h
-types.hpp
-utils.cpp
-utils.hpp
 contrib/jsoncpp.cpp
 contrib/json.h					
 )
