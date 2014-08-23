@@ -16,15 +16,14 @@ namespace barrio {
     {
         
     public:
-        void CreateCamera(const float32 camera_width, const float32 camera_heigth,
-                     const float32 world_width, const float32 world_height);
         Camera() : spriteToFollow(nullptr) {}
         ~Camera();
+        void CreateCamera(const float32 camera_width, const float32 camera_heigth, const float32 world_width, const float32 world_height);
         
         void renderBackGround(SDL_Renderer*& renderer);
-        void renderObj(const b2Vec2& cartesianPosition, const SDL_Rect& clip, SDL_Renderer*& renderer, Texture* obj);
+        void renderObj(const Clip& clip, SDL_Renderer*& renderer, Texture* obj);
         void renderDebugInfo(SDL_Renderer*& renderer, DebugInfo* obj);
-        void renderClip(Clip clip, SDL_Renderer*& renderer, Texture* obj);
+        void renderClip(const Clip& clip, SDL_Renderer*& renderer, Texture* obj);
         void cameraFollowObj(const SDL_Point& screenPosition, SDL_Point& camera_position);
         
         void follow(Character* spriteToFollow)
@@ -40,19 +39,15 @@ namespace barrio {
         }
         
         SDL_RendererFlip getFlip(void) { return flip; }
-        
         SDL_Point getCenter(void) { return center; }
         void setCenter(SDL_Point center) { this->center = center; }
         double getAngle(void) { return angle; }
         void setAngle(double angle) { this->angle = angle; }
+        void DrawPhysicsWorld(b2World* physicsWorld, SDL_Renderer*& renderer);
         
     private:
         Camera(const Camera&){}
         Camera& operator=(const Camera&);
-        
-        //void switchHorizontalFlip(void) { flip = SDL_FLIP_HORIZONTAL; };
-        //void switchVerticalFlip(void) { flip = SDL_FLIP_VERTICAL; };
-        //void switchFlipOFF() { flip = SDL_FLIP_NONE; };
         
     private:
         SDL_Point camera_position;
@@ -72,8 +67,7 @@ namespace barrio {
         Texture background;
         b2Vec2 oldCartesianPosOfFollowSprite;
         
-        void render(const SDL_Point& screenPosition, const SDL_Rect& clip, SDL_Renderer*& renderer, Texture* obj,
-                    double angle = 0.0, SDL_Point center = {0, 0}, SDL_RendererFlip flip = SDL_FLIP_NONE);
+        void render(const Clip& clip, SDL_Renderer*& renderer, Texture* obj, double angle = 0.0, SDL_Point center = {0, 0}, SDL_RendererFlip flip = SDL_FLIP_NONE);
         
     };
     

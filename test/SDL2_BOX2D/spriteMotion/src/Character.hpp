@@ -46,7 +46,7 @@ namespace barrio {
         void setToFlip(bool flip);
         bool getToFlip(void) const;
         
-        void addToPhysicsWorld(const float32 cartesianPosX, const float32 cartesianPosY);
+        void addToPhysicsWorld(const SDL_Point& screenPos);
         Clip playAnimation(const std::string& animationName, const size_t delayInFrames);
         void stopAnimation();
         
@@ -56,6 +56,7 @@ namespace barrio {
         Character& operator=(const Character&);
     
     private:
+        static constexpr bool DYNAMIC_BODY = true;
         SDL_Renderer* renderer;
         size_t currentAnimationFrame, delayFrameCount;
         std::string currentAnimationName;
@@ -66,6 +67,7 @@ namespace barrio {
         {
             loadFromFile(pngSheetPath, renderer, zoomX, zoomY);
         }
+        void temp(void);
     };
     
 }

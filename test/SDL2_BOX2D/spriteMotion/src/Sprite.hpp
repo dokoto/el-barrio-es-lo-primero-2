@@ -42,22 +42,10 @@ namespace barrio {
             return physicsWorld->getBody(physicsBodyName);
         }
         
+        SDL_Point getScreenPosition(const std::string& bodyName);
         std::string getSpriteName() const { return this->spriteName; }
-        void setSpriteName(const std::string& spriteName){ this->spriteName = spriteName; }
-                        
-        inline float32 getPhysicsFullTextureWidth()
-        {
-            return Utils::convWidthScreenToCartesian(this->getPixelWidth());
-        }
-        
-        inline float32 getPhysicsFullTextureHeight()
-        {
-            return Utils::convHeightScreenToCartesian(this->getPixelHeight());
-        }
-        
-        void addToPhysicsWorldAsPolygon(const std::string& name, const float32 cartesianPosX, const float32 cartesianPosY, const float32 cartesianWidth, const float32 cartesianHeight);
-        
-        void addToPhysicsWorldAsStaticPolygon(const std::string& name, const float32 cartesianPosX, const float32 cartesianPosY, const float32 cartesianWidth, const float32 cartesianHeight);
+        void setSpriteName(const std::string& spriteName){ this->spriteName = spriteName; }        
+        void addPolygonToPhysics(const std::string& name, const SDL_Point& screenPos, const Size<int>& screenSize, const bool dynamicBody = true);
         
     };
     

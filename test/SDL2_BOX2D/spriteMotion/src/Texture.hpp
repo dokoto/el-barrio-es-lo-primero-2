@@ -48,6 +48,11 @@ namespace barrio {
             return texture == nullptr;
         }
         
+        SDL_Texture* getTexture(void)
+        {
+            return texture;
+        }
+        
         virtual void setToFlip(bool flip){ this->toFlip = flip; }
         virtual bool getToFlip(void) const { return this->toFlip; }
         

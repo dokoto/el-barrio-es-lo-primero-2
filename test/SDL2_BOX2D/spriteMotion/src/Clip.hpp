@@ -10,15 +10,31 @@ class Clip
 private:
     Clip(const Clip&){}
     Clip& operator=(const Clip&);
-    b2Vec2 cartesianPosition;
-    SDL_Rect clipInPx;
+    
+public:
+    std::string name;
+    SDL_Rect screenOrigin;
+    SDL_Rect screenDestination;
+    float32 destinationAngle;
+
     
 public:
     Clip(void) {}
-    Clip(b2Vec2 lcartesianPosition, SDL_Rect lclipInPx) : cartesianPosition(lcartesianPosition), clipInPx(lclipInPx) {};
-    Clip(const Clip&& a): cartesianPosition(a.cartesianPosition), clipInPx(a.clipInPx) {};
-    const b2Vec2& getCartesianPosition() { return cartesianPosition; }
-    const SDL_Rect& getclipInPx() { return clipInPx; }
+    Clip(std::string name, SDL_Rect screenOrigin, SDL_Rect screenDestination, float32 destinationAngle = 0.0f)
+    : name(std::move(name)), screenOrigin(std::move(screenOrigin)), screenDestination(std::move(screenDestination)), destinationAngle(std::move(destinationAngle))
+    {
+    };
+    
+    Clip(const Clip&& c): name(std::move(c.name)), screenOrigin(std::move(c.screenOrigin)), screenDestination(std::move(c.screenDestination)), destinationAngle(std::move(c.destinationAngle)) {};
+    Clip& operator=(Clip&& c)
+    {
+        name = std::move(name);
+        screenOrigin = std::move(c.screenOrigin);
+        screenDestination = std::move(c.screenDestination);
+        destinationAngle = std::move(c.destinationAngle);
+        return *this;
+    }
+   
 };
 
 #endif

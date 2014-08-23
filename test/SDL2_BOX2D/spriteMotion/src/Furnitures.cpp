@@ -16,16 +16,13 @@ namespace barrio {
         this->renderer = renderer;
     }
     
-    void Furnitures::addToPhysicsWorld(const std::string& furnitureElemenName, const float32 cartesianPosX, const float32 cartesianPosY)
+    void Furnitures::addToPhysicsWorld(const std::string& furnitureElemenName, const SDL_Point& screenPos)
     {
-        float32 cartesianWidth = 0.0f, cartesianHeight = 0.0f;
         map<string, SDL_Rect>::iterator it;
         it = furnituresPixelDimensions.find(furnitureElemenName);
         if (it != furnituresPixelDimensions.end())
         {
-            cartesianWidth = Utils::convWidthScreenToCartesian(it->second.w);
-            cartesianHeight = Utils::convHeightScreenToCartesian(it->second.h);
-            addToPhysicsWorldAsStaticPolygon(it->first, cartesianPosX, cartesianPosY, cartesianWidth, cartesianHeight);
+            physicsWorld->createPolygon(it->first, screenPos, Size<int> { it->second.w, it->second.h }, STATIC_BODY);
         }
         else
         {
@@ -49,9 +46,16 @@ namespace barrio {
         it = furnituresPixelDimensions.find(furnitureElemenName);
         if (it != furnituresPixelDimensions.end())
         {
-            SDL_Rect rect = furnituresPixelDimensions[furnitureElemenName];
-            b2Vec2 position = getPhysicsPosition(furnitureElemenName);
-            return Clip{position, rect};
+            SDL_Rect originCLip = furnituresPixelDimensions[furnitureElemenName];
+            SDL_Rect destinationClip;
+            destinationClip.w = originCLip.w;
+            destinationClip.h = originCLip.h;
+            SDL_Point pp = getScreenPosition(furnitureElemenName);
+            destinationClip.x = pp.x;
+            destinationClip.y = pp.y;
+            float32 angle = getPhysicsBody(furnitureElemenName)->GetAngle();
+
+            return Clip {furnitureElemenName, originCLip, destinationClip, angle};
         }
         else
         {
@@ -95,8 +99,7 @@ namespace barrio {
             throw error::READ_SPRITESHEETS_JSON_FAIL;
         }
         
-    }
-    
+    }    
     
 }
 

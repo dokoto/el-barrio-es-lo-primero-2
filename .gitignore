@@ -66,3 +66,4 @@ test/GLFW_BOX2D/render2Dimage/build/debug/mac_xcode/*
 .Trashes
 ehthumbs.db
 Thumbs.db
+/test/THREE_JS/sprite/nbproject/private/

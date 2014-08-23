@@ -1,21 +1,20 @@
 #include "Physics.hpp"
 #include "errorsCodes.hpp"
 #include "Constants.hpp"
-
-
+#include "Utils.hpp"
 
 namespace barrio {
     
     using namespace std;
     
-    void Physics::CreateWorld(const b2Vec2 gravity, const float32 cartesianWidth, const float32 cartesianHeight)
+    void Physics::CreateWorld(const b2Vec2 gravity, const Size<int>& screenSize)
     {
         world = new b2World{gravity};
         if (world != nullptr)
         {
-            this->cartesianWidth = cartesianWidth;
-            this->cartesianHeight = cartesianHeight;
-            setWorldBundaries();
+            cartesianSize = Utils::convSreenSizeToCartesianSize(screenSize);
+            setWorldBundaries(consts::WORLD_WIDTH_PX, consts::WORLD_HEIGHT_PX);
+            //world->SetContactListener(&collisionPool);
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE,
                            "Physics World initialization with gravity[%f/%f]...OK", gravity.x, gravity.y);
         }
@@ -27,40 +26,30 @@ namespace barrio {
         
     }
     
-    void Physics::setWorldBundaries(void)
+    void Physics::setWorldBundaries(const int width, const int height)
     {
-        float32 x = cartesianWidth / 2;
-        float32 x_minus = -x;
-        float32 y = cartesianHeight / 2;
-        float32 y_minus = -y;
-        
-        
         b2BodyDef groundDef;
         b2Body* edge = world->CreateBody(&groundDef);
-        
-        
         b2Vec2 worldBundaries[5];
-        worldBundaries[0].Set(x_minus, y);
-        worldBundaries[1].Set(x, y);
-        worldBundaries[2].Set(x, y_minus);
-        worldBundaries[3].Set(x_minus, y_minus);
-        worldBundaries[4].Set(x_minus, y);
+        b2Vec2 bb;
+        
+        worldBundaries[0].Set(0.0f, 0.0f);
+        
+        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {width, 0});
+        worldBundaries[1].Set(bb.x, bb.y);
+        
+        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {width, height});
+        worldBundaries[2].Set(bb.x, bb.y);
+        
+        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {0, height});
+        worldBundaries[3].Set(bb.x, bb.y);
+        
+        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {0, 0});
+        worldBundaries[4].Set(bb.x, bb.y);
         
         b2ChainShape chain;
         chain.CreateChain(worldBundaries, 5);
-        
         edge->CreateFixture(&chain, 0.0f);
-        
-        /*
-        // Linea horizontal superior
-        createLine(b2Vec2{x_minus, y}, b2Vec2{x, y});
-        // Linea vertical derecha
-        createLine(b2Vec2{x, y}, b2Vec2{x, y_minus});
-        // Linea horizontal inferior
-        createLine(b2Vec2{x, y_minus}, b2Vec2{x_minus, y_minus});
-        // Linea vertical izquierda
-        createLine(b2Vec2{x_minus, y_minus}, b2Vec2{x_minus, y});
-         */
     }
     
     void Physics::createLine(const b2Vec2& pointA, const b2Vec2& pointB)
@@ -95,51 +84,32 @@ namespace barrio {
         return false;
     }
     
-    void Physics::createPolygon(const std::string& bodyName, const float cartesianSpriteWidth, const float cartesianSpriteHeight, const b2Vec2& cartesianSpritePosition)
-    {
-     
+    void Physics::createPolygon(const std::string& bodyName, const SDL_Point& screenPos, const Size<int>& screenSize, const bool dynamicBody, const bool disableRotation)
+    {     
         if (bodyExist(bodyName))
         {
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Duplicate Physics body name : %s", bodyName.c_str());
             throw error::PHYSICS_BODY_NAME_DUPLICATE;
         }
         
-        b2BodyDef bodyDef;
-        bodyDef.type = b2_dynamicBody;
-        bodyDef.position.Set(cartesianSpritePosition.x, cartesianSpritePosition.y);
-        b2Body* body = world->CreateBody(&bodyDef);
+        Size<float32> cartesianSize = Utils::convSreenSizeToCartesianSize(screenSize);
+        b2Vec2 cartesianPos = Utils::convScreenPosToCartesianPos(screenPos);
         
-        b2PolygonShape dynamicBox;
-        dynamicBox.SetAsBox(cartesianSpriteWidth/2, cartesianSpriteHeight/2);
+        b2BodyDef bodydef;
+        bodydef.position.Set(cartesianPos.x, cartesianPos.y);
+        bodydef.fixedRotation = disableRotation;
+        if(dynamicBody == true)
+            bodydef.type=b2_dynamicBody;
         
-        b2FixtureDef fixtureDef;
-        fixtureDef.shape = &dynamicBox;
-        fixtureDef.density = 1.0f;
-        fixtureDef.friction = 0.3f;
+        b2Body* body=world->CreateBody(&bodydef);
         
-        body->CreateFixture(&fixtureDef);
+        b2PolygonShape shape;
+        shape.SetAsBox(cartesianSize.w, cartesianSize.w);
         
-        bodies.insert(make_pair(bodyName, body));
-    }
-    
-    void Physics::createStaticPolygon(const std::string& bodyName, const float cartesianSpriteWidth, const float cartesianSpriteHeight, const b2Vec2& cartesianSpritePosition)
-    {
-        if (bodyExist(bodyName))
-        {
-            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Duplicate Physics body name : %s", bodyName.c_str());
-            throw error::PHYSICS_BODY_NAME_DUPLICATE;
-        }
-        
-        b2BodyDef bodyDef;
-        bodyDef.position.Set(cartesianSpritePosition.x, cartesianSpritePosition.y);
-        b2Body* body = world->CreateBody(&bodyDef);
-        
-        b2PolygonShape staticBox;
-        staticBox.SetAsBox(cartesianSpriteWidth/2, cartesianSpriteHeight/2);
-        
-        b2FixtureDef fixtureDef;
-        fixtureDef.shape = &staticBox;
-        body->CreateFixture(&fixtureDef);
+        b2FixtureDef fixturedef;
+        fixturedef.shape=&shape;
+        fixturedef.density=1.0;
+        body->CreateFixture(&fixturedef);
         
         bodies.insert(make_pair(bodyName, body));
     }

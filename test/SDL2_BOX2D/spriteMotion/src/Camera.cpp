@@ -4,6 +4,7 @@
 #include "errorsCodes.hpp"
 #include "Constants.hpp"
 #include "Utils.hpp"
+#include "Furnitures.hpp"
 
 namespace barrio {
     using namespace std;
@@ -34,32 +35,35 @@ namespace barrio {
     
     void Camera::renderBackGround(SDL_Renderer*& renderer)
     {
-        if (this->background.isEmpty()) {
+        if (this->background.isEmpty())
+        {
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Camera background not found");
             throw error::CAMERA_NO_BACKGROUND_FOUND;
         }
         else
         {
             if (this->spriteToFollow != nullptr)
-            {                
-                b2Vec2 cartesianPos = spriteToFollow->getPosition();
-                SDL_Point ScreenPoint = Utils::convCartesianToScreen(cartesianPos);
+            {
+                SDL_Point ScreenPoint = spriteToFollow->getScreenPosition(spriteToFollow->getSpriteName());
                 this->cameraFollowObj(ScreenPoint, this->camera_position);
             }
             else
             {
                 SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Camera has not an item to follow");
             }
+            
             SDL_SetRenderDrawColor( renderer, color::WHITE, color::WHITE, color::WHITE, color::WHITE );
             SDL_RenderClear( renderer );
-            SDL_Rect clip {camera_position.x, camera_position.y, static_cast<int>(camera_width), static_cast<int>(camera_height)};
-            this->render(SDL_Point{0, 0}, clip, renderer, &background);
+            SDL_Rect clipOrigin {camera_position.x, camera_position.y, static_cast<int>(camera_width), static_cast<int>(camera_height)};
+            SDL_Rect clipDestination = {0, 0, static_cast<int>(camera_width), static_cast<int>(camera_height)};
+            
+            this->render(Clip {"background", clipOrigin, clipDestination}, renderer, &background);
         }
     }
     
-    void Camera::renderClip(Clip clip, SDL_Renderer*& renderer, Texture* obj)
+    void Camera::renderClip(const Clip& clip, SDL_Renderer*& renderer, Texture* obj)
     {
-        this->renderObj(clip.getCartesianPosition(), clip.getclipInPx(), renderer, obj);
+        this->renderObj(clip, renderer, obj);
     }
     
     void Camera::renderDebugInfo(SDL_Renderer*& renderer, DebugInfo* obj)
@@ -77,33 +81,81 @@ namespace barrio {
         SDL_RenderCopy( renderer, obj->getTexture(), NULL, &renderQuad );
     }
     
-    void Camera::renderObj(const b2Vec2& cartesianPosition, const SDL_Rect& clip, SDL_Renderer*& renderer, Texture* obj)
+    void Camera::renderObj(const Clip& clip, SDL_Renderer*& renderer, Texture* obj)
     {
-        SDL_Point ScreenPoint = Utils::convCartesianToScreen(cartesianPosition);
-        
-        if (ScreenPoint.x >= camera_position.x && ScreenPoint.x <= (camera_position.x + camera_width))
-        {
-            // Se aplica la diferencia entre la posicion horizontal del punto y la posicion horizontal de la camara
-            ScreenPoint.x = ScreenPoint.x - camera_position.x;
-            
-            // Temporal: Pruebas para fijar los marjenes del mundo
-            ScreenPoint.x = ScreenPoint.x - (clip.w/2);
-            ScreenPoint.y = ScreenPoint.y - (clip.h/2);
-            
-            this->render(ScreenPoint, clip, renderer, obj, 0.0, SDL_Point{0, 0}, (obj->getToFlip())? SDL_FLIP_HORIZONTAL:SDL_FLIP_NONE );
-        }
-        
+        this->render(clip, renderer, obj, clip.destinationAngle, SDL_Point{0, 0}, (obj->getToFlip())? SDL_FLIP_HORIZONTAL:SDL_FLIP_NONE );
     }
     
-    void Camera::render(const SDL_Point& screenPosition, const SDL_Rect& clip, SDL_Renderer*& renderer, Texture* obj,
-                        double angle, SDL_Point center, SDL_RendererFlip flip)
+    void Camera::render(const Clip& clip, SDL_Renderer*& renderer, Texture* obj, double angle, SDL_Point center, SDL_RendererFlip flip)
     {
-        SDL_Rect renderQuad = { screenPosition.x, screenPosition.y, obj->getPixelWidth(), obj->getPixelHeight() };
-        renderQuad.w = clip.w;
-        renderQuad.h = clip.h;
-        
-        SDL_RenderCopyEx( renderer, obj->getSDLTexture(), &clip, &renderQuad, angle, &center, flip );
-    }    
+        SDL_RenderCopyEx( renderer, obj->getSDLTexture(), &clip.screenOrigin, &clip.screenDestination, angle, &center, flip );
+    }
+    
+    void Camera::DrawPhysicsWorld(b2World* physicsWorld, SDL_Renderer*& renderer)
+    {
+        b2Body* tmp= physicsWorld->GetBodyList();
+        b2Vec2 points[4];
+        b2Fixture* fixture = nullptr;
+        b2Shape::Type shapeType;
+        b2Vec2 point;
+        while(tmp)
+        {
+            fixture = tmp->GetFixtureList();
+            shapeType = fixture->GetType();
+            
+            SDL_SetRenderDrawColor( renderer, 0x00, 0x00, 0xFF, 0xFF );
+            
+            if (shapeType == b2Shape::e_polygon)
+            {
+                for(int i=0;i<4;i++)
+                {
+                    points[i]=((b2PolygonShape*)tmp->GetFixtureList()->GetShape())->GetVertex(i);
+                    Utils::rotateTranslate(points[i],tmp->GetWorldCenter(),tmp->GetAngle());
+                }
+                
+                SDL_Point pointA = Utils::convCartesianPosToScreennPos(points[0]);
+                SDL_Point pointB = Utils::convCartesianPosToScreennPos(points[1]);
+                SDL_RenderDrawLine(renderer, pointA.x, pointA.y, pointB.x, pointB.y);
+                
+                pointA = Utils::convCartesianPosToScreennPos(points[1]);
+                pointB = Utils::convCartesianPosToScreennPos(points[2]);
+                SDL_RenderDrawLine(renderer, pointA.x, pointA.y, pointB.x, pointB.y);
+                
+                pointA = Utils::convCartesianPosToScreennPos(points[2]);
+                pointB = Utils::convCartesianPosToScreennPos(points[3]);
+                SDL_RenderDrawLine(renderer, pointA.x, pointA.y, pointB.x, pointB.y);
+                
+                pointA = Utils::convCartesianPosToScreennPos(points[3]);
+                pointB = Utils::convCartesianPosToScreennPos(points[0]);
+                SDL_RenderDrawLine(renderer, pointA.x, pointA.y, pointB.x, pointB.y);
+            }
+            else if (shapeType == b2Shape::e_chain)
+            {
+                b2ChainShape* chain = (b2ChainShape*)tmp->GetFixtureList()->GetShape();
+                int numEdges = chain->GetChildCount();
+                //int numVertices = chain->m_hasNextVertex ? numEdges : numEdges + 1;
+                
+                b2EdgeShape edgeShape;
+                for (int i = 0; i < numEdges; i++)
+                {
+                    chain->GetChildEdge( &edgeShape, i );
+                    SDL_Point pointA = Utils::convCartesianPosToScreennPos(edgeShape.m_vertex0);
+                    SDL_Point pointB = Utils::convCartesianPosToScreennPos(edgeShape.m_vertex1);
+                    SDL_RenderDrawLine(renderer, pointA.x, pointA.y, pointB.x, pointB.y);
+                }
+            }
+            else if (shapeType == b2Shape::e_circle)
+            {
+                SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Draw Physics: Circle is not implemented, yet");
+            }
+            else
+            {
+                SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Draw Physics: Shape no implemented");
+            }
+            
+            tmp=tmp->GetNext();
+        }
+    }
     
     void Camera::cameraFollowObj(const SDL_Point& screenPosition, SDL_Point& camera_position)
     {

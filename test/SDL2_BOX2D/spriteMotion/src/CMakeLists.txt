@@ -82,8 +82,10 @@ IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 	PKG_SEARCH_MODULE(SDL2MIXER REQUIRED SDL2_mixer>=2.0.0)
 	PKG_SEARCH_MODULE(SDL2TTF REQUIRED SDL2_ttf>=2.0.0)	
 	
-	FIND_PATH(BOX2D_INCLUDE_DIR Box2D.h "/usr/local/include/Box2D")	  
-	FIND_LIBRARY(BOX2D_LIBRARY NAMES Box2D libBox2D PATHS /usr/local/lib)
+	FIND_PATH(BOX2D_INCLUDE_DIR  Box2D/Box2D.h)	  
+	FIND_LIBRARY(BOX2D_LIBRARY NAMES Box2D.a box2d.a Box2d.a box2D.a libBox2D.a libbox2d.a libBox2d.a libbox2D.a PATHS /opt/local/lib /usr/local/lib)		
+	MESSAGE( "Box2D include location: " ${BOX2D_LIBRARY} )
+	MESSAGE( "Box2D library location: " ${BOX2D_INCLUDE_DIR} )
 	
 	FIND_PATH(SDL2GFX_INCLUDE_DIRS SDL2_rotozoom.h "/usr/local/include/SDL2")	  
 	FIND_LIBRARY(SDL2GFX_LIBRARIES NAMES SDL2_gfx libSDL2_gfx PATHS /usr/local/lib) 

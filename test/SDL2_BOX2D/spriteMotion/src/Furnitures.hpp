@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <SDL2/SDL.h>
 
 #include "Sprite.hpp"
 #include "Clip.hpp"
@@ -23,7 +24,7 @@ namespace barrio {
             loadPngSheet(pngSheetPath, zoomX, zoomY);
         }
         
-        void addToPhysicsWorld(const std::string& furnitureElemenName, const float32 cartesianPosX, const float32 cartesianPosY);
+        void addToPhysicsWorld(const std::string& furnitureElemenName, const SDL_Point& screenPos);
         Clip getFurnitureClip(const std::string& furnitureElemenName);
         
         void setToFlip(bool flip);
@@ -35,6 +36,7 @@ namespace barrio {
         Furnitures& operator=(const Furnitures&);
         
     private:
+        static constexpr bool STATIC_BODY = false;
         SDL_Renderer* renderer;
         std::map<std::string, SDL_Rect> furnituresPixelDimensions;
         

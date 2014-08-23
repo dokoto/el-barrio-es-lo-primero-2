@@ -29,6 +29,7 @@ namespace barrio {
         Furnitures furnitures;
         DebugInfo debugInfo;
         
+        
     private:
         void loadMedia(void);
         std::string createDebugText();        
