@@ -1,6 +1,9 @@
 test/GLFW_BOX2D/environent/build/debug/mac/*
 test/GLFW_BOX2D/spriteWorld/build/debug/mac/*
 
+est/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/*
+est/SDL2_BOX2D/spriteMotion/build/release/mac_xcode/*
+
 test/GLFW_BOX2D/environent/build/debug/linux/*
 test/GLFW_BOX2D/spriteWorld/build/debug/linux/*
 

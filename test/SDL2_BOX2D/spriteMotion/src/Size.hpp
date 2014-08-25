@@ -20,14 +20,13 @@ public:
     
     Size(void) {}
     Size(T widht, T height) : w(widht), h(height) {};
-    Size(const Size&& s): w(s.w), h(s.h) {};
-    Size& operator=(Size&& s) {
+    Size(const Size&& s): w(s.w), h(s.h) {}
+    Size& operator=(const Size&& s)
+    {
         w = s.w;
         h = s.h;
         return *this;
     }
 };
-
-
 
 #endif

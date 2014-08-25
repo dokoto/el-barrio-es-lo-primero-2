@@ -9,6 +9,7 @@ namespace error {
         LINEAR_TEXTURE_FAIL,
         WINDOW_INIT_FAIL,
         RENDER_CREATION_FAIL,
+        RENDER_NULL,
         SYS_IMAGE_INIT_FAIL,
         READ_SPRITESHEETS_JSON_FAIL,
         PHYSICS_INIT_FAIL,

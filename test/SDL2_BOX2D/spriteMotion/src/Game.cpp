@@ -1,6 +1,4 @@
 #include "Game.hpp"
-
-
 #include <stdexcept>
 #include <sstream>
 #include "errorsCodes.hpp"
@@ -60,8 +58,18 @@ namespace barrio {
                         throw error::SYS_IMAGE_INIT_FAIL;
                     }
                     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "SDL2 image system initialization...OK");
+                    
                     physicsWorld.CreateWorld(b2Vec2{0.0f, 0.0f}, Size<int> {consts::WORLD_WIDTH_PX , consts::WORLD_HEIGHT_PX});
-                    camera.CreateCamera(consts::CAMERA_WIDTH_PX, consts::CAMERA_HEIGHT_PX, consts::WORLD_WIDTH_PX, consts::WORLD_HEIGHT_PX);
+                    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Physics world initializated in [%d, %d] pixel", consts::WORLD_WIDTH_PX , consts::WORLD_HEIGHT_PX);
+                    
+                    camera.CreateCamera(SDL_Point{0 ,0}, Size<int>{consts::CAMERA_WIDTH_PX, consts::CAMERA_HEIGHT_PX});
+                    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Camera system initialization...OK");
+                    
+                    controller.Create(renderer, &physicsWorld, &camera);
+                    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Controller system initialization...OK");
+                    
+                    render.CreateRender(renderer, &physicsWorld, &camera);
+                    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Render system initialization...OK");
                 }
             }
             
@@ -91,229 +99,16 @@ namespace barrio {
         SDL_Quit();
     }
     
-    void Game::loadMedia(void)
-    {
-        debugInfo.CreateDebugInfo("ttf/ArialNarrowRegular.ttf", 15);
-        camera.setBackground("img/backgorund_1679x600.png", renderer);
-        
-        players[0].CreateCharacter("player1", renderer, &physicsWorld);
-        //players[1].CreateCharacter("player2", renderer, &physicsWorld);
-
-        //player.loadAnimations("conf/spriteSheets/foo.json", "img/foo.png");
-        //players[0].loadAnimations("conf/spriteSheets/point10x5px.json", "img/point10x5px.png", 8.0, 8.0);
-        
-        //players[0].loadAnimations("conf/spriteSheets/player1.json", "img/player1.png", 2.0, 2.0);
-        //players[1].loadAnimations("conf/spriteSheets/player2.json", "img/player2.png", 2.0, 2.0);
-        
-        players[0].loadAnimations("conf/spriteSheets/point10x5px.json", "img/point10x5px.png", 5.0, 5.0);
-        //players[1].loadAnimations("conf/spriteSheets/point10x5px.json", "img/point10x5px.png", 16.0, 16.0);
-        
-        players[0].addToPhysicsWorld(SDL_Point {400, 100});
-        //players[1].addToPhysicsWorld(-5.3f, -4.0f);
-        
-        furnitures.CreateFurnitures("furnituresTest", renderer, &physicsWorld, SDL_Color{0, 255, 0, 0});
-        furnitures.loadFurnitures("conf/spriteSheets/furniture_1.json", "img/furnitures_1.png", 2.0, 2.0);
-        furnitures.addToPhysicsWorld("objeto1", SDL_Point {300, 400});
-        //furnitures.addToPhysicsWorld("objeto2", 6.0f, 2.0f);
-        
-        camera.follow(&players[0]);
-    }
-    
-    string Game::createDebugText()
-    {
-        std::stringstream os;
-        os << "[ " << players[0].getScreenPosition(players[0].getSpriteName()).x << " , " <<
-        players[0].getScreenPosition(players[0].getSpriteName()).y << " ]";
-        return os.str();
-    }
     
     void Game::gameLoop(void)
     {
-        bool quit = false;
-        SDL_Event e;
-        string acction;
-        b2Vec2 velocity;
+        bool quitGame = false;
         
-        loadMedia();
-        while (quit == false)
+        controller.loadLevelWord(Controller::LEVEL1);
+        while (quitGame != consts::QUIT_GAME)
         {
-            quit = handlePoolEvents(&e);
-            camera.renderBackGround(renderer);
-            
-            camera.renderClip(furnitures.getFurnitureClip("objeto1"), renderer, &furnitures);
-            //camera.renderClip(furnitures.getFurnitureClip("objeto2"), renderer, &furnitures);
-            
-            //handleKeyBoard1(acction, velocity);
-            //camera.renderClip(players[0].playAnimation(acction, consts::DELAY_BETWEEN_ANIMATIONS), renderer, &players[0]);
-            
-            handleKeyBoard1(acction, velocity);
-            players[0].setVelocity(velocity);
-            camera.renderClip(players[0].playAnimation(acction, consts::DELAY_BETWEEN_ANIMATIONS), renderer, &players[0]);
-            
-            //camera.switchFlipOFF();                                                
-            //physicsWorld.collisionPool.ObjectsCollisioned.clear();
-            
-            debugInfo.writeText(createDebugText(), SDL_Color{246, 0, 4, 0}, renderer);
-            camera.renderDebugInfo(renderer, &debugInfo);
-            camera.DrawPhysicsWorld(physicsWorld.getWorld(), renderer);
-            physicsWorld.Step();
-            SDL_RenderPresent( renderer );
+            quitGame = controller.handleSystem();
+            render.drawDebug();
         }
     }
-    
-    void Game::handleKeyBoard1(std::string& action, b2Vec2& velocity)
-    {
-        float32 vel = 1.90f;
-        const Uint8* currentKeyStates = SDL_GetKeyboardState( NULL );
-
-        if( currentKeyStates[ SDL_SCANCODE_UP ] )
-        {
-            velocity = {0.0f, -vel};
-            action = "walking";
-        }
-        else if( currentKeyStates[ SDL_SCANCODE_DOWN ] )
-        {
-            velocity = {0.0f, vel};
-            action = "walking";
-        }
-        else if( currentKeyStates[ SDL_SCANCODE_LEFT ] )
-        {
-            players[0].setToFlip(true);
-            velocity = {-vel, 0.0f};
-            action = "walking";
-          }
-        else if( currentKeyStates[ SDL_SCANCODE_RIGHT ] )
-        {
-            players[0].setToFlip(false);
-            velocity = {vel, 0.0f};
-            action = "walking";
-        }
-        else if( currentKeyStates[ SDL_SCANCODE_SPACE ] )
-        {
-            velocity = {0.0f, 0.0f};
-            action = "punch";
-        }
-        else
-        {
-            if (players[0].isAnimationStop())
-            {
-                velocity = {0.0f, 0.0f};
-                action = "stop";
-            }
-        }
-
-    }
-    
-    void Game::handleKeyBoard2(std::string& action, b2Vec2& velocity)
-    {
-        float32 vel = 1.90f;
-        const Uint8* currentKeyStates = SDL_GetKeyboardState( NULL );
-        if( currentKeyStates[ SDL_SCANCODE_W ] )
-        {
-            velocity = {0.0f, vel};
-            action = "walking";
-        }
-        else if( currentKeyStates[ SDL_SCANCODE_S ] )
-        {
-            velocity = {0.0f, -vel};
-            action = "walking";
-        }
-        else if( currentKeyStates[ SDL_SCANCODE_A ] )
-        {
-            velocity = {-vel, 0.0f};
-            action = "walking";
-        }
-        else if( currentKeyStates[ SDL_SCANCODE_D ] )
-        {
-            velocity = {vel, 0.0f};
-            action = "walking";
-        }
-        else
-        {
-            velocity = {0.0f, 0.0f};
-            action = "stop";
-        }
-        
-    }
-    
-    bool Game::handlePoolEvents(SDL_Event* event)
-    {
-        bool quit = false;
-        static Uint32 ms = 0;
-        while( SDL_PollEvent( event ) != 0 )
-        {
-            if( event->type == SDL_QUIT )
-            {
-                quit = true;
-            }
-            else
-            {
-                if (event->type == SDL_WINDOWEVENT)
-                {
-                    switch (event->window.event)
-                    {
-                        case SDL_WINDOWEVENT_SHOWN:
-                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d shown", event->window.windowID);
-                            ms = 0;
-                            break;
-                        case SDL_WINDOWEVENT_HIDDEN:
-                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d hidden", event->window.windowID);
-                            ms = 300;
-                            break;
-                        case SDL_WINDOWEVENT_EXPOSED:
-                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d exposed", event->window.windowID);
-                            ms = 0;
-                            break;
-                        case SDL_WINDOWEVENT_MOVED:
-                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d moved to %d,%d",
-                                           event->window.windowID, event->window.data1,
-                                           event->window.data2);
-                            ms = 0;
-                            break;
-                        case SDL_WINDOWEVENT_RESIZED:
-                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d resized to %dx%d",
-                                           event->window.windowID, event->window.data1,
-                                           event->window.data2);
-                            ms = 0;
-                            break;
-                        case SDL_WINDOWEVENT_MINIMIZED:
-                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d minimized", event->window.windowID);
-                            ms = 300;
-                            break;
-                        case SDL_WINDOWEVENT_MAXIMIZED:
-                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE,"Window %d maximized", event->window.windowID);
-                            ms = 0;
-                            break;
-                        case SDL_WINDOWEVENT_RESTORED:
-                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d restored", event->window.windowID);
-                            ms = 0;;
-                            break;
-                        case SDL_WINDOWEVENT_FOCUS_GAINED:
-                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d gained keyboard focus",
-                                           event->window.windowID);
-                            ms = 0;
-                            break;
-                        case SDL_WINDOWEVENT_FOCUS_LOST:
-                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d lost keyboard focus",
-                                           event->window.windowID);
-                            ms = 300;
-                            break;
-                        case SDL_WINDOWEVENT_CLOSE:
-                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d closed", event->window.windowID);
-                            ms = 300;
-                            break;
-                        default:
-                            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Window %d got unknown event %d",
-                                           event->window.windowID, event->window.event);
-                            ms = 0;
-                            break;
-                    }
-                }
-            }
-        }
-        
-        SDL_Delay(ms);
-        return quit;
-    }
-    
 }

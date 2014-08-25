@@ -44,8 +44,12 @@ Camera.hpp
 Character.cpp
 Character.hpp
 Clip.hpp
+CollisionListener.cpp
+CollisionListener.hpp
 Colors.hpp
 Constants.hpp
+Controller.cpp
+Controller.hpp
 DebugInfo.cpp
 DebugInfo.hpp
 Furnitures.cpp
@@ -54,6 +58,9 @@ Game.cpp
 Game.hpp
 Physics.cpp
 Physics.hpp
+Render.cpp
+Render.hpp
+Size.hpp
 Sprite.cpp
 Sprite.hpp
 Texture.cpp
@@ -64,6 +71,16 @@ main.cpp
 main.hpp	
 contrib/jsoncpp.cpp
 contrib/json.h)
+
+source_group("utilities" FILES fcontrib/jsoncpp.cpp contrib/jsoncpp.hpp Utils.hpp)
+source_group("constants" FILES errorsCodes.hpp Colors.hpp Constants.hpp)
+source_group("types" FILES Size.hpp Clip.hpp)
+source_group("sprites" FILES Texture.cpp Texture.hpp Sprite.hpp Sprite.cpp Character.cpp Character.hpp Furnitures.cpp Furnitures.hpp)
+source_group("physics" FILES Physics.hpp Physics.cpp CollisionListener.hpp CollisionListener.cpp)
+source_group("render" FILES Render.hpp Render.cpp Camera.hpp Camera.cpp DebugInfo.hpp DebugInfo.cpp)
+source_group("controller" FILES Controller.cpp Controller.hpp)
+source_group("main" FILES main.cpp main.hpp Game.cpp Game.hpp)
+
 
 
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")	

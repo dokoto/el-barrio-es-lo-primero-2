@@ -75,20 +75,34 @@ namespace barrio {
     
     bool Physics::bodyExist(const std::string& name)
     {
-        if (!bodies.empty())
+        if (!bodiesByName.empty())
         {
             map<string, b2Body*>::iterator it;
-            it = bodies.find(name);
-            return  (it != bodies.end()) ? true : false;
+            it = bodiesByName.find(name);
+            return  (it != bodiesByName.end()) ? true : false;
         }
         return false;
     }
     
-    void Physics::createPolygon(const std::string& bodyName, const SDL_Point& screenPos, const Size<int>& screenSize, const bool dynamicBody, const bool disableRotation)
-    {     
-        if (bodyExist(bodyName))
+    void Physics::addToWorld(const std::string& name, Sprite* sprite, const SDL_Point& screenPos,
+                             const Size<int>& screenSize, const bool dynamicBody, const bool disableRotation)
+    {
+        if (sprite->getTypeOfShape() == Sprite::TypeOfShape::POLYGON)
         {
-            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Duplicate Physics body name : %s", bodyName.c_str());
+            createPolygon(name, sprite, screenPos, screenSize, dynamicBody, disableRotation);
+        }
+        else if (sprite->getTypeOfShape() == Sprite::TypeOfShape::CIRCLE)
+        {
+            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Type CIRCLES no supported yet : %s", name.c_str());
+        }
+    }
+    
+    
+    void Physics::createPolygon(const std::string& name, Sprite* sprite, const SDL_Point& screenPos, const Size<int>& screenSize, const bool dynamicBody, const bool disableRotation)
+    {     
+        if (bodyExist(name))
+        {
+            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Duplicate Physics body name : %s", name.c_str());
             throw error::PHYSICS_BODY_NAME_DUPLICATE;
         }
         
@@ -98,6 +112,7 @@ namespace barrio {
         b2BodyDef bodydef;
         bodydef.position.Set(cartesianPos.x, cartesianPos.y);
         bodydef.fixedRotation = disableRotation;
+        bodydef.userData = static_cast<void*>(sprite);
         if(dynamicBody == true)
             bodydef.type=b2_dynamicBody;
         
@@ -111,15 +126,17 @@ namespace barrio {
         fixturedef.density=1.0;
         body->CreateFixture(&fixturedef);
         
-        bodies.insert(make_pair(bodyName, body));
+        bodiesByName.insert(make_pair(name, body));
+        bodiesByShapeType.insert(make_pair(sprite->getTypeOfShape(), body));
+        bodiesBySpriteType.insert(make_pair(sprite->getTypeOfSprite(), body));
     }
     
     
     b2Body* Physics::getBody(const std::string& spriteName)
     {
         map<string, b2Body*>::iterator it;
-        it = bodies.find(spriteName);
-        if (it == bodies.end())
+        it = bodiesByName.find(spriteName);
+        if (it == bodiesByName.end())
         {
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "No Physics body name: %s found", spriteName.c_str());
             throw error::PHYSICS_BODY_NAME_NOT_FOUND;

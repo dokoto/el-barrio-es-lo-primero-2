@@ -26,7 +26,7 @@ public:
     };
     
     Clip(const Clip&& c): name(std::move(c.name)), screenOrigin(std::move(c.screenOrigin)), screenDestination(std::move(c.screenDestination)), destinationAngle(std::move(c.destinationAngle)) {};
-    Clip& operator=(Clip&& c)
+    Clip& operator=(const Clip&& c)
     {
         name = std::move(name);
         screenOrigin = std::move(c.screenOrigin);

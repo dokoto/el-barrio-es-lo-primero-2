@@ -8,6 +8,7 @@
 #include <Box2D/Box2D.h>
 #include "CollisionListener.hpp"
 #include "Size.hpp"
+#include "Sprite.hpp"
 
 
 namespace barrio {
@@ -20,7 +21,8 @@ namespace barrio {
         void CreateWorld(const b2Vec2 gravity, const Size<int>& screenSize);
         Physics(const Physics&& a);
         
-        void createPolygon(const std::string& bodyName, const SDL_Point& screenPos, const Size<int>& screenSize, const bool dynamicBody = true, const bool disableRotation = true);
+        void addToWorld(const std::string& name, Sprite* sprite, const SDL_Point& screenPos, const Size<int>& screenSize,
+                           const bool dynamicBody = true, const bool disableRotation = true);
         void setWorldBundaries(const int width, const int height);
         void createLine(const b2Vec2& pointA, const b2Vec2& pointB);
         
@@ -36,29 +38,25 @@ namespace barrio {
         
     public:
         CollisionListener collisionPool;
+        std::map<std::string, b2Body*> bodiesByName;
+        std::multimap<Sprite::TypeOfSprite, b2Body*> bodiesBySpriteType;
+        std::multimap<Sprite::TypeOfShape, b2Body*> bodiesByShapeType;
         
     private:
         
         Physics(const Physics&){}
         Physics& operator=(const Physics&);
+        void createPolygon(const std::string& name, Sprite* sprite, const SDL_Point& screenPos, const Size<int>& screenSize,
+                           const bool dynamicBody = true, const bool disableRotation = true);
         
     private:
         b2Vec2 gravity;
         b2World* world;
-        Size<float32> cartesianSize;
-        std::map<std::string, b2Body*> bodies;
+        Size<float32> cartesianSize;        
         static constexpr float32 frequency = 30.0f;
         static constexpr int32 velocityIterations = 8;
         static constexpr int32 positionIterations = 3;
         static constexpr float32 timeStep = 1.0f / frequency;
-        /*
-         * Ratio de conversion entre las coordenadas de Box2D y SDL2.
-         * La cosa es que en Box2D las unidades equivalen a metros( 1 unidad == 1 metro)
-         * Con el ratio de conversion lo que hacemos es convetirlas desde y hacia pixeles
-         * Si una unidad es un metro, podemos decir que una metro son 50 pixeles, quedando
-         * 1 metro == 50px, se deberia ajustar este ratio en funcion del ancho de la pantalla
-         */
-        static constexpr float32 RATIO_CONV = 50.0f;
     };
     
 }

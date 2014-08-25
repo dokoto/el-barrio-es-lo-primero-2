@@ -1,14 +1,13 @@
 #ifndef __EL_BARRIO_ES_LO_PRIMERO__Camera__
 #define __EL_BARRIO_ES_LO_PRIMERO__Camera__
 
-#include "Texture.hpp"
-#include "Character.hpp"
-#include "Clip.hpp"
 #include <Box2D/Box2D.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <string>
-#include "DebugInfo.hpp"
+#include "Size.hpp"
+#include "Sprite.hpp"
+#include "Constants.hpp"
 
 namespace barrio {
     
@@ -16,59 +15,27 @@ namespace barrio {
     {
         
     public:
-        Camera() : spriteToFollow(nullptr) {}
+        Camera() : shift_factor(consts::CAMERA_SHIFT_FACTOR) {}
         ~Camera();
-        void CreateCamera(const float32 camera_width, const float32 camera_heigth, const float32 world_width, const float32 world_height);
+        void CreateCamera(const SDL_Point& cameraPosition, const Size<int>& cameraSize);
         
-        void renderBackGround(SDL_Renderer*& renderer);
-        void renderObj(const Clip& clip, SDL_Renderer*& renderer, Texture* obj);
-        void renderDebugInfo(SDL_Renderer*& renderer, DebugInfo* obj);
-        void renderClip(const Clip& clip, SDL_Renderer*& renderer, Texture* obj);
-        void cameraFollowObj(const SDL_Point& screenPosition, SDL_Point& camera_position);
-        
-        void follow(Character* spriteToFollow)
+        void loadBackGroundImage(const std::string& backGroundPath, SDL_Renderer*& renderer)
         {
-            this->spriteToFollow = spriteToFollow;
-            oldCartesianPosOfFollowSprite = spriteToFollow->getPosition();
+            backGround.setTransparentColor(SDL_Color{0xFF, 0xFF, 0xFF, 0});
+            backGround.loadFromFile(backGroundPath, renderer);
         }
-        
-        void setBackground(const std::string& backGroundPath, SDL_Renderer*& renderer)
-        {
-            background.setTransparentColor(SDL_Color{0xFF, 0xFF, 0xFF, 0});
-            background.loadFromFile(backGroundPath, renderer);
-        }
-        
-        SDL_RendererFlip getFlip(void) { return flip; }
-        SDL_Point getCenter(void) { return center; }
-        void setCenter(SDL_Point center) { this->center = center; }
-        double getAngle(void) { return angle; }
-        void setAngle(double angle) { this->angle = angle; }
-        void DrawPhysicsWorld(b2World* physicsWorld, SDL_Renderer*& renderer);
+        void cameraFollowObj(const SDL_Point& objPosition, SDL_Point& camera_position);
         
     private:
         Camera(const Camera&){}
         Camera& operator=(const Camera&);
+        int shift_factor;
         
-    private:
-        SDL_Point camera_position;
-        float32 camera_width;
-        float32 camera_middle_width;
-        float32 camera_height;
-        float32 camera_middle_height;
-        float32 world_width;
-        float32 world_middle_width;
-        float32 world_height;
-        float32 world_middle_height;
-        float32 shift_factor;
-        double angle;
-        SDL_Point center;
-        SDL_RendererFlip flip;
-        Character* spriteToFollow;
-        Texture background;
-        b2Vec2 oldCartesianPosOfFollowSprite;
-        
-        void render(const Clip& clip, SDL_Renderer*& renderer, Texture* obj, double angle = 0.0, SDL_Point center = {0, 0}, SDL_RendererFlip flip = SDL_FLIP_NONE);
-        
+    public:
+        SDL_Point cameraPosition;
+        Size<int> cameraSize;
+        Size<int> cameraSizeMiddle;
+        Sprite backGround;
     };
     
 }

@@ -6,10 +6,10 @@
 #include <SDL2/SDL_image.h>
 
 #include "Physics.hpp"
-#include "Camera.hpp"
-#include "Character.hpp"
+#include "Render.hpp"
+#include "Controller.hpp"
 #include "DebugInfo.hpp"
-#include "Furnitures.hpp"
+#include "Camera.hpp"
 
 namespace barrio {
     
@@ -24,11 +24,10 @@ namespace barrio {
         SDL_Window* window;
         SDL_Renderer* renderer;
         Physics physicsWorld;
+        Controller controller;
+        Render render;
         Camera camera;
-        Character players[2];
-        Furnitures furnitures;
         DebugInfo debugInfo;
-        
         
     private:
         void loadMedia(void);

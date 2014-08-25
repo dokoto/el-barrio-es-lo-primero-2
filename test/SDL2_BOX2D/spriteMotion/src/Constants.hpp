@@ -14,9 +14,20 @@ namespace consts {
     static constexpr int WORLD_HEIGHT_PX = 600;
     static constexpr int WORLD_MIDDLE_HEIGHT_PX = WORLD_HEIGHT_PX / 2;
     
-    static constexpr int DELAY_BETWEEN_ANIMATIONS = 10;
     static constexpr int CAMERA_MARGIN_PX = 100;
-    static constexpr float32 PHYSICS_CONV_FACTOR_PX = 50;
+    static constexpr int CAMERA_SHIFT_FACTOR = 1;
+    
+    static constexpr int DELAY_BETWEEN_ANIMATIONS = 10;
+    static constexpr int RESUME_STATE_DELAY_IN_MS = 300;
+    
+    static constexpr bool QUIT_GAME = true;
+    static constexpr bool CONTINUE_GAME = false;
+    
+    static constexpr bool DYNAMIC_BODY = true;
+    static constexpr bool STATIC_BODY = false;
+    
+    static constexpr bool ENABLE_ROTATION = false;
+    static constexpr bool DISABLE_ROTATION = true;
 }
 
 #endif

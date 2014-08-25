@@ -6,14 +6,13 @@
 #include <vector>
 
 #include "Sprite.hpp"
-#include "Clip.hpp"
 
 namespace barrio {
     
     class Character : public Sprite
     {
     public:
-        void CreateCharacter(const std::string& name, SDL_Renderer*& lrenderer, Physics* physicsWorld, SDL_Color transparentColor = {0xFF, 0xFF, 0xFF, 0});
+        void CreateCharacter(const std::string& name, TypeOfSprite typeOfSprite, TypeOfShape typeOfShape, SDL_Renderer*& renderer, SDL_Color transparentColor = {0xFF, 0xFF, 0xFF, 0});
         Character(): renderer(nullptr) {}
         ~Character() {}
         
@@ -23,31 +22,23 @@ namespace barrio {
             loadPngSheet(pngSheetPath, zoomX, zoomY);
         }
         
-        inline const b2Vec2 getVelocity(void) const
-        {
-            return getPhysicsBody(getSpriteName())->GetLinearVelocity();
-        }
-        
-        inline void setVelocity(const b2Vec2& velocity)
-        {
-            getPhysicsBody(getSpriteName())->SetLinearVelocity(velocity);
-        }
-        
-        inline const b2Vec2 getPosition(void)
-        {
-            return getPhysicsBody(getSpriteName())->GetPosition();
-        }
-        
         inline bool isAnimationStop(void)
         {
             return currentAnimationName.empty();
         }
         
+        Size<int> getAnimationSize(const std::string& animationName)
+        {
+            return Size<int> {animations[animationName].at(0).w, animations[animationName].at(0).h};
+        }
+        
         void setToFlip(bool flip);
         bool getToFlip(void) const;
-        
-        void addToPhysicsWorld(const SDL_Point& screenPos);
-        Clip playAnimation(const std::string& animationName, const size_t delayInFrames);
+        void playAnimation(const std::string& animationName, const size_t delayInFrames);
+        SDL_Rect getCurrentClip(void)
+        {
+            return animations[this->currentAnimationName].at(currentAnimationFrame);
+        }
         void stopAnimation();
         
     private:
@@ -56,7 +47,6 @@ namespace barrio {
         Character& operator=(const Character&);
     
     private:
-        static constexpr bool DYNAMIC_BODY = true;
         SDL_Renderer* renderer;
         size_t currentAnimationFrame, delayFrameCount;
         std::string currentAnimationName;
@@ -67,7 +57,6 @@ namespace barrio {
         {
             loadFromFile(pngSheetPath, renderer, zoomX, zoomY);
         }
-        void temp(void);
     };
     
 }

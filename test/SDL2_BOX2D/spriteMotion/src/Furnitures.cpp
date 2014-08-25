@@ -10,25 +10,10 @@ namespace barrio {
     
     using namespace std;
     
-    void Furnitures::CreateFurnitures(const std::string& FurnituresName, SDL_Renderer*& renderer, Physics* physicsWorld, SDL_Color transparentColor)
+    void Furnitures::CreateFurnitures(const std::string& groupName, TypeOfSprite typeOfSprite, TypeOfShape typeOfShape, SDL_Renderer*& renderer, SDL_Color transparentColor)
     {
-        this->CreateSprite(FurnituresName, transparentColor, physicsWorld);
+        this->CreateSprite(groupName, typeOfSprite, typeOfShape, transparentColor);
         this->renderer = renderer;
-    }
-    
-    void Furnitures::addToPhysicsWorld(const std::string& furnitureElemenName, const SDL_Point& screenPos)
-    {
-        map<string, SDL_Rect>::iterator it;
-        it = furnituresPixelDimensions.find(furnitureElemenName);
-        if (it != furnituresPixelDimensions.end())
-        {
-            physicsWorld->createPolygon(it->first, screenPos, Size<int> { it->second.w, it->second.h }, STATIC_BODY);
-        }
-        else
-        {
-            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Furniture %s not found:", furnitureElemenName.c_str());
-            throw error::FURNITURE_NOT_FOUND;
-        }        
     }
     
     void Furnitures::setToFlip(bool)
@@ -40,22 +25,13 @@ namespace barrio {
         return false;
     }
     
-    Clip Furnitures::getFurnitureClip(const std::string& furnitureElemenName)
+    SDL_Rect Furnitures::getFurnitureClip(const std::string& furnitureElemenName)
     {
         map<string, SDL_Rect>::iterator it;
         it = furnituresPixelDimensions.find(furnitureElemenName);
         if (it != furnituresPixelDimensions.end())
         {
-            SDL_Rect originCLip = furnituresPixelDimensions[furnitureElemenName];
-            SDL_Rect destinationClip;
-            destinationClip.w = originCLip.w;
-            destinationClip.h = originCLip.h;
-            SDL_Point pp = getScreenPosition(furnitureElemenName);
-            destinationClip.x = pp.x;
-            destinationClip.y = pp.y;
-            float32 angle = getPhysicsBody(furnitureElemenName)->GetAngle();
-
-            return Clip {furnitureElemenName, originCLip, destinationClip, angle};
+            return furnituresPixelDimensions[furnitureElemenName];
         }
         else
         {

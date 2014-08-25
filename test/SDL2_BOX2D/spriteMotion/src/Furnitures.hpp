@@ -5,16 +5,14 @@
 #include <map>
 #include <vector>
 #include <SDL2/SDL.h>
-
 #include "Sprite.hpp"
-#include "Clip.hpp"
 
 namespace barrio {
     
     class Furnitures : public Sprite
     {
     public:
-        void CreateFurnitures(const std::string& FurnituresName, SDL_Renderer*& lrenderer, Physics* physicsWorld, SDL_Color transparentColor = {0xFF, 0xFF, 0xFF, 0});
+        void CreateFurnitures(const std::string& groupName, TypeOfSprite typeOfSprite, TypeOfShape typeOfShape, SDL_Renderer*& renderer, SDL_Color transparentColor = {0xFF, 0xFF, 0xFF, 0});
         Furnitures(): renderer(nullptr) {}
         ~Furnitures() {}
         
@@ -24,8 +22,17 @@ namespace barrio {
             loadPngSheet(pngSheetPath, zoomX, zoomY);
         }
         
-        void addToPhysicsWorld(const std::string& furnitureElemenName, const SDL_Point& screenPos);
-        Clip getFurnitureClip(const std::string& furnitureElemenName);
+        SDL_Rect getFurnitureClip(const std::string& furnitureElemenName);
+        std::map<std::string, SDL_Rect> getAllFurnitures(void)
+        {
+            return furnituresPixelDimensions;
+        }
+        
+        Size<int> getFurnitureSize( const std::string& furnitureElemenName)
+        {
+            SDL_Rect r = getFurnitureClip(furnitureElemenName);
+            return Size<int> {r.w, r.h};
+        }
         
         void setToFlip(bool flip);
         bool getToFlip(void) const;
@@ -36,7 +43,6 @@ namespace barrio {
         Furnitures& operator=(const Furnitures&);
         
     private:
-        static constexpr bool STATIC_BODY = false;
         SDL_Renderer* renderer;
         std::map<std::string, SDL_Rect> furnituresPixelDimensions;
         
