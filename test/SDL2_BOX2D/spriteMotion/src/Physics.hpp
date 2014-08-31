@@ -29,6 +29,8 @@ namespace barrio {
         bool bodyExist(const std::string& name);
         b2Body* getBody(const std::string& spriteNamme);
         
+        void tmpGround(void);
+        
         void Step(void)
         {
             world->Step(timeStep, this->velocityIterations, this->positionIterations);
@@ -46,7 +48,7 @@ namespace barrio {
         
         Physics(const Physics&){}
         Physics& operator=(const Physics&);
-        void createPolygon(const std::string& name, Sprite* sprite, const SDL_Point& screenPos, const Size<int>& screenSize,
+        b2Body* createPolygon(const std::string& name, Sprite* sprite, const SDL_Point& screenPos, const Size<int>& screenSize,
                            const bool dynamicBody = true, const bool disableRotation = true);
         
     private:

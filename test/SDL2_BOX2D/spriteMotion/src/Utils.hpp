@@ -7,6 +7,7 @@
 #include "Constants.hpp"
 #include "Size.hpp"
 
+
 namespace barrio {
     class Utils
     {
@@ -53,7 +54,7 @@ namespace barrio {
             Utils::rotateTranslate(point, body->GetWorldCenter(), body->GetAngle());
             
             return Utils::convCartesianPosToScreennPos(point);
-        }
+        }        
     };
 }
 

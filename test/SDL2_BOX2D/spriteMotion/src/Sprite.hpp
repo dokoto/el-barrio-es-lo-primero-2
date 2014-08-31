@@ -12,9 +12,10 @@ namespace barrio
     class Sprite : public Texture
     {
     public:
-        enum direcction {UP, DOWN, LEFT, RIGHT, PUNCH};
-        enum TypeOfShape {POLYGON, CIRCLE};
-        enum TypeOfSprite {CHARACTER, ENEMY, FURNITURE, BACKGROUND};
+        enum direcction {UP, DOWN, LEFT, RIGHT, PUNCH, DIRECCTION_NONE};
+        enum typeOfFixture {FIX_CHARACTER, FIX_ENEMY, FIX_FURNITURE, FIX_HORIZON, FIX_WORLD_BUDARIES, FIX_FOOT, FIX_TYPE_OF_FIXTURE_NONE};
+        enum TypeOfShape {POLYGON, CIRCLE, TYPE_OF_SHAPE_NONE};
+        enum TypeOfSprite {CHARACTER, ENEMY, FURNITURE, BACKGROUND, TYPE_OF_SPRITE_NONE};
         void CreateSprite(const std::string& spriteName, TypeOfSprite typeOfSprite, TypeOfShape typeOfShape, SDL_Color transparentColor, bool followWithCamera = false);
         Sprite(void) {}
         virtual ~Sprite(void)
@@ -28,6 +29,10 @@ namespace barrio
         {
             movements[dir] = key;
         }
+        static std::string getFixtureName(b2Fixture* fixture);
+        static Sprite::TypeOfSprite getFixtureTypeOfSprite(b2Fixture* fixture);
+        static Sprite::TypeOfShape getFixtureTypeOfShape(b2Fixture* fixture);
+        static Sprite::typeOfFixture getFixtureTypeOfFixture(b2Fixture* fixture);
         
     private:
         Sprite(const Sprite&){}
@@ -39,6 +44,7 @@ namespace barrio
         
         int movements[5];
         std::string spriteName;
+        std::string spriteFootName;
         bool followWithCamera;
     };
     

@@ -1,4 +1,7 @@
 #include "Physics.hpp"
+
+#include <sstream>
+
 #include "errorsCodes.hpp"
 #include "Constants.hpp"
 #include "Utils.hpp"
@@ -14,7 +17,7 @@ namespace barrio {
         {
             cartesianSize = Utils::convSreenSizeToCartesianSize(screenSize);
             setWorldBundaries(consts::WORLD_WIDTH_PX, consts::WORLD_HEIGHT_PX);
-            //world->SetContactListener(&collisionPool);
+            world->SetContactListener(&collisionPool);
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE,
                            "Physics World initialization with gravity[%f/%f]...OK", gravity.x, gravity.y);
         }
@@ -26,9 +29,39 @@ namespace barrio {
         
     }
     
+    
+    void Physics::tmpGround(void)
+    {
+        b2BodyDef groundDef;
+        char* name = "HORIZON";
+        groundDef.userData = static_cast<void*>(name);
+        b2Body* edge = world->CreateBody(&groundDef);
+        b2Vec2 worldBundaries[4];
+        b2Vec2 bb;
+        
+        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {0, 500});
+        worldBundaries[0].Set(bb.x, bb.y);
+        
+        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {250, 480});
+        worldBundaries[1].Set(bb.x, bb.y);
+        
+        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {1350, 400});
+        worldBundaries[2].Set(bb.x, bb.y);
+        
+        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {1650, 400});
+        worldBundaries[3].Set(bb.x, bb.y);
+        
+        
+        b2ChainShape chain;
+        chain.CreateChain(worldBundaries, 4);
+        edge->CreateFixture(&chain, 0.0f);
+    }
+    
     void Physics::setWorldBundaries(const int width, const int height)
     {
         b2BodyDef groundDef;
+        char* name = "WORLD_BUDARIES";
+        groundDef.userData = static_cast<void*>(name);
         b2Body* edge = world->CreateBody(&groundDef);
         b2Vec2 worldBundaries[5];
         b2Vec2 bb;
@@ -98,7 +131,14 @@ namespace barrio {
     }
     
     
-    void Physics::createPolygon(const std::string& name, Sprite* sprite, const SDL_Point& screenPos, const Size<int>& screenSize, const bool dynamicBody, const bool disableRotation)
+    static constexpr const char* gg(const string& spriteName, const string& footName)
+    {
+        //stringstream os;
+        //os << spriteName << "__" << footName;
+        return footName.c_str();
+    }
+    
+    b2Body* Physics::createPolygon(const std::string& name, Sprite* sprite, const SDL_Point& screenPos, const Size<int>& screenSize, const bool dynamicBody, const bool disableRotation)
     {     
         if (bodyExist(name))
         {
@@ -112,23 +152,34 @@ namespace barrio {
         b2BodyDef bodydef;
         bodydef.position.Set(cartesianPos.x, cartesianPos.y);
         bodydef.fixedRotation = disableRotation;
-        bodydef.userData = static_cast<void*>(sprite);
+        //bodydef.userData = static_cast<void*>(sprite);
         if(dynamicBody == true)
             bodydef.type=b2_dynamicBody;
         
         b2Body* body=world->CreateBody(&bodydef);
         
         b2PolygonShape shape;
-        shape.SetAsBox(cartesianSize.w, cartesianSize.w);
+        shape.SetAsBox(cartesianSize.w, cartesianSize.h);
         
         b2FixtureDef fixturedef;
         fixturedef.shape=&shape;
         fixturedef.density=1.0;
+        fixturedef.userData = static_cast<void*>(sprite);
+        body->CreateFixture(&fixturedef);
+        
+        shape.SetAsBox(cartesianSize.w, cartesianSize.h/90, b2Vec2(0.0f, cartesianSize.h-cartesianSize.h/90), 0);
+        if (sprite->getTypeOfShape() == Sprite::TypeOfShape::POLYGON && ( sprite->getTypeOfSprite() == Sprite::TypeOfSprite::CHARACTER || sprite->getTypeOfSprite() == Sprite::TypeOfSprite::ENEMY ) )
+            fixturedef.userData = (string*)&sprite->spriteFootName;
+        else
+            fixturedef.userData = nullptr;
+        
         body->CreateFixture(&fixturedef);
         
         bodiesByName.insert(make_pair(name, body));
         bodiesByShapeType.insert(make_pair(sprite->getTypeOfShape(), body));
         bodiesBySpriteType.insert(make_pair(sprite->getTypeOfSprite(), body));
+        
+        return body;
     }
     
     

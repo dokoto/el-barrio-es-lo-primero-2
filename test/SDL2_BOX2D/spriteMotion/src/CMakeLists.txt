@@ -69,12 +69,13 @@ Utils.hpp
 errorsCodes.hpp
 main.cpp
 main.hpp	
+Object.hpp
 contrib/jsoncpp.cpp
 contrib/json.h)
 
 source_group("utilities" FILES fcontrib/jsoncpp.cpp contrib/jsoncpp.hpp Utils.hpp)
 source_group("constants" FILES errorsCodes.hpp Colors.hpp Constants.hpp)
-source_group("types" FILES Size.hpp Clip.hpp)
+source_group("types" FILES Size.hpp Clip.hpp Object.hpp)
 source_group("sprites" FILES Texture.cpp Texture.hpp Sprite.hpp Sprite.cpp Character.cpp Character.hpp Furnitures.cpp Furnitures.hpp)
 source_group("physics" FILES Physics.hpp Physics.cpp CollisionListener.hpp CollisionListener.cpp)
 source_group("render" FILES Render.hpp Render.cpp Camera.hpp Camera.cpp DebugInfo.hpp DebugInfo.cpp)

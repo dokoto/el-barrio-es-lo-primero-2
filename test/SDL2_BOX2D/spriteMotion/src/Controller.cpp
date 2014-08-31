@@ -15,28 +15,29 @@ namespace barrio {
         camera->loadBackGroundImage("img/backgorund_1679x600.png", renderer);
         
         playerA.CreateCharacter("PlayerONE", Sprite::TypeOfSprite::CHARACTER, Sprite::TypeOfShape::POLYGON, renderer);
-        playerA.loadAnimations("conf/spriteSheets/point10x5px.json", "img/point10x5px.png", 5.0, 5.0);
+        playerA.loadAnimations("conf/spriteSheets/point10x5px.json", "img/point10x5px.png", 5.0, 15.0);
         playerA.setMovement(Sprite::direcction::UP, SDL_SCANCODE_UP);
         playerA.setMovement(Sprite::direcction::DOWN, SDL_SCANCODE_DOWN);
         playerA.setMovement(Sprite::direcction::LEFT, SDL_SCANCODE_LEFT);
         playerA.setMovement(Sprite::direcction::RIGHT, SDL_SCANCODE_RIGHT);
         playerA.setMovement(Sprite::direcction::PUNCH, SDL_SCANCODE_SPACE);
-        physicsWorld->addToWorld("PlayerONE", &playerA, SDL_Point{100, 100}, playerA.getAnimationSize("stop"),
+        physicsWorld->addToWorld("PlayerONE", &playerA, SDL_Point{600, 550}, playerA.getAnimationSize("stop"),
                                  consts::DYNAMIC_BODY, consts::DISABLE_ROTATION);
         
-        
+        physicsWorld->tmpGround();
+                
         playerB.CreateCharacter("PlayerTWO", Sprite::TypeOfSprite::CHARACTER, Sprite::TypeOfShape::POLYGON, renderer);
         playerB.loadAnimations("conf/spriteSheets/point10x5px.json", "img/point10x5px.png", 5.0, 5.0);
         playerB.setMovement(Sprite::direcction::UP, SDL_SCANCODE_W);
         playerB.setMovement(Sprite::direcction::DOWN, SDL_SCANCODE_S);
         playerB.setMovement(Sprite::direcction::LEFT, SDL_SCANCODE_A);
         playerB.setMovement(Sprite::direcction::RIGHT, SDL_SCANCODE_D);
-        physicsWorld->addToWorld("PlayerTWO", &playerA, SDL_Point{600, 100}, playerA.getAnimationSize("stop"),
+        physicsWorld->addToWorld("PlayerTWO", &playerB, SDL_Point{700, 580}, playerB.getAnimationSize("stop"),
                                  consts::DYNAMIC_BODY, consts::DISABLE_ROTATION);
         
         furnitures.CreateFurnitures("ObjectsGroup", Sprite::TypeOfSprite::FURNITURE, Sprite::TypeOfShape::POLYGON, renderer, SDL_Color{0, 255, 0, 0});
         furnitures.loadFurnitures("conf/spriteSheets/furniture_1.json", "img/furnitures_1.png", 2.0, 2.0);
-        physicsWorld->addToWorld("Objeto1", &playerA, SDL_Point{400, 400}, playerA.getAnimationSize("stop"),
+        physicsWorld->addToWorld("objeto1", &furnitures, SDL_Point{400, 400}, furnitures.getFurnitureSize("objeto1"),
                                  consts::STATIC_BODY, consts::DISABLE_ROTATION);
     }
     

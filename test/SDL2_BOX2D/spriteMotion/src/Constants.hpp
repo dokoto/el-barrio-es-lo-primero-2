@@ -28,6 +28,8 @@ namespace consts {
     
     static constexpr bool ENABLE_ROTATION = false;
     static constexpr bool DISABLE_ROTATION = true;
+    
+    static constexpr char* FOOT_NAME = "_FOOT";
 }
 
 #endif
