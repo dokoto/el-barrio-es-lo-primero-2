@@ -6,45 +6,40 @@
 
 #include "Texture.hpp"
 #include "Utils.hpp"
+#include "Object.hpp"
 
 namespace barrio
 {        
-    class Sprite : public Texture
+    class Sprite : public Texture, public Object
     {
     public:
         enum direcction {UP, DOWN, LEFT, RIGHT, PUNCH, DIRECCTION_NONE};
-        enum typeOfFixture {FIX_CHARACTER, FIX_ENEMY, FIX_FURNITURE, FIX_HORIZON, FIX_WORLD_BUDARIES, FIX_FOOT, FIX_TYPE_OF_FIXTURE_NONE};
-        enum TypeOfShape {POLYGON, CIRCLE, TYPE_OF_SHAPE_NONE};
-        enum TypeOfSprite {CHARACTER, ENEMY, FURNITURE, BACKGROUND, TYPE_OF_SPRITE_NONE};
-        void CreateSprite(const std::string& spriteName, TypeOfSprite typeOfSprite, TypeOfShape typeOfShape, SDL_Color transparentColor, bool followWithCamera = false);
+        void CreateSprite(const std::string& spriteName, Object::TypeOfSprite typeOfSprite, Object::TypeOfShape typeOfShape,
+                          Object::TypeOfFixture typeOfFixture, SDL_Color transparentColor, bool followWithCamera = false);
         Sprite(void) {}
         virtual ~Sprite(void)
         {
-            printf("Destroy Physics Sprite %s...OK\n", spriteName.c_str());
+            printf("Destroy Physics Sprite %s...OK\n", getName().c_str());
         }
         
-        TypeOfSprite getTypeOfSprite(void) const { return typeOfSprite; }
-        TypeOfShape getTypeOfShape(void) const { return typeOfShape; }
         void setMovement(const direcction dir, const int key)
         {
             movements[dir] = key;
         }
+        Object* getFoot(void) { return &foot; }
+        
         static std::string getFixtureName(b2Fixture* fixture);
-        static Sprite::TypeOfSprite getFixtureTypeOfSprite(b2Fixture* fixture);
-        static Sprite::TypeOfShape getFixtureTypeOfShape(b2Fixture* fixture);
-        static Sprite::typeOfFixture getFixtureTypeOfFixture(b2Fixture* fixture);
+        static Object::TypeOfSprite getFixtureTypeOfSprite(b2Fixture* fixture);
+        static Object::TypeOfShape getFixtureTypeOfShape(b2Fixture* fixture);
+        static Object::TypeOfFixture getFixtureTypeOfFixture(b2Fixture* fixture);
         
     private:
         Sprite(const Sprite&){}
         Sprite& operator=(const Sprite&);
-        TypeOfSprite typeOfSprite;
-        TypeOfShape typeOfShape;
         
     public:
-        
+        Object foot;
         int movements[5];
-        std::string spriteName;
-        std::string spriteFootName;
         bool followWithCamera;
     };
     

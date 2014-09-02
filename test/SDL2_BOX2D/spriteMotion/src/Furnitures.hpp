@@ -12,7 +12,7 @@ namespace barrio {
     class Furnitures : public Sprite
     {
     public:
-        void CreateFurnitures(const std::string& groupName, TypeOfSprite typeOfSprite, TypeOfShape typeOfShape, SDL_Renderer*& renderer, SDL_Color transparentColor = {0xFF, 0xFF, 0xFF, 0});
+        void CreateFurnitures(const std::string& groupName, TypeOfSprite typeOfSprite, TypeOfShape typeOfShape, Object::TypeOfFixture typeOfFixture, SDL_Renderer*& renderer, SDL_Color transparentColor = {0xFF, 0xFF, 0xFF, 0});
         Furnitures(): renderer(nullptr) {}
         ~Furnitures() {}
         

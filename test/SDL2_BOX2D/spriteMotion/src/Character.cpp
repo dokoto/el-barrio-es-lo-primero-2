@@ -8,9 +8,10 @@
 namespace barrio {
     using namespace std;
     
-    void Character::CreateCharacter(const std::string& name, TypeOfSprite typeOfSprite, TypeOfShape typeOfShape, SDL_Renderer*& renderer, SDL_Color transparentColor)
+    void Character::CreateCharacter(const std::string& name, TypeOfSprite typeOfSprite, TypeOfShape typeOfShape,  Object::TypeOfFixture typeOfFixture,
+                                    SDL_Renderer*& renderer, SDL_Color transparentColor)
     {
-        this->CreateSprite(name, typeOfSprite, typeOfShape, transparentColor);
+        this->CreateSprite(name, typeOfSprite, typeOfShape, typeOfFixture, transparentColor);
         this->renderer = renderer;
         this->currentAnimationFrame = 0;
         this->delayFrameCount = 0;

@@ -30,6 +30,9 @@ namespace consts {
     static constexpr bool DISABLE_ROTATION = true;
     
     static constexpr char* FOOT_NAME = "_FOOT";
+    static constexpr char* WORLD_BUNDARIES_NAME = "WORLD_BUNDARIES";
+    static constexpr char* HORIZON_NAME = "HORIZON";
+    
 }
 
 #endif

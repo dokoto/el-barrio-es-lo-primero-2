@@ -33,7 +33,7 @@ namespace barrio {
     
     void Render::drawBackGround(void)
     {
-        auto itPlayer = physicsWorld->bodiesBySpriteType.find(Sprite::TypeOfSprite::CHARACTER);
+        auto itPlayer = physicsWorld->bodiesBySpriteType.find(Sprite::TypeOfSprite::SPRT_CHARACTER);
         if (itPlayer != physicsWorld->bodiesBySpriteType.end())
         {
             camera->cameraFollowObj(Utils::fullConversionCartesianPosToScreenPos(itPlayer->second), camera->cameraPosition);
@@ -49,18 +49,38 @@ namespace barrio {
     void Render::drawCharacters(void)
     {
         Character* tmpCharacter = nullptr;
+        Object* obj = nullptr;
         SDL_Point tmpSpritePosition = {0 ,0};
         SDL_Rect origin = {0, 0, 0, 0};
         SDL_Rect destination = {0, 0, 0, 0};
         
-        auto itCharacters = physicsWorld->bodiesBySpriteType.equal_range(Sprite::TypeOfSprite::CHARACTER);
+        auto itCharacters = physicsWorld->bodiesBySpriteType.equal_range(Sprite::TypeOfSprite::SPRT_CHARACTER);
         for (auto itElems = itCharacters.first; itElems != itCharacters.second; itElems++)
-        {
-            tmpCharacter = static_cast<Character*>(itElems->second->GetUserData());
-            tmpSpritePosition = Utils::fullConversionCartesianPosToScreenPos(itElems->second);
-            origin = tmpCharacter->getCurrentClip();
-            destination = {tmpSpritePosition.x, tmpSpritePosition.y, origin.w, origin.h};
-            SDL_RenderCopy(renderer, tmpCharacter->getSDLTexture(), &origin, &destination);
+        {            
+            for (b2Fixture* fixtureElement = itElems->second->GetFixtureList(); fixtureElement; fixtureElement = fixtureElement->GetNext())
+            {
+                //obj = (Object*) fixtureElement->GetUserData();
+                obj = static_cast<Object*>(fixtureElement->GetUserData());
+                try {
+                    obj->amObject();
+                    obj->amTexture();
+                }
+                catch(...)
+                {
+                    int ii = 10;
+                }
+                if (obj->getTypeOfFixture() == Object::TypeOfFixture::FIX_FOOT)
+                {
+                    obj = nullptr;
+                    continue;
+                }
+                
+                tmpCharacter = static_cast<Character*>(fixtureElement->GetUserData());
+                tmpSpritePosition = Utils::fullConversionCartesianPosToScreenPos(itElems->second);
+                origin = tmpCharacter->getCurrentClip();
+                destination = {tmpSpritePosition.x, tmpSpritePosition.y, origin.w, origin.h};
+                SDL_RenderCopy(renderer, tmpCharacter->getSDLTexture(), &origin, &destination);
+            }
         }
     }
     
@@ -70,11 +90,13 @@ namespace barrio {
         SDL_Point tmpSpritePosition = {0 ,0};
         SDL_Rect origin = {0, 0, 0, 0};
         SDL_Rect destination = {0, 0, 0, 0};
+        b2Fixture* tmpFixture = nullptr;
         
-        auto itCharacters = physicsWorld->bodiesBySpriteType.equal_range(Sprite::TypeOfSprite::ENEMY);
+        auto itCharacters = physicsWorld->bodiesBySpriteType.equal_range(Sprite::TypeOfSprite::SPRT_ENEMY);
         for (auto itElems = itCharacters.first; itElems != itCharacters.second; itElems++)
         {
-            tmpCharacter = static_cast<Character*>(itElems->second->GetUserData());
+            tmpFixture = itElems->second->GetFixtureList();
+            tmpCharacter = static_cast<Character*>(tmpFixture->GetUserData());
             tmpSpritePosition = Utils::fullConversionCartesianPosToScreenPos(itElems->second);
             origin = tmpCharacter->getCurrentClip();
             destination = {tmpSpritePosition.x, tmpSpritePosition.y, origin.w, origin.h};
@@ -88,14 +110,16 @@ namespace barrio {
         SDL_Rect origin = {0, 0, 0, 0};
         SDL_Rect destination = {0, 0, 0, 0};
         SDL_Point furniturePosDest = {0, 0};
+        b2Fixture* tmpFixture = nullptr;
         
         // Nos traemos todos los objetos fisicos que sean de tipo FURNIURE
-        auto itFurnituresGroup = physicsWorld->bodiesBySpriteType.equal_range(Sprite::TypeOfSprite::FURNITURE);
+        auto itFurnituresGroup = physicsWorld->bodiesBySpriteType.equal_range(Sprite::TypeOfSprite::SPRT_FURNITURE);
         // Iteramos todos los FURNITURES
         for (auto itGroup = itFurnituresGroup.first; itGroup != itFurnituresGroup.second; itGroup++)
         {
             // Obtenemos el tipo Furniture* del user data del engine fisico
-            tmpFurniture = static_cast<Furnitures*>(itGroup->second->GetUserData());
+            tmpFixture = itGroup->second->GetFixtureList();
+            tmpFurniture = static_cast<Furnitures*>(tmpFixture->GetUserData());
             // Obtenemos todos los Clip de furnitures que existen dentro de la texture
             auto itFurnituresElems = tmpFurniture->getAllFurnitures();
             for (auto itElem = itFurnituresElems.begin(); itElem != itFurnituresElems.end(); itElem++)
@@ -131,6 +155,7 @@ namespace barrio {
         clearScreen();
         drawBackGround();
         drawPhysicWorld();
+        draw();
         step();
     }
     
@@ -155,12 +180,17 @@ namespace barrio {
             {
                 for (b2Fixture* fixtureElement = ptr->GetFixtureList(); fixtureElement; fixtureElement = fixtureElement->GetNext())
                 {
-                    std::string tmpName = Sprite::getFixtureName(fixtureElement);
-                    if (tmpName.find(consts::FOOT_NAME) != std::string::npos)
-                    {
-                        int tmp = 0;
-                        tmp += 12;
-                    }
+                    
+                    // ELIMINAR-TMP-I
+                    /*
+                     std::string tmpName = Sprite::getFixtureName(fixtureElement);
+                     if (tmpName.find(consts::FOOT_NAME) != std::string::npos)
+                     {
+                     int tmp = 0;
+                     tmp += 12;
+                     }*/
+                    // ELIMINAR-TMP-F
+                    
                     SDL_SetRenderDrawColor( renderer, 0x00, 0x00, 0xFF, 0xFF );
                     b2Vec2 points[4];
                     for(int i=0;i<4;i++)
@@ -202,6 +232,16 @@ namespace barrio {
                 b2ChainShape* chain = (b2ChainShape*)ptr->GetFixtureList()->GetShape();
                 int numEdges = chain->GetChildCount();
                 //int numVertices = chain->m_hasNextVertex ? numEdges : numEdges + 1;
+                
+                // ELIMINAR-TMP-I
+                /*
+                 std::string tmpChainName = Sprite::getFixtureName(ptr->GetFixtureList());
+                 if (tmpChainName.find("HORIZON") != std::string::npos)
+                 {
+                 int tmp = 0;
+                 tmp += 12;
+                 }*/
+                // ELIMINAR-TMP-F
                 
                 b2EdgeShape edgeShape;
                 for (int i = 0; i < numEdges; i++)

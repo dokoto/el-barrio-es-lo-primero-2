@@ -15,6 +15,7 @@ namespace barrio {
     public:
         Texture(void);
         virtual ~Texture(void);
+        virtual bool amTexture(void) { return true; }
         
         void destroy(void);
         

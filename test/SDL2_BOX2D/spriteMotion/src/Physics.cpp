@@ -30,38 +30,59 @@ namespace barrio {
     }
     
     
-    void Physics::tmpGround(void)
+    void Physics::setHorizon(void)
     {
         b2BodyDef groundDef;
-        char* name = "HORIZON";
-        groundDef.userData = static_cast<void*>(name);
+        const char* name = "HORIZON";
+        groundDef.userData = (char*)name;
         b2Body* edge = world->CreateBody(&groundDef);
-        b2Vec2 worldBundaries[4];
+        b2Vec2 worldBundaries[11];
+        size_t index = 0;
         b2Vec2 bb;
         
-        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {0, 500});
-        worldBundaries[0].Set(bb.x, bb.y);
+        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {2, 475});
+        worldBundaries[index++].Set(bb.x, bb.y);
         
-        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {250, 480});
-        worldBundaries[1].Set(bb.x, bb.y);
+        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {206, 463});
+        worldBundaries[index++].Set(bb.x, bb.y);
         
-        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {1350, 400});
-        worldBundaries[2].Set(bb.x, bb.y);
+        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {209, 491});
+        worldBundaries[index++].Set(bb.x, bb.y);
         
-        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {1650, 400});
-        worldBundaries[3].Set(bb.x, bb.y);
+        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {324, 495});
+        worldBundaries[index++].Set(bb.x, bb.y);
         
+        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {497, 463});
+        worldBundaries[index++].Set(bb.x, bb.y);
+        
+        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {526, 475});
+        worldBundaries[index++].Set(bb.x, bb.y);
+        
+        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {605, 454});
+        worldBundaries[index++].Set(bb.x, bb.y);
+        
+        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {602, 436});
+        worldBundaries[index++].Set(bb.x, bb.y);
+        
+        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {651, 420});
+        worldBundaries[index++].Set(bb.x, bb.y);
+        
+        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {1673, 595});
+        worldBundaries[index++].Set(bb.x, bb.y);
+        
+        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {1673, 590});
+        worldBundaries[index++].Set(bb.x, bb.y);
         
         b2ChainShape chain;
-        chain.CreateChain(worldBundaries, 4);
+        chain.CreateChain(worldBundaries, 11);
         edge->CreateFixture(&chain, 0.0f);
     }
     
     void Physics::setWorldBundaries(const int width, const int height)
     {
         b2BodyDef groundDef;
-        char* name = "WORLD_BUDARIES";
-        groundDef.userData = static_cast<void*>(name);
+        const char* name = "WORLD_BUDARIES";
+        groundDef.userData = (char*)name;
         b2Body* edge = world->CreateBody(&groundDef);
         b2Vec2 worldBundaries[5];
         b2Vec2 bb;
@@ -82,7 +103,7 @@ namespace barrio {
         
         b2ChainShape chain;
         chain.CreateChain(worldBundaries, 5);
-        edge->CreateFixture(&chain, 0.0f);
+        edge->CreateFixture(&chain, 0.0f);                
     }
     
     void Physics::createLine(const b2Vec2& pointA, const b2Vec2& pointB)
@@ -120,22 +141,14 @@ namespace barrio {
     void Physics::addToWorld(const std::string& name, Sprite* sprite, const SDL_Point& screenPos,
                              const Size<int>& screenSize, const bool dynamicBody, const bool disableRotation)
     {
-        if (sprite->getTypeOfShape() == Sprite::TypeOfShape::POLYGON)
+        if (sprite->getTypeOfShape() == Sprite::TypeOfShape::SHP_POLYGON)
         {
             createPolygon(name, sprite, screenPos, screenSize, dynamicBody, disableRotation);
         }
-        else if (sprite->getTypeOfShape() == Sprite::TypeOfShape::CIRCLE)
+        else if (sprite->getTypeOfShape() == Sprite::TypeOfShape::SHP_CIRCLE)
         {
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Type CIRCLES no supported yet : %s", name.c_str());
         }
-    }
-    
-    
-    static constexpr const char* gg(const string& spriteName, const string& footName)
-    {
-        //stringstream os;
-        //os << spriteName << "__" << footName;
-        return footName.c_str();
     }
     
     b2Body* Physics::createPolygon(const std::string& name, Sprite* sprite, const SDL_Point& screenPos, const Size<int>& screenSize, const bool dynamicBody, const bool disableRotation)
@@ -152,7 +165,6 @@ namespace barrio {
         b2BodyDef bodydef;
         bodydef.position.Set(cartesianPos.x, cartesianPos.y);
         bodydef.fixedRotation = disableRotation;
-        //bodydef.userData = static_cast<void*>(sprite);
         if(dynamicBody == true)
             bodydef.type=b2_dynamicBody;
         
@@ -167,9 +179,11 @@ namespace barrio {
         fixturedef.userData = static_cast<void*>(sprite);
         body->CreateFixture(&fixturedef);
         
-        shape.SetAsBox(cartesianSize.w, cartesianSize.h/90, b2Vec2(0.0f, cartesianSize.h-cartesianSize.h/90), 0);
-        if (sprite->getTypeOfShape() == Sprite::TypeOfShape::POLYGON && ( sprite->getTypeOfSprite() == Sprite::TypeOfSprite::CHARACTER || sprite->getTypeOfSprite() == Sprite::TypeOfSprite::ENEMY ) )
-            fixturedef.userData = (string*)&sprite->spriteFootName;
+        shape.SetAsBox(cartesianSize.w, cartesianSize.h/90.0f, b2Vec2(0.0f, cartesianSize.h-cartesianSize.h/90.0f), 0.0f);
+        if (sprite->getTypeOfShape() == Sprite::TypeOfShape::SHP_POLYGON && ( sprite->getTypeOfSprite() == Sprite::TypeOfSprite::SPRT_CHARACTER || sprite->getTypeOfSprite() == Sprite::TypeOfSprite::SPRT_ENEMY ) )
+        {
+            fixturedef.userData = (void*)sprite->getFoot();
+        }
         else
             fixturedef.userData = nullptr;
         

@@ -29,7 +29,7 @@ namespace barrio {
         bool bodyExist(const std::string& name);
         b2Body* getBody(const std::string& spriteNamme);
         
-        void tmpGround(void);
+        void setHorizon(void);
         
         void Step(void)
         {

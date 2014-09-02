@@ -12,7 +12,8 @@ namespace barrio {
     class Character : public Sprite
     {
     public:
-        void CreateCharacter(const std::string& name, TypeOfSprite typeOfSprite, TypeOfShape typeOfShape, SDL_Renderer*& renderer, SDL_Color transparentColor = {0xFF, 0xFF, 0xFF, 0});
+        void CreateCharacter(const std::string& name, TypeOfSprite typeOfSprite, TypeOfShape typeOfShape,  Object::TypeOfFixture typeOfFixture,
+                             SDL_Renderer*& renderer, SDL_Color transparentColor = {0xFF, 0xFF, 0xFF, 0});
         Character(): renderer(nullptr) {}
         ~Character() {}
         
