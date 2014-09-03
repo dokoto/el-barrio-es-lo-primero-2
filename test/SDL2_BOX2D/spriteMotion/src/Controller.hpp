@@ -30,6 +30,7 @@ namespace barrio
     private:
         bool handleGameState(SDL_Event* event);
         void handleInputPlayer(Character& player);
+        void handleIA(void);
         
     private:
         SDL_Renderer* renderer;
