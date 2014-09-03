@@ -38,6 +38,10 @@ namespace barrio {
         void playAnimation(const std::string& animationName, const size_t delayInFrames);
         SDL_Rect getCurrentClip(void)
         {
+            if (this->currentAnimationName.empty())
+            {
+                return animations["stop"].at(0);
+            }
             return animations[this->currentAnimationName].at(currentAnimationFrame);
         }
         void stopAnimation();

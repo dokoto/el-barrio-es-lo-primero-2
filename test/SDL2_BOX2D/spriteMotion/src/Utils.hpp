@@ -41,17 +41,17 @@ namespace barrio {
             vector = tmp + center;
         }
         
-        static SDL_Point fullConversionCartesianPosToScreenPos(b2Body* body)
+        static SDL_Point fullConversionCartesianPosToScreenPos(b2Fixture* fixture, const b2Vec2& worldCenter, float32 angle)
         {
             b2Vec2 point = {0, 0};
-            if (body->GetFixtureList()->GetType() == b2Shape::e_polygon)
-                point = ((b2PolygonShape*)body->GetFixtureList()->GetShape())->GetVertex(0);
-            else  if (body->GetFixtureList()->GetType() == b2Shape::e_circle)
+            if (fixture->GetType() == b2Shape::e_polygon)
+                point = ((b2PolygonShape*)fixture->GetShape())->GetVertex(0);
+            else  if (fixture->GetType() == b2Shape::e_circle)
                 SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Convertion Physics: Circle is not implemented, yet");
             else
                 SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Convertion Physics: Shape no implemented");
             
-            Utils::rotateTranslate(point, body->GetWorldCenter(), body->GetAngle());
+            Utils::rotateTranslate(point, worldCenter, angle);
             
             return Utils::convCartesianPosToScreennPos(point);
         }        

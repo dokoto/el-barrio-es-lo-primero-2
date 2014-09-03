@@ -6,6 +6,7 @@
 #include "Character.hpp"
 #include "Camera.hpp"
 #include "Furnitures.hpp"
+#include "Text.hpp"
 
 
 namespace barrio
@@ -16,7 +17,7 @@ namespace barrio
         enum Level {LEVEL1};
         Controller(void): renderer(nullptr), physicsWorld(nullptr), camera(nullptr) {}
         ~Controller(void) {}
-        void Create(SDL_Renderer*& renderer, Physics* physicsWorld, Camera* camera);
+        void CreateController(SDL_Renderer*& renderer, Physics* physicsWorld, Camera* camera, Text* texts);
         void loadLevelWord(const Level level);
         bool handleSystem(void);
         
@@ -34,6 +35,7 @@ namespace barrio
         SDL_Renderer* renderer;
         Physics* physicsWorld;
         Camera* camera;
+        Text* texts;
         SDL_Event event;
         Character playerA, playerB;
         Furnitures furnitures;

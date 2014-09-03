@@ -50,7 +50,7 @@ namespace barrio {
     
     void Character::stopAnimation()
     {
-        currentAnimationName.clear();
+        currentAnimationName = "stop";
         currentAnimationFrame = 0;
         delayFrameCount = 0;
     }

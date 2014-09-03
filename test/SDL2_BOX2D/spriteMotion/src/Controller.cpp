@@ -3,11 +3,12 @@
 
 namespace barrio {
     
-    void Controller::Create(SDL_Renderer*& renderer, Physics* physicsWorld, Camera* camera)
+    void Controller::CreateController(SDL_Renderer*& renderer, Physics* physicsWorld, Camera* camera, Text* texts)
     {
         this->renderer = renderer;
         this->physicsWorld = physicsWorld;
         this->camera = camera;
+        this->texts = texts;
     }    
     
     void Controller::loadLevelWord(const Level level)
@@ -39,6 +40,9 @@ namespace barrio {
         furnitures.loadFurnitures("conf/spriteSheets/furniture_1.json", "img/furnitures_1.png", 2.0, 2.0);
         physicsWorld->addToWorld("objeto1", &furnitures, SDL_Point{400, 400}, furnitures.getFurnitureSize("objeto1"),
                                  consts::STATIC_BODY, consts::DISABLE_ROTATION);
+        
+        
+        texts->CreateText("ARIAL_12", "ttf/ArialNarrowRegular.ttf", 12);
         
         physicsWorld->setHorizon();
     }

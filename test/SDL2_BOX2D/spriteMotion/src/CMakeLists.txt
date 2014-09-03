@@ -70,15 +70,16 @@ errorsCodes.hpp
 main.cpp
 main.hpp	
 Object.hpp
+Framerate.hpp
 contrib/jsoncpp.cpp
 contrib/json.h)
 
-source_group("utilities" FILES fcontrib/jsoncpp.cpp contrib/jsoncpp.hpp Utils.hpp)
+source_group("utilities" FILES fcontrib/jsoncpp.cpp contrib/jsoncpp.hpp Utils.hpp FrameRate.hpp)
 source_group("constants" FILES errorsCodes.hpp Colors.hpp Constants.hpp)
 source_group("types" FILES Size.hpp Clip.hpp Object.hpp)
-source_group("sprites" FILES Texture.cpp Texture.hpp Sprite.hpp Sprite.cpp Character.cpp Character.hpp Furnitures.cpp Furnitures.hpp)
+source_group("sprites" FILES Texture.cpp Texture.hpp Sprite.hpp Sprite.cpp Character.cpp Character.hpp Furnitures.cpp Furnitures.hpp Text.hpp Text.cpp)
 source_group("physics" FILES Physics.hpp Physics.cpp CollisionListener.hpp CollisionListener.cpp)
-source_group("render" FILES Render.hpp Render.cpp Camera.hpp Camera.cpp DebugInfo.hpp DebugInfo.cpp)
+source_group("render" FILES Render.hpp Render.cpp Camera.hpp Camera.cpp)
 source_group("controller" FILES Controller.cpp Controller.hpp)
 source_group("main" FILES main.cpp main.hpp Game.cpp Game.hpp)
 

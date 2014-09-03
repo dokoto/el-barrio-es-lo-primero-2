@@ -65,10 +65,10 @@ namespace barrio {
                     camera.CreateCamera(SDL_Point{0 ,0}, Size<int>{consts::CAMERA_WIDTH_PX, consts::CAMERA_HEIGHT_PX});
                     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Camera system initialization...OK");
                     
-                    controller.Create(renderer, &physicsWorld, &camera);
+                    controller.CreateController(renderer, &physicsWorld, &camera, &texts);
                     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Controller system initialization...OK");
                     
-                    render.CreateRender(renderer, &physicsWorld, &camera);
+                    render.CreateRender(renderer, &physicsWorld, &camera, &texts);
                     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Render system initialization...OK");
                 }
             }
@@ -105,10 +105,12 @@ namespace barrio {
         bool quitGame = false;
         
         controller.loadLevelWord(Controller::LEVEL1);
+        frameRate.start();
         while (quitGame != consts::QUIT_GAME)
         {
             quitGame = controller.handleSystem();
-            render.drawDebug();
+            render.drawDebug(frameRate.getFrameRate());
+            frameRate.step();
         }
     }
 }

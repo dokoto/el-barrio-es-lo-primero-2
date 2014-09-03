@@ -8,6 +8,8 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL2_rotozoom.h>
 
+#include "Constants.hpp"
+
 namespace barrio {
     
     class Texture
@@ -56,6 +58,7 @@ namespace barrio {
         
         virtual void setToFlip(bool flip){ this->toFlip = flip; }
         virtual bool getToFlip(void) const { return this->toFlip; }
+        virtual consts::CLASSES whoAmI(void) { return consts::CLASSES::TEXTURE; }
         
         bool loadFromFile(const std::string& path, SDL_Renderer*& renderer, const double zoomX = 1.0, const double zoomY = 1.0);
         

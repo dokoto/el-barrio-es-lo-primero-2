@@ -2,14 +2,16 @@
 #define __EL_BARRIO_ES_LO_PRIMERO__Game__
 
 #include <memory>
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
 #include "Physics.hpp"
 #include "Render.hpp"
 #include "Controller.hpp"
-#include "DebugInfo.hpp"
+#include "Text.hpp"
 #include "Camera.hpp"
+#include "FrameRate.hpp"
 
 namespace barrio {
     
@@ -27,7 +29,8 @@ namespace barrio {
         Controller controller;
         Render render;
         Camera camera;
-        DebugInfo debugInfo;
+        FrameRate frameRate;
+        Text texts;
         
     private:
         void loadMedia(void);

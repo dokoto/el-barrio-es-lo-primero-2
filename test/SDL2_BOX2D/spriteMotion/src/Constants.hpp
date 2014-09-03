@@ -29,9 +29,11 @@ namespace consts {
     static constexpr bool ENABLE_ROTATION = false;
     static constexpr bool DISABLE_ROTATION = true;
     
-    static constexpr char* FOOT_NAME = "_FOOT";
-    static constexpr char* WORLD_BUNDARIES_NAME = "WORLD_BUNDARIES";
-    static constexpr char* HORIZON_NAME = "HORIZON";
+    static const char* FOOT_NAME = "_FOOT";
+    static const char* WORLD_BUNDARIES_NAME = "WORLD_BUNDARIES";
+    static const char* HORIZON_NAME = "HORIZON";
+    
+    enum CLASSES {OBJECT, TEXTURE, SPRITE};
     
 }
 
