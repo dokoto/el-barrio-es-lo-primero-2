@@ -9,12 +9,13 @@
 #include <SDL2/SDL2_rotozoom.h>
 
 #include "Constants.hpp"
+#include "Glob.hpp"
 
 namespace barrio {
     
     class Texture
     {
-    public:
+    public:        
         Texture(void);
         virtual ~Texture(void);
         virtual bool amTexture(void) { return true; }
@@ -56,9 +57,9 @@ namespace barrio {
             return texture;
         }
         
-        virtual void setSide(bool flip){ this->toFlip = flip; }
-        virtual bool getSide(void) const { return this->toFlip; }
-        virtual consts::CLASSES whoAmI(void) { return consts::CLASSES::TEXTURE; }
+        virtual void setSide(Glob::Side side){ this->side = side; }
+        virtual bool getSide(void) const { return this->side; }
+        virtual Glob::Classes whoAmI(void) { return Glob::Classes::TEXTURE; }
         
         bool loadFromFile(const std::string& path, SDL_Renderer*& renderer, const double zoomX = 1.0, const double zoomY = 1.0);
         
@@ -67,7 +68,7 @@ namespace barrio {
         SDL_Color transparentColor;
         int pixelWidth;
         int pixelHeight;
-        bool toFlip;
+        Glob::Side side;
                 
     public:
         int getPixelWidth() const { return this->pixelWidth; }

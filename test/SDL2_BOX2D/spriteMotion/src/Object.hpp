@@ -2,7 +2,7 @@
 #define __EL_BARRIO_ES_LO_PRIMERO__Object__
 
 #include <string>
-#include "Constants.hpp"
+#include "Glob.hpp"
 
 namespace barrio
 {    
@@ -28,7 +28,7 @@ namespace barrio
     public:
         Object(const Object&& o): name(o.name), typeOfSprite(o.typeOfSprite), typeOfShape(o.typeOfShape), typeOfFixture(o.typeOfFixture) {}
         virtual ~Object(void) {}
-        virtual consts::CLASSES whoAmI(void) { return consts::CLASSES::OBJECT; }
+        virtual Glob::Classes whoAmI(void) { return Glob::Classes::OBJECT; }
         Object& operator=(const Object&& o)
         {
             typeOfSprite = o.typeOfSprite;

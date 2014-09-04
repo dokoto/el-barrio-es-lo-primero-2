@@ -34,10 +34,7 @@ namespace consts {
     static const char* HORIZON_NAME = "HORIZON";
     static const char* MOVEMENT_STOP = "stop";
     static const char* MOVEMENT_WALKING = "walking";
-    static const char* MOVEMENT_PUNCH = "punch";
-    
-    enum CLASSES {OBJECT, TEXTURE, SPRITE};
-    
+    static const char* MOVEMENT_PUNCH = "punch";    
 }
 
 #endif

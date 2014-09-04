@@ -63,19 +63,19 @@ namespace barrio {
             for (b2Fixture* fixtureElement = itElems->second->GetFixtureList(); fixtureElement; fixtureElement = fixtureElement->GetNext())
             {
                 obj = static_cast<Object*>(fixtureElement->GetUserData());
-                if (obj->whoAmI() == consts::CLASSES::OBJECT)
+                if (obj->whoAmI() == Glob::Classes::OBJECT)
                 {
                     if (obj->getTypeOfFixture() == Object::TypeOfFixture::FIX_FOOT)
                         continue;
                 }
-                else if (obj->whoAmI() == consts::CLASSES::TEXTURE)
+                else if (obj->whoAmI() == Glob::Classes::TEXTURE)
                 {
                     tmpCharacter = static_cast<Character*>(fixtureElement->GetUserData());
                     tmpSpritePosition = Utils::fullConversionCartesianPosToScreenPos(fixtureElement, itElems->second->GetWorldCenter(), itElems->second->GetAngle());
                     origin = tmpCharacter->getCurrentClip();
                     destination = {tmpSpritePosition.x-camera->cameraPosition.x, tmpSpritePosition.y, origin.w, origin.h};
                     
-                    flip = (tmpCharacter->getToFlip() == true)? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
+                    flip = (tmpCharacter->getSide() == Glob::Side::LEFT_SIDE)? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
                     SDL_RenderCopyEx(renderer, tmpCharacter->getSDLTexture(), &origin, &destination, 0.0f, nullptr, flip);
                 }
             }
@@ -97,19 +97,19 @@ namespace barrio {
             for (b2Fixture* fixtureElement = itElems->second->GetFixtureList(); fixtureElement; fixtureElement = fixtureElement->GetNext())
             {
                 obj = static_cast<Object*>(fixtureElement->GetUserData());
-                if (obj->whoAmI() == consts::CLASSES::OBJECT)
+                if (obj->whoAmI() == Glob::Classes::OBJECT)
                 {
                     if (obj->getTypeOfFixture() == Object::TypeOfFixture::FIX_FOOT)
                         continue;
                 }
-                else if (obj->whoAmI() == consts::CLASSES::TEXTURE)
+                else if (obj->whoAmI() == Glob::Classes::TEXTURE)
                 {
                     tmpCharacter = static_cast<Character*>(fixtureElement->GetUserData());
                     tmpSpritePosition = Utils::fullConversionCartesianPosToScreenPos(fixtureElement, itElems->second->GetWorldCenter(), itElems->second->GetAngle());
                     origin = tmpCharacter->getCurrentClip();
                     destination = {tmpSpritePosition.x-camera->cameraPosition.x, tmpSpritePosition.y, origin.w, origin.h};
                     
-                    flip = (tmpCharacter->getToFlip() == true)? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
+                    flip = (tmpCharacter->getSide() == Glob::Side::LEFT_SIDE)? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
                     SDL_RenderCopyEx(renderer, tmpCharacter->getSDLTexture(), &origin, &destination, 0.0f, nullptr, flip);
                 }
             }
@@ -148,7 +148,7 @@ namespace barrio {
                                                                                     itFurniturePosition->second->GetAngle());
                     destination = {furniturePosDest.x-camera->cameraPosition.x, furniturePosDest.y, origin.w, origin.h};
                     
-                    flip = (tmpFurniture->getToFlip() == true)? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
+                    flip = (tmpFurniture->getSide() == Glob::Side::LEFT_SIDE)? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
                     SDL_RenderCopyEx(renderer, tmpFurniture->getSDLTexture(), &origin, &destination, 0.0f, nullptr, flip);
                 }
                 else

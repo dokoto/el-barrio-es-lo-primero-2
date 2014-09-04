@@ -34,8 +34,8 @@ namespace barrio {
             return Size<int> {r.w, r.h};
         }
         
-        void setToFlip(bool flip);
-        bool getToFlip(void) const;
+        void setSide(Glob::Side side);
+        bool getSide(void) const;
         
     private:
         

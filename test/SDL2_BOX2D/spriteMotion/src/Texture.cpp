@@ -6,7 +6,7 @@ namespace barrio {
     texture{nullptr},
     pixelWidth{0},
     pixelHeight{0},
-    toFlip{false}
+    side{Glob::Side::RIGHT_SIDE}
     {
         
     }

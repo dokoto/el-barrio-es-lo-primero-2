@@ -17,13 +17,13 @@ namespace barrio {
         this->renderer = renderer;
     }
     
-    void Furnitures::setToFlip(bool)
+    void Furnitures::setSide(Glob::Side side)
     {
     }
     
-    bool Furnitures::getToFlip(void) const
+    bool Furnitures::getSide()const
     {
-        return false;
+        return Glob::Side::RIGHT_SIDE;
     }
     
     SDL_Rect Furnitures::getFurnitureClip(const std::string& furnitureElemenName)

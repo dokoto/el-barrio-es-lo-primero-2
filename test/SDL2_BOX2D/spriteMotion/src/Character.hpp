@@ -33,8 +33,8 @@ namespace barrio {
             return Size<int> {animations[animationName].at(0).w, animations[animationName].at(0).h};
         }
         
-        void setToFlip(bool flip);
-        bool getToFlip(void) const;
+        void setSide(Glob::Side side);
+        bool getSide(void) const;
         void playAnimation(const std::string& animationName, const size_t delayInFrames);
         SDL_Rect getCurrentClip(void)
         {

@@ -38,14 +38,14 @@ namespace barrio {
         //return clip;
     }
     
-    void Character::setToFlip(bool flip)
+    void Character::setSide(Glob::Side side)
     {
-        Sprite::setToFlip(flip);
+        Sprite::setSide(side);
     }
     
-    bool Character::getToFlip(void) const
+    bool Character::getSide() const
     {
-        return Sprite::getToFlip();
+        return Sprite::getSide();
     }
     
     void Character::stopAnimation()

@@ -81,13 +81,13 @@ namespace barrio {
         }
         else if (currentKeyStates[player.movements[Sprite::Movement::LEFT]] )
         {
-            player.setToFlip(true);
+            player.setSide(Glob::Side::LEFT_SIDE);
             physicsWorld->getBody(player.getName())->SetLinearVelocity({-vel, 0.0f});
             player.playAnimation(consts::MOVEMENT_WALKING, consts::DELAY_BETWEEN_ANIMATIONS);
         }
         else if (currentKeyStates[player.movements[Sprite::Movement::RIGHT]] )
         {
-            player.setToFlip(false);
+            player.setSide(Glob::Side::RIGHT_SIDE);
             physicsWorld->getBody(player.getName())->SetLinearVelocity({vel, 0.0f});
             player.playAnimation(consts::MOVEMENT_WALKING, consts::DELAY_BETWEEN_ANIMATIONS);
         }
