@@ -32,6 +32,9 @@ namespace consts {
     static const char* FOOT_NAME = "_FOOT";
     static const char* WORLD_BUNDARIES_NAME = "WORLD_BUNDARIES";
     static const char* HORIZON_NAME = "HORIZON";
+    static const char* MOVEMENT_STOP = "stop";
+    static const char* MOVEMENT_WALKING = "walking";
+    static const char* MOVEMENT_PUNCH = "punch";
     
     enum CLASSES {OBJECT, TEXTURE, SPRITE};
     

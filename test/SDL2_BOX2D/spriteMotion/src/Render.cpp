@@ -55,6 +55,7 @@ namespace barrio {
         SDL_Point tmpSpritePosition = {0 ,0};
         SDL_Rect origin = {0, 0, 0, 0};
         SDL_Rect destination = {0, 0, 0, 0};
+        SDL_RendererFlip flip = SDL_FLIP_NONE;
         
         auto itCharacters = physicsWorld->bodiesBySpriteType.equal_range(Sprite::TypeOfSprite::SPRT_CHARACTER);
         for (auto itElems = itCharacters.first; itElems != itCharacters.second; itElems++)
@@ -73,7 +74,9 @@ namespace barrio {
                     tmpSpritePosition = Utils::fullConversionCartesianPosToScreenPos(fixtureElement, itElems->second->GetWorldCenter(), itElems->second->GetAngle());
                     origin = tmpCharacter->getCurrentClip();
                     destination = {tmpSpritePosition.x-camera->cameraPosition.x, tmpSpritePosition.y, origin.w, origin.h};
-                    SDL_RenderCopy(renderer, tmpCharacter->getSDLTexture(), &origin, &destination);
+                    
+                    flip = (tmpCharacter->getToFlip() == true)? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
+                    SDL_RenderCopyEx(renderer, tmpCharacter->getSDLTexture(), &origin, &destination, 0.0f, nullptr, flip);
                 }
             }
         }
@@ -86,6 +89,7 @@ namespace barrio {
         SDL_Point tmpSpritePosition = {0 ,0};
         SDL_Rect origin = {0, 0, 0, 0};
         SDL_Rect destination = {0, 0, 0, 0};
+        SDL_RendererFlip flip = SDL_FLIP_NONE;
         
         auto itCharacters = physicsWorld->bodiesBySpriteType.equal_range(Sprite::TypeOfSprite::SPRT_ENEMY);
         for (auto itElems = itCharacters.first; itElems != itCharacters.second; itElems++)
@@ -104,7 +108,9 @@ namespace barrio {
                     tmpSpritePosition = Utils::fullConversionCartesianPosToScreenPos(fixtureElement, itElems->second->GetWorldCenter(), itElems->second->GetAngle());
                     origin = tmpCharacter->getCurrentClip();
                     destination = {tmpSpritePosition.x-camera->cameraPosition.x, tmpSpritePosition.y, origin.w, origin.h};
-                    SDL_RenderCopy(renderer, tmpCharacter->getSDLTexture(), &origin, &destination);
+                    
+                    flip = (tmpCharacter->getToFlip() == true)? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
+                    SDL_RenderCopyEx(renderer, tmpCharacter->getSDLTexture(), &origin, &destination, 0.0f, nullptr, flip);
                 }
             }
         }
@@ -118,6 +124,7 @@ namespace barrio {
         SDL_Rect destination = {0, 0, 0, 0};
         SDL_Point furniturePosDest = {0, 0};
         b2Fixture* tmpFixture = nullptr;
+        SDL_RendererFlip flip = SDL_FLIP_NONE;
         
         // Nos traemos todos los objetos fisicos que sean de tipo FURNIURE
         auto itFurnituresGroup = physicsWorld->bodiesBySpriteType.equal_range(Sprite::TypeOfSprite::SPRT_FURNITURE);
@@ -140,7 +147,9 @@ namespace barrio {
                     furniturePosDest = Utils::fullConversionCartesianPosToScreenPos(tmpFixture, itFurniturePosition->second->GetWorldCenter(),
                                                                                     itFurniturePosition->second->GetAngle());
                     destination = {furniturePosDest.x-camera->cameraPosition.x, furniturePosDest.y, origin.w, origin.h};
-                    SDL_RenderCopy(renderer, tmpFurniture->getSDLTexture(), &origin, &destination);
+                    
+                    flip = (tmpFurniture->getToFlip() == true)? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
+                    SDL_RenderCopyEx(renderer, tmpFurniture->getSDLTexture(), &origin, &destination, 0.0f, nullptr, flip);
                 }
                 else
                 {

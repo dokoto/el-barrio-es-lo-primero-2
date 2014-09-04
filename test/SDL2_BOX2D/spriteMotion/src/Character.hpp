@@ -25,7 +25,7 @@ namespace barrio {
         
         inline bool isAnimationStop(void)
         {
-            return currentAnimationName.empty();
+            return (currentAnimationName.compare(consts::MOVEMENT_STOP) == 0);
         }
         
         Size<int> getAnimationSize(const std::string& animationName)
@@ -40,7 +40,7 @@ namespace barrio {
         {
             if (this->currentAnimationName.empty())
             {
-                return animations["stop"].at(0);
+                return animations[consts::MOVEMENT_STOP].at(0);
             }
             return animations[this->currentAnimationName].at(currentAnimationFrame);
         }

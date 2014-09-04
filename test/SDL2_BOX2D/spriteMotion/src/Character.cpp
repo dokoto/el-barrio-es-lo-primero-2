@@ -21,7 +21,7 @@ namespace barrio {
 
     void Character::playAnimation(const std::string& animationName, const size_t delayInFrames)
     {
-        if (this->currentAnimationName.empty())
+        if (this->currentAnimationName.empty() || this->currentAnimationName.compare(consts::MOVEMENT_STOP) == 0)
             this->currentAnimationName = animationName;
         
         //SDL_Rect clip = animations[this->currentAnimationName].at(currentAnimationFrame);
@@ -50,7 +50,7 @@ namespace barrio {
     
     void Character::stopAnimation()
     {
-        currentAnimationName = "stop";
+        currentAnimationName = consts::MOVEMENT_STOP;
         currentAnimationFrame = 0;
         delayFrameCount = 0;
     }

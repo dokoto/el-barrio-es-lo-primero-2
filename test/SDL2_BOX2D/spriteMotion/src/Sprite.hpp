@@ -13,7 +13,7 @@ namespace barrio
     class Sprite : public Texture, public Object
     {
     public:
-        enum direcction {UP, DOWN, LEFT, RIGHT, PUNCH, DIRECCTION_NONE};
+        enum Movement {UP, DOWN, LEFT, RIGHT, PUNCH, DIRECCTION_NONE};
         void CreateSprite(const std::string& spriteName, Object::TypeOfSprite typeOfSprite, Object::TypeOfShape typeOfShape,
                           Object::TypeOfFixture typeOfFixture, SDL_Color transparentColor, bool followWithCamera = false);
         Sprite(void) {}
@@ -22,7 +22,7 @@ namespace barrio
             printf("Destroy Physics Sprite %s...OK\n", getName().c_str());
         }
         
-        void setMovement(const direcction dir, const int key)
+        void setMovement(const Movement dir, const int key)
         {
             movements[dir] = key;
         }

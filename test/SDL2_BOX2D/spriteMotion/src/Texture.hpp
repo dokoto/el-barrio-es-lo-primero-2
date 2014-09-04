@@ -56,8 +56,8 @@ namespace barrio {
             return texture;
         }
         
-        virtual void setToFlip(bool flip){ this->toFlip = flip; }
-        virtual bool getToFlip(void) const { return this->toFlip; }
+        virtual void setSide(bool flip){ this->toFlip = flip; }
+        virtual bool getSide(void) const { return this->toFlip; }
         virtual consts::CLASSES whoAmI(void) { return consts::CLASSES::TEXTURE; }
         
         bool loadFromFile(const std::string& path, SDL_Renderer*& renderer, const double zoomX = 1.0, const double zoomY = 1.0);
