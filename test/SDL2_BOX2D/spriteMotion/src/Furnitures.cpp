@@ -17,7 +17,7 @@ namespace barrio {
         this->renderer = renderer;
     }
     
-    void Furnitures::setSide(Glob::Side side)
+    void Furnitures::setSide(Glob::Side)
     {
     }
     

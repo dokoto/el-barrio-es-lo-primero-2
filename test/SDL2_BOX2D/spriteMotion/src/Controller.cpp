@@ -11,7 +11,7 @@ namespace barrio {
         this->texts = texts;
     }    
     
-    void Controller::loadLevelWord(const Level level)
+    void Controller::loadLevelWord(const Level)
     {
         camera->loadBackGroundImage("img/backgorund_1679x600.png", renderer);
         

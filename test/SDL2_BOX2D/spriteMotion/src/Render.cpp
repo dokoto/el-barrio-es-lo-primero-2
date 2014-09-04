@@ -153,7 +153,7 @@ namespace barrio {
                 }
                 else
                 {
-                    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Furniture no found %s", itElem->first.c_str());
+                    //SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Furniture no found %s", itElem->first.c_str());
                 }
             }
         }

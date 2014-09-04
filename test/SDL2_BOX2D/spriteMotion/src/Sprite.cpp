@@ -36,18 +36,20 @@ namespace barrio {
                     return TypeOfFixture::FIX_ENEMY;
                 else if (sprite->getTypeOfSprite() == TypeOfSprite::SPRT_FURNITURE)
                     return TypeOfFixture::FIX_FURNITURE;
+                else
+                    return TypeOfFixture::FIX_NONE;
                 
             }
             else
                 return TypeOfFixture::FIX_NONE;
             
         }
-        else  if (body->GetFixtureList()->GetType() == b2Shape::e_circle)
+        else if (body->GetFixtureList()->GetType() == b2Shape::e_circle)
         {
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "getFixtureTypeOfFixture: Circle no implemented");
             return TypeOfFixture::FIX_NONE;
         }
-        else  if (body->GetFixtureList()->GetType() == b2Shape::e_chain)
+        else if (body->GetFixtureList()->GetType() == b2Shape::e_chain)
         {
             string name = getFixtureName(fixture);
             if (name.find(consts::HORIZON_NAME) != string::npos)
@@ -123,7 +125,7 @@ namespace barrio {
     
     std::string Sprite::getFixtureName(b2Fixture* fixture)
     {
-        Object* obj = (Object*) fixture->GetUserData();
+        //Object* obj = (Object*) fixture->GetUserData();
         b2Body* body = fixture->GetBody();
         if (body->GetFixtureList()->GetType() == b2Shape::e_polygon)
         {

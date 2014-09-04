@@ -32,7 +32,8 @@ namespace barrio {
             contact->SetEnabled(true);
         else if (f1 == Sprite::TypeOfFixture::FIX_HORIZON && (f2 == Sprite::TypeOfFixture::FIX_ENEMY || f2 == Sprite::TypeOfFixture::FIX_CHARACTER))
             contact->SetEnabled(false);
-        
+        else if(f1 == Sprite::TypeOfFixture::FIX_CHARACTER && f2 == Sprite::TypeOfFixture::FIX_CHARACTER)
+            contact->SetEnabled(false);
     }
     
     void CollisionListener::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse)

@@ -50,12 +50,15 @@ Colors.hpp
 Constants.hpp
 Controller.cpp
 Controller.hpp
-DebugInfo.cpp
-DebugInfo.hpp
+FrameRate.hpp
 Furnitures.cpp
 Furnitures.hpp
 Game.cpp
 Game.hpp
+Glob.hpp
+LTimer.cpp
+LTimer.hpp
+Object.hpp
 Physics.cpp
 Physics.hpp
 Render.cpp
@@ -63,26 +66,26 @@ Render.hpp
 Size.hpp
 Sprite.cpp
 Sprite.hpp
+Text.cpp
+Text.hpp
 Texture.cpp
 Texture.hpp
 Utils.hpp
 errorsCodes.hpp
 main.cpp
-main.hpp	
-Object.hpp
-Framerate.hpp
+main.hpp
 contrib/jsoncpp.cpp
 contrib/json.h)
 
 source_group("utilities" FILES fcontrib/jsoncpp.cpp contrib/jsoncpp.hpp Utils.hpp FrameRate.hpp)
 source_group("constants" FILES errorsCodes.hpp Colors.hpp Constants.hpp)
-source_group("types" FILES Size.hpp Clip.hpp Object.hpp)
+source_group("types" FILES Size.hpp Clip.hpp Object.hpp Glob.hpp)
 source_group("sprites" FILES Texture.cpp Texture.hpp Sprite.hpp Sprite.cpp Character.cpp Character.hpp Furnitures.cpp Furnitures.hpp Text.hpp Text.cpp)
 source_group("physics" FILES Physics.hpp Physics.cpp CollisionListener.hpp CollisionListener.cpp)
-source_group("render" FILES Render.hpp Render.cpp Camera.hpp Camera.cpp)
+source_group("render" FILES Render.hpp Render.cpp Camera.hpp Camera.cpp LTimer.cpp LTimer.hpp FrameRate.hpp)
 source_group("controller" FILES Controller.cpp Controller.hpp)
+source_group("contrib" FILES contrib/jsoncpp.cpp contrib/json.h)
 source_group("main" FILES main.cpp main.hpp Game.cpp Game.hpp)
-
 
 
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")	

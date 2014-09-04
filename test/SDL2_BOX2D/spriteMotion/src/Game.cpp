@@ -109,7 +109,8 @@ namespace barrio {
         while (quitGame != consts::QUIT_GAME)
         {
             quitGame = controller.handleSystem();
-            render.drawDebug(frameRate.getFrameRate());
+            //render.drawDebug(frameRate.getFrameRate());
+            render.draw();
             frameRate.step();
         }
     }
