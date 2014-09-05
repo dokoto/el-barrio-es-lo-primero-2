@@ -29,7 +29,7 @@ namespace barrio {
         Controller controller;
         Render render;
         Camera camera;
-        FrameRate frameRate;
+        utls::FrameRate frameRate;
         Text texts;
         
     private:

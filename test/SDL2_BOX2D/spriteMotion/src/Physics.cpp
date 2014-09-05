@@ -2,9 +2,9 @@
 
 #include <sstream>
 
-#include "errorsCodes.hpp"
+#include "ErrorsCodes.hpp"
 #include "Constants.hpp"
-#include "Utils.hpp"
+#include "Conv.hpp"
 
 namespace barrio {
     
@@ -15,11 +15,11 @@ namespace barrio {
         world = new b2World{gravity};
         if (world != nullptr)
         {
-            cartesianSize = Utils::convSreenSizeToCartesianSize(screenSize);
+            cartesianSize = utls::Conv::convSreenSizeToCartesianSize(screenSize);
             setWorldBundaries(consts::WORLD_WIDTH_PX, consts::WORLD_HEIGHT_PX);
             world->SetContactListener(&collisionPool);
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE,
-                           "Physics World initialization with gravity[%f/%f]...OK", gravity.x, gravity.y);
+                           "Physics World initialization with gravity[%2.2f, %2.2f]...OK", gravity.x, gravity.y);
         }
         else
         {
@@ -40,37 +40,37 @@ namespace barrio {
         size_t index = 0;
         b2Vec2 bb;
         
-        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {2, 475});
+        bb =  utls::Conv::convScreenPosToCartesianPos(SDL_Point {2, 475});
         worldBundaries[index++].Set(bb.x, bb.y);
         
-        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {206, 463});
+        bb =  utls::Conv::convScreenPosToCartesianPos(SDL_Point {206, 463});
         worldBundaries[index++].Set(bb.x, bb.y);
         
-        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {209, 491});
+        bb =  utls::Conv::convScreenPosToCartesianPos(SDL_Point {209, 491});
         worldBundaries[index++].Set(bb.x, bb.y);
         
-        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {324, 495});
+        bb =  utls::Conv::convScreenPosToCartesianPos(SDL_Point {324, 495});
         worldBundaries[index++].Set(bb.x, bb.y);
         
-        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {497, 463});
+        bb =  utls::Conv::convScreenPosToCartesianPos(SDL_Point {497, 463});
         worldBundaries[index++].Set(bb.x, bb.y);
         
-        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {526, 475});
+        bb =  utls::Conv::convScreenPosToCartesianPos(SDL_Point {526, 475});
         worldBundaries[index++].Set(bb.x, bb.y);
         
-        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {605, 454});
+        bb =  utls::Conv::convScreenPosToCartesianPos(SDL_Point {605, 454});
         worldBundaries[index++].Set(bb.x, bb.y);
         
-        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {602, 436});
+        bb =  utls::Conv::convScreenPosToCartesianPos(SDL_Point {602, 436});
         worldBundaries[index++].Set(bb.x, bb.y);
         
-        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {651, 420});
+        bb =  utls::Conv::convScreenPosToCartesianPos(SDL_Point {651, 420});
         worldBundaries[index++].Set(bb.x, bb.y);
         
-        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {1673, 595});
+        bb =  utls::Conv::convScreenPosToCartesianPos(SDL_Point {1673, 595});
         worldBundaries[index++].Set(bb.x, bb.y);
         
-        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {1673, 590});
+        bb =  utls::Conv::convScreenPosToCartesianPos(SDL_Point {1673, 590});
         worldBundaries[index++].Set(bb.x, bb.y);
         
         b2ChainShape chain;
@@ -89,16 +89,16 @@ namespace barrio {
         
         worldBundaries[0].Set(0.0f, 0.0f);
         
-        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {width, 0});
+        bb =  utls::Conv::convScreenPosToCartesianPos(SDL_Point {width, 0});
         worldBundaries[1].Set(bb.x, bb.y);
         
-        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {width, height});
+        bb =  utls::Conv::convScreenPosToCartesianPos(SDL_Point {width, height});
         worldBundaries[2].Set(bb.x, bb.y);
         
-        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {0, height});
+        bb =  utls::Conv::convScreenPosToCartesianPos(SDL_Point {0, height});
         worldBundaries[3].Set(bb.x, bb.y);
         
-        bb =  Utils::convScreenPosToCartesianPos(SDL_Point {0, 0});
+        bb =  utls::Conv::convScreenPosToCartesianPos(SDL_Point {0, 0});
         worldBundaries[4].Set(bb.x, bb.y);
         
         b2ChainShape chain;
@@ -159,8 +159,8 @@ namespace barrio {
             throw error::PHYSICS_BODY_NAME_DUPLICATE;
         }
         
-        Size<float32> cartesianSize = Utils::convSreenSizeToCartesianSize(screenSize);
-        b2Vec2 cartesianPos = Utils::convScreenPosToCartesianPos(screenPos);
+        Size<float32> cartesianSize = utls::Conv::convSreenSizeToCartesianSize(screenSize);
+        b2Vec2 cartesianPos = utls::Conv::convScreenPosToCartesianPos(screenPos);
         
         b2BodyDef bodydef;
         bodydef.position.Set(cartesianPos.x, cartesianPos.y);

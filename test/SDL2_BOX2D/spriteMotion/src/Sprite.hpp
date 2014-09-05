@@ -5,7 +5,7 @@
 #include <SDL2/SDL.h>
 
 #include "Texture.hpp"
-#include "Utils.hpp"
+#include "Conv.hpp"
 #include "Object.hpp"
 
 namespace barrio
@@ -26,12 +26,7 @@ namespace barrio
         {
             movements[dir] = key;
         }
-        Object* getFoot(void) { return &foot; }
-        
-        static std::string getFixtureName(b2Fixture* fixture);
-        static Object::TypeOfSprite getFixtureTypeOfSprite(b2Fixture* fixture);
-        static Object::TypeOfShape getFixtureTypeOfShape(b2Fixture* fixture);
-        static Object::TypeOfFixture getFixtureTypeOfFixture(b2Fixture* fixture);
+        Object* getFoot(void) { return &foot; }                        
         
     private:
         Sprite(const Sprite&){}

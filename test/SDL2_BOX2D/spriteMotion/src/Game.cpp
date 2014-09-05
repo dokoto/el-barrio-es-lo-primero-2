@@ -1,7 +1,7 @@
 #include "Game.hpp"
 #include <stdexcept>
 #include <sstream>
-#include "errorsCodes.hpp"
+#include "ErrorsCodes.hpp"
 #include "Colors.hpp"
 #include "Constants.hpp"
 #include "Clip.hpp"
@@ -60,10 +60,12 @@ namespace barrio {
                     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "SDL2 image system initialization...OK");
                     
                     physicsWorld.CreateWorld(b2Vec2{0.0f, 0.0f}, Size<int> {consts::WORLD_WIDTH_PX , consts::WORLD_HEIGHT_PX});
-                    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Physics world initializated in [%d, %d] pixel", consts::WORLD_WIDTH_PX , consts::WORLD_HEIGHT_PX);
+                    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Physics world initializated in [%d, %d] pixel",
+                                   consts::WORLD_WIDTH_PX , consts::WORLD_HEIGHT_PX);
                     
                     camera.CreateCamera(SDL_Point{0 ,0}, Size<int>{consts::CAMERA_WIDTH_PX, consts::CAMERA_HEIGHT_PX});
-                    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Camera system initialization...OK");
+                    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Camera system initialization in [%d, %d] pixel",
+                                   consts::CAMERA_WIDTH_PX, consts::CAMERA_HEIGHT_PX);
                     
                     controller.CreateController(renderer, &physicsWorld, &camera, &texts);
                     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Controller system initialization...OK");
@@ -104,7 +106,7 @@ namespace barrio {
     {
         bool quitGame = false;
         
-        controller.loadLevelWord(Controller::LEVEL1);
+        controller.loadLevelWord(LevelsFactory::LEVEL1);
         frameRate.start();
         while (quitGame != consts::QUIT_GAME)
         {
@@ -112,6 +114,7 @@ namespace barrio {
             //render.drawDebug(frameRate.getFrameRate());
             render.draw();
             frameRate.step();
+            controller.releaseClycleLiveTimeResources();
         }
     }
 }

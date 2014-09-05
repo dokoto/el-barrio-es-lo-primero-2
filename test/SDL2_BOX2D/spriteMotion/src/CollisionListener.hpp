@@ -10,13 +10,24 @@ namespace barrio {
     
     class CollisionListener : public b2ContactListener
     {
-    public:
-        std::vector<std::pair<b2Fixture*, b2Fixture*> > ObjectsCollisioned;
+    private:
+        std::vector<std::pair<b2Fixture*, b2Fixture*> > objectsCollisioned;
+        
     public:
         void BeginContact(b2Contact* contact);
         void EndContact(b2Contact* contact);
         void PreSolve(b2Contact* contact, const b2Manifold* oldManifold);
         void PostSolve(b2Contact* contact, const b2ContactImpulse* impulse);
+        
+        std::vector<std::pair<b2Fixture*, b2Fixture*> > getCollisionObjectsList(void) const
+        {
+            return objectsCollisioned;
+        }
+        
+        void clearCollisionObjectList(void)
+        {
+            objectsCollisioned.clear();
+        }
     };
     
 }

@@ -70,21 +70,28 @@ Text.cpp
 Text.hpp
 Texture.cpp
 Texture.hpp
-Utils.hpp
-errorsCodes.hpp
+Conv.hpp
+Fixture.hpp
+ErrorsCodes.hpp
 main.cpp
 main.hpp
+Level.cpp
+Level.hpp
+Level_1.hpp
+Level_1.cpp
+LevelsFactory.hpp
 contrib/jsoncpp.cpp
 contrib/json.h)
 
-source_group("utilities" FILES fcontrib/jsoncpp.cpp contrib/jsoncpp.hpp Utils.hpp FrameRate.hpp)
-source_group("constants" FILES errorsCodes.hpp Colors.hpp Constants.hpp)
+source_group("utilities" FILES Conv.hpp Fixture.hpp LTimer.cpp LTimer.hpp FrameRate.hpp)
+source_group("constants" FILES ErrorsCodes.hpp Colors.hpp Constants.hpp)
 source_group("types" FILES Size.hpp Clip.hpp Object.hpp Glob.hpp)
 source_group("sprites" FILES Texture.cpp Texture.hpp Sprite.hpp Sprite.cpp Character.cpp Character.hpp Furnitures.cpp Furnitures.hpp Text.hpp Text.cpp)
 source_group("physics" FILES Physics.hpp Physics.cpp CollisionListener.hpp CollisionListener.cpp)
-source_group("render" FILES Render.hpp Render.cpp Camera.hpp Camera.cpp LTimer.cpp LTimer.hpp FrameRate.hpp)
+source_group("render" FILES Render.hpp Render.cpp Camera.hpp Camera.cpp)
 source_group("controller" FILES Controller.cpp Controller.hpp)
 source_group("contrib" FILES contrib/jsoncpp.cpp contrib/json.h)
+source_group("levels" FILES Level.cpp Level.hpp Level_1.hpp Level_1.cpp LevelsFactory.hpp)
 source_group("main" FILES main.cpp main.hpp Game.cpp Game.hpp)
 
 

@@ -7,30 +7,27 @@
 #include "Camera.hpp"
 #include "Furnitures.hpp"
 #include "Text.hpp"
+#include "LevelsFactory.hpp"
 
 
 namespace barrio
 {
     class Controller
     {
-    public:
-        enum Level {LEVEL1};
-        Controller(void): renderer(nullptr), physicsWorld(nullptr), camera(nullptr) {}
-        ~Controller(void) {}
+    public:        
+        Controller(void) : currentLevel(nullptr) {}
+        ~Controller(void);
         void CreateController(SDL_Renderer*& renderer, Physics* physicsWorld, Camera* camera, Text* texts);
-        void loadLevelWord(const Level level);
+        void loadLevelWord(const LevelsFactory::Stage stage);
         bool handleSystem(void);
-        
-        
+        void releaseClycleLiveTimeResources(void);
+                
     private:
-        
         Controller(const Controller&);
         Controller& operator=(const Controller&&);
         
     private:
         bool handleGameState(SDL_Event* event);
-        void handleInputPlayer(Character& player);
-        void handleIA(void);
         
     private:
         SDL_Renderer* renderer;
@@ -38,8 +35,9 @@ namespace barrio
         Camera* camera;
         Text* texts;
         SDL_Event event;
-        Character playerA, playerB;
-        Furnitures furnitures;
+        Level* currentLevel;
+        LevelsFactory levelFactory;
+        
         
     };
 }

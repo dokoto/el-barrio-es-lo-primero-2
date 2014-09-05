@@ -1,8 +1,9 @@
 #include "Render.hpp"
-#include "errorsCodes.hpp"
+#include "ErrorsCodes.hpp"
 #include "Colors.hpp"
 #include "Character.hpp"
 #include "Furnitures.hpp"
+#include "Conv.hpp"
 
 namespace barrio {
     
@@ -37,7 +38,7 @@ namespace barrio {
         auto itPlayer = physicsWorld->bodiesBySpriteType.find(Sprite::TypeOfSprite::SPRT_CHARACTER);
         if (itPlayer != physicsWorld->bodiesBySpriteType.end())
         {
-            camera->cameraFollowObj(Utils::fullConversionCartesianPosToScreenPos(itPlayer->second->GetFixtureList(),
+            camera->cameraFollowObj(utls::Conv::fullConversionCartesianPosToScreenPos(itPlayer->second->GetFixtureList(),
                                                                                  itPlayer->second->GetWorldCenter(), itPlayer->second->GetAngle()), camera->cameraPosition);
             SDL_Rect origin = {camera->cameraPosition.x, camera->cameraPosition.y, consts::CAMERA_WIDTH_PX, consts::CAMERA_HEIGHT_PX};
             SDL_Rect destination = {0, 0, consts::CAMERA_WIDTH_PX, consts::CAMERA_HEIGHT_PX};
@@ -71,7 +72,7 @@ namespace barrio {
                 else if (obj->whoAmI() == Glob::Classes::TEXTURE)
                 {
                     tmpCharacter = static_cast<Character*>(fixtureElement->GetUserData());
-                    tmpSpritePosition = Utils::fullConversionCartesianPosToScreenPos(fixtureElement, itElems->second->GetWorldCenter(), itElems->second->GetAngle());
+                    tmpSpritePosition = utls::Conv::fullConversionCartesianPosToScreenPos(fixtureElement, itElems->second->GetWorldCenter(), itElems->second->GetAngle());
                     origin = tmpCharacter->getCurrentClip();
                     destination = {tmpSpritePosition.x-camera->cameraPosition.x, tmpSpritePosition.y, origin.w, origin.h};
                     
@@ -105,7 +106,7 @@ namespace barrio {
                 else if (obj->whoAmI() == Glob::Classes::TEXTURE)
                 {
                     tmpCharacter = static_cast<Character*>(fixtureElement->GetUserData());
-                    tmpSpritePosition = Utils::fullConversionCartesianPosToScreenPos(fixtureElement, itElems->second->GetWorldCenter(), itElems->second->GetAngle());
+                    tmpSpritePosition = utls::Conv::fullConversionCartesianPosToScreenPos(fixtureElement, itElems->second->GetWorldCenter(), itElems->second->GetAngle());
                     origin = tmpCharacter->getCurrentClip();
                     destination = {tmpSpritePosition.x-camera->cameraPosition.x, tmpSpritePosition.y, origin.w, origin.h};
                     
@@ -144,7 +145,7 @@ namespace barrio {
                 auto itFurniturePosition = physicsWorld->bodiesByName.find(itElem->first);
                 if (itFurniturePosition != physicsWorld->bodiesByName.end())
                 {
-                    furniturePosDest = Utils::fullConversionCartesianPosToScreenPos(tmpFixture, itFurniturePosition->second->GetWorldCenter(),
+                    furniturePosDest = utls::Conv::fullConversionCartesianPosToScreenPos(tmpFixture, itFurniturePosition->second->GetWorldCenter(),
                                                                                     itFurniturePosition->second->GetAngle());
                     destination = {furniturePosDest.x-camera->cameraPosition.x, furniturePosDest.y, origin.w, origin.h};
                     
@@ -237,29 +238,29 @@ namespace barrio {
                     {
                         //points[i]=((b2PolygonShape*)ptr->GetFixtureList()->GetShape())->GetVertex(i);
                         points[i]=((b2PolygonShape*)fixtureElement->GetShape())->GetVertex(i);
-                        Utils::rotateTranslate(points[i], ptr->GetWorldCenter(), ptr->GetAngle());
+                        utls::Conv::rotateTranslate(points[i], ptr->GetWorldCenter(), ptr->GetAngle());
                     }
                     
-                    SDL_Point pointA = Utils::convCartesianPosToScreennPos(points[0]);
-                    SDL_Point pointB = Utils::convCartesianPosToScreennPos(points[1]);
+                    SDL_Point pointA = utls::Conv::convCartesianPosToScreennPos(points[0]);
+                    SDL_Point pointB = utls::Conv::convCartesianPosToScreennPos(points[1]);
                     pointA.x = pointA.x - camera->cameraPosition.x;
                     pointB.x = pointB.x - camera->cameraPosition.x;
                     SDL_RenderDrawLine(renderer, pointA.x, pointA.y, pointB.x, pointB.y);
                     
-                    pointA = Utils::convCartesianPosToScreennPos(points[1]);
-                    pointB = Utils::convCartesianPosToScreennPos(points[2]);
+                    pointA = utls::Conv::convCartesianPosToScreennPos(points[1]);
+                    pointB = utls::Conv::convCartesianPosToScreennPos(points[2]);
                     pointA.x = pointA.x - camera->cameraPosition.x;
                     pointB.x = pointB.x - camera->cameraPosition.x;
                     SDL_RenderDrawLine(renderer, pointA.x, pointA.y, pointB.x, pointB.y);
                     
-                    pointA = Utils::convCartesianPosToScreennPos(points[2]);
-                    pointB = Utils::convCartesianPosToScreennPos(points[3]);
+                    pointA = utls::Conv::convCartesianPosToScreennPos(points[2]);
+                    pointB = utls::Conv::convCartesianPosToScreennPos(points[3]);
                     pointA.x = pointA.x - camera->cameraPosition.x;
                     pointB.x = pointB.x - camera->cameraPosition.x;
                     SDL_RenderDrawLine(renderer, pointA.x, pointA.y, pointB.x, pointB.y);
                     
-                    pointA = Utils::convCartesianPosToScreennPos(points[3]);
-                    pointB = Utils::convCartesianPosToScreennPos(points[0]);
+                    pointA = utls::Conv::convCartesianPosToScreennPos(points[3]);
+                    pointB = utls::Conv::convCartesianPosToScreennPos(points[0]);
                     pointA.x = pointA.x - camera->cameraPosition.x;
                     pointB.x = pointB.x - camera->cameraPosition.x;
                     SDL_RenderDrawLine(renderer, pointA.x, pointA.y, pointB.x, pointB.y);
@@ -277,8 +278,8 @@ namespace barrio {
                 for (int i = 0; i < numEdges; i++)
                 {
                     chain->GetChildEdge( &edgeShape, i );
-                    SDL_Point pointA = Utils::convCartesianPosToScreennPos(edgeShape.m_vertex0);
-                    SDL_Point pointB = Utils::convCartesianPosToScreennPos(edgeShape.m_vertex1);
+                    SDL_Point pointA = utls::Conv::convCartesianPosToScreennPos(edgeShape.m_vertex0);
+                    SDL_Point pointB = utls::Conv::convCartesianPosToScreennPos(edgeShape.m_vertex1);
                     pointA.x = pointA.x - camera->cameraPosition.x;
                     pointB.x = pointB.x - camera->cameraPosition.x;
                     SDL_RenderDrawLine(renderer, pointA.x, pointA.y, pointB.x, pointB.y);

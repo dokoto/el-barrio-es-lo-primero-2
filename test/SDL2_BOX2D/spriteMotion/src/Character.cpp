@@ -1,8 +1,7 @@
 #include "Character.hpp"
 #include <fstream>
 #include "contrib/json.h"
-#include "errorsCodes.hpp"
-#include "Utils.hpp"
+#include "ErrorsCodes.hpp"
 
 
 namespace barrio {
