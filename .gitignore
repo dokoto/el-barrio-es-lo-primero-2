@@ -31,6 +31,9 @@ test/GLFW_BOX2D/spriteWorld/build/release/mac_xcode/*
 test/GLFW_BOX2D/render2Dimage/build/release/mac_xcode/*
 test/GLFW_BOX2D/render2Dimage/build/debug/mac_xcode/*
 
+test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/*
+test/SDL2_BOX2D/spriteMotion/build/release/mac_xcode/*
+
 
 # Compiled source #
 ###################
