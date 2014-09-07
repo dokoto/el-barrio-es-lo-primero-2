@@ -20,6 +20,7 @@ namespace barrio {
         virtual ~Level(void) {}
         virtual void CreateLevel(SDL_Renderer*& renderer, Physics* physicsWorld, Camera* camera, Text* texts);
         virtual void handleInputPlayer(Character& player);
+        virtual void IA(void);
         virtual void loadLevelWorld(void) = 0;
         virtual void handleInput(void) = 0;
         virtual void releaseClycleLiveTimeResources(void) = 0;
@@ -29,10 +30,11 @@ namespace barrio {
         Physics* physicsWorld;
         Camera* camera;
         Text* texts;
-        Character playerA, playerB;
+        Character playerA, playerB, enemy1;
     
     private:
-        static constexpr float32 vel = 1.90f;
+        static constexpr float32 VELOCITY = 1.90f;
+        static constexpr float32 NO_VELOCITY = 0.00f;
         
         
     };

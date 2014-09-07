@@ -26,7 +26,6 @@ namespace barrio {
         void step(void);
         void drawBackGround(void);
         void drawCharacters(void);
-        void drawEnemies(void);
         void drawFurnitures(void);
         void drawPhysicWorld(void);
         void drawDebugText(float avgFPS);

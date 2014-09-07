@@ -6,13 +6,14 @@
 #include <vector>
 
 #include "Sprite.hpp"
+#include "Names.hpp"
 
 namespace barrio {
     
     class Character : public Sprite
     {
     public:
-        void CreateCharacter(const std::string& name, TypeOfSprite typeOfSprite, TypeOfShape typeOfShape,  Object::TypeOfFixture typeOfFixture,
+        void CreateCharacter(const std::string& name, entity::TypeOfSprite typeOfSprite, entity::TypeOfShape typeOfShape,  entity::TypeOfFixture typeOfFixture,
                              SDL_Renderer*& renderer, SDL_Color transparentColor = {0xFF, 0xFF, 0xFF, 0});
         Character(): renderer(nullptr) {}
         ~Character() {}
@@ -25,7 +26,7 @@ namespace barrio {
         
         inline bool isAnimationStop(void)
         {
-            return (currentAnimationName.compare(consts::MOVEMENT_STOP) == 0);
+            return (currentAnimationName.compare(name::MOVEMENT_STOP) == 0);
         }
         
         Size<int> getAnimationSize(const std::string& animationName)
@@ -40,7 +41,7 @@ namespace barrio {
         {
             if (this->currentAnimationName.empty())
             {
-                return animations[consts::MOVEMENT_STOP].at(0);
+                return animations[name::MOVEMENT_STOP].at(0);
             }
             return animations[this->currentAnimationName].at(currentAnimationFrame);
         }

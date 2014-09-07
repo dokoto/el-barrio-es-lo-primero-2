@@ -1,4 +1,6 @@
 #include "Level_1.hpp"
+#include "Names.hpp"
+#include "Flags.hpp"
 
 namespace barrio
 {        
@@ -6,7 +8,7 @@ namespace barrio
     {
         camera->loadBackGroundImage("img/backgorund_1679x600.png", renderer);
         
-        playerA.CreateCharacter("PlayerONE", Sprite::TypeOfSprite::SPRT_CHARACTER, Sprite::TypeOfShape::SHP_POLYGON, Sprite::TypeOfFixture::FIX_CHARACTER, renderer);
+        playerA.CreateCharacter("PlayerONE", entity::TypeOfSprite::SPRT_CHARACTER, entity::TypeOfShape::SHP_POLYGON, entity::TypeOfFixture::FIX_CHARACTER, renderer);
         //playerA.loadAnimations("conf/spriteSheets/point10x5px.json", "img/point10x5px.png", 5.0, 15.0);
         playerA.loadAnimations("conf/spriteSheets/player1.json", "img/player1.png", 2.0, 2.0);
         playerA.setMovement(Sprite::Movement::UP, SDL_SCANCODE_UP);
@@ -14,24 +16,30 @@ namespace barrio
         playerA.setMovement(Sprite::Movement::LEFT, SDL_SCANCODE_LEFT);
         playerA.setMovement(Sprite::Movement::RIGHT, SDL_SCANCODE_RIGHT);
         playerA.setMovement(Sprite::Movement::PUNCH, SDL_SCANCODE_SPACE);
-        physicsWorld->addToWorld("PlayerONE", &playerA, SDL_Point{600, 550}, playerA.getAnimationSize(consts::MOVEMENT_STOP),
-                                 consts::DYNAMIC_BODY, consts::DISABLE_ROTATION);
+        physicsWorld->addToWorld("PlayerONE", &playerA, SDL_Point{600, 500}, playerA.getAnimationSize(name::MOVEMENT_STOP),
+                                 flag::DYNAMIC_BODY, flag::DISABLE_ROTATION);
         
-        playerB.CreateCharacter("PlayerTWO", Sprite::TypeOfSprite::SPRT_CHARACTER, Sprite::TypeOfShape::SHP_POLYGON, Sprite::TypeOfFixture::FIX_CHARACTER, renderer);
+        playerB.CreateCharacter("PlayerTWO", entity::TypeOfSprite::SPRT_CHARACTER, entity::TypeOfShape::SHP_POLYGON, entity::TypeOfFixture::FIX_CHARACTER, renderer);
         //playerB.loadAnimations("conf/spriteSheets/point10x5px.json", "img/point10x5px.png", 5.0, 5.0);
         playerB.loadAnimations("conf/spriteSheets/player2.json", "img/player2.png", 2.0, 2.0);
         playerB.setMovement(Sprite::Movement::UP, SDL_SCANCODE_W);
         playerB.setMovement(Sprite::Movement::DOWN, SDL_SCANCODE_S);
         playerB.setMovement(Sprite::Movement::LEFT, SDL_SCANCODE_A);
         playerB.setMovement(Sprite::Movement::RIGHT, SDL_SCANCODE_D);
-        physicsWorld->addToWorld("PlayerTWO", &playerB, SDL_Point{700, 580}, playerB.getAnimationSize(consts::MOVEMENT_STOP),
-                                 consts::DYNAMIC_BODY, consts::DISABLE_ROTATION);
+        physicsWorld->addToWorld("PlayerTWO", &playerB, SDL_Point{700, 500}, playerB.getAnimationSize(name::MOVEMENT_STOP),
+                                 flag::DYNAMIC_BODY, flag::DISABLE_ROTATION);
         
-        furnitures.CreateFurnitures("ObjectsGroup", Sprite::TypeOfSprite::SPRT_FURNITURE, Sprite::TypeOfShape::SHP_POLYGON,
-                                    Sprite::TypeOfFixture::FIX_FURNITURE, renderer, SDL_Color{0, 255, 0, 0});
+        enemy1.CreateCharacter("EnemyONE", entity::TypeOfSprite::SPRT_CHARACTER, entity::TypeOfShape::SHP_POLYGON, entity::TypeOfFixture::FIX_ENEMY,
+                               renderer, SDL_Color{186, 254, 202, 0});
+        enemy1.loadAnimations("conf/spriteSheets/enemy_1.json", "img/enemy_1.png", 2.0, 2.0);
+        physicsWorld->addToWorld("EnemyONE", &enemy1, SDL_Point{100, 530}, enemy1.getAnimationSize(name::MOVEMENT_STOP),
+                                 flag::DYNAMIC_BODY, flag::DISABLE_ROTATION);
+        
+        furnitures.CreateFurnitures("ObjectsGroup", entity::TypeOfSprite::SPRT_FURNITURE, entity::TypeOfShape::SHP_POLYGON,
+                                    entity::TypeOfFixture::FIX_FURNITURE, renderer, SDL_Color{0, 255, 0, 0});
         furnitures.loadFurnitures("conf/spriteSheets/furniture_1.json", "img/furnitures_1.png", 1.0, 1.0);
-        physicsWorld->addToWorld("objeto1", &furnitures, SDL_Point{10, 10}, furnitures.getFurnitureSize("objeto1"),
-                                 consts::STATIC_BODY, consts::DISABLE_ROTATION);
+        physicsWorld->addToWorld("objeto1", &furnitures, SDL_Point{300, 500}, furnitures.getFurnitureSize("objeto1"),
+                                 flag::STATIC_BODY, flag::DISABLE_ROTATION);
         
         
         texts->CreateText("ARIAL_12", "ttf/ArialNarrowRegular.ttf", 12);
@@ -42,6 +50,7 @@ namespace barrio
     void Level_1::releaseClycleLiveTimeResources(void)
     {
         physicsWorld->collisionPool.clearCollisionObjectList();
+        physicsWorld->characterSortedByPosition.clear();
     }
     
 }

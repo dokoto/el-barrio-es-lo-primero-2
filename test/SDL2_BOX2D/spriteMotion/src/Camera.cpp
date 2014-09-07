@@ -24,13 +24,13 @@ namespace barrio {
     {
         if (cameraPosition.x + cameraSize.w > objPosition.x &&  cameraPosition.x <= objPosition.x)
         {
-            if ( (objPosition.x - cameraPosition.x) < consts::CAMERA_MARGIN_PX)
+            if ( (objPosition.x - cameraPosition.x) < measure::CAMERA_MARGIN_PX)
             {
                 if (cameraPosition.x > 0)
                 {
-                    if (cameraPosition.x - consts::CAMERA_MARGIN_PX > 0)
+                    if (cameraPosition.x - measure::CAMERA_MARGIN_PX > 0)
                     {
-                        shift_factor = consts::CAMERA_MARGIN_PX - (objPosition.x - cameraPosition.x);
+                        shift_factor = measure::CAMERA_MARGIN_PX - (objPosition.x - cameraPosition.x);
                         cameraPosition.x -= shift_factor;
                     }
                     else
@@ -39,13 +39,13 @@ namespace barrio {
                     }
                 }
             }
-            else if ((objPosition.x - cameraPosition.x) > (cameraSize.w - consts::CAMERA_MARGIN_PX))
+            else if ((objPosition.x - cameraPosition.x) > (cameraSize.w - measure::CAMERA_MARGIN_PX))
             {
-                if ((consts::WORLD_WIDTH_PX-cameraPosition.x) > cameraSize.w)
+                if ((measure::WORLD_WIDTH_PX-cameraPosition.x) > cameraSize.w)
                 {
-                    if (cameraPosition.x + cameraSize.w < consts::WORLD_WIDTH_PX - consts::CAMERA_MARGIN_PX)
+                    if (cameraPosition.x + cameraSize.w < measure::WORLD_WIDTH_PX - measure::CAMERA_MARGIN_PX)
                     {
-                        shift_factor = abs( (cameraSize.w - consts::CAMERA_MARGIN_PX) - (objPosition.x - cameraPosition.x) );
+                        shift_factor = abs( (cameraSize.w - measure::CAMERA_MARGIN_PX) - (objPosition.x - cameraPosition.x) );
                         cameraPosition.x += shift_factor;
                     }
                     else
@@ -61,9 +61,9 @@ namespace barrio {
             {
                 cameraPosition.x = 0;
             }
-            else if (consts::WORLD_WIDTH_PX - objPosition.x < cameraSizeMiddle.w)
+            else if (measure::WORLD_WIDTH_PX - objPosition.x < cameraSizeMiddle.w)
             {
-                cameraPosition.x = static_cast<int>(consts::WORLD_WIDTH_PX - cameraSize.w);
+                cameraPosition.x = static_cast<int>(measure::WORLD_WIDTH_PX - cameraSize.w);
             }
             else
             {

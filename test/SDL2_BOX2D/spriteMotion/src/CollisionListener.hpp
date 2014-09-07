@@ -13,6 +13,9 @@ namespace barrio {
     private:
         std::vector<std::pair<b2Fixture*, b2Fixture*> > objectsCollisioned;
         
+    private:
+        bool collisionRules(b2Fixture* fixtureA, b2Fixture* fixtureB);
+        
     public:
         void BeginContact(b2Contact* contact);
         void EndContact(b2Contact* contact);

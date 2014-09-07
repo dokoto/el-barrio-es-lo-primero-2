@@ -8,7 +8,7 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL2_rotozoom.h>
 
-#include "Constants.hpp"
+#include "Measures.hpp"
 #include "Glob.hpp"
 
 namespace barrio {

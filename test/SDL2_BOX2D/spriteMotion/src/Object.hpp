@@ -3,23 +3,17 @@
 
 #include <string>
 #include "Glob.hpp"
+#include "Entities.hpp"
 
 namespace barrio
 {    
     class Object
-    {
-    public:
-        
-        enum TypeOfSprite {SPRT_CHARACTER, SPRT_ENEMY, SPRT_FURNITURE, SPRT_BACKGROUND, SPRT_NONE};
-        enum TypeOfShape {SHP_POLYGON, SHP_CIRCLE, SHP_CHAIN, SHP_NONE};
-        enum TypeOfFixture {FIX_CHARACTER, FIX_ENEMY, FIX_FURNITURE, FIX_FOOT, FIX_HORIZON, FIX_WORLD_BUDARIES, FIX_NONE};
-        
-        
+    {        
     private:
         std::string name;
-        TypeOfSprite typeOfSprite;
-        TypeOfShape typeOfShape;
-        TypeOfFixture typeOfFixture;
+        entity::TypeOfSprite typeOfSprite;
+        entity::TypeOfShape typeOfShape;
+        entity::TypeOfFixture typeOfFixture;
         
     private:
         Object(const Object&){}
@@ -40,8 +34,8 @@ namespace barrio
         
     public:
         
-        Object(void): name(""), typeOfSprite(TypeOfSprite::SPRT_NONE), typeOfShape(TypeOfShape::SHP_NONE), typeOfFixture(TypeOfFixture::FIX_NONE) {}
-        void CreateObject(std::string name, TypeOfSprite typeOfSprite, TypeOfShape typeOfShape, TypeOfFixture typeOfFixture)
+        Object(void): name(""), typeOfSprite(entity::TypeOfSprite::SPRT_NONE), typeOfShape(entity::TypeOfShape::SHP_NONE), typeOfFixture(entity::TypeOfFixture::FIX_NONE) {}
+        void CreateObject(std::string name, entity::TypeOfSprite typeOfSprite, entity::TypeOfShape typeOfShape, entity::TypeOfFixture typeOfFixture)
         {
             this->name = name;
             this->typeOfSprite = typeOfSprite;
@@ -50,9 +44,9 @@ namespace barrio
         }
         
         std::string getName(void) const { return name; }
-        TypeOfSprite getTypeOfSprite(void) const { return typeOfSprite; }
-        TypeOfShape getTypeOfShape(void) const { return typeOfShape; }
-        TypeOfFixture getTypeOfFixture(void) const { return typeOfFixture; }
+        entity::TypeOfSprite getTypeOfSprite(void) const { return typeOfSprite; }
+        entity::TypeOfShape getTypeOfShape(void) const { return typeOfShape; }
+        entity::TypeOfFixture getTypeOfFixture(void) const { return typeOfFixture; }
         virtual bool amObject(void) { return true; }
         
     };

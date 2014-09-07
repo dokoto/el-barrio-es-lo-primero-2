@@ -3,8 +3,9 @@
 #include <sstream>
 
 #include "ErrorsCodes.hpp"
-#include "Constants.hpp"
 #include "Conv.hpp"
+#include "Names.hpp"
+#include "Measures.hpp"
 
 namespace barrio {
     
@@ -16,7 +17,7 @@ namespace barrio {
         if (world != nullptr)
         {
             cartesianSize = utls::Conv::convSreenSizeToCartesianSize(screenSize);
-            setWorldBundaries(consts::WORLD_WIDTH_PX, consts::WORLD_HEIGHT_PX);
+            setWorldBundaries(measure::WORLD_WIDTH_PX, measure::WORLD_HEIGHT_PX);
             world->SetContactListener(&collisionPool);
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE,
                            "Physics World initialization with gravity[%2.2f, %2.2f]...OK", gravity.x, gravity.y);
@@ -30,10 +31,16 @@ namespace barrio {
     }
     
     
+    void Physics::setFixtureCollisionFilters(b2FixtureDef& fixture, uint16 IAm,  uint16 ICollideWith)
+    {
+        fixture.filter.categoryBits = IAm;
+        fixture.filter.maskBits = ICollideWith;        
+    }
+    
     void Physics::setHorizon(void)
     {
         b2BodyDef groundDef;
-        const char* name = "HORIZON";
+        const char* name = name::HORIZON_NAME;
         groundDef.userData = (char*)name;
         b2Body* edge = world->CreateBody(&groundDef);
         b2Vec2 worldBundaries[11];
@@ -81,7 +88,7 @@ namespace barrio {
     void Physics::setWorldBundaries(const int width, const int height)
     {
         b2BodyDef groundDef;
-        const char* name = "WORLD_BUDARIES";
+        const char* name = name::WORLD_BUNDARIES_NAME;
         groundDef.userData = (char*)name;
         b2Body* edge = world->CreateBody(&groundDef);
         b2Vec2 worldBundaries[5];
@@ -141,11 +148,11 @@ namespace barrio {
     void Physics::addToWorld(const std::string& name, Sprite* sprite, const SDL_Point& screenPos,
                              const Size<int>& screenSize, const bool dynamicBody, const bool disableRotation)
     {
-        if (sprite->getTypeOfShape() == Sprite::TypeOfShape::SHP_POLYGON)
+        if (sprite->getTypeOfShape() == entity::TypeOfShape::SHP_POLYGON)
         {
             createPolygon(name, sprite, screenPos, screenSize, dynamicBody, disableRotation);
         }
-        else if (sprite->getTypeOfShape() == Sprite::TypeOfShape::SHP_CIRCLE)
+        else if (sprite->getTypeOfShape() == entity::TypeOfShape::SHP_CIRCLE)
         {
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Type CIRCLES no supported yet : %s", name.c_str());
         }
@@ -174,13 +181,14 @@ namespace barrio {
         shape.SetAsBox(cartesianSize.w, cartesianSize.h);
         
         b2FixtureDef fixturedef;
+         
         fixturedef.shape=&shape;
         fixturedef.density=1.0;
         fixturedef.userData = static_cast<void*>(sprite);
         body->CreateFixture(&fixturedef);
         
         shape.SetAsBox(cartesianSize.w, cartesianSize.h/90.0f, b2Vec2(0.0f, cartesianSize.h-cartesianSize.h/90.0f), 0.0f);
-        if (sprite->getTypeOfShape() == Sprite::TypeOfShape::SHP_POLYGON && ( sprite->getTypeOfSprite() == Sprite::TypeOfSprite::SPRT_CHARACTER || sprite->getTypeOfSprite() == Sprite::TypeOfSprite::SPRT_ENEMY ) )
+        if (sprite->getTypeOfShape() == entity::TypeOfShape::SHP_POLYGON &&  sprite->getTypeOfSprite() == entity::TypeOfSprite::SPRT_CHARACTER )
         {
             fixturedef.userData = (void*)sprite->getFoot();
         }

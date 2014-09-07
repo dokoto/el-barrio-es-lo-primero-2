@@ -7,7 +7,7 @@
 #include <string>
 #include "Size.hpp"
 #include "Sprite.hpp"
-#include "Constants.hpp"
+#include "Measures.hpp"
 
 namespace barrio {
     
@@ -15,7 +15,7 @@ namespace barrio {
     {
         
     public:
-        Camera() : shift_factor(consts::CAMERA_SHIFT_FACTOR) {}
+        Camera() : shift_factor(measure::CAMERA_SHIFT_FACTOR) {}
         ~Camera();
         void CreateCamera(const SDL_Point& cameraPosition, const Size<int>& cameraSize);
         

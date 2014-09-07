@@ -1,6 +1,7 @@
 #include "Controller.hpp"
-#include "Constants.hpp"
 #include "ErrorsCodes.hpp"
+#include "Flags.hpp"
+#include "Measures.hpp"
 
 namespace barrio {
     
@@ -21,14 +22,15 @@ namespace barrio {
     
     bool Controller::handleSystem(void)
     {
-        if (handleGameState(&event) == consts::QUIT_GAME)
+        if (handleGameState(&event) == flag::QUIT_GAME)
         {
-            return consts::QUIT_GAME;
+            return flag::QUIT_GAME;
         }
         else
         {
             currentLevel->handleInput();
-            return consts::CONTINUE_GAME;
+            currentLevel->IA();
+            return flag::CONTINUE_GAME;
         }
     }
     
@@ -48,17 +50,17 @@ namespace barrio {
     
     bool Controller::handleGameState(SDL_Event* event)
     {
-        bool quit = consts::CONTINUE_GAME;
+        bool quit = flag::CONTINUE_GAME;
         static Uint32 ms = 0;
         while( SDL_PollEvent( event ) != 0 )
         {
             if( event->type == SDL_QUIT )
             {
-                quit = consts::QUIT_GAME;
+                quit = flag::QUIT_GAME;
             }
             else if ( event->type == SDL_KEYDOWN && event->key.keysym.sym == SDLK_ESCAPE)
             {
-                quit = consts::QUIT_GAME;
+                quit = flag::QUIT_GAME;
             }
             else if( event->type == SDL_MOUSEBUTTONDOWN )
             {
@@ -76,7 +78,7 @@ namespace barrio {
                             break;
                         case SDL_WINDOWEVENT_HIDDEN:
                             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d hidden", event->window.windowID);
-                            ms = consts::RESUME_STATE_DELAY_IN_MS;
+                            ms = measure::RESUME_STATE_DELAY_IN_MS;
                             break;
                         case SDL_WINDOWEVENT_EXPOSED:
                             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d exposed", event->window.windowID);
@@ -96,7 +98,7 @@ namespace barrio {
                             break;
                         case SDL_WINDOWEVENT_MINIMIZED:
                             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d minimized", event->window.windowID);
-                            ms = consts::RESUME_STATE_DELAY_IN_MS;
+                            ms = measure::RESUME_STATE_DELAY_IN_MS;
                             break;
                         case SDL_WINDOWEVENT_MAXIMIZED:
                             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE,"Window %d maximized", event->window.windowID);
@@ -114,11 +116,11 @@ namespace barrio {
                         case SDL_WINDOWEVENT_FOCUS_LOST:
                             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d lost keyboard focus",
                                            event->window.windowID);
-                            ms = consts::RESUME_STATE_DELAY_IN_MS;
+                            ms = measure::RESUME_STATE_DELAY_IN_MS;
                             break;
                         case SDL_WINDOWEVENT_CLOSE:
                             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Window %d closed", event->window.windowID);
-                            ms = consts::RESUME_STATE_DELAY_IN_MS;
+                            ms = measure::RESUME_STATE_DELAY_IN_MS;
                             break;
                         default:
                             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Window %d got unknown event %d",

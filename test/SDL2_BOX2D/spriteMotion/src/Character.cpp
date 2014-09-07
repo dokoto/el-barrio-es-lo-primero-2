@@ -2,12 +2,13 @@
 #include <fstream>
 #include "contrib/json.h"
 #include "ErrorsCodes.hpp"
+#include "Names.hpp"
 
 
 namespace barrio {
     using namespace std;
     
-    void Character::CreateCharacter(const std::string& name, TypeOfSprite typeOfSprite, TypeOfShape typeOfShape,  Object::TypeOfFixture typeOfFixture,
+    void Character::CreateCharacter(const std::string& name, entity::TypeOfSprite typeOfSprite, entity::TypeOfShape typeOfShape,  entity::TypeOfFixture typeOfFixture,
                                     SDL_Renderer*& renderer, SDL_Color transparentColor)
     {
         this->CreateSprite(name, typeOfSprite, typeOfShape, typeOfFixture, transparentColor);
@@ -20,7 +21,7 @@ namespace barrio {
 
     void Character::playAnimation(const std::string& animationName, const size_t delayInFrames)
     {
-        if (this->currentAnimationName.empty() || this->currentAnimationName.compare(consts::MOVEMENT_STOP) == 0)
+        if (this->currentAnimationName.empty() || this->currentAnimationName.compare(name::MOVEMENT_STOP) == 0)
             this->currentAnimationName = animationName;
         
         //SDL_Rect clip = animations[this->currentAnimationName].at(currentAnimationFrame);
@@ -49,7 +50,7 @@ namespace barrio {
     
     void Character::stopAnimation()
     {
-        currentAnimationName = consts::MOVEMENT_STOP;
+        currentAnimationName = name::MOVEMENT_STOP;
         currentAnimationFrame = 0;
         delayFrameCount = 0;
     }

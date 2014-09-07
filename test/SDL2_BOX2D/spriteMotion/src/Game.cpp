@@ -3,8 +3,9 @@
 #include <sstream>
 #include "ErrorsCodes.hpp"
 #include "Colors.hpp"
-#include "Constants.hpp"
 #include "Clip.hpp"
+#include "Measures.hpp"
+#include "Flags.hpp"
 
 
 namespace barrio {
@@ -32,7 +33,7 @@ namespace barrio {
             }
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Linear texture filtering initilization...OK");
             
-            window = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, consts::CAMERA_WIDTH_PX, consts::CAMERA_HEIGHT_PX, SDL_WINDOW_SHOWN );
+            window = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, measure::CAMERA_WIDTH_PX, measure::CAMERA_HEIGHT_PX, SDL_WINDOW_SHOWN );
             if( window == NULL )
             {
                 SDL_LogMessage(SDL_LOG_CATEGORY_VIDEO, SDL_LOG_PRIORITY_ERROR, "Window initialization has failed because: %s", SDL_GetError());
@@ -59,13 +60,13 @@ namespace barrio {
                     }
                     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "SDL2 image system initialization...OK");
                     
-                    physicsWorld.CreateWorld(b2Vec2{0.0f, 0.0f}, Size<int> {consts::WORLD_WIDTH_PX , consts::WORLD_HEIGHT_PX});
+                    physicsWorld.CreateWorld(b2Vec2{0.0f, 0.0f}, Size<int> {measure::WORLD_WIDTH_PX , measure::WORLD_HEIGHT_PX});
                     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Physics world initializated in [%d, %d] pixel",
-                                   consts::WORLD_WIDTH_PX , consts::WORLD_HEIGHT_PX);
+                                   measure::WORLD_WIDTH_PX , measure::WORLD_HEIGHT_PX);
                     
-                    camera.CreateCamera(SDL_Point{0 ,0}, Size<int>{consts::CAMERA_WIDTH_PX, consts::CAMERA_HEIGHT_PX});
+                    camera.CreateCamera(SDL_Point{0 ,0}, Size<int>{measure::CAMERA_WIDTH_PX, measure::CAMERA_HEIGHT_PX});
                     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Camera system initialization in [%d, %d] pixel",
-                                   consts::CAMERA_WIDTH_PX, consts::CAMERA_HEIGHT_PX);
+                                   measure::CAMERA_WIDTH_PX, measure::CAMERA_HEIGHT_PX);
                     
                     controller.CreateController(renderer, &physicsWorld, &camera, &texts);
                     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Controller system initialization...OK");
@@ -108,11 +109,11 @@ namespace barrio {
         
         controller.loadLevelWord(LevelsFactory::LEVEL1);
         frameRate.start();
-        while (quitGame != consts::QUIT_GAME)
+        while (quitGame != flag::QUIT_GAME)
         {
             quitGame = controller.handleSystem();
-            //render.drawDebug(frameRate.getFrameRate());
-            render.draw();
+            render.drawDebug(frameRate.getFrameRate());
+            //render.draw();
             frameRate.step();
             controller.releaseClycleLiveTimeResources();
         }

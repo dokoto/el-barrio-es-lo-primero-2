@@ -14,8 +14,8 @@ namespace barrio
     {
     public:
         enum Movement {UP, DOWN, LEFT, RIGHT, PUNCH, DIRECCTION_NONE};
-        void CreateSprite(const std::string& spriteName, Object::TypeOfSprite typeOfSprite, Object::TypeOfShape typeOfShape,
-                          Object::TypeOfFixture typeOfFixture, SDL_Color transparentColor, bool followWithCamera = false);
+        void CreateSprite(const std::string& spriteName, entity::TypeOfSprite typeOfSprite, entity::TypeOfShape typeOfShape,
+                          entity::TypeOfFixture typeOfFixture, SDL_Color transparentColor, bool followWithCamera = false);
         Sprite(void) {}
         virtual ~Sprite(void)
         {

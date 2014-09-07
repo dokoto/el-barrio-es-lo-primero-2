@@ -4,6 +4,7 @@
 #include "Character.hpp"
 #include "Furnitures.hpp"
 #include "Conv.hpp"
+#include "Measures.hpp"
 
 namespace barrio {
     
@@ -35,19 +36,54 @@ namespace barrio {
     
     void Render::drawBackGround(void)
     {
-        auto itPlayer = physicsWorld->bodiesBySpriteType.find(Sprite::TypeOfSprite::SPRT_CHARACTER);
+        auto itPlayer = physicsWorld->bodiesBySpriteType.find(entity::TypeOfSprite::SPRT_CHARACTER);
         if (itPlayer != physicsWorld->bodiesBySpriteType.end())
         {
             camera->cameraFollowObj(utls::Conv::fullConversionCartesianPosToScreenPos(itPlayer->second->GetFixtureList(),
                                                                                  itPlayer->second->GetWorldCenter(), itPlayer->second->GetAngle()), camera->cameraPosition);
-            SDL_Rect origin = {camera->cameraPosition.x, camera->cameraPosition.y, consts::CAMERA_WIDTH_PX, consts::CAMERA_HEIGHT_PX};
-            SDL_Rect destination = {0, 0, consts::CAMERA_WIDTH_PX, consts::CAMERA_HEIGHT_PX};
+            SDL_Rect origin = {camera->cameraPosition.x, camera->cameraPosition.y, measure::CAMERA_WIDTH_PX, measure::CAMERA_HEIGHT_PX};
+            SDL_Rect destination = {0, 0, measure::CAMERA_WIDTH_PX, measure::CAMERA_HEIGHT_PX};
             SDL_RenderCopy(renderer, camera->backGround.getSDLTexture(), &origin, &destination);
         }
         else
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Main Players not found");
         
     }
+    
+    /*
+    void Render::drawCharacters(void)
+    {
+        Character* tmpCharacter = nullptr;
+        Object* obj = nullptr;
+        SDL_Point tmpSpritePosition = {0 ,0};
+        SDL_Rect origin = {0, 0, 0, 0};
+        SDL_Rect destination = {0, 0, 0, 0};
+        SDL_RendererFlip flip = SDL_FLIP_NONE;
+        
+        auto itCharacters = physicsWorld->bodiesBySpriteType.equal_range(entity::TypeOfSprite::SPRT_CHARACTER);
+        for (auto itElems = itCharacters.first; itElems != itCharacters.second; itElems++)
+        {            
+            for (b2Fixture* fixtureElement = itElems->second->GetFixtureList(); fixtureElement; fixtureElement = fixtureElement->GetNext())
+            {
+                obj = static_cast<Object*>(fixtureElement->GetUserData());
+                if (obj->whoAmI() == Glob::Classes::OBJECT)
+                {
+                    if (obj->getTypeOfFixture() == entity::TypeOfFixture::FIX_FOOT)
+                        continue;
+                }
+                else if (obj->whoAmI() == Glob::Classes::TEXTURE)
+                {
+                    tmpCharacter = static_cast<Character*>(fixtureElement->GetUserData());
+                    tmpSpritePosition = utls::Conv::fullConversionCartesianPosToScreenPos(fixtureElement, itElems->second->GetWorldCenter(), itElems->second->GetAngle());
+                    origin = tmpCharacter->getCurrentClip();
+                    destination = {tmpSpritePosition.x-camera->cameraPosition.x, tmpSpritePosition.y, origin.w, origin.h};
+                    
+                    flip = (tmpCharacter->getSide() == Glob::Side::LEFT_SIDE)? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
+                    SDL_RenderCopyEx(renderer, tmpCharacter->getSDLTexture(), &origin, &destination, 0.0f, nullptr, flip);
+                }
+            }
+        }
+    }*/
     
     void Render::drawCharacters(void)
     {
@@ -58,15 +94,14 @@ namespace barrio {
         SDL_Rect destination = {0, 0, 0, 0};
         SDL_RendererFlip flip = SDL_FLIP_NONE;
         
-        auto itCharacters = physicsWorld->bodiesBySpriteType.equal_range(Sprite::TypeOfSprite::SPRT_CHARACTER);
-        for (auto itElems = itCharacters.first; itElems != itCharacters.second; itElems++)
-        {            
+        for (auto itElems = physicsWorld->characterSortedByPosition.begin(); itElems != physicsWorld->characterSortedByPosition.end(); itElems++)
+        {
             for (b2Fixture* fixtureElement = itElems->second->GetFixtureList(); fixtureElement; fixtureElement = fixtureElement->GetNext())
             {
                 obj = static_cast<Object*>(fixtureElement->GetUserData());
                 if (obj->whoAmI() == Glob::Classes::OBJECT)
                 {
-                    if (obj->getTypeOfFixture() == Object::TypeOfFixture::FIX_FOOT)
+                    if (obj->getTypeOfFixture() == entity::TypeOfFixture::FIX_FOOT)
                         continue;
                 }
                 else if (obj->whoAmI() == Glob::Classes::TEXTURE)
@@ -83,40 +118,6 @@ namespace barrio {
         }
     }
     
-    void Render::drawEnemies()
-    {
-        Character* tmpCharacter = nullptr;
-        Object* obj = nullptr;
-        SDL_Point tmpSpritePosition = {0 ,0};
-        SDL_Rect origin = {0, 0, 0, 0};
-        SDL_Rect destination = {0, 0, 0, 0};
-        SDL_RendererFlip flip = SDL_FLIP_NONE;
-        
-        auto itCharacters = physicsWorld->bodiesBySpriteType.equal_range(Sprite::TypeOfSprite::SPRT_ENEMY);
-        for (auto itElems = itCharacters.first; itElems != itCharacters.second; itElems++)
-        {
-            for (b2Fixture* fixtureElement = itElems->second->GetFixtureList(); fixtureElement; fixtureElement = fixtureElement->GetNext())
-            {
-                obj = static_cast<Object*>(fixtureElement->GetUserData());
-                if (obj->whoAmI() == Glob::Classes::OBJECT)
-                {
-                    if (obj->getTypeOfFixture() == Object::TypeOfFixture::FIX_FOOT)
-                        continue;
-                }
-                else if (obj->whoAmI() == Glob::Classes::TEXTURE)
-                {
-                    tmpCharacter = static_cast<Character*>(fixtureElement->GetUserData());
-                    tmpSpritePosition = utls::Conv::fullConversionCartesianPosToScreenPos(fixtureElement, itElems->second->GetWorldCenter(), itElems->second->GetAngle());
-                    origin = tmpCharacter->getCurrentClip();
-                    destination = {tmpSpritePosition.x-camera->cameraPosition.x, tmpSpritePosition.y, origin.w, origin.h};
-                    
-                    flip = (tmpCharacter->getSide() == Glob::Side::LEFT_SIDE)? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
-                    SDL_RenderCopyEx(renderer, tmpCharacter->getSDLTexture(), &origin, &destination, 0.0f, nullptr, flip);
-                }
-            }
-        }
-        
-    }
     
     void Render::drawFurnitures()
     {
@@ -128,7 +129,7 @@ namespace barrio {
         SDL_RendererFlip flip = SDL_FLIP_NONE;
         
         // Nos traemos todos los objetos fisicos que sean de tipo FURNIURE
-        auto itFurnituresGroup = physicsWorld->bodiesBySpriteType.equal_range(Sprite::TypeOfSprite::SPRT_FURNITURE);
+        auto itFurnituresGroup = physicsWorld->bodiesBySpriteType.equal_range(entity::TypeOfSprite::SPRT_FURNITURE);
         // Iteramos todos los FURNITURES
         for (auto itGroup = itFurnituresGroup.first; itGroup != itFurnituresGroup.second; itGroup++)
         {
@@ -165,7 +166,6 @@ namespace barrio {
         clearScreen();
         drawBackGround();
         drawCharacters();
-        drawEnemies();
         drawFurnitures();
         step();
     }
@@ -184,7 +184,6 @@ namespace barrio {
         clearScreen();
         drawBackGround();
         drawCharacters();
-        drawEnemies();
         drawFurnitures();
         drawPhysicWorld();
         drawDebugText(avgFPS);

@@ -9,6 +9,7 @@
 #include "CollisionListener.hpp"
 #include "Size.hpp"
 #include "Sprite.hpp"
+#include "Entities.hpp"
 
 
 namespace barrio {
@@ -41,8 +42,9 @@ namespace barrio {
     public:
         CollisionListener collisionPool;
         std::map<std::string, b2Body*> bodiesByName;
-        std::multimap<Sprite::TypeOfSprite, b2Body*> bodiesBySpriteType;
-        std::multimap<Sprite::TypeOfShape, b2Body*> bodiesByShapeType;
+        std::multimap<entity::TypeOfSprite, b2Body*> bodiesBySpriteType;
+        std::multimap<entity::TypeOfShape, b2Body*> bodiesByShapeType;
+        std::map<float32, b2Body*> characterSortedByPosition;
         
     private:
         
@@ -50,6 +52,7 @@ namespace barrio {
         Physics& operator=(const Physics&);
         b2Body* createPolygon(const std::string& name, Sprite* sprite, const SDL_Point& screenPos, const Size<int>& screenSize,
                            const bool dynamicBody = true, const bool disableRotation = true);
+        void setFixtureCollisionFilters(b2FixtureDef& fixture, uint16 IAm,  uint16 ICollideWith);
         
     private:
         b2Vec2 gravity;

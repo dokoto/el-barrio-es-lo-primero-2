@@ -9,7 +9,7 @@ namespace barrio {
     
     using namespace std;
     
-    void Furnitures::CreateFurnitures(const std::string& groupName, TypeOfSprite typeOfSprite, TypeOfShape typeOfShape, Object::TypeOfFixture typeOfFixture,
+    void Furnitures::CreateFurnitures(const std::string& groupName, entity::TypeOfSprite typeOfSprite, entity::TypeOfShape typeOfShape, entity::TypeOfFixture typeOfFixture,
                                       SDL_Renderer*& renderer, SDL_Color transparentColor)
     {
         this->CreateSprite(groupName, typeOfSprite, typeOfShape, typeOfFixture, transparentColor);
