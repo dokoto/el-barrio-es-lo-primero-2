@@ -36,8 +36,7 @@ namespace barrio
         Text* texts;
         SDL_Event event;
         Level* currentLevel;
-        LevelsFactory levelFactory;
-        
+        LevelsFactory levelFactory;                
         
     };
 }

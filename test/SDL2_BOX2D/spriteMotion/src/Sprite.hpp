@@ -10,7 +10,7 @@
 
 namespace barrio
 {        
-    class Sprite : public Texture, public Object
+    class Sprite : public Texture
     {
     public:
         enum Movement {UP, DOWN, LEFT, RIGHT, PUNCH, DIRECCTION_NONE};
@@ -19,21 +19,22 @@ namespace barrio
         Sprite(void) {}
         virtual ~Sprite(void)
         {
-            printf("Destroy Physics Sprite %s...OK\n", getName().c_str());
+            printf("Destroy Physics Sprite %s...OK\n", body.getName().c_str());
         }
         
         void setMovement(const Movement dir, const int key)
         {
             movements[dir] = key;
         }
-        Object* getFoot(void) { return &foot; }                        
+        Object* getFoot(void) { return &foot; }
+        Object* getBody(void) { return &body; }
         
     private:
         Sprite(const Sprite&){}
         Sprite& operator=(const Sprite&);
         
     public:
-        Object foot;
+        Object body, foot;
         int movements[5];
         bool followWithCamera;
     };

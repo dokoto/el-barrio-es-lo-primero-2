@@ -47,9 +47,13 @@ Clip.hpp
 CollisionListener.cpp
 CollisionListener.hpp
 Colors.hpp
-Constants.hpp
 Controller.cpp
 Controller.hpp
+Conv.hpp
+Entities.hpp
+ErrorsCodes.hpp
+Fixture.hpp
+Flags.hpp
 FrameRate.hpp
 Furnitures.cpp
 Furnitures.hpp
@@ -58,6 +62,13 @@ Game.hpp
 Glob.hpp
 LTimer.cpp
 LTimer.hpp
+Level.cpp
+Level.hpp
+Level_1.cpp
+Level_1.hpp
+LevelsFactory.hpp
+Measures.hpp
+Names.hpp
 Object.hpp
 Physics.cpp
 Physics.hpp
@@ -70,21 +81,13 @@ Text.cpp
 Text.hpp
 Texture.cpp
 Texture.hpp
-Conv.hpp
-Fixture.hpp
-ErrorsCodes.hpp
 main.cpp
 main.hpp
-Level.cpp
-Level.hpp
-Level_1.hpp
-Level_1.cpp
-LevelsFactory.hpp
 contrib/jsoncpp.cpp
 contrib/json.h)
 
 source_group("utilities" FILES Conv.hpp Fixture.hpp LTimer.cpp LTimer.hpp FrameRate.hpp)
-source_group("constants" FILES ErrorsCodes.hpp Colors.hpp Constants.hpp)
+source_group("constants" FILES ErrorsCodes.hpp Colors.hpp Entities.hpp Flags.hpp Measures.hpp Names.hpp)
 source_group("types" FILES Size.hpp Clip.hpp Object.hpp Glob.hpp)
 source_group("sprites" FILES Texture.cpp Texture.hpp Sprite.hpp Sprite.cpp Character.cpp Character.hpp Furnitures.cpp Furnitures.hpp Text.hpp Text.cpp)
 source_group("physics" FILES Physics.hpp Physics.cpp CollisionListener.hpp CollisionListener.cpp)

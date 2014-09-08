@@ -22,7 +22,7 @@ namespace barrio
     public:
         Object(const Object&& o): name(o.name), typeOfSprite(o.typeOfSprite), typeOfShape(o.typeOfShape), typeOfFixture(o.typeOfFixture) {}
         virtual ~Object(void) {}
-        virtual Glob::Classes whoAmI(void) { return Glob::Classes::OBJECT; }
+        virtual Glob::Classes whoAmI(void) { return Glob::Classes::CLASS_OBJECT; }
         Object& operator=(const Object&& o)
         {
             typeOfSprite = o.typeOfSprite;
@@ -30,7 +30,7 @@ namespace barrio
             typeOfFixture = o.typeOfFixture;
             
             return *this;
-        }
+        }                
         
     public:
         

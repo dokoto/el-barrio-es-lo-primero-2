@@ -6,6 +6,7 @@
 #include "Conv.hpp"
 #include "Names.hpp"
 #include "Measures.hpp"
+#include "Character.hpp"
 
 namespace barrio {
     
@@ -145,17 +146,18 @@ namespace barrio {
         return false;
     }
     
-    void Physics::addToWorld(const std::string& name, Sprite* sprite, const SDL_Point& screenPos,
+    b2Body* Physics::addToWorld(const std::string& name, Sprite* sprite, const SDL_Point& screenPos,
                              const Size<int>& screenSize, const bool dynamicBody, const bool disableRotation)
     {
-        if (sprite->getTypeOfShape() == entity::TypeOfShape::SHP_POLYGON)
+        if (sprite->getBody()->getTypeOfShape() == entity::TypeOfShape::SHP_POLYGON)
         {
-            createPolygon(name, sprite, screenPos, screenSize, dynamicBody, disableRotation);
+            return createPolygon(name, sprite, screenPos, screenSize, dynamicBody, disableRotation);
         }
-        else if (sprite->getTypeOfShape() == entity::TypeOfShape::SHP_CIRCLE)
+        else if (sprite->getBody()->getTypeOfShape() == entity::TypeOfShape::SHP_CIRCLE)
         {
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Type CIRCLES no supported yet : %s", name.c_str());
         }
+        return nullptr;
     }
     
     b2Body* Physics::createPolygon(const std::string& name, Sprite* sprite, const SDL_Point& screenPos, const Size<int>& screenSize, const bool dynamicBody, const bool disableRotation)
@@ -171,7 +173,8 @@ namespace barrio {
         
         b2BodyDef bodydef;
         bodydef.position.Set(cartesianPos.x, cartesianPos.y);
-        bodydef.fixedRotation = disableRotation;
+        bodydef.fixedRotation = disableRotation;        
+        bodydef.userData = (void*) sprite->getBody();
         if(dynamicBody == true)
             bodydef.type=b2_dynamicBody;
         
@@ -186,11 +189,13 @@ namespace barrio {
         fixturedef.density=1.0;
         fixturedef.userData = static_cast<void*>(sprite);
         body->CreateFixture(&fixturedef);
+        bodiesByFixtureType.insert(make_pair(sprite->getBody()->getTypeOfFixture(), body));
         
         shape.SetAsBox(cartesianSize.w, cartesianSize.h/90.0f, b2Vec2(0.0f, cartesianSize.h-cartesianSize.h/90.0f), 0.0f);
-        if (sprite->getTypeOfShape() == entity::TypeOfShape::SHP_POLYGON &&  sprite->getTypeOfSprite() == entity::TypeOfSprite::SPRT_CHARACTER )
+        if (sprite->getBody()->getTypeOfShape() == entity::TypeOfShape::SHP_POLYGON &&  sprite->getBody()->getTypeOfSprite() == entity::TypeOfSprite::SPRT_CHARACTER )
         {
             fixturedef.userData = (void*)sprite->getFoot();
+            bodiesByFixtureType.insert(make_pair(sprite->getFoot()->getTypeOfFixture(), body));
         }
         else
             fixturedef.userData = nullptr;
@@ -198,8 +203,16 @@ namespace barrio {
         body->CreateFixture(&fixturedef);
         
         bodiesByName.insert(make_pair(name, body));
-        bodiesByShapeType.insert(make_pair(sprite->getTypeOfShape(), body));
-        bodiesBySpriteType.insert(make_pair(sprite->getTypeOfSprite(), body));
+        bodiesByShapeType.insert(make_pair(sprite->getBody()->getTypeOfShape(), body));
+        bodiesBySpriteType.insert(make_pair(sprite->getBody()->getTypeOfSprite(), body));
+        
+        if (sprite->getBody()->getTypeOfFixture() == entity::TypeOfFixture::FIX_ENEMY)
+        {
+            
+            Character* enemy = dynamic_cast<Character*>(sprite);
+            if(enemy->getAIMode() == Glob::AIMode::AI_ATTACK)
+                enemiesInAttackMode.insert(std::make_pair(enemy->getBody()->getName(), body));
+        }
         
         return body;
     }

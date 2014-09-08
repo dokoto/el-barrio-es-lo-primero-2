@@ -93,18 +93,18 @@ namespace barrio {
         SDL_Rect origin = {0, 0, 0, 0};
         SDL_Rect destination = {0, 0, 0, 0};
         SDL_RendererFlip flip = SDL_FLIP_NONE;
-        
+                        
         for (auto itElems = physicsWorld->characterSortedByPosition.begin(); itElems != physicsWorld->characterSortedByPosition.end(); itElems++)
         {
             for (b2Fixture* fixtureElement = itElems->second->GetFixtureList(); fixtureElement; fixtureElement = fixtureElement->GetNext())
             {
                 obj = static_cast<Object*>(fixtureElement->GetUserData());
-                if (obj->whoAmI() == Glob::Classes::OBJECT)
+                if (obj->whoAmI() == Glob::Classes::CLASS_OBJECT)
                 {
                     if (obj->getTypeOfFixture() == entity::TypeOfFixture::FIX_FOOT)
                         continue;
                 }
-                else if (obj->whoAmI() == Glob::Classes::TEXTURE)
+                else if (obj->whoAmI() == Glob::Classes::CLASS_TEXTURE)
                 {
                     tmpCharacter = static_cast<Character*>(fixtureElement->GetUserData());
                     tmpSpritePosition = utls::Conv::fullConversionCartesianPosToScreenPos(fixtureElement, itElems->second->GetWorldCenter(), itElems->second->GetAngle());

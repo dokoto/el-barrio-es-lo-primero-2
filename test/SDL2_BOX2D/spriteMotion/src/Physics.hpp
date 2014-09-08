@@ -22,7 +22,7 @@ namespace barrio {
         void CreateWorld(const b2Vec2 gravity, const Size<int>& screenSize);
         Physics(const Physics&& a);
         
-        void addToWorld(const std::string& name, Sprite* sprite, const SDL_Point& screenPos, const Size<int>& screenSize,
+        b2Body* addToWorld(const std::string& name, Sprite* sprite, const SDL_Point& screenPos, const Size<int>& screenSize,
                            const bool dynamicBody = true, const bool disableRotation = true);
         void setWorldBundaries(const int width, const int height);
         void createLine(const b2Vec2& pointA, const b2Vec2& pointB);
@@ -44,7 +44,9 @@ namespace barrio {
         std::map<std::string, b2Body*> bodiesByName;
         std::multimap<entity::TypeOfSprite, b2Body*> bodiesBySpriteType;
         std::multimap<entity::TypeOfShape, b2Body*> bodiesByShapeType;
+        std::multimap<entity::TypeOfFixture, b2Body*> bodiesByFixtureType;
         std::map<float32, b2Body*> characterSortedByPosition;
+        std::multimap<std::string, b2Body*> enemiesInAttackMode;        
         
     private:
         

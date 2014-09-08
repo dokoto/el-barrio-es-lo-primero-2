@@ -1,6 +1,9 @@
 #include "Level.hpp"
 #include "Names.hpp"
 #include "Measures.hpp"
+#include "ErrorsCodes.hpp"
+#include "Glob.hpp"
+#include "Fixture.hpp"
 
 namespace  barrio
 {
@@ -12,34 +15,57 @@ namespace  barrio
         this->texts = texts;
     }
     
+    void Level::destroyEnemyGroup(void)
+    {
+        for (auto it = enemiesGroup.begin(); it != enemiesGroup.end(); it++)
+        {
+            if (it->second != nullptr)
+            {
+                delete it->second;
+            }
+        }
+    }
+    
+    void Level::destroyElementsFromPhysicsWorld(void)
+    {
+        // Eliminar Furnitures
+        // Eliminar Enemies
+        // Eliminar Players
+    }
+    
+    Level::~Level(void)
+    {
+        destroyEnemyGroup();
+    }
+    
     void Level::handleInputPlayer(Character& player)
-    {        
+    {
         const Uint8* currentKeyStates = SDL_GetKeyboardState( NULL );
         if (currentKeyStates[player.movements[Sprite::Movement::UP]] )
         {
-            physicsWorld->getBody(player.getName())->SetLinearVelocity({NO_VELOCITY, -VELOCITY});
+            physicsWorld->getBody(player.getBody()->getName())->SetLinearVelocity({NO_VELOCITY, -VELOCITY});
             player.playAnimation(name::MOVEMENT_WALKING, measure::DELAY_BETWEEN_ANIMATIONS);
         }
         else if (currentKeyStates[player.movements[Sprite::Movement::DOWN]] )
         {
-            physicsWorld->getBody(player.getName())->SetLinearVelocity({NO_VELOCITY, VELOCITY});
+            physicsWorld->getBody(player.getBody()->getName())->SetLinearVelocity({NO_VELOCITY, VELOCITY});
             player.playAnimation(name::MOVEMENT_WALKING, measure::DELAY_BETWEEN_ANIMATIONS);
         }
         else if (currentKeyStates[player.movements[Sprite::Movement::LEFT]] )
         {
             player.setSide(Glob::Side::LEFT_SIDE);
-            physicsWorld->getBody(player.getName())->SetLinearVelocity({-VELOCITY, NO_VELOCITY});
+            physicsWorld->getBody(player.getBody()->getName())->SetLinearVelocity({-VELOCITY, NO_VELOCITY});
             player.playAnimation(name::MOVEMENT_WALKING, measure::DELAY_BETWEEN_ANIMATIONS);
         }
         else if (currentKeyStates[player.movements[Sprite::Movement::RIGHT]] )
         {
             player.setSide(Glob::Side::RIGHT_SIDE);
-            physicsWorld->getBody(player.getName())->SetLinearVelocity({VELOCITY, NO_VELOCITY});
+            physicsWorld->getBody(player.getBody()->getName())->SetLinearVelocity({VELOCITY, NO_VELOCITY});
             player.playAnimation(name::MOVEMENT_WALKING, measure::DELAY_BETWEEN_ANIMATIONS);
         }
         else if (currentKeyStates[player.movements[Sprite::Movement::PUNCH]] )
         {
-            physicsWorld->getBody(player.getName())->SetLinearVelocity({NO_VELOCITY, NO_VELOCITY});
+            physicsWorld->getBody(player.getBody()->getName())->SetLinearVelocity({NO_VELOCITY, NO_VELOCITY});
             player.playAnimation(name::MOVEMENT_PUNCH, measure::DELAY_BETWEEN_ANIMATIONS);
         }
         else
@@ -47,11 +73,12 @@ namespace  barrio
             player.playAnimation(name::MOVEMENT_STOP, measure::DELAY_BETWEEN_ANIMATIONS);
             if (player.isAnimationStop())
             {
-                physicsWorld->getBody(player.getName())->SetLinearVelocity({NO_VELOCITY, NO_VELOCITY});
+                physicsWorld->getBody(player.getBody()->getName())->SetLinearVelocity({NO_VELOCITY, NO_VELOCITY});
             }
         }
         
-        b2Vec2 position = physicsWorld->getBody(player.getName())->GetPosition();
+        // Se carga un mapa con la posicion vertical de cada jugador renderizar en funcion de la distacia
+        b2Vec2 position = physicsWorld->getBody(player.getBody()->getName())->GetPosition();
         auto it = physicsWorld->characterSortedByPosition.find(position.y);
         if (it != physicsWorld->characterSortedByPosition.end())
         {
@@ -61,38 +88,93 @@ namespace  barrio
         }
         
         physicsWorld->characterSortedByPosition.insert
-        ( std::make_pair( position.y, physicsWorld->getBody(player.getName()) ) );
+        ( std::make_pair( position.y, physicsWorld->getBody(player.getBody()->getName()) ) );
     }
     
     void Level::IA(void)
     {
-        Character* tmpCharacter = nullptr;
+     
+        Character* enemy = nullptr;
         Object* obj = nullptr;
+        bool twoPlayer = false;
+        b2Vec2 playerONEPos, playerTWOPos, enemyPos;
+        static constexpr int numOfAttacksByPlayer = 1;
         
-        auto itCharacters = physicsWorld->bodiesBySpriteType.equal_range(entity::TypeOfSprite::SPRT_CHARACTER);
-        for (auto itElems = itCharacters.first; itElems != itCharacters.second; itElems++)
+        // Se analiza el numero de jugadores y se obtiene la posicion de cada uno
+        auto playerONE = physicsWorld->bodiesByName.find(name::PLAYER_ONE_NAME);
+        if (playerONE == physicsWorld->bodiesByName.end())
         {
-            for (b2Fixture* fixtureElement = itElems->second->GetFixtureList(); fixtureElement; fixtureElement = fixtureElement->GetNext())
+            SDL_LogMessage(SDL_LOG_CATEGORY_VIDEO, SDL_LOG_PRIORITY_ERROR, "Player % not found", name::PLAYER_ONE_NAME);
+            throw error::PLAYER_NOT_FOUND;
+        }
+        playerONEPos = playerONE->second->GetPosition();
+        auto playerTWO = physicsWorld->bodiesByName.find(name::PLAYER_TWO_NAME);
+        if (playerTWO != physicsWorld->bodiesByName.end())
+        {
+            twoPlayer = true;
+            playerTWOPos = playerTWO->second->GetPosition();
+        }
+        
+        auto intervalEnemies = physicsWorld->bodiesByFixtureType.equal_range(entity::TypeOfFixture::FIX_ENEMY);
+        for (auto itEnemy = intervalEnemies.first; itEnemy != intervalEnemies.second; itEnemy++)
+        {
+            enemy = static_cast<Character*>(utls::Fixture::getCharcaterUserData(itEnemy->second));
+            if (enemy != nullptr && enemy->getBody()->getTypeOfFixture() == entity::TypeOfFixture::FIX_ENEMY)
             {
-                obj = static_cast<Object*>(fixtureElement->GetUserData());
-                if (obj->whoAmI() == Glob::Classes::TEXTURE)
+                // Obtener posicion del enemigo
+                enemyPos = itEnemy->second->GetPosition();
+                if (enemy->getAIMode() == Glob::AIMode::AI_PURSUIT)
                 {
-                    tmpCharacter = static_cast<Character*>(fixtureElement->GetUserData());
-                    if (tmpCharacter->getTypeOfFixture() == entity::FIX_ENEMY)
+                    
+                }
+                else if (enemy->getAIMode() == Glob::AIMode::AI_ATTACK)
+                {
+                    b2Body* bodyPlayer = (enemy->getTarget().compare(name::PLAYER_ONE_NAME) == 0) ? playerONE->second : playerTWO->second;
+                    b2Vec2 positionPlayer = bodyPlayer->GetPosition();
+                    if (positionPlayer.x > (abs(enemyPos.x) - 2) )
                     {
-                        b2Vec2 position = itElems->second->GetPosition();
-                        auto it = physicsWorld->characterSortedByPosition.find(position.y);
-                        if (it != physicsWorld->characterSortedByPosition.end())
+                        if (positionPlayer.x > enemyPos.x)
+                            itEnemy->second->SetLinearVelocity(b2Vec2{1.2f, 0.0f});
+                        else
+                            itEnemy->second->SetLinearVelocity(b2Vec2{1.2f, 0.0f});
+                        if (enemy->isAnimationStop())
+                            enemy->playAnimation(name::MOVEMENT_WALKING, measure::DELAY_BETWEEN_ANIMATIONS);
+                    }
+                    else
+                    {
+                        if (positionPlayer.y > (abs(enemyPos.y) - 0.3f) )
                         {
-                            auto last = physicsWorld->characterSortedByPosition.rbegin()->second;
-                            position = last->GetPosition();
-                            position.y++;
+                            if (positionPlayer.y > enemyPos.y)
+                                itEnemy->second->SetLinearVelocity(b2Vec2{0.0f, 1.2f});
+                            else
+                                itEnemy->second->SetLinearVelocity(b2Vec2{0.0f, -1.2f});
+                            if (enemy->isAnimationStop())
+                                enemy->playAnimation(name::MOVEMENT_WALKING, measure::DELAY_BETWEEN_ANIMATIONS);
                         }
-                        physicsWorld->characterSortedByPosition.insert( std::make_pair( position.y, itElems->second ) );
+                        else
+                        {
+                            // Punch
+                            itEnemy->second->SetLinearVelocity(b2Vec2{0.0f, 0.0f});
+                            if (enemy->isAnimationStop())
+                                enemy->playAnimation(name::MOVEMENT_PUNCH, measure::DELAY_BETWEEN_ANIMATIONS);
+                        }
                     }
                 }
+                
+                // Se carga un mapa con la posicion vertical de cada enemigo para renderizar en funcion de la distacia
+                auto it = physicsWorld->characterSortedByPosition.find(enemyPos.y);
+                if (it != physicsWorld->characterSortedByPosition.end())
+                {
+                    auto last = physicsWorld->characterSortedByPosition.rbegin()->second;
+                    enemyPos = last->GetPosition();
+                    enemyPos.y++;
+                }
+                physicsWorld->characterSortedByPosition.insert( std::make_pair( enemyPos.y, itEnemy->second ) );
+                
             }
+            
         }
+      
     }
 }
 

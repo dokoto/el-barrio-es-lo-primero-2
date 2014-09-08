@@ -59,7 +59,7 @@ namespace barrio {
         
         virtual void setSide(Glob::Side side){ this->side = side; }
         virtual bool getSide(void) const { return this->side; }
-        virtual Glob::Classes whoAmI(void) { return Glob::Classes::TEXTURE; }
+        virtual Glob::Classes whoAmI(void) { return Glob::Classes::CLASS_TEXTURE; }
         
         bool loadFromFile(const std::string& path, SDL_Renderer*& renderer, const double zoomX = 1.0, const double zoomY = 1.0);
         

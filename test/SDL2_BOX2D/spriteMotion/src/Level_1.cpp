@@ -6,9 +6,15 @@ namespace barrio
 {        
     void Level_1::loadLevelWorld(void)
     {
+        /*
+         * BACKGROUND
+         */
         camera->loadBackGroundImage("img/backgorund_1679x600.png", renderer);
         
-        playerA.CreateCharacter("PlayerONE", entity::TypeOfSprite::SPRT_CHARACTER, entity::TypeOfShape::SHP_POLYGON, entity::TypeOfFixture::FIX_CHARACTER, renderer);
+        /*
+         * Players
+         */
+        playerA.CreateCharacter(name::PLAYER_ONE_NAME, entity::TypeOfSprite::SPRT_CHARACTER, entity::TypeOfShape::SHP_POLYGON, entity::TypeOfFixture::FIX_CHARACTER, renderer);
         //playerA.loadAnimations("conf/spriteSheets/point10x5px.json", "img/point10x5px.png", 5.0, 15.0);
         playerA.loadAnimations("conf/spriteSheets/player1.json", "img/player1.png", 2.0, 2.0);
         playerA.setMovement(Sprite::Movement::UP, SDL_SCANCODE_UP);
@@ -19,7 +25,7 @@ namespace barrio
         physicsWorld->addToWorld("PlayerONE", &playerA, SDL_Point{600, 500}, playerA.getAnimationSize(name::MOVEMENT_STOP),
                                  flag::DYNAMIC_BODY, flag::DISABLE_ROTATION);
         
-        playerB.CreateCharacter("PlayerTWO", entity::TypeOfSprite::SPRT_CHARACTER, entity::TypeOfShape::SHP_POLYGON, entity::TypeOfFixture::FIX_CHARACTER, renderer);
+        playerB.CreateCharacter(name::PLAYER_TWO_NAME, entity::TypeOfSprite::SPRT_CHARACTER, entity::TypeOfShape::SHP_POLYGON, entity::TypeOfFixture::FIX_CHARACTER, renderer);
         //playerB.loadAnimations("conf/spriteSheets/point10x5px.json", "img/point10x5px.png", 5.0, 5.0);
         playerB.loadAnimations("conf/spriteSheets/player2.json", "img/player2.png", 2.0, 2.0);
         playerB.setMovement(Sprite::Movement::UP, SDL_SCANCODE_W);
@@ -29,19 +35,30 @@ namespace barrio
         physicsWorld->addToWorld("PlayerTWO", &playerB, SDL_Point{700, 500}, playerB.getAnimationSize(name::MOVEMENT_STOP),
                                  flag::DYNAMIC_BODY, flag::DISABLE_ROTATION);
         
-        enemy1.CreateCharacter("EnemyONE", entity::TypeOfSprite::SPRT_CHARACTER, entity::TypeOfShape::SHP_POLYGON, entity::TypeOfFixture::FIX_ENEMY,
+        /*
+         * ENEMIES
+         */
+        Character* enemy_buba = new Character();
+        enemy_buba->CreateCharacter(name::ENEMY_BUBA, entity::TypeOfSprite::SPRT_CHARACTER, entity::TypeOfShape::SHP_POLYGON, entity::TypeOfFixture::FIX_ENEMY,
                                renderer, SDL_Color{186, 254, 202, 0});
-        enemy1.loadAnimations("conf/spriteSheets/enemy_1.json", "img/enemy_1.png", 2.0, 2.0);
-        physicsWorld->addToWorld("EnemyONE", &enemy1, SDL_Point{100, 530}, enemy1.getAnimationSize(name::MOVEMENT_STOP),
-                                 flag::DYNAMIC_BODY, flag::DISABLE_ROTATION);
-        
+        enemy_buba->loadAnimations("conf/spriteSheets/enemy_1.json", "img/enemy_1.png", 2.0, 2.0);
+        enemy_buba->setAIMode(Glob::AIMode::AI_ATTACK);
+        enemy_buba->setTarget(name::PLAYER_ONE_NAME);
+        enemiesGroup.insert(std::make_pair(name::ENEMY_BUBA, enemy_buba));
+        physicsWorld->addToWorld(name::ENEMY_BUBA, enemy_buba, SDL_Point{100, 530}, enemy_buba->getAnimationSize(name::MOVEMENT_STOP),
+                                                           flag::DYNAMIC_BODY, flag::DISABLE_ROTATION);
+        /*
+         * FURNITURES
+         */
         furnitures.CreateFurnitures("ObjectsGroup", entity::TypeOfSprite::SPRT_FURNITURE, entity::TypeOfShape::SHP_POLYGON,
                                     entity::TypeOfFixture::FIX_FURNITURE, renderer, SDL_Color{0, 255, 0, 0});
         furnitures.loadFurnitures("conf/spriteSheets/furniture_1.json", "img/furnitures_1.png", 1.0, 1.0);
         physicsWorld->addToWorld("objeto1", &furnitures, SDL_Point{300, 500}, furnitures.getFurnitureSize("objeto1"),
                                  flag::STATIC_BODY, flag::DISABLE_ROTATION);
         
-        
+        /*
+         * TEXTS
+         */
         texts->CreateText("ARIAL_12", "ttf/ArialNarrowRegular.ttf", 12);
         
         physicsWorld->setHorizon();

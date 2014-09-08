@@ -19,7 +19,8 @@ namespace error {
         CAMERA_NO_BACKGROUND_FOUND,
         SPRITE_DIMENSIONS_NOT_FOUND,
         FURNITURE_NOT_FOUND,
-        LEVEL_NOT_FOUND
+        LEVEL_NOT_FOUND,
+        PLAYER_NOT_FOUND
     };
     
 }

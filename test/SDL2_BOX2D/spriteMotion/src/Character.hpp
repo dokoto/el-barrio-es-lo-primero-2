@@ -7,6 +7,7 @@
 
 #include "Sprite.hpp"
 #include "Names.hpp"
+#include "Glob.hpp"
 
 namespace barrio {
     
@@ -15,6 +16,7 @@ namespace barrio {
     public:
         void CreateCharacter(const std::string& name, entity::TypeOfSprite typeOfSprite, entity::TypeOfShape typeOfShape,  entity::TypeOfFixture typeOfFixture,
                              SDL_Renderer*& renderer, SDL_Color transparentColor = {0xFF, 0xFF, 0xFF, 0});
+
         Character(): renderer(nullptr) {}
         ~Character() {}
         
@@ -46,7 +48,13 @@ namespace barrio {
             return animations[this->currentAnimationName].at(currentAnimationFrame);
         }
         void stopAnimation();
-        
+        std::string getTarget(void) { return this->enemyTarget; }
+        void setTarget(const std::string& enemyTarget) { this->enemyTarget = enemyTarget; }
+        Glob::AIMode getAIMode(void) { return this->aiMode; }
+        void setAIMode(Glob::AIMode aiMode) { this->aiMode = aiMode; }
+        int getLive(void) { return this->live; }
+        void setLive(const int live) { this->live = live; }
+                
     private:
         
         Character(const Character&){}
@@ -57,6 +65,9 @@ namespace barrio {
         size_t currentAnimationFrame, delayFrameCount;
         std::string currentAnimationName;
         std::map<std::string, std::vector<SDL_Rect>> animations;
+        std::string enemyTarget;
+        Glob::AIMode aiMode;
+        int live;
         
         void loadJsonSheet(const std::string& jsonSheetPath, const double zoomX = 1.0, const double zoomY = 1.0);
         inline void loadPngSheet(const std::string& pngSheetPath, const double zoomX = 1.0, const double zoomY = 1.0)

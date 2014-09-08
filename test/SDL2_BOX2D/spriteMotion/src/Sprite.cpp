@@ -15,7 +15,7 @@ namespace barrio {
             foot.CreateObject(spriteName + name::FOOT_NAME, entity::TypeOfSprite::SPRT_NONE, entity::TypeOfShape::SHP_POLYGON, entity::TypeOfFixture::FIX_FOOT);
         }
                 
-        CreateObject(spriteName, typeOfSprite, typeOfShape, typeOfFixture);
+        body.CreateObject(spriteName, typeOfSprite, typeOfShape, typeOfFixture);
         this->setTransparentColor(transparentColor);
         this->followWithCamera = followWithCamera;
     }        

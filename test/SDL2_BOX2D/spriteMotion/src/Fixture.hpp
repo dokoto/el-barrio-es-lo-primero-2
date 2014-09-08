@@ -19,7 +19,7 @@ namespace barrio
                     Sprite* sprite = nullptr;
                     sprite = static_cast<Sprite*>(fixture->GetUserData());
                     if (sprite != nullptr)
-                        return  sprite->getTypeOfSprite();
+                        return  sprite->getBody()->getTypeOfSprite();
                     else
                         return entity::TypeOfSprite::SPRT_NONE;
                     
@@ -48,7 +48,7 @@ namespace barrio
                     Sprite* sprite = nullptr;
                     sprite = static_cast<Sprite*>(fixture->GetUserData());
                     if (sprite != nullptr)
-                        return  sprite->getTypeOfShape();
+                        return  sprite->getBody()->getTypeOfShape();
                     else
                         return entity::TypeOfShape::SHP_POLYGON;
                     
@@ -68,6 +68,22 @@ namespace barrio
                 }
             }
             
+            static void* getCharcaterUserData(b2Body* body)
+            {
+                Object* obj = nullptr;
+                for (b2Fixture* fixtureElement = body->GetFixtureList(); fixtureElement; fixtureElement = fixtureElement->GetNext())
+                {
+                    obj = static_cast<Object*>(fixtureElement->GetUserData());
+                    if (obj->whoAmI() == Glob::Classes::CLASS_OBJECT)
+                        continue;
+                    else if (obj->whoAmI() == Glob::Classes::CLASS_TEXTURE)
+                        return fixtureElement->GetUserData();
+                    else
+                        continue;
+                }
+                return nullptr;
+            }
+            
             static entity::TypeOfFixture getTypeOfFixture(b2Fixture* fixture)
             {
                 b2Body* body = fixture->GetBody();
@@ -80,9 +96,9 @@ namespace barrio
                         std::string name = getFixtureName(fixture);
                         if(name.find(name::FOOT_NAME) != std::string::npos)
                             return entity::TypeOfFixture::FIX_FOOT;
-                        else if (sprite->getTypeOfSprite() == entity::TypeOfSprite::SPRT_CHARACTER)
+                        else if (sprite->getBody()->getTypeOfSprite() == entity::TypeOfSprite::SPRT_CHARACTER)
                             return entity::TypeOfFixture::FIX_CHARACTER;
-                        else if (sprite->getTypeOfSprite() == entity::TypeOfSprite::SPRT_FURNITURE)
+                        else if (sprite->getBody()->getTypeOfSprite() == entity::TypeOfSprite::SPRT_FURNITURE)
                             return entity::TypeOfFixture::FIX_FURNITURE;
                         else
                             return entity::TypeOfFixture::FIX_NONE;
@@ -130,7 +146,7 @@ namespace barrio
                     {
                         sprite = static_cast<Sprite*>(fixture->GetUserData());
                         if (sprite != nullptr)
-                            return  sprite->getName();
+                            return  sprite->getBody()->getName();
                         else
                             return std::string();
                     }

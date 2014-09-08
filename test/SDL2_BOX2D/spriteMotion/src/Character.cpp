@@ -16,6 +16,8 @@ namespace barrio {
         this->currentAnimationFrame = 0;
         this->delayFrameCount = 0;
         this->currentAnimationName = "";
+        this->aiMode = (typeOfFixture == entity::TypeOfFixture::FIX_ENEMY) ? Glob::AIMode::AI_ATTACK : Glob::AIMode::AI_NONE;
+        this->live = 100;
     }
 
 

@@ -19,7 +19,7 @@ public:
     void releaseClycleLiveTimeResources(void);
     
 private:    
-    Furnitures furnitures;
+    Furnitures furnitures;    
 };
     
 }

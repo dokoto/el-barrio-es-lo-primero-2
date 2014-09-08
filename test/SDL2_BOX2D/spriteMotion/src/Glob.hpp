@@ -4,8 +4,9 @@
 namespace Glob {
     
     
-    enum Classes {OBJECT, TEXTURE, SPRITE};
+    enum Classes {CLASS_OBJECT, CLASS_TEXTURE, CLASS_SPRITE};
     enum Side {LEFT_SIDE, RIGHT_SIDE};
+    enum AIMode {AI_PURSUIT, AI_ATTACK, AI_NONE};
     
 }
 
