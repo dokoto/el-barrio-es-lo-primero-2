@@ -1,0 +1,121 @@
+TCompilerIdC
+v6
+r1
+cCheck dependencies
+cCompileC CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CMakeCCompilerId.o /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CMakeCCompilerId.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC normal i386
+cPhaseScriptExecution Run\ Script /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
+c0000000053483A5800000000000000AA
+t1397242456
+s170
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/SDKSettings.plist
+c000000005332C935000000000000044C
+t1395837237
+s1100
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/CoreServices/SystemVersion.plist
+c000000005332C93500000000000001DE
+t1395837237
+s478
+
+N/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CMakeCCompilerId.c
+c00000000540B7853000000000000344F
+t1410037843
+s13391
+
+N/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC
+t2
+s0
+
+N/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CMakeCCompilerId.o
+t1410037844
+s3712
+
+N/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CompilerIdC.LinkFileList
+c00000000540B785400000000000000FB
+t1410037844
+s251
+
+N/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh
+c00000000540B7854000000000000002A
+t1410037844
+s42
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies675f71d4afbbb941^f8c69cd4afbbb941^---0#1#1#--18"Check dependencies36"07651CA9-CD54-4FBD-9918-4EFAC094211C-
+
+CCompileC CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CMakeCCompilerId.o /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CMakeCCompilerId.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+s431730644.614974
+e431730644.860165
+r1
+xCompileC
+xCompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CMakeCCompilerId.o
+x/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CMakeCCompilerId.c
+xnormal
+xi386
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CMakeCCompilerId.c
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection196"Compile /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CMakeCCompilerId.c166"CompileC CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CMakeCCompilerId.o CMakeCCompilerId.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler268d9dd4afbbb941^f833dcd4afbbb941^---0#0#1#-19%DVTDocumentLocation2@195"file:///Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CMakeCCompilerId.c0000000000000000^3445"CompileC CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CMakeCCompilerId.o CMakeCCompilerId.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -mmacosx-version-min=10.9 -g -fvisibility=hidden -Wno-sign-conversion -I/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/CompilerIdC.hmap -I/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/DerivedSources/i386 -I/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/DerivedSources -F/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC -MMD -MT dependencies -MF /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CMakeCCompilerId.d --serialize-diagnostics /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CMakeCCompilerId.dia -c /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CMakeCCompilerId.c -o /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CMakeCCompilerId.o36"9F854EED-E624-4331-83BF-B327E2F7EE52-
+b50B5E238-17C7-4162-A951-9BA05CB99FAB
+
+CLd /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC normal i386
+s431730644.860857
+e431730644.948763
+r1
+xLd
+x/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC
+xnormal
+xi386
+d/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CompilerIdC.LinkFileList
+d/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CMakeCCompilerId.o
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libSystem.dylib
+d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/lib/darwin/libclang_rt.eprintf.a
+d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/lib/darwin/libclang_rt.osx.a
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcache.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcommonCrypto.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcompiler_rt.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcopyfile.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcorecrypto.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libdispatch.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libdyld.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libkeymgr.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/liblaunch.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libmacho.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libquarantine.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libremovefile.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_asl.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_blocks.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_c.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_configuration.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_dnssd.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_info.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_kernel.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_m.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_malloc.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_network.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_notify.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_platform.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_pthread.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_sandbox.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunc.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunwind.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libxpc.dylib
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection186"Link /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC26"Ld CompilerIdC normal i386bc77dcd4afbbb941^b0e4f2d4afbbb941^---0#0#1#--1583"Ld CompilerIdC normal i386    cd /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC    export MACOSX_DEPLOYMENT_TARGET=10.9    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -L/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC -F/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC -filelist /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CompilerIdC.LinkFileList -mmacosx-version-min=10.9 -Xlinker -dependency_info -Xlinker /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CompilerIdC_dependency_info.dat -o /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC36"973BAFB6-36C2-4435-B6BD-D4C77A0138D6-
+b50B5E238-17C7-4162-A951-9BA05CB99FAB
+
+CPhaseScriptExecution Run\ Script /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh
+s431730644.949945
+e431730644.963049
+r1
+xPhaseScriptExecution
+xRun Script
+x/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh
+oGCC_VERSION=com.apple.compilers.llvm.clang.1_0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection36"Run custom shell script 'Run Script'109"PhaseScriptExecution Run\ Script CompilerIdC.build/Debug/CompilerIdC.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh556df3d4afbbb941^d78af6d4afbbb941^-47"GCC_VERSION=com.apple.compilers.llvm.clang.1_01(21%IDEActivityLogMessage2@47"GCC_VERSION=com.apple.compilers.llvm.clang.1_0-431730644#0#47#-0#-----0#0#1#--549"PhaseScriptExecution Run\ Script CompilerIdC.build/Debug/CompilerIdC.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh    cd /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC    /bin/sh -c /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/3.0.1/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh36"86C7180C-3CB2-4116-AC19-8BB05E3FA388-
+b50B5E238-17C7-4162-A951-9BA05CB99FAB
+

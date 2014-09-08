@@ -1,0 +1,29 @@
+TZERO_CHECK
+v6
+r1
+cCheck dependencies
+cPhaseScriptExecution CMake\ Rules /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-06466A18B0E64FB9A050DDB8.sh
+
+N/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-06466A18B0E64FB9A050DDB8.sh
+c00000000540B796C0000000000000173
+t1410038124
+s371
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies68ca4aecb0bbb941^d6c74becb0bbb941^---0#1#1#--18"Check dependencies36"E0994D48-4524-4343-B48D-E4D7D4635B3A-
+
+CPhaseScriptExecution CMake\ Rules /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-06466A18B0E64FB9A050DDB8.sh
+s431730924.300249
+e431730924.386961
+r1
+xPhaseScriptExecution
+xCMake Rules
+x/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-06466A18B0E64FB9A050DDB8.sh
+oecho ""
+o
+omake -f /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeScripts/ReRunCMake.make
+omake[1]: `/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/cmake.check_cache' is up to date.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection37"Run custom shell script 'CMake Rules'262"PhaseScriptExecution CMake\ Rules /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-06466A18B0E64FB9A050DDB8.sh30684decb0bbb941^881063ecb0bbb941^-383"echo ""make -f /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeScripts/ReRunCMake.makemake[1]: `/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/cmake.check_cache' is up to date.3(21%IDEActivityLogMessage2@8"echo ""-431730924#0#8#-0#-----2@178"make -f /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeScripts/ReRunCMake.make-431730924#9#178#-0#-----2@196"make[1]: `/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeFiles/cmake.check_cache' is up to date.-431730924#187#196#-0#-----0#0#1#--637"PhaseScriptExecution CMake\ Rules /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-06466A18B0E64FB9A050DDB8.sh    cd /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/src    /bin/sh -c /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ZERO_CHECK.build/Script-06466A18B0E64FB9A050DDB8.sh36"43140D95-9087-482C-A4EF-105DEC5127C7-
+bD2C52D6A-63AB-48FC-B50E-4EBC6B8C0686
+

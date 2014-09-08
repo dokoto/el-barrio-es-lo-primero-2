@@ -1,0 +1,29 @@
+TALL_BUILD
+v6
+r1
+cCheck dependencies
+cPhaseScriptExecution CMake\ Rules /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ALL_BUILD.build/Script-7DBC4E21F9AF4E3F9AD1035D.sh
+
+N/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ALL_BUILD.build/Script-7DBC4E21F9AF4E3F9AD1035D.sh
+c00000000540B79700000000000000172
+t1410038128
+s370
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies21e9eff0b0bbb941^a723f0f0b0bbb941^---0#1#1#--18"Check dependencies36"02C5C7EE-72DF-4E7A-BE84-35A54C557A70-
+
+CPhaseScriptExecution CMake\ Rules /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ALL_BUILD.build/Script-7DBC4E21F9AF4E3F9AD1035D.sh
+s431730928.939083
+e431730928.955914
+r1
+xPhaseScriptExecution
+xCMake Rules
+x/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ALL_BUILD.build/Script-7DBC4E21F9AF4E3F9AD1035D.sh
+oecho ""
+o
+oecho Build\ all\ projects
+oBuild all projects
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection37"Run custom shell script 'CMake Rules'261"PhaseScriptExecution CMake\ Rules /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ALL_BUILD.build/Script-7DBC4E21F9AF4E3F9AD1035D.sh22a6f0f0b0bbb941^a2b7f4f0b0bbb941^-54"echo ""echo Build\ all\ projectsBuild all projects3(21%IDEActivityLogMessage2@8"echo ""-431730928#0#8#-0#-----2@26"echo Build\ all\ projects-431730928#9#26#-0#-----2@19"Build all projects-431730928#35#19#-0#-----0#0#1#--635"PhaseScriptExecution CMake\ Rules /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ALL_BUILD.build/Script-7DBC4E21F9AF4E3F9AD1035D.sh    cd /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/src    /bin/sh -c /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/EL_BARRIO_ES_LO_PRIMERO.build/Debug/ALL_BUILD.build/Script-7DBC4E21F9AF4E3F9AD1035D.sh36"FF82AD91-C148-4E20-989E-00AA4E94D392-
+bFEC04D00-B7C0-47FC-9E55-AA0ABA3E6DAA
+

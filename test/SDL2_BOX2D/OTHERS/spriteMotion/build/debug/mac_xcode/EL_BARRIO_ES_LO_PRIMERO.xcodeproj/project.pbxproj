@@ -1,0 +1,1237 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		012AE827B5CD4B12B8467094 /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DFA281BAB24544919A3E542E /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				7DBC4E21F9AF4E3F9AD1035D /* CMake Rules */,
+			);
+			dependencies = (
+				3369230E631243A6BF6B8D99 /* PBXTargetDependency */,
+				352974152A904AB6916722F9 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+		66879E38CF4D4D33AE64FA90 /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 1E66771F72EF47388F2D49C2 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				06466A18B0E64FB9A050DDB8 /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		0B325757BDDE4D8E84506294 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDA6AD1B8B5B454896214CD7 /* main.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		1CE4FC206CEB47CC9C04D11E /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C43B8DDA1AF5449BA88F409F /* Character.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		4E7A4E4908304E6D81C47073 /* Text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA53A4F4A24C4D816417BB /* Text.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		5599AE38A5C54CF0A1CB5B14 /* LTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8B56E9508C943649323F8E2 /* LTimer.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		59505EDD891B48BBA8217812 /* Controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 406ECD51BEBC405BB10505DC /* Controller.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		621C89C70EE34408B2875931 /* Level_1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 658F3461185A412D9D5640B3 /* Level_1.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		648AC79321FA40E6A9BCBAA2 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D38A5ABDA00343D98A9A1B03 /* Game.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		64F14AEFA2E741D2A9C94846 /* Furnitures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33AA761ECB4E449F9D7943DE /* Furnitures.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		6C0E3BB8918C499AB3EE9D77 /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6FC33BE64A784D37B0C88863 /* Level.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		6D1A88527C5D48E78AB094BA /* CollisionListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A606134285A472FB09B6273 /* CollisionListener.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		6E1F36900B9F4EEEB1A6738E /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1779A16946A34C60BB859F51 /* Texture.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		999B4C35ADEC4C5281AC8CCF /* Physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 133EC62D450F49AD81E8EB31 /* Physics.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		9DE0821C6F4C426CB46FF10F /* Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7577CC31BD754372AB8364CC /* Render.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		B00A4C9E7EF14F8A908377E2 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C29EC7A2D9F949D49105A67D /* Sprite.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		EEF6FB6D61444DAF9DB1855E /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E000C1E79A1D4CB99F8D0161 /* Camera.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		F1864B504FD04B7FB4C6B270 /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2455E87CC45A43CEBE350370 /* jsoncpp.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4CE8226AFED6487FB3D18BF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D832972388D042F496D9641F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66879E38CF4D4D33AE64FA90;
+			remoteInfo = ZERO_CHECK;
+		};
+		6F40486FA61F4BC588F66327 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D832972388D042F496D9641F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66879E38CF4D4D33AE64FA90;
+			remoteInfo = ZERO_CHECK;
+		};
+		F82280D985024BE09DDF0C15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D832972388D042F496D9641F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEBF91F0A6574198AE09D278;
+			remoteInfo = ElBarrioEsLoPrimero;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		050CEB8C4B5047DF9AA66082 /* Size.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Size.hpp; sourceTree = SOURCE_ROOT; };
+		0B8DB632166143B496503DE3 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		133EC62D450F49AD81E8EB31 /* Physics.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = Physics.cpp; sourceTree = SOURCE_ROOT; };
+		1779A16946A34C60BB859F51 /* Texture.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = Texture.cpp; sourceTree = SOURCE_ROOT; };
+		2455E87CC45A43CEBE350370 /* jsoncpp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = jsoncpp.cpp; path = contrib/jsoncpp.cpp; sourceTree = SOURCE_ROOT; };
+		33481A3FBA3747009B0961DF /* Object.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Object.hpp; sourceTree = SOURCE_ROOT; };
+		33AA761ECB4E449F9D7943DE /* Furnitures.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = Furnitures.cpp; sourceTree = SOURCE_ROOT; };
+		3A606134285A472FB09B6273 /* CollisionListener.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = CollisionListener.cpp; sourceTree = SOURCE_ROOT; };
+		406ECD51BEBC405BB10505DC /* Controller.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = Controller.cpp; sourceTree = SOURCE_ROOT; };
+		46BBA2FB3F6E46DB8E5AD71D /* Physics.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Physics.hpp; sourceTree = SOURCE_ROOT; };
+		49996DF3D6AF43F686969864 /* Sprite.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Sprite.hpp; sourceTree = SOURCE_ROOT; };
+		4DAA53A4F4A24C4D816417BB /* Text.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = Text.cpp; sourceTree = SOURCE_ROOT; };
+		64C3CA6D00234E08AB3B1611 /* Measures.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Measures.hpp; sourceTree = SOURCE_ROOT; };
+		658F3461185A412D9D5640B3 /* Level_1.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = Level_1.cpp; sourceTree = SOURCE_ROOT; };
+		66C8241512C94AD28E82ED0F /* Texture.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Texture.hpp; sourceTree = SOURCE_ROOT; };
+		68E14671208A4C88A9786FF3 /* Conv.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Conv.hpp; sourceTree = SOURCE_ROOT; };
+		6B50168BADA4424CBCAAC673 /* Game.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Game.hpp; sourceTree = SOURCE_ROOT; };
+		6FC33BE64A784D37B0C88863 /* Level.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = Level.cpp; sourceTree = SOURCE_ROOT; };
+		7577CC31BD754372AB8364CC /* Render.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = Render.cpp; sourceTree = SOURCE_ROOT; };
+		7DC1C6B64F134EEAA68B5A04 /* Glob.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Glob.hpp; sourceTree = SOURCE_ROOT; };
+		83C106D019BC80CC0038E294 /* Names.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Names.hpp; sourceTree = "<group>"; };
+		83C106D119BC81370038E294 /* Flags.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Flags.hpp; sourceTree = "<group>"; };
+		83C106D219BC81DF0038E294 /* Entities.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Entities.hpp; sourceTree = "<group>"; };
+		84649A0B2FB1422BBDEB4FA6 /* Fixture.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Fixture.hpp; sourceTree = SOURCE_ROOT; };
+		863A504D509E4D2AB5B9B43D /* CollisionListener.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = CollisionListener.hpp; sourceTree = SOURCE_ROOT; };
+		8C25AC334DD34D6A9F8BE4A9 /* ErrorsCodes.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = ErrorsCodes.hpp; sourceTree = SOURCE_ROOT; };
+		941444E838C149E3B56BFD04 /* Text.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Text.hpp; sourceTree = SOURCE_ROOT; };
+		99B300FB36DB4AB885309C5E /* FrameRate.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = FrameRate.hpp; sourceTree = SOURCE_ROOT; };
+		9D9AEFB1F10243CB9CC87E66 /* ElBarrioEsLoPrimero */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = ElBarrioEsLoPrimero; sourceTree = BUILT_PRODUCTS_DIR; };
+		A211A13CDBCF456AA82612F0 /* Colors.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Colors.hpp; sourceTree = SOURCE_ROOT; };
+		AB56851D432143ABB25D0252 /* Controller.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Controller.hpp; sourceTree = SOURCE_ROOT; };
+		B858435CDCD44721BFEAC38C /* Clip.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Clip.hpp; sourceTree = SOURCE_ROOT; };
+		BDA6AD1B8B5B454896214CD7 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = main.cpp; sourceTree = SOURCE_ROOT; };
+		C153AEE8F1B14AFFA0E68AFC /* Camera.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Camera.hpp; sourceTree = SOURCE_ROOT; };
+		C27EC71C0E944A0A96B62377 /* LevelsFactory.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = LevelsFactory.hpp; sourceTree = SOURCE_ROOT; };
+		C29EC7A2D9F949D49105A67D /* Sprite.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = Sprite.cpp; sourceTree = SOURCE_ROOT; };
+		C43B8DDA1AF5449BA88F409F /* Character.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = Character.cpp; sourceTree = SOURCE_ROOT; };
+		C9179C5434C84E38B8A6A214 /* Furnitures.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Furnitures.hpp; sourceTree = SOURCE_ROOT; };
+		CB0265C8F04C4491BCE588A0 /* Level.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Level.hpp; sourceTree = SOURCE_ROOT; };
+		D38A5ABDA00343D98A9A1B03 /* Game.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = Game.cpp; sourceTree = SOURCE_ROOT; };
+		E000C1E79A1D4CB99F8D0161 /* Camera.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = Camera.cpp; sourceTree = SOURCE_ROOT; };
+		E8B56E9508C943649323F8E2 /* LTimer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = LTimer.cpp; sourceTree = SOURCE_ROOT; };
+		EC4B87364C8C4D3A90CD0829 /* LTimer.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = LTimer.hpp; sourceTree = SOURCE_ROOT; };
+		EC55F40AB44943998F1C73C0 /* main.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = main.hpp; sourceTree = SOURCE_ROOT; };
+		F03AE2F5A5644C7D92132605 /* Level_1.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Level_1.hpp; sourceTree = SOURCE_ROOT; };
+		F3C41DBC84AB4D11B6B6E2EE /* json.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = json.h; path = contrib/json.h; sourceTree = SOURCE_ROOT; };
+		FB0F0915E7964EE29E9CCFCB /* Character.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Character.hpp; sourceTree = SOURCE_ROOT; };
+		FC9E5023445543DBBD7FCADA /* Render.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Render.hpp; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		02D36F2A57474EF2BCA56E6E /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				68E14671208A4C88A9786FF3 /* Conv.hpp */,
+				84649A0B2FB1422BBDEB4FA6 /* Fixture.hpp */,
+				99B300FB36DB4AB885309C5E /* FrameRate.hpp */,
+				E8B56E9508C943649323F8E2 /* LTimer.cpp */,
+				EC4B87364C8C4D3A90CD0829 /* LTimer.hpp */,
+			);
+			name = utilities;
+			sourceTree = "<group>";
+		};
+		06E1AF6AFDCD4982AE75E40F /* contrib */ = {
+			isa = PBXGroup;
+			children = (
+				F3C41DBC84AB4D11B6B6E2EE /* json.h */,
+				2455E87CC45A43CEBE350370 /* jsoncpp.cpp */,
+			);
+			name = contrib;
+			sourceTree = "<group>";
+		};
+		0E7C28DDDA0744F3B88BA0C6 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				D38A5ABDA00343D98A9A1B03 /* Game.cpp */,
+				6B50168BADA4424CBCAAC673 /* Game.hpp */,
+				BDA6AD1B8B5B454896214CD7 /* main.cpp */,
+				EC55F40AB44943998F1C73C0 /* main.hpp */,
+			);
+			name = main;
+			sourceTree = "<group>";
+		};
+		1202A4632C2C44AC980A5A66 = {
+			isa = PBXGroup;
+			children = (
+				CDC3C708EA054476A8AFDD60 /* Sources */,
+				54033DFCAA4E414CB439C7DB /* Resources */,
+				980DA5849CE24E659AC1ED70 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1679C116E5F7418182670AD0 /* constants */ = {
+			isa = PBXGroup;
+			children = (
+				A211A13CDBCF456AA82612F0 /* Colors.hpp */,
+				64C3CA6D00234E08AB3B1611 /* Measures.hpp */,
+				8C25AC334DD34D6A9F8BE4A9 /* ErrorsCodes.hpp */,
+				83C106D019BC80CC0038E294 /* Names.hpp */,
+				83C106D119BC81370038E294 /* Flags.hpp */,
+				83C106D219BC81DF0038E294 /* Entities.hpp */,
+			);
+			name = constants;
+			sourceTree = "<group>";
+		};
+		34D82E61178E46AF8B76AB48 /* ElBarrioEsLoPrimero */ = {
+			isa = PBXGroup;
+			children = (
+				602C98E43D254631BA98BDEF /* render */,
+				5B4A90ED1BD7435883C72A4E /* sprites */,
+				C7503414F89340F1891A5A45 /* types */,
+				ECB5E0AC905740B79877A209 /* physics */,
+				1679C116E5F7418182670AD0 /* constants */,
+				A34AD840186E40BB8B4A1ED7 /* controller */,
+				02D36F2A57474EF2BCA56E6E /* utilities */,
+				0E7C28DDDA0744F3B88BA0C6 /* main */,
+				84EFDC1200E1462382B2E8AD /* levels */,
+				06E1AF6AFDCD4982AE75E40F /* contrib */,
+				0B8DB632166143B496503DE3 /* CMakeLists.txt */,
+			);
+			name = ElBarrioEsLoPrimero;
+			sourceTree = "<group>";
+		};
+		54033DFCAA4E414CB439C7DB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		5B4A90ED1BD7435883C72A4E /* sprites */ = {
+			isa = PBXGroup;
+			children = (
+				C43B8DDA1AF5449BA88F409F /* Character.cpp */,
+				FB0F0915E7964EE29E9CCFCB /* Character.hpp */,
+				33AA761ECB4E449F9D7943DE /* Furnitures.cpp */,
+				C9179C5434C84E38B8A6A214 /* Furnitures.hpp */,
+				C29EC7A2D9F949D49105A67D /* Sprite.cpp */,
+				49996DF3D6AF43F686969864 /* Sprite.hpp */,
+				4DAA53A4F4A24C4D816417BB /* Text.cpp */,
+				941444E838C149E3B56BFD04 /* Text.hpp */,
+				1779A16946A34C60BB859F51 /* Texture.cpp */,
+				66C8241512C94AD28E82ED0F /* Texture.hpp */,
+			);
+			name = sprites;
+			sourceTree = "<group>";
+		};
+		602C98E43D254631BA98BDEF /* render */ = {
+			isa = PBXGroup;
+			children = (
+				E000C1E79A1D4CB99F8D0161 /* Camera.cpp */,
+				C153AEE8F1B14AFFA0E68AFC /* Camera.hpp */,
+				7577CC31BD754372AB8364CC /* Render.cpp */,
+				FC9E5023445543DBBD7FCADA /* Render.hpp */,
+			);
+			name = render;
+			sourceTree = "<group>";
+		};
+		76CE19DD141142998206D9E3 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		84EFDC1200E1462382B2E8AD /* levels */ = {
+			isa = PBXGroup;
+			children = (
+				6FC33BE64A784D37B0C88863 /* Level.cpp */,
+				CB0265C8F04C4491BCE588A0 /* Level.hpp */,
+				658F3461185A412D9D5640B3 /* Level_1.cpp */,
+				F03AE2F5A5644C7D92132605 /* Level_1.hpp */,
+				C27EC71C0E944A0A96B62377 /* LevelsFactory.hpp */,
+			);
+			name = levels;
+			sourceTree = "<group>";
+		};
+		980DA5849CE24E659AC1ED70 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D9AEFB1F10243CB9CC87E66 /* ElBarrioEsLoPrimero */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A34AD840186E40BB8B4A1ED7 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				406ECD51BEBC405BB10505DC /* Controller.cpp */,
+				AB56851D432143ABB25D0252 /* Controller.hpp */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		C7503414F89340F1891A5A45 /* types */ = {
+			isa = PBXGroup;
+			children = (
+				B858435CDCD44721BFEAC38C /* Clip.hpp */,
+				7DC1C6B64F134EEAA68B5A04 /* Glob.hpp */,
+				33481A3FBA3747009B0961DF /* Object.hpp */,
+				050CEB8C4B5047DF9AA66082 /* Size.hpp */,
+			);
+			name = types;
+			sourceTree = "<group>";
+		};
+		CDC3C708EA054476A8AFDD60 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				ED9006A1804D448280C88157 /* ALL_BUILD */,
+				34D82E61178E46AF8B76AB48 /* ElBarrioEsLoPrimero */,
+				D2E9C907B4144FE79606BCCE /* ZERO_CHECK */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		D2E9C907B4144FE79606BCCE /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				E65481FF8AED41A5AC5B0D84 /* CMake Rules */,
+				0B8DB632166143B496503DE3 /* CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		E65481FF8AED41A5AC5B0D84 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		ECB5E0AC905740B79877A209 /* physics */ = {
+			isa = PBXGroup;
+			children = (
+				3A606134285A472FB09B6273 /* CollisionListener.cpp */,
+				863A504D509E4D2AB5B9B43D /* CollisionListener.hpp */,
+				133EC62D450F49AD81E8EB31 /* Physics.cpp */,
+				46BBA2FB3F6E46DB8E5AD71D /* Physics.hpp */,
+			);
+			name = physics;
+			sourceTree = "<group>";
+		};
+		ED9006A1804D448280C88157 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				76CE19DD141142998206D9E3 /* CMake Rules */,
+				0B8DB632166143B496503DE3 /* CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FEBF91F0A6574198AE09D278 /* ElBarrioEsLoPrimero */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54E348E765744C238ED3E1BF /* Build configuration list for PBXNativeTarget "ElBarrioEsLoPrimero" */;
+			buildPhases = (
+				D1371C5846D2475D9AE23A6F /* Sources */,
+				83C106CF19BBB0D40038E294 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				019D0CCF95AC49BDB01E982B /* PBXTargetDependency */,
+			);
+			name = ElBarrioEsLoPrimero;
+			productName = ElBarrioEsLoPrimero;
+			productReference = 9D9AEFB1F10243CB9CC87E66 /* ElBarrioEsLoPrimero */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D832972388D042F496D9641F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = 2FA33CBB617846D58BE4EEBE /* Build configuration list for PBXProject "EL_BARRIO_ES_LO_PRIMERO" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1202A4632C2C44AC980A5A66;
+			projectDirPath = "/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/src";
+			projectRoot = "";
+			targets = (
+				012AE827B5CD4B12B8467094 /* ALL_BUILD */,
+				FEBF91F0A6574198AE09D278 /* ElBarrioEsLoPrimero */,
+				66879E38CF4D4D33AE64FA90 /* ZERO_CHECK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06466A18B0E64FB9A050DDB8 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode -f /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		7DBC4E21F9AF4E3F9AD1035D /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode -f /Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		83C106CF19BBB0D40038E294 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "function checkForderExist() {\n\techo \"Checking if\" $1$2 \"exist..\"\n\tif [ ! -d \"$1$2\" ]; then\n    echo $2 \", no found\" ;\n    exit 1 ;\n\telse\n    echo \"Checking OK, folder\" $1$2\"exist\"\n\tfi\n}\n\nfunction rsyncFolder() {\n\techo \"Coping with rsync\" $1 \"to\" $2 ;\n\techo \"-------------------------------------------------------------\" ;\n\tif rsync -av --delete \"$1\" \"$2\";  then\n    echo \"Folder\" $1 \"copied ok to \" $2;\n\telse\n    echo \"Copy of \" $1 \"to \" $2 \", has Failed\";\n    exit 1 ;\n\tfi\n\techo \"-------------------------------------------------------------\" ;\n}\n\nIMG_FOLDER=\"img\" ;\nAUDIO_FOLDER=\"audio\" ;\nTTF_FOLDER=\"ttf\" ;\nCONF_FOLDER=\"conf\" ;\n\nLEN_SRCROOT=${#SRCROOT} ;\n    OSX_PROJECT_BASE_DIR=${SRCROOT:0:LEN_SRCROOT-3};\n    echo \"Project Base Folder:\" $OSX_PROJECT_BASE_DIR;\n    \n    checkForderExist $OSX_PROJECT_BASE_DIR $IMG_FOLDER ;\n    checkForderExist $OSX_PROJECT_BASE_DIR $AUDIO_FOLDER ;\n    checkForderExist $OSX_PROJECT_BASE_DIR $TTF_FOLDER ;\n    checkForderExist $OSX_PROJECT_BASE_DIR $CONF_FOLDER ;\n    \n    rsyncFolder $OSX_PROJECT_BASE_DIR$IMG_FOLDER $TARGET_BUILD_DIR;\n    rsyncFolder $OSX_PROJECT_BASE_DIR$AUDIO_FOLDER $TARGET_BUILD_DIR;\n    rsyncFolder $OSX_PROJECT_BASE_DIR$TTF_FOLDER $TARGET_BUILD_DIR;\n    rsyncFolder $OSX_PROJECT_BASE_DIR$CONF_FOLDER $TARGET_BUILD_DIR;\n    \n    exit 0;";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D1371C5846D2475D9AE23A6F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEF6FB6D61444DAF9DB1855E /* Camera.cpp in Sources */,
+				1CE4FC206CEB47CC9C04D11E /* Character.cpp in Sources */,
+				6D1A88527C5D48E78AB094BA /* CollisionListener.cpp in Sources */,
+				59505EDD891B48BBA8217812 /* Controller.cpp in Sources */,
+				64F14AEFA2E741D2A9C94846 /* Furnitures.cpp in Sources */,
+				648AC79321FA40E6A9BCBAA2 /* Game.cpp in Sources */,
+				5599AE38A5C54CF0A1CB5B14 /* LTimer.cpp in Sources */,
+				6C0E3BB8918C499AB3EE9D77 /* Level.cpp in Sources */,
+				621C89C70EE34408B2875931 /* Level_1.cpp in Sources */,
+				999B4C35ADEC4C5281AC8CCF /* Physics.cpp in Sources */,
+				9DE0821C6F4C426CB46FF10F /* Render.cpp in Sources */,
+				B00A4C9E7EF14F8A908377E2 /* Sprite.cpp in Sources */,
+				4E7A4E4908304E6D81C47073 /* Text.cpp in Sources */,
+				6E1F36900B9F4EEEB1A6738E /* Texture.cpp in Sources */,
+				F1864B504FD04B7FB4C6B270 /* jsoncpp.cpp in Sources */,
+				0B325757BDDE4D8E84506294 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		019D0CCF95AC49BDB01E982B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66879E38CF4D4D33AE64FA90 /* ZERO_CHECK */;
+			targetProxy = 4CE8226AFED6487FB3D18BF7 /* PBXContainerItemProxy */;
+		};
+		3369230E631243A6BF6B8D99 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FEBF91F0A6574198AE09D278 /* ElBarrioEsLoPrimero */;
+			targetProxy = F82280D985024BE09DDF0C15 /* PBXContainerItemProxy */;
+		};
+		352974152A904AB6916722F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66879E38CF4D4D33AE64FA90 /* ZERO_CHECK */;
+			targetProxy = 6F40486FA61F4BC588F66327 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0E5D2D5579F6436A95D10F42 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/SDL2,
+					/opt/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+					"-std=c++11",
+					"-DAPPLE",
+					"-O0",
+					"-Wall",
+					"-Wextra",
+					"-pedantic",
+					"-W",
+					"-Wconversion",
+					"-Wcast-qual",
+					"-Wwrite-strings",
+					"-Wstrict-aliasing",
+					"-Wpointer-arith",
+					"-Wcast-align",
+					"-fno-common",
+				);
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		1A12B9D241044886B64A195D /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/opt/local/include,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = (
+					/opt/local/lib,
+					/usr/local/lib,
+				);
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+					"-std=c++11",
+					"-DAPPLE",
+					"-O0",
+					"-Wall",
+					"-Wextra",
+					"-pedantic",
+					"-W",
+					"-Wconversion",
+					"-Wcast-qual",
+					"-Wwrite-strings",
+					"-Wstrict-aliasing",
+					"-Wpointer-arith",
+					"-Wcast-align",
+					"-fno-common",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-std=c++11",
+					"-DAPPLE",
+					"-O0",
+					"-Wall",
+					"-Wextra",
+					"-pedantic",
+					"-W",
+					"-Wconversion",
+					"-Wcast-qual",
+					"-Wwrite-strings",
+					"-Wstrict-aliasing",
+					"-Wpointer-arith",
+					"-Wcast-align",
+					"-fno-common",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					"-lSDL2",
+					"-lSDL2_image",
+					"-lSDL2",
+					"-lSDL2_mixer",
+					"-lSDL2",
+					"-lSDL2_ttf",
+					"-lSDL2",
+					/usr/local/lib/libSDL2_gfx.dylib,
+					/opt/local/lib/libBox2D.a,
+					"-lSDL2_image",
+					"-lSDL2_mixer",
+					"-lSDL2_ttf",
+					/usr/local/lib/libSDL2_gfx.dylib,
+					/opt/local/lib/libBox2D.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ElBarrioEsLoPrimero;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		2BDAB4A843514015B3A12D09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk;
+				SYMROOT = "/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/build";
+			};
+			name = Release;
+		};
+		3A66C1258E0842FCB8809118 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk;
+				SYMROOT = "/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/build";
+			};
+			name = RelWithDebInfo;
+		};
+		3C4C25843E924E448AD8B9DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/SDL2,
+					/opt/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+					"-std=c++11",
+					"-DAPPLE",
+					"-O0",
+					"-Wall",
+					"-Wextra",
+					"-pedantic",
+					"-W",
+					"-Wconversion",
+					"-Wcast-qual",
+					"-Wwrite-strings",
+					"-Wstrict-aliasing",
+					"-Wpointer-arith",
+					"-Wcast-align",
+					"-fno-common",
+				);
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		47B0CD8708BC4377AE678183 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/opt/local/include,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = (
+					/opt/local/lib,
+					/usr/local/lib,
+				);
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+					"-std=c++11",
+					"-DAPPLE",
+					"-O0",
+					"-Wall",
+					"-Wextra",
+					"-pedantic",
+					"-W",
+					"-Wconversion",
+					"-Wcast-qual",
+					"-Wwrite-strings",
+					"-Wstrict-aliasing",
+					"-Wpointer-arith",
+					"-Wcast-align",
+					"-fno-common",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-std=c++11",
+					"-DAPPLE",
+					"-O0",
+					"-Wall",
+					"-Wextra",
+					"-pedantic",
+					"-W",
+					"-Wconversion",
+					"-Wcast-qual",
+					"-Wwrite-strings",
+					"-Wstrict-aliasing",
+					"-Wpointer-arith",
+					"-Wcast-align",
+					"-fno-common",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					"-lSDL2",
+					"-lSDL2_image",
+					"-lSDL2",
+					"-lSDL2_mixer",
+					"-lSDL2",
+					"-lSDL2_ttf",
+					"-lSDL2",
+					/usr/local/lib/libSDL2_gfx.dylib,
+					/opt/local/lib/libBox2D.a,
+					"-lSDL2_image",
+					"-lSDL2_mixer",
+					"-lSDL2_ttf",
+					/usr/local/lib/libSDL2_gfx.dylib,
+					/opt/local/lib/libBox2D.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ElBarrioEsLoPrimero;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		53E2E80095A5425FB28C6EEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/SDL2,
+					/opt/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+					"-std=c++11",
+					"-DAPPLE",
+					"-O0",
+					"-Wall",
+					"-Wextra",
+					"-pedantic",
+					"-W",
+					"-Wconversion",
+					"-Wcast-qual",
+					"-Wwrite-strings",
+					"-Wstrict-aliasing",
+					"-Wpointer-arith",
+					"-Wcast-align",
+					"-fno-common",
+				);
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		551154D1D4DA48F9A6BA5A25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk;
+				SYMROOT = "/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/build";
+			};
+			name = Debug;
+		};
+		5F66DAEE553649D2942539BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/opt/local/include,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = (
+					/opt/local/lib,
+					/usr/local/lib,
+				);
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+					"-std=c++11",
+					"-DAPPLE",
+					"-O0",
+					"-Wall",
+					"-Wextra",
+					"-pedantic",
+					"-W",
+					"-Wconversion",
+					"-Wcast-qual",
+					"-Wwrite-strings",
+					"-Wstrict-aliasing",
+					"-Wpointer-arith",
+					"-Wcast-align",
+					"-fno-common",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-std=c++11",
+					"-DAPPLE",
+					"-O0",
+					"-Wall",
+					"-Wextra",
+					"-pedantic",
+					"-W",
+					"-Wconversion",
+					"-Wcast-qual",
+					"-Wwrite-strings",
+					"-Wstrict-aliasing",
+					"-Wpointer-arith",
+					"-Wcast-align",
+					"-fno-common",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					"-lSDL2",
+					"-lSDL2_image",
+					"-lSDL2",
+					"-lSDL2_mixer",
+					"-lSDL2",
+					"-lSDL2_ttf",
+					"-lSDL2",
+					/usr/local/lib/libSDL2_gfx.dylib,
+					/opt/local/lib/libBox2D.a,
+					"-lSDL2_image",
+					"-lSDL2_mixer",
+					"-lSDL2_ttf",
+					/usr/local/lib/libSDL2_gfx.dylib,
+					/opt/local/lib/libBox2D.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ElBarrioEsLoPrimero;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		75A7AFBE5A094508A0A84CA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/SDL2,
+					/opt/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+					"-std=c++11",
+					"-DAPPLE",
+					"-O0",
+					"-Wall",
+					"-Wextra",
+					"-pedantic",
+					"-W",
+					"-Wconversion",
+					"-Wcast-qual",
+					"-Wwrite-strings",
+					"-Wstrict-aliasing",
+					"-Wpointer-arith",
+					"-Wcast-align",
+					"-fno-common",
+				);
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		7A4D30717F834E758CC97604 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk;
+				SYMROOT = "/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode/build";
+			};
+			name = MinSizeRel;
+		};
+		A49719FE12E347159F3E79C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/opt/local/include,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = (
+					/opt/local/lib,
+					/usr/local/lib,
+				);
+				OTHER_CFLAGS = (
+					"-std=c++11",
+					"-DAPPLE",
+					"-O0",
+					"-Wall",
+					"-Wextra",
+					"-pedantic",
+					"-W",
+					"-Wconversion",
+					"-Wcast-qual",
+					"-Wwrite-strings",
+					"-Wstrict-aliasing",
+					"-Wpointer-arith",
+					"-Wcast-align",
+					"-fno-common",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-std=c++11",
+					"-DAPPLE",
+					"-O0",
+					"-Wall",
+					"-Wextra",
+					"-pedantic",
+					"-W",
+					"-Wconversion",
+					"-Wcast-qual",
+					"-Wwrite-strings",
+					"-Wstrict-aliasing",
+					"-Wpointer-arith",
+					"-Wcast-align",
+					"-fno-common",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					"-lSDL2",
+					"-lSDL2_image",
+					"-lSDL2",
+					"-lSDL2_mixer",
+					"-lSDL2",
+					"-lSDL2_ttf",
+					"-lSDL2",
+					/usr/local/lib/libSDL2_gfx.dylib,
+					/opt/local/lib/libBox2D.a,
+					"-lSDL2_image",
+					"-lSDL2_mixer",
+					"-lSDL2_ttf",
+					/usr/local/lib/libSDL2_gfx.dylib,
+					/opt/local/lib/libBox2D.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ElBarrioEsLoPrimero;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		CD929552C86C47F783EA96C9 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/SDL2,
+					/opt/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+					"-std=c++11",
+					"-DAPPLE",
+					"-O0",
+					"-Wall",
+					"-Wextra",
+					"-pedantic",
+					"-W",
+					"-Wconversion",
+					"-Wcast-qual",
+					"-Wwrite-strings",
+					"-Wstrict-aliasing",
+					"-Wpointer-arith",
+					"-Wcast-align",
+					"-fno-common",
+				);
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		D2F34EF61E4A41189656890E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/SDL2,
+					/opt/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+					"-std=c++11",
+					"-DAPPLE",
+					"-O0",
+					"-Wall",
+					"-Wextra",
+					"-pedantic",
+					"-W",
+					"-Wconversion",
+					"-Wcast-qual",
+					"-Wwrite-strings",
+					"-Wstrict-aliasing",
+					"-Wpointer-arith",
+					"-Wcast-align",
+					"-fno-common",
+				);
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		F6C36259A3F94ACBB09AB652 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/SDL2,
+					/opt/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+					"-std=c++11",
+					"-DAPPLE",
+					"-O0",
+					"-Wall",
+					"-Wextra",
+					"-pedantic",
+					"-W",
+					"-Wconversion",
+					"-Wcast-qual",
+					"-Wwrite-strings",
+					"-Wstrict-aliasing",
+					"-Wpointer-arith",
+					"-Wcast-align",
+					"-fno-common",
+				);
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		FC7846021DE445009AD2168A /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/SDL2,
+					/opt/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+					"-std=c++11",
+					"-DAPPLE",
+					"-O0",
+					"-Wall",
+					"-Wextra",
+					"-pedantic",
+					"-W",
+					"-Wconversion",
+					"-Wcast-qual",
+					"-Wwrite-strings",
+					"-Wstrict-aliasing",
+					"-Wpointer-arith",
+					"-Wcast-align",
+					"-fno-common",
+				);
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/administrador/Desarrollos/CPP/APPS/EL_BARRIO_ES_LO_PRIMERO/el-barrio-es-lo-primero/test/SDL2_BOX2D/spriteMotion/build/debug/mac_xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1E66771F72EF47388F2D49C2 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C4C25843E924E448AD8B9DA /* Debug */,
+				D2F34EF61E4A41189656890E /* Release */,
+				0E5D2D5579F6436A95D10F42 /* MinSizeRel */,
+				FC7846021DE445009AD2168A /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2FA33CBB617846D58BE4EEBE /* Build configuration list for PBXProject "EL_BARRIO_ES_LO_PRIMERO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				551154D1D4DA48F9A6BA5A25 /* Debug */,
+				2BDAB4A843514015B3A12D09 /* Release */,
+				7A4D30717F834E758CC97604 /* MinSizeRel */,
+				3A66C1258E0842FCB8809118 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		54E348E765744C238ED3E1BF /* Build configuration list for PBXNativeTarget "ElBarrioEsLoPrimero" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A49719FE12E347159F3E79C3 /* Debug */,
+				5F66DAEE553649D2942539BF /* Release */,
+				1A12B9D241044886B64A195D /* MinSizeRel */,
+				47B0CD8708BC4377AE678183 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DFA281BAB24544919A3E542E /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75A7AFBE5A094508A0A84CA7 /* Debug */,
+				53E2E80095A5425FB28C6EEA /* Release */,
+				CD929552C86C47F783EA96C9 /* MinSizeRel */,
+				F6C36259A3F94ACBB09AB652 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D832972388D042F496D9641F /* Project object */;
+}

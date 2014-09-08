@@ -2,7 +2,6 @@
 #include <fstream>
 #include "contrib/json.h"
 #include "ErrorsCodes.hpp"
-#include "Names.hpp"
 
 
 namespace barrio {
@@ -15,7 +14,7 @@ namespace barrio {
         this->renderer = renderer;
         this->currentAnimationFrame = 0;
         this->delayFrameCount = 0;
-        this->currentAnimationName = "";
+        this->currentAnimationName = name::MOVEMENT_STOP;
         this->aiMode = (typeOfFixture == entity::TypeOfFixture::FIX_ENEMY) ? Glob::AIMode::AI_ATTACK : Glob::AIMode::AI_NONE;
         this->live = 100;
     }

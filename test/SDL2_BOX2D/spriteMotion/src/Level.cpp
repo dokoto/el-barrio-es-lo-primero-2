@@ -4,6 +4,7 @@
 #include "ErrorsCodes.hpp"
 #include "Glob.hpp"
 #include "Fixture.hpp"
+#include <cmath>
 
 namespace  barrio
 {
@@ -131,32 +132,41 @@ namespace  barrio
                 {
                     b2Body* bodyPlayer = (enemy->getTarget().compare(name::PLAYER_ONE_NAME) == 0) ? playerONE->second : playerTWO->second;
                     b2Vec2 positionPlayer = bodyPlayer->GetPosition();
-                    if (positionPlayer.x > (abs(enemyPos.x) - 2) )
+                    //if (positionPlayer.x > (std::abs(enemyPos.x) - 4.0f) )
+                    if ( std::abs( std::abs(positionPlayer.x) - std::abs(enemyPos.x) ) > 4.0f )
                     {
                         if (positionPlayer.x > enemyPos.x)
+                        {
+                            enemy->setSide(Glob::Side::RIGHT_SIDE);
                             itEnemy->second->SetLinearVelocity(b2Vec2{1.2f, 0.0f});
+                        }
                         else
-                            itEnemy->second->SetLinearVelocity(b2Vec2{1.2f, 0.0f});
-                        if (enemy->isAnimationStop())
-                            enemy->playAnimation(name::MOVEMENT_WALKING, measure::DELAY_BETWEEN_ANIMATIONS);
+                        {
+                            enemy->setSide(Glob::Side::LEFT_SIDE);
+                            itEnemy->second->SetLinearVelocity(b2Vec2{-1.2f, 0.0f});
+                        }
+                        enemy->playAnimation(name::MOVEMENT_WALKING, measure::DELAY_BETWEEN_ANIMATIONS);
                     }
                     else
                     {
-                        if (positionPlayer.y > (abs(enemyPos.y) - 0.3f) )
+                        //if (positionPlayer.y > (std::abs(enemyPos.y) - 0.3f) )
+                        if ( std::abs( std::abs(positionPlayer.y) - std::abs(enemyPos.y) ) > 0.2f )
                         {
                             if (positionPlayer.y > enemyPos.y)
+                            {
                                 itEnemy->second->SetLinearVelocity(b2Vec2{0.0f, 1.2f});
+                            }
                             else
+                            {
                                 itEnemy->second->SetLinearVelocity(b2Vec2{0.0f, -1.2f});
-                            if (enemy->isAnimationStop())
-                                enemy->playAnimation(name::MOVEMENT_WALKING, measure::DELAY_BETWEEN_ANIMATIONS);
+                            }
+                            enemy->playAnimation(name::MOVEMENT_WALKING, measure::DELAY_BETWEEN_ANIMATIONS);
                         }
                         else
                         {
                             // Punch
                             itEnemy->second->SetLinearVelocity(b2Vec2{0.0f, 0.0f});
-                            if (enemy->isAnimationStop())
-                                enemy->playAnimation(name::MOVEMENT_PUNCH, measure::DELAY_BETWEEN_ANIMATIONS);
+                            enemy->playAnimation(name::MOVEMENT_PUNCH, measure::DELAY_BETWEEN_ANIMATIONS);
                         }
                     }
                 }

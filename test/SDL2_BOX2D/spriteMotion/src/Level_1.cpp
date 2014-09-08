@@ -53,7 +53,7 @@ namespace barrio
         furnitures.CreateFurnitures("ObjectsGroup", entity::TypeOfSprite::SPRT_FURNITURE, entity::TypeOfShape::SHP_POLYGON,
                                     entity::TypeOfFixture::FIX_FURNITURE, renderer, SDL_Color{0, 255, 0, 0});
         furnitures.loadFurnitures("conf/spriteSheets/furniture_1.json", "img/furnitures_1.png", 1.0, 1.0);
-        physicsWorld->addToWorld("objeto1", &furnitures, SDL_Point{300, 500}, furnitures.getFurnitureSize("objeto1"),
+        physicsWorld->addToWorld("objeto1", &furnitures, SDL_Point{300, 100}, furnitures.getFurnitureSize("objeto1"),
                                  flag::STATIC_BODY, flag::DISABLE_ROTATION);
         
         /*
