@@ -190,6 +190,9 @@ namespace barrio {
         fixturedef.userData = static_cast<void*>(sprite);
         body->CreateFixture(&fixturedef);
         bodiesByFixtureType.insert(make_pair(sprite->getBody()->getTypeOfFixture(), body));
+        bodiesByName.insert(make_pair(name, body));
+        bodiesByShapeType.insert(make_pair(sprite->getBody()->getTypeOfShape(), body));
+        bodiesBySpriteType.insert(make_pair(sprite->getBody()->getTypeOfSprite(), body));
         
         if(dynamicBody == true)
         {
@@ -204,9 +207,7 @@ namespace barrio {
             
             body->CreateFixture(&fixturedef);
             
-            bodiesByName.insert(make_pair(name, body));
-            bodiesByShapeType.insert(make_pair(sprite->getBody()->getTypeOfShape(), body));
-            bodiesBySpriteType.insert(make_pair(sprite->getBody()->getTypeOfSprite(), body));
+            
             
             if (sprite->getBody()->getTypeOfFixture() == entity::TypeOfFixture::FIX_ENEMY)
             {
@@ -216,6 +217,7 @@ namespace barrio {
                     enemiesInAttackMode.insert(std::make_pair(enemy->getBody()->getName(), body));
             }
         }
+        
         return body;
     }
     
