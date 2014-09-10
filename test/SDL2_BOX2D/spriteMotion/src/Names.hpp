@@ -11,6 +11,7 @@ namespace name {
     static const char* MOVEMENT_STOP = "stop";
     static const char* MOVEMENT_WALKING = "walking";
     static const char* MOVEMENT_PUNCH = "punch";
+    static const char* NOTHING = "nothing";
 }
 #endif
 

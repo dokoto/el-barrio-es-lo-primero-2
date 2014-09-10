@@ -22,10 +22,13 @@ namespace barrio {
         B2_NOT_USED(oldManifold);
         if (contact->GetManifold()->pointCount == 0) return;
         
-        objectsCollisioned.push_back(std::make_pair(contact->GetFixtureA(), contact->GetFixtureB()));
+        b2Fixture* f1 = contact->GetFixtureA();
+        b2Fixture* f2 = contact->GetFixtureB();
         
-        //SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Collision detected between %s and %s",
-        //        utls::Fixture::getFixtureName(contact->GetFixtureA()).c_str(), utls::Fixture::getFixtureName(contact->GetFixtureB()).c_str());
+        objectsCollisionedByNameVSTypeOfFixture.insert(std::make_pair(utls::Fixture::getFixtureName(f1), utls::Fixture::getTypeOfFixture(f2)));
+        
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Collision detected between %s and %s",
+                utls::Fixture::getFixtureName(f1).c_str(), utls::Fixture::getFixtureName(f2).c_str());
         contact->SetEnabled(collisionRules(contact->GetFixtureA(), contact->GetFixtureB()));
    
     }

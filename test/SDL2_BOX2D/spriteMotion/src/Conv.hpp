@@ -57,7 +57,20 @@ namespace barrio
                 rotateTranslate(point, worldCenter, angle);
                 
                 return convCartesianPosToScreennPos(point);
-            }        
+            }
+            
+            
+            static b2Vec2 normalize2dVector( float32 x, float32 y)
+            {
+                float32 length = std::sqrt(x * x + y * y);
+                b2Vec2 vector = {0.0f, 0.0f};
+                if (length != 0)
+                {
+                    vector.x = x/length;
+                    vector.y = y/length;
+                }
+                return vector;
+            }
         };
     }
 }

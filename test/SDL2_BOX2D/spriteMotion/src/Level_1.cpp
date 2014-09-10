@@ -22,7 +22,7 @@ namespace barrio
         playerA.setMovement(Sprite::Movement::LEFT, SDL_SCANCODE_LEFT);
         playerA.setMovement(Sprite::Movement::RIGHT, SDL_SCANCODE_RIGHT);
         playerA.setMovement(Sprite::Movement::PUNCH, SDL_SCANCODE_SPACE);
-        physicsWorld->addToWorld("PlayerONE", &playerA, SDL_Point{600, 500}, playerA.getAnimationSize(name::MOVEMENT_STOP),
+        physicsWorld->addToWorld("PlayerONE", &playerA, SDL_Point{800, 500}, playerA.getAnimationSize(name::MOVEMENT_STOP),
                                  flag::DYNAMIC_BODY, flag::DISABLE_ROTATION);
         
         playerB.CreateCharacter(name::PLAYER_TWO_NAME, entity::TypeOfSprite::SPRT_CHARACTER, entity::TypeOfShape::SHP_POLYGON, entity::TypeOfFixture::FIX_CHARACTER, renderer);
@@ -32,7 +32,7 @@ namespace barrio
         playerB.setMovement(Sprite::Movement::DOWN, SDL_SCANCODE_S);
         playerB.setMovement(Sprite::Movement::LEFT, SDL_SCANCODE_A);
         playerB.setMovement(Sprite::Movement::RIGHT, SDL_SCANCODE_D);
-        physicsWorld->addToWorld("PlayerTWO", &playerB, SDL_Point{700, 500}, playerB.getAnimationSize(name::MOVEMENT_STOP),
+        physicsWorld->addToWorld("PlayerTWO", &playerB, SDL_Point{900, 500}, playerB.getAnimationSize(name::MOVEMENT_STOP),
                                  flag::DYNAMIC_BODY, flag::DISABLE_ROTATION);
         
         /*
@@ -52,8 +52,8 @@ namespace barrio
          */
         furnitures.CreateFurnitures("ObjectsGroup", entity::TypeOfSprite::SPRT_FURNITURE, entity::TypeOfShape::SHP_POLYGON,
                                     entity::TypeOfFixture::FIX_FURNITURE, renderer, SDL_Color{0, 255, 0, 0});
-        furnitures.loadFurnitures("conf/spriteSheets/furniture_1.json", "img/furnitures_1.png", 1.0, 1.0);
-        physicsWorld->addToWorld("objeto1", &furnitures, SDL_Point{300, 100}, furnitures.getFurnitureSize("objeto1"),
+        furnitures.loadFurnitures("conf/spriteSheets/furniture_1.json", "img/furnitures_1.png", 0.3, 0.3);
+        physicsWorld->addToWorld("objeto1", &furnitures, SDL_Point{500, 550}, furnitures.getFurnitureSize("objeto1"),
                                  flag::STATIC_BODY, flag::DISABLE_ROTATION);
         
         /*

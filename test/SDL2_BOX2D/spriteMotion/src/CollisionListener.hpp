@@ -5,13 +5,16 @@
 #include <Box2D/Box2D.h>
 #include <vector>
 #include <map>
+#include <string>
+#include "Names.hpp"
+#include "Entities.hpp"
 
 namespace barrio {
     
     class CollisionListener : public b2ContactListener
     {
     private:
-        std::vector<std::pair<b2Fixture*, b2Fixture*> > objectsCollisioned;
+        std::map<std::string, entity::TypeOfFixture> objectsCollisionedByNameVSTypeOfFixture;
         
     private:
         bool collisionRules(b2Fixture* fixtureA, b2Fixture* fixtureB);
@@ -22,14 +25,18 @@ namespace barrio {
         void PreSolve(b2Contact* contact, const b2Manifold* oldManifold);
         void PostSolve(b2Contact* contact, const b2ContactImpulse* impulse);
         
-        std::vector<std::pair<b2Fixture*, b2Fixture*> > getCollisionObjectsList(void) const
+        
+        entity::TypeOfFixture checkTypeOfFixtureOfCollisioner(const std::string& name)
         {
-            return objectsCollisioned;
+            auto it = objectsCollisionedByNameVSTypeOfFixture.find(name);
+            if (it != objectsCollisionedByNameVSTypeOfFixture.end())
+                return it->second;
+            else return entity::FIX_NONE;
         }
         
         void clearCollisionObjectList(void)
         {
-            objectsCollisioned.clear();
+            objectsCollisionedByNameVSTypeOfFixture.clear();
         }
     };
     

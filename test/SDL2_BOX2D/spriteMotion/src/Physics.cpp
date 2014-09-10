@@ -35,7 +35,7 @@ namespace barrio {
     void Physics::setFixtureCollisionFilters(b2FixtureDef& fixture, uint16 IAm,  uint16 ICollideWith)
     {
         fixture.filter.categoryBits = IAm;
-        fixture.filter.maskBits = ICollideWith;        
+        fixture.filter.maskBits = ICollideWith;
     }
     
     void Physics::setHorizon(void)
@@ -111,7 +111,7 @@ namespace barrio {
         
         b2ChainShape chain;
         chain.CreateChain(worldBundaries, 5);
-        edge->CreateFixture(&chain, 0.0f);                
+        edge->CreateFixture(&chain, 0.0f);
     }
     
     void Physics::createLine(const b2Vec2& pointA, const b2Vec2& pointB)
@@ -147,7 +147,7 @@ namespace barrio {
     }
     
     b2Body* Physics::addToWorld(const std::string& name, Sprite* sprite, const SDL_Point& screenPos,
-                             const Size<int>& screenSize, const bool dynamicBody, const bool disableRotation)
+                                const Size<int>& screenSize, const bool dynamicBody, const bool disableRotation)
     {
         if (sprite->getBody()->getTypeOfShape() == entity::TypeOfShape::SHP_POLYGON)
         {
@@ -161,7 +161,7 @@ namespace barrio {
     }
     
     b2Body* Physics::createPolygon(const std::string& name, Sprite* sprite, const SDL_Point& screenPos, const Size<int>& screenSize, const bool dynamicBody, const bool disableRotation)
-    {     
+    {
         if (bodyExist(name))
         {
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Duplicate Physics body name : %s", name.c_str());
@@ -173,7 +173,7 @@ namespace barrio {
         
         b2BodyDef bodydef;
         bodydef.position.Set(cartesianPos.x, cartesianPos.y);
-        bodydef.fixedRotation = disableRotation;        
+        bodydef.fixedRotation = disableRotation;
         bodydef.userData = (void*) sprite->getBody();
         if(dynamicBody == true)
             bodydef.type=b2_dynamicBody;
@@ -184,36 +184,38 @@ namespace barrio {
         shape.SetAsBox(cartesianSize.w, cartesianSize.h);
         
         b2FixtureDef fixturedef;
-         
+        
         fixturedef.shape=&shape;
         fixturedef.density=1.0;
         fixturedef.userData = static_cast<void*>(sprite);
         body->CreateFixture(&fixturedef);
         bodiesByFixtureType.insert(make_pair(sprite->getBody()->getTypeOfFixture(), body));
         
-        shape.SetAsBox(cartesianSize.w, cartesianSize.h/90.0f, b2Vec2(0.0f, cartesianSize.h-cartesianSize.h/90.0f), 0.0f);
-        if (sprite->getBody()->getTypeOfShape() == entity::TypeOfShape::SHP_POLYGON &&  sprite->getBody()->getTypeOfSprite() == entity::TypeOfSprite::SPRT_CHARACTER )
+        if(dynamicBody == true)
         {
-            fixturedef.userData = (void*)sprite->getFoot();
-            bodiesByFixtureType.insert(make_pair(sprite->getFoot()->getTypeOfFixture(), body));
-        }
-        else
-            fixturedef.userData = nullptr;
-        
-        body->CreateFixture(&fixturedef);
-        
-        bodiesByName.insert(make_pair(name, body));
-        bodiesByShapeType.insert(make_pair(sprite->getBody()->getTypeOfShape(), body));
-        bodiesBySpriteType.insert(make_pair(sprite->getBody()->getTypeOfSprite(), body));
-        
-        if (sprite->getBody()->getTypeOfFixture() == entity::TypeOfFixture::FIX_ENEMY)
-        {
+            shape.SetAsBox(cartesianSize.w, cartesianSize.h/90.0f, b2Vec2(0.0f, cartesianSize.h-cartesianSize.h/90.0f), 0.0f);
+            if (sprite->getBody()->getTypeOfShape() == entity::TypeOfShape::SHP_POLYGON &&  sprite->getBody()->getTypeOfSprite() == entity::TypeOfSprite::SPRT_CHARACTER )
+            {
+                fixturedef.userData = (void*)sprite->getFoot();
+                bodiesByFixtureType.insert(make_pair(sprite->getFoot()->getTypeOfFixture(), body));
+            }
+            else
+                fixturedef.userData = nullptr;
             
-            Character* enemy = dynamic_cast<Character*>(sprite);
-            if(enemy->getAIMode() == Glob::AIMode::AI_ATTACK)
-                enemiesInAttackMode.insert(std::make_pair(enemy->getBody()->getName(), body));
+            body->CreateFixture(&fixturedef);
+            
+            bodiesByName.insert(make_pair(name, body));
+            bodiesByShapeType.insert(make_pair(sprite->getBody()->getTypeOfShape(), body));
+            bodiesBySpriteType.insert(make_pair(sprite->getBody()->getTypeOfSprite(), body));
+            
+            if (sprite->getBody()->getTypeOfFixture() == entity::TypeOfFixture::FIX_ENEMY)
+            {
+                
+                Character* enemy = dynamic_cast<Character*>(sprite);
+                if(enemy->getAIMode() == Glob::AIMode::AI_ATTACK)
+                    enemiesInAttackMode.insert(std::make_pair(enemy->getBody()->getName(), body));
+            }
         }
-        
         return body;
     }
     

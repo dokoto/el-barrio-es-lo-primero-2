@@ -92,6 +92,81 @@ namespace  barrio
         ( std::make_pair( position.y, physicsWorld->getBody(player.getBody()->getName()) ) );
     }
     
+    bool Level::AI_PURSUIT_MOV_1(const float32 vel, const b2Vec2& margin, const b2Vec2& playerPos, const b2Vec2& enemyPos,
+                                Character* enemyCharacter, b2Body* enemyPhysicsBody)
+    {
+        // AI se acerca horizontalmente a su objetivo
+        if ( std::abs( std::abs(playerPos.x) - std::abs(enemyPos.x) ) > margin.x )
+        {
+            entity::TypeOfFixture tFix = physicsWorld->collisionPool.checkTypeOfFixtureOfCollisioner(enemyCharacter->getBody()->getName());
+            if (tFix == entity::TypeOfFixture::FIX_FURNITURE)
+            {
+                enemyPhysicsBody->SetLinearVelocity(b2Vec2{0.0f, vel});
+                return false;
+            }
+            
+            if (playerPos.x > enemyPos.x)
+            {
+                enemyCharacter->setSide(Glob::Side::RIGHT_SIDE);
+                enemyPhysicsBody->SetLinearVelocity(b2Vec2{vel, 0.0f});
+            }
+            else
+            {
+                enemyCharacter->setSide(Glob::Side::LEFT_SIDE);
+                enemyPhysicsBody->SetLinearVelocity(b2Vec2{-vel, 0.0f});
+            }
+            enemyCharacter->playAnimation(name::MOVEMENT_WALKING, measure::DELAY_BETWEEN_ANIMATIONS);
+        }
+        
+        // AI se acerca verticalmente a su objetivo que esta cerca de el horizontalmente.
+        else
+        {
+            if ( std::abs( std::abs(playerPos.y) - std::abs(enemyPos.y) ) > margin.y )
+            {
+                if (playerPos.y > enemyPos.y)
+                {
+                    enemyPhysicsBody->SetLinearVelocity(b2Vec2{0.0f, vel});
+                }
+                else
+                {
+                    enemyPhysicsBody->SetLinearVelocity(b2Vec2{0.0f, -vel});
+                }
+                enemyCharacter->playAnimation(name::MOVEMENT_WALKING, measure::DELAY_BETWEEN_ANIMATIONS);
+            }
+            else
+            {                
+                enemyPhysicsBody->SetLinearVelocity(b2Vec2{0.0f, 0.0f});
+                enemyCharacter->playAnimation(name::MOVEMENT_STOP, measure::DELAY_BETWEEN_ANIMATIONS);
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    bool Level::AI_PURSUIT_MOV_2(const float32 vel, const b2Vec2& margin, const b2Vec2& playerPos, const b2Vec2& enemyPos,
+                                 Character* enemyCharacter, b2Body* enemyPhysicsBody)
+    {
+        if (std::abs( std::abs(playerPos.x) - std::abs(enemyPos.x) ) < margin.x
+            && std::abs( std::abs(playerPos.y) - std::abs(enemyPos.y) ) < margin.y)
+        {
+            enemyPhysicsBody->SetLinearVelocity(b2Vec2{0.0f, 0.0f});
+            enemyCharacter->playAnimation(name::MOVEMENT_STOP, measure::DELAY_BETWEEN_ANIMATIONS);
+            return true;
+        }
+        
+        b2Vec2 newDirection = utls::Conv::normalize2dVector(playerPos.x - enemyPos.x, playerPos.y - enemyPos.y);
+        b2Vec2 newVelocity = {vel * newDirection.x, vel * newDirection.y};
+        enemyPhysicsBody->SetLinearVelocity(newVelocity);
+        if (playerPos.x > enemyPos.x)
+            enemyCharacter->setSide(Glob::Side::RIGHT_SIDE);
+        else
+            enemyCharacter->setSide(Glob::Side::LEFT_SIDE);
+        enemyCharacter->playAnimation(name::MOVEMENT_WALKING, measure::DELAY_BETWEEN_ANIMATIONS);
+        
+        return false;
+    }
+    
     void Level::IA(void)
     {
      
@@ -132,43 +207,8 @@ namespace  barrio
                 {
                     b2Body* bodyPlayer = (enemy->getTarget().compare(name::PLAYER_ONE_NAME) == 0) ? playerONE->second : playerTWO->second;
                     b2Vec2 positionPlayer = bodyPlayer->GetPosition();
-                    //if (positionPlayer.x > (std::abs(enemyPos.x) - 4.0f) )
-                    if ( std::abs( std::abs(positionPlayer.x) - std::abs(enemyPos.x) ) > 4.0f )
-                    {
-                        if (positionPlayer.x > enemyPos.x)
-                        {
-                            enemy->setSide(Glob::Side::RIGHT_SIDE);
-                            itEnemy->second->SetLinearVelocity(b2Vec2{1.2f, 0.0f});
-                        }
-                        else
-                        {
-                            enemy->setSide(Glob::Side::LEFT_SIDE);
-                            itEnemy->second->SetLinearVelocity(b2Vec2{-1.2f, 0.0f});
-                        }
-                        enemy->playAnimation(name::MOVEMENT_WALKING, measure::DELAY_BETWEEN_ANIMATIONS);
-                    }
-                    else
-                    {
-                        //if (positionPlayer.y > (std::abs(enemyPos.y) - 0.3f) )
-                        if ( std::abs( std::abs(positionPlayer.y) - std::abs(enemyPos.y) ) > 0.2f )
-                        {
-                            if (positionPlayer.y > enemyPos.y)
-                            {
-                                itEnemy->second->SetLinearVelocity(b2Vec2{0.0f, 1.2f});
-                            }
-                            else
-                            {
-                                itEnemy->second->SetLinearVelocity(b2Vec2{0.0f, -1.2f});
-                            }
-                            enemy->playAnimation(name::MOVEMENT_WALKING, measure::DELAY_BETWEEN_ANIMATIONS);
-                        }
-                        else
-                        {
-                            // Punch
-                            itEnemy->second->SetLinearVelocity(b2Vec2{0.0f, 0.0f});
-                            enemy->playAnimation(name::MOVEMENT_PUNCH, measure::DELAY_BETWEEN_ANIMATIONS);
-                        }
-                    }
+                    
+                    AI_PURSUIT_MOV_1(1.6f, b2Vec2(4.0f, 0.2f), positionPlayer, enemyPos, enemy, itEnemy->second);
                 }
                 
                 // Se carga un mapa con la posicion vertical de cada enemigo para renderizar en funcion de la distacia
