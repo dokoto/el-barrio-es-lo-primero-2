@@ -20,7 +20,8 @@ namespace error {
         SPRITE_DIMENSIONS_NOT_FOUND,
         FURNITURE_NOT_FOUND,
         LEVEL_NOT_FOUND,
-        PLAYER_NOT_FOUND
+        PLAYER_NOT_FOUND,
+        METHOD_FORBIDDEN
     };
     
 }

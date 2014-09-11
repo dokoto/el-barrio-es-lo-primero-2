@@ -174,9 +174,16 @@ namespace barrio {
         b2BodyDef bodydef;
         bodydef.position.Set(cartesianPos.x, cartesianPos.y);
         bodydef.fixedRotation = disableRotation;
-        bodydef.userData = (void*) sprite->getBody();
+        
         if(dynamicBody == true)
+        {
             bodydef.type=b2_dynamicBody;
+            bodydef.userData = (void*) sprite->getBody();
+        }
+        else
+        {
+            bodydef.userData = (void*) sprite->getBody(name);
+        }
         
         b2Body* body=world->CreateBody(&bodydef);
         

@@ -114,8 +114,9 @@ namespace barrio {
             quitGame = controller.handleSystem();
             //render.drawDebug(frameRate.getFrameRate());
             render.draw();
-            frameRate.step();
             controller.releaseClycleLiveTimeResources();
+            frameRate.step();
+            
         }
     }
 }

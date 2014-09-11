@@ -2,6 +2,7 @@
 #define __EL_BARRIO_ES_LO_PRIMERO__Level__
 
 #include <map>
+#include <memory>
 
 #include <SDL2/SDL.h>
 
@@ -26,7 +27,6 @@ namespace barrio {
         virtual void releaseClycleLiveTimeResources(void) = 0;
         
     private:
-        void destroyEnemyGroup(void);
         void destroyElementsFromPhysicsWorld(void);
         
     protected:
@@ -41,7 +41,7 @@ namespace barrio {
         Camera* camera;
         Text* texts;
         Character playerA, playerB;
-        std::map<std::string, Character*> enemiesGroup;
+        std::map<std::string, std::unique_ptr<Character>> enemiesGroup;
     
     private:
         static constexpr float32 VELOCITY = 1.90f;

@@ -3,7 +3,9 @@
 #include "Flags.hpp"
 
 namespace barrio
-{        
+{
+    using namespace std;
+    
     void Level_1::loadLevelWorld(void)
     {
         /*
@@ -38,15 +40,20 @@ namespace barrio
         /*
          * ENEMIES
          */
-        Character* enemy_buba = new Character();
+        unique_ptr<Character> enemy_buba;
+        enemy_buba = unique_ptr<Character>(new Character());
         enemy_buba->CreateCharacter(name::ENEMY_BUBA, entity::TypeOfSprite::SPRT_CHARACTER, entity::TypeOfShape::SHP_POLYGON, entity::TypeOfFixture::FIX_ENEMY,
                                renderer, SDL_Color{186, 254, 202, 0});
         enemy_buba->loadAnimations("conf/spriteSheets/enemy_1.json", "img/enemy_1.png", 2.0, 2.0);
         enemy_buba->setAIMode(Glob::AIMode::AI_ATTACK);
         enemy_buba->setTarget(name::PLAYER_ONE_NAME);
-        enemiesGroup.insert(std::make_pair(name::ENEMY_BUBA, enemy_buba));
-        physicsWorld->addToWorld(name::ENEMY_BUBA, enemy_buba, SDL_Point{100, 530}, enemy_buba->getAnimationSize(name::MOVEMENT_STOP),
+
+        physicsWorld->addToWorld(name::ENEMY_BUBA, enemy_buba.get(), SDL_Point{100, 530}, enemy_buba->getAnimationSize(name::MOVEMENT_STOP),
                                                            flag::DYNAMIC_BODY, flag::DISABLE_ROTATION);
+        
+        enemiesGroup.insert(std::make_pair(name::ENEMY_BUBA, std::move(enemy_buba)));
+        
+        
         /*
          * FURNITURES
          */

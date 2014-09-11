@@ -26,17 +26,21 @@ namespace barrio {
         void PostSolve(b2Contact* contact, const b2ContactImpulse* impulse);
         
         
-        entity::TypeOfFixture checkTypeOfFixtureOfCollisioner(const std::string& name)
+        entity::TypeOfFixture popTypeOfFixtureOfCollisioner(const std::string& name)
         {
             auto it = objectsCollisionedByNameVSTypeOfFixture.find(name);
             if (it != objectsCollisionedByNameVSTypeOfFixture.end())
-                return it->second;
+            {
+                entity::TypeOfFixture tFix = it->second;
+                objectsCollisionedByNameVSTypeOfFixture.erase(it);
+                return tFix;
+            }
             else return entity::FIX_NONE;
         }
         
         void clearCollisionObjectList(void)
         {
-            objectsCollisionedByNameVSTypeOfFixture.clear();
+            //objectsCollisionedByNameVSTypeOfFixture.clear();
         }
     };
     

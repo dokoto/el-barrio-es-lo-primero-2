@@ -26,12 +26,12 @@ namespace barrio {
         b2Fixture* f2 = contact->GetFixtureB();
         
         objectsCollisionedByNameVSTypeOfFixture.insert(std::make_pair(utls::Fixture::getFixtureName(f1), utls::Fixture::getTypeOfFixture(f2)));
+        contact->SetEnabled(collisionRules(contact->GetFixtureA(), contact->GetFixtureB()));
         
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE, "Collision detected between %s and %s",
-                utls::Fixture::getFixtureName(f1).c_str(), utls::Fixture::getFixtureName(f2).c_str());
-        contact->SetEnabled(collisionRules(contact->GetFixtureA(), contact->GetFixtureB()));
+                       utls::Fixture::getFixtureName(f1).c_str(), utls::Fixture::getFixtureName(f2).c_str());
    
-    }
+    }    
     
     bool CollisionListener::collisionRules(b2Fixture* fixtureA, b2Fixture* fixtureB)
     {

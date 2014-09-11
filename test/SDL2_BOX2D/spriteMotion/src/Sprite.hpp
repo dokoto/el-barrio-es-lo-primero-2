@@ -27,14 +27,17 @@ namespace barrio
             movements[dir] = key;
         }
         Object* getFoot(void) { return &foot; }
-        Object* getBody(void) { return &body; }
+        virtual Object* getBody(void) { return &body; }
+        virtual Object* getBody(const std::string&) { return &body; }
         
     private:
         Sprite(const Sprite&){}
         Sprite& operator=(const Sprite&);
         
-    public:
+    protected:
         Object body, foot;
+        
+    public:
         int movements[5];
         bool followWithCamera;
     };

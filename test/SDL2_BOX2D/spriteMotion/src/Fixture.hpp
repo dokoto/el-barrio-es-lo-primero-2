@@ -132,13 +132,11 @@ namespace barrio
             
             static std::string getFixtureName(b2Fixture* fixture)
             {
-                //Object* obj = (Object*) fixture->GetUserData();
                 b2Body* body = fixture->GetBody();
                 Object* obj = nullptr;
                 if (body->GetFixtureList()->GetType() == b2Shape::e_polygon)
                 {
                     Sprite* sprite = nullptr;
-                    //std::string* name  = static_cast<std::string*>(fixture->GetUserData());
                     obj = static_cast<Object*>(fixture->GetUserData());
                     if (obj != nullptr && obj->getName().find(name::FOOT_NAME) != std::string::npos)
                         return obj->getName();
@@ -146,7 +144,17 @@ namespace barrio
                     {
                         sprite = static_cast<Sprite*>(fixture->GetUserData());
                         if (sprite != nullptr)
-                            return  sprite->getBody()->getName();
+                        {
+                            Object* obj = static_cast<Object*>(body->GetUserData());
+                            if (obj->getTypeOfFixture() == entity::TypeOfFixture::FIX_FURNITURE)
+                            {
+                                return obj->getName();
+                            }
+                            else
+                            {
+                                return  sprite->getBody()->getName();
+                            }
+                        }
                         else
                             return std::string();
                     }

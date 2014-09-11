@@ -9,8 +9,8 @@ namespace barrio {
     
     using namespace std;
     
-    void Furnitures::CreateFurnitures(const std::string& groupName, entity::TypeOfSprite typeOfSprite, entity::TypeOfShape typeOfShape, entity::TypeOfFixture typeOfFixture,
-                                      SDL_Renderer*& renderer, SDL_Color transparentColor)
+    void Furnitures::CreateFurnitures(const std::string& groupName, entity::TypeOfSprite typeOfSprite, entity::TypeOfShape typeOfShape,
+                                      entity::TypeOfFixture typeOfFixture, SDL_Renderer*& renderer, SDL_Color transparentColor)
     {
         this->CreateSprite(groupName, typeOfSprite, typeOfShape, typeOfFixture, transparentColor);
         this->renderer = renderer;
@@ -45,6 +45,7 @@ namespace barrio {
         Json::Reader jsonReader;
         Json::Value jsonRoot;
         ifstream jsonFile;
+        unique_ptr<Object> obj;
         
         jsonFile.open(jsonSheetPath.c_str(), ios::binary);
         if (jsonFile.is_open())
@@ -65,6 +66,9 @@ namespace barrio {
                     }
                     
                     furnituresPixelDimensions.insert(make_pair(it.key().asString(), rect));
+                    obj = unique_ptr<Object>(new Object());
+                    obj->CreateObject(it.key().asString(), entity::TypeOfSprite::SPRT_FURNITURE, entity::TypeOfShape::SHP_POLYGON, entity::TypeOfFixture::FIX_FURNITURE);
+                    furnituresBodyObject.insert(std::make_pair(it.key().asString(), std::move(obj)));
                 }
             }
         }

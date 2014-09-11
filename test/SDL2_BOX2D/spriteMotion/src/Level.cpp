@@ -16,17 +16,6 @@ namespace  barrio
         this->texts = texts;
     }
     
-    void Level::destroyEnemyGroup(void)
-    {
-        for (auto it = enemiesGroup.begin(); it != enemiesGroup.end(); it++)
-        {
-            if (it->second != nullptr)
-            {
-                delete it->second;
-            }
-        }
-    }
-    
     void Level::destroyElementsFromPhysicsWorld(void)
     {
         // Eliminar Furnitures
@@ -36,7 +25,6 @@ namespace  barrio
     
     Level::~Level(void)
     {
-        destroyEnemyGroup();
     }
     
     void Level::handleInputPlayer(Character& player)
@@ -98,14 +86,12 @@ namespace  barrio
         // AI se acerca horizontalmente a su objetivo
         if ( std::abs( std::abs(playerPos.x) - std::abs(enemyPos.x) ) > margin.x )
         {
-            entity::TypeOfFixture tFix = physicsWorld->collisionPool.checkTypeOfFixtureOfCollisioner(enemyCharacter->getBody()->getName());
+            entity::TypeOfFixture tFix = physicsWorld->collisionPool.popTypeOfFixtureOfCollisioner(enemyCharacter->getBody()->getName());
             if (tFix == entity::TypeOfFixture::FIX_FURNITURE)
             {
-                enemyPhysicsBody->SetLinearVelocity(b2Vec2{0.0f, vel});
-                return false;
+                enemyPhysicsBody->SetLinearVelocity(b2Vec2{0.0f, -vel});
             }
-            
-            if (playerPos.x > enemyPos.x)
+            else if (playerPos.x > enemyPos.x)
             {
                 enemyCharacter->setSide(Glob::Side::RIGHT_SIDE);
                 enemyPhysicsBody->SetLinearVelocity(b2Vec2{vel, 0.0f});
