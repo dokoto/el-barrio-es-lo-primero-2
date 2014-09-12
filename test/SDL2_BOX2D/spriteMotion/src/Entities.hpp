@@ -22,9 +22,10 @@ namespace entity {
     enum TypeOfFixture
     {
         FIX_CHARACTER,
+        FIX_CHARACTER_FOOT,
         FIX_ENEMY,
+        FIX_ENEMY_FOOT,
         FIX_FURNITURE,
-        FIX_FOOT,
         FIX_HORIZON,
         FIX_WORLD_BUDARIES,
         FIX_NONE

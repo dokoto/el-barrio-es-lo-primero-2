@@ -29,13 +29,17 @@ namespace barrio
         Object* getFoot(void) { return &foot; }
         virtual Object* getBody(void) { return &body; }
         virtual Object* getBody(const std::string&) { return &body; }
+        b2Vec2 getCartesianSize(void) { return cartesianSize; }
+        void setCartesianSize(const b2Vec2& cartesianSize) { this->cartesianSize = cartesianSize; }
         
     private:
         Sprite(const Sprite&){}
         Sprite& operator=(const Sprite&);
         
     protected:
+        b2Vec2 cartesianSize;
         Object body, foot;
+        int live;
         
     public:
         int movements[5];

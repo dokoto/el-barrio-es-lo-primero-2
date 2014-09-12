@@ -66,8 +66,7 @@ namespace barrio {
         std::string currentAnimationName;
         std::map<std::string, std::vector<SDL_Rect>> animations;
         std::string enemyTarget;
-        Glob::AIMode aiMode;
-        int live;
+        Glob::AIMode aiMode;        
         
         void loadJsonSheet(const std::string& jsonSheetPath, const double zoomX = 1.0, const double zoomY = 1.0);
         inline void loadPngSheet(const std::string& pngSheetPath, const double zoomX = 1.0, const double zoomY = 1.0)

@@ -3,6 +3,8 @@
 
 namespace name {
     static const char* ENEMY_BUBA = "BUBA";
+    static const char* ENEMY_BUBA_2 = "BUBA2";
+    static const char* ENEMY_BUBA_3 = "BUBA3";
     static const char* PLAYER_ONE_NAME = "PlayerONE";
     static const char* PLAYER_TWO_NAME = "PlayerTWO";
     static const char* FOOT_NAME = "_FOOT";

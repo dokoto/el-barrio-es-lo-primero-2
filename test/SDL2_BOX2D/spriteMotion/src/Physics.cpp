@@ -8,7 +8,8 @@
 #include "Measures.hpp"
 #include "Character.hpp"
 
-namespace barrio {
+namespace barrio
+{
     
     using namespace std;
     
@@ -18,7 +19,6 @@ namespace barrio {
         if (world != nullptr)
         {
             cartesianSize = utls::Conv::convSreenSizeToCartesianSize(screenSize);
-            setWorldBundaries(measure::WORLD_WIDTH_PX, measure::WORLD_HEIGHT_PX);
             world->SetContactListener(&collisionPool);
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE,
                            "Physics World initialization with gravity[%2.2f, %2.2f]...OK", gravity.x, gravity.y);
@@ -31,19 +31,12 @@ namespace barrio {
         
     }
     
-    
-    void Physics::setFixtureCollisionFilters(b2FixtureDef& fixture, uint16 IAm,  uint16 ICollideWith)
-    {
-        fixture.filter.categoryBits = IAm;
-        fixture.filter.maskBits = ICollideWith;
-    }
-    
-    void Physics::setHorizon(void)
+    void Physics::setHorizon(Object* horizonRef)
     {
         b2BodyDef groundDef;
-        const char* name = name::HORIZON_NAME;
-        groundDef.userData = (char*)name;
+        groundDef.userData = static_cast<void*>(horizonRef);
         b2Body* edge = world->CreateBody(&groundDef);
+        
         b2Vec2 worldBundaries[11];
         size_t index = 0;
         b2Vec2 bb;
@@ -83,15 +76,21 @@ namespace barrio {
         
         b2ChainShape chain;
         chain.CreateChain(worldBundaries, 11);
-        edge->CreateFixture(&chain, 0.0f);
+        
+        b2FixtureDef fixturedef;
+        fixturedef.userData = static_cast<void*>(horizonRef);
+        fixturedef.shape=&chain;
+        fixturedef.density = 0.0f;
+        
+        edge->CreateFixture(&fixturedef);
     }
     
-    void Physics::setWorldBundaries(const int width, const int height)
+    void Physics::setWorldBundaries(Object* worldBundariesRef, const int width, const int height)
     {
         b2BodyDef groundDef;
-        const char* name = name::WORLD_BUNDARIES_NAME;
-        groundDef.userData = (char*)name;
+        groundDef.userData = static_cast<void*>(worldBundariesRef);
         b2Body* edge = world->CreateBody(&groundDef);
+        
         b2Vec2 worldBundaries[5];
         b2Vec2 bb;
         
@@ -111,7 +110,13 @@ namespace barrio {
         
         b2ChainShape chain;
         chain.CreateChain(worldBundaries, 5);
-        edge->CreateFixture(&chain, 0.0f);
+        
+        b2FixtureDef fixturedef;
+        fixturedef.userData = static_cast<void*>(worldBundariesRef);
+        fixturedef.shape=&chain;
+        fixturedef.density = 0.0f;
+        
+        edge->CreateFixture(&fixturedef);
     }
     
     void Physics::createLine(const b2Vec2& pointA, const b2Vec2& pointB)
@@ -160,7 +165,19 @@ namespace barrio {
         return nullptr;
     }
     
-    b2Body* Physics::createPolygon(const std::string& name, Sprite* sprite, const SDL_Point& screenPos, const Size<int>& screenSize, const bool dynamicBody, const bool disableRotation)
+    /*
+     * Tenemos tres sitios donde se guardan los datos de Usuario
+     *
+     *  CHARACTER-BODY : Se almacena el Object del BODY del Sprite
+     *  CHARCTER-PRIMERA-FIXTURE : Se almacena el Object del BODY del Spriter
+     *  CHARACTER-SEGUNDA-FIXTURE : Se almacena el Object del FOOT del Sprite
+     *
+     *  FURNITURE-BODY : Se almacena el Object del BODY del Grupo
+     *  FURNITURE-PRIMERA-FIXTURE : Se almacena el Object del BODY del elemento del Grupo
+     *  FURNITURE-SEGUNDA-FIXTURE : No se almacena nada
+     */
+    b2Body* Physics::createPolygon(const std::string& name, Sprite* sprite, const SDL_Point& screenPos, const Size<int>& screenSize,
+                                   const bool dynamicBody, const bool disableRotation)
     {
         if (bodyExist(name))
         {
@@ -174,28 +191,23 @@ namespace barrio {
         b2BodyDef bodydef;
         bodydef.position.Set(cartesianPos.x, cartesianPos.y);
         bodydef.fixedRotation = disableRotation;
-        
+        bodydef.userData = (void*) sprite->getBody();
         if(dynamicBody == true)
-        {
             bodydef.type=b2_dynamicBody;
-            bodydef.userData = (void*) sprite->getBody();
-        }
-        else
-        {
-            bodydef.userData = (void*) sprite->getBody(name);
-        }
         
         b2Body* body=world->CreateBody(&bodydef);
         
         b2PolygonShape shape;
-        shape.SetAsBox(cartesianSize.w, cartesianSize.h);
+        sprite->setCartesianSize(b2Vec2 {cartesianSize.w, cartesianSize.h} );
+        shape.SetAsBox(sprite->getCartesianSize().x, sprite->getCartesianSize().y);
         
         b2FixtureDef fixturedef;
         
         fixturedef.shape=&shape;
         fixturedef.density=1.0;
-        fixturedef.userData = static_cast<void*>(sprite);
+        fixturedef.userData = static_cast<void*>(sprite->getBody(name));
         body->CreateFixture(&fixturedef);
+        
         bodiesByFixtureType.insert(make_pair(sprite->getBody()->getTypeOfFixture(), body));
         bodiesByName.insert(make_pair(name, body));
         bodiesByShapeType.insert(make_pair(sprite->getBody()->getTypeOfShape(), body));
@@ -204,7 +216,7 @@ namespace barrio {
         if(dynamicBody == true)
         {
             shape.SetAsBox(cartesianSize.w, cartesianSize.h/90.0f, b2Vec2(0.0f, cartesianSize.h-cartesianSize.h/90.0f), 0.0f);
-            if (sprite->getBody()->getTypeOfShape() == entity::TypeOfShape::SHP_POLYGON &&  sprite->getBody()->getTypeOfSprite() == entity::TypeOfSprite::SPRT_CHARACTER )
+            if (sprite->getBody()->getTypeOfShape() == entity::TypeOfShape::SHP_POLYGON && sprite->getBody()->getTypeOfSprite() == entity::TypeOfSprite::SPRT_CHARACTER )
             {
                 fixturedef.userData = (void*)sprite->getFoot();
                 bodiesByFixtureType.insert(make_pair(sprite->getFoot()->getTypeOfFixture(), body));
@@ -243,7 +255,7 @@ namespace barrio {
         
         return nullptr;
         
-    }    
+    }
     
 }
 

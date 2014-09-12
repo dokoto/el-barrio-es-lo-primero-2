@@ -99,9 +99,25 @@ namespace barrio {
             for (b2Fixture* fixtureElement = itElems->second->GetFixtureList(); fixtureElement; fixtureElement = fixtureElement->GetNext())
             {
                 obj = static_cast<Object*>(fixtureElement->GetUserData());
+                if (obj->getTypeOfFixture() == entity::FIX_CHARACTER_FOOT || obj->getTypeOfFixture() == entity::FIX_ENEMY_FOOT)
+                {
+                        continue;
+                }
+                else if (obj->getTypeOfFixture() == entity::FIX_CHARACTER || obj->getTypeOfFixture() == entity::FIX_ENEMY)
+                {
+                    tmpCharacter = static_cast<Character*>(obj->getRef());
+                    tmpSpritePosition = utls::Conv::fullConversionCartesianPosToScreenPos(fixtureElement, itElems->second->GetWorldCenter(), itElems->second->GetAngle());
+                    origin = tmpCharacter->getCurrentClip();
+                    destination = {tmpSpritePosition.x-camera->cameraPosition.x, tmpSpritePosition.y, origin.w, origin.h};
+                    
+                    flip = (tmpCharacter->getSide() == Glob::Side::LEFT_SIDE)? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
+                    SDL_RenderCopyEx(renderer, tmpCharacter->getSDLTexture(), &origin, &destination, 0.0f, nullptr, flip);
+                }
+                /*
+                obj = static_cast<Object*>(fixtureElement->GetUserData());
                 if (obj->whoAmI() == Glob::Classes::CLASS_OBJECT)
                 {
-                    if (obj->getTypeOfFixture() == entity::TypeOfFixture::FIX_FOOT)
+                    if (obj->getTypeOfFixture() == entity::TypeOfFixture::FIX_CHARACTER_FOOT || obj->getTypeOfFixture() == entity::TypeOfFixture::FIX_ENEMY_FOOT)
                         continue;
                 }
                 else if (obj->whoAmI() == Glob::Classes::CLASS_TEXTURE)
@@ -114,6 +130,7 @@ namespace barrio {
                     flip = (tmpCharacter->getSide() == Glob::Side::LEFT_SIDE)? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
                     SDL_RenderCopyEx(renderer, tmpCharacter->getSDLTexture(), &origin, &destination, 0.0f, nullptr, flip);
                 }
+                */
             }
         }
     }
@@ -122,6 +139,7 @@ namespace barrio {
     void Render::drawFurnitures()
     {
         Furnitures* tmpFurniture= nullptr;
+        Object* obj = nullptr;
         SDL_Rect origin = {0, 0, 0, 0};
         SDL_Rect destination = {0, 0, 0, 0};
         SDL_Point furniturePosDest = {0, 0};
@@ -133,6 +151,32 @@ namespace barrio {
         // Iteramos todos los FURNITURES
         for (auto itGroup = itFurnituresGroup.first; itGroup != itFurnituresGroup.second; itGroup++)
         {
+            // Obtenemos el tipo Furniture* del user data del engine fisico
+            tmpFixture = itGroup->second->GetFixtureList();
+            obj = static_cast<Object*>(tmpFixture->GetUserData());
+            tmpFurniture = static_cast<Furnitures*>(obj->getRef());
+            
+            // Obtenemos todos los Clip de furnitures que existen dentro de la texture
+            auto itFurnituresElems = tmpFurniture->getAllFurnitures();
+            for (auto itElem = itFurnituresElems.begin(); itElem != itFurnituresElems.end(); itElem++)
+            {
+                origin = itElem->second;
+                auto itFurniturePosition = physicsWorld->bodiesByName.find(itElem->first);
+                if (itFurniturePosition != physicsWorld->bodiesByName.end())
+                {
+                    furniturePosDest = utls::Conv::fullConversionCartesianPosToScreenPos(tmpFixture, itFurniturePosition->second->GetWorldCenter(),
+                                                                                         itFurniturePosition->second->GetAngle());
+                    destination = {furniturePosDest.x-camera->cameraPosition.x, furniturePosDest.y, origin.w, origin.h};
+                    
+                    flip = (tmpFurniture->getSide() == Glob::Side::LEFT_SIDE)? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
+                    SDL_RenderCopyEx(renderer, tmpFurniture->getSDLTexture(), &origin, &destination, 0.0f, nullptr, flip);
+                }
+                else
+                {
+                    //SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Furniture no found %s", itElem->first.c_str());
+                }
+            }
+            /*
             // Obtenemos el tipo Furniture* del user data del engine fisico
             tmpFixture = itGroup->second->GetFixtureList();
             if (tmpFixture->GetUserData() == nullptr)
@@ -158,6 +202,7 @@ namespace barrio {
                     //SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Furniture no found %s", itElem->first.c_str());
                 }
             }
+            */
         }
     }
     

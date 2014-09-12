@@ -41,18 +41,45 @@ namespace barrio
          * ENEMIES
          */
         unique_ptr<Character> enemy_buba;
+        
+        // ENEMY 1
         enemy_buba = unique_ptr<Character>(new Character());
         enemy_buba->CreateCharacter(name::ENEMY_BUBA, entity::TypeOfSprite::SPRT_CHARACTER, entity::TypeOfShape::SHP_POLYGON, entity::TypeOfFixture::FIX_ENEMY,
                                renderer, SDL_Color{186, 254, 202, 0});
         enemy_buba->loadAnimations("conf/spriteSheets/enemy_1.json", "img/enemy_1.png", 2.0, 2.0);
-        enemy_buba->setAIMode(Glob::AIMode::AI_ATTACK);
+        enemy_buba->setAIMode(Glob::AIMode::AI_PURSUIT);
         enemy_buba->setTarget(name::PLAYER_ONE_NAME);
 
-        physicsWorld->addToWorld(name::ENEMY_BUBA, enemy_buba.get(), SDL_Point{100, 530}, enemy_buba->getAnimationSize(name::MOVEMENT_STOP),
+        physicsWorld->addToWorld(name::ENEMY_BUBA, enemy_buba.get(), SDL_Point{60, 430}, enemy_buba->getAnimationSize(name::MOVEMENT_STOP),
                                                            flag::DYNAMIC_BODY, flag::DISABLE_ROTATION);
         
         enemiesGroup.insert(std::make_pair(name::ENEMY_BUBA, std::move(enemy_buba)));
+
+        // ENEMY 2
+        enemy_buba = unique_ptr<Character>(new Character());
+        enemy_buba->CreateCharacter(name::ENEMY_BUBA_2, entity::TypeOfSprite::SPRT_CHARACTER, entity::TypeOfShape::SHP_POLYGON, entity::TypeOfFixture::FIX_ENEMY,
+                                    renderer, SDL_Color{186, 254, 202, 0});
+        enemy_buba->loadAnimations("conf/spriteSheets/enemy_1.json", "img/enemy_1.png", 2.0, 2.0);
+        enemy_buba->setAIMode(Glob::AIMode::AI_PURSUIT);
+        enemy_buba->setTarget(name::PLAYER_ONE_NAME);
         
+        physicsWorld->addToWorld(name::ENEMY_BUBA_2, enemy_buba.get(), SDL_Point{100, 490}, enemy_buba->getAnimationSize(name::MOVEMENT_STOP),
+                                 flag::DYNAMIC_BODY, flag::DISABLE_ROTATION);
+        
+        enemiesGroup.insert(std::make_pair(name::ENEMY_BUBA_2, std::move(enemy_buba)));
+ 
+        // ENEMY 3
+        enemy_buba = unique_ptr<Character>(new Character());
+        enemy_buba->CreateCharacter(name::ENEMY_BUBA_3, entity::TypeOfSprite::SPRT_CHARACTER, entity::TypeOfShape::SHP_POLYGON, entity::TypeOfFixture::FIX_ENEMY,
+                                    renderer, SDL_Color{186, 254, 202, 0});
+        enemy_buba->loadAnimations("conf/spriteSheets/enemy_1.json", "img/enemy_1.png", 2.0, 2.0);
+        enemy_buba->setAIMode(Glob::AIMode::AI_PURSUIT);
+        enemy_buba->setTarget(name::PLAYER_ONE_NAME);
+        
+        physicsWorld->addToWorld(name::ENEMY_BUBA_3, enemy_buba.get(), SDL_Point{140, 500}, enemy_buba->getAnimationSize(name::MOVEMENT_STOP),
+                                 flag::DYNAMIC_BODY, flag::DISABLE_ROTATION);
+        
+        enemiesGroup.insert(std::make_pair(name::ENEMY_BUBA_3, std::move(enemy_buba)));
         
         /*
          * FURNITURES
@@ -68,12 +95,21 @@ namespace barrio
          */
         texts->CreateText("ARIAL_12", "ttf/ArialNarrowRegular.ttf", 12);
         
-        physicsWorld->setHorizon();
+        /*
+         * WORLD BUNDARIES
+         */
+        worldBundaries.CreateObject(name::WORLD_BUNDARIES_NAME, nullptr, entity::SPRT_NONE, entity::SHP_CHAIN, entity::FIX_WORLD_BUDARIES);
+        physicsWorld->setWorldBundaries(&worldBundaries, measure::WORLD_WIDTH_PX, measure::WORLD_HEIGHT_PX);
+        
+        /*
+         * HORIZON
+         */
+        horizon.CreateObject(name::HORIZON_NAME, nullptr, entity::SPRT_NONE, entity::SHP_CHAIN, entity::FIX_HORIZON );
+        physicsWorld->setHorizon(&horizon);
     }
     
     void Level_1::releaseClycleLiveTimeResources(void)
     {
-        physicsWorld->collisionPool.clearCollisionObjectList();
         physicsWorld->characterSortedByPosition.clear();
     }
     

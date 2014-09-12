@@ -24,13 +24,13 @@ namespace barrio {
         
         b2Body* addToWorld(const std::string& name, Sprite* sprite, const SDL_Point& screenPos, const Size<int>& screenSize,
                            const bool dynamicBody = true, const bool disableRotation = true);
-        void setWorldBundaries(const int width, const int height);
+        void setWorldBundaries(Object* worldBundariesRef, const int width, const int height);
         void createLine(const b2Vec2& pointA, const b2Vec2& pointB);
         
         bool bodyExist(const std::string& name);
         b2Body* getBody(const std::string& spriteNamme);
         
-        void setHorizon(void);
+        void setHorizon(Object* horizon);
         
         void Step(void)
         {
@@ -54,7 +54,6 @@ namespace barrio {
         Physics& operator=(const Physics&);
         b2Body* createPolygon(const std::string& name, Sprite* sprite, const SDL_Point& screenPos, const Size<int>& screenSize,
                            const bool dynamicBody = true, const bool disableRotation = true);
-        void setFixtureCollisionFilters(b2FixtureDef& fixture, uint16 IAm,  uint16 ICollideWith);
         
     private:
         b2Vec2 gravity;

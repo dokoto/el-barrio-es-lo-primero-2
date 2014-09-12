@@ -31,15 +31,17 @@ namespace barrio {
         
     protected:
         bool AI_PURSUIT_MOV_1(const float32 vel, const b2Vec2& margin, const b2Vec2& playerPos, const b2Vec2& enemyPos,
-                             Character* enemyCharacter, b2Body* enemyPhysicsBody);
+                             Character* playerCharacter, Character* enemyCharacter, b2Body* playerPhysicsBody, b2Body* enemyPhysicsBody);
+        
         bool AI_PURSUIT_MOV_2(const float32 vel, const b2Vec2& margin, const b2Vec2& playerPos, const b2Vec2& enemyPos,
-                              Character* enemyCharacter, b2Body* enemyPhysicsBody);
+                            Character* playerCharacter, Character* enemyCharacter, b2Body* playerPhysicsBody, b2Body* enemyPhysicsBody);
         
     protected:
         SDL_Renderer* renderer;
         Physics* physicsWorld;
         Camera* camera;
         Text* texts;
+        Object worldBundaries, horizon;
         Character playerA, playerB;
         std::map<std::string, std::unique_ptr<Character>> enemiesGroup;
     

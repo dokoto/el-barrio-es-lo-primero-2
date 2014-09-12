@@ -14,10 +14,11 @@ namespace barrio {
     class CollisionListener : public b2ContactListener
     {
     private:
-        std::map<std::string, entity::TypeOfFixture> objectsCollisionedByNameVSTypeOfFixture;
-        
+        std::map< std::pair<std::string, entity::TypeOfFixture>, std::pair<b2Fixture*, b2Fixture*> > objCollTF;
     private:
         bool collisionRules(b2Fixture* fixtureA, b2Fixture* fixtureB);
+        void insertCollision(b2Fixture* f1, b2Fixture* f2);
+        
         
     public:
         void BeginContact(b2Contact* contact);
@@ -25,23 +26,8 @@ namespace barrio {
         void PreSolve(b2Contact* contact, const b2Manifold* oldManifold);
         void PostSolve(b2Contact* contact, const b2ContactImpulse* impulse);
         
-        
-        entity::TypeOfFixture popTypeOfFixtureOfCollisioner(const std::string& name)
-        {
-            auto it = objectsCollisionedByNameVSTypeOfFixture.find(name);
-            if (it != objectsCollisionedByNameVSTypeOfFixture.end())
-            {
-                entity::TypeOfFixture tFix = it->second;
-                objectsCollisionedByNameVSTypeOfFixture.erase(it);
-                return tFix;
-            }
-            else return entity::FIX_NONE;
-        }
-        
-        void clearCollisionObjectList(void)
-        {
-            //objectsCollisionedByNameVSTypeOfFixture.clear();
-        }
+    public:
+        bool checkCollision(const std::string& name, const entity::TypeOfFixture type, b2Body*& bodyInCollison);
     };
     
 }

@@ -1,6 +1,7 @@
 #ifndef EL_BARRIO_ES_LO_PRIMERO_Fixtures_h
 #define EL_BARRIO_ES_LO_PRIMERO_Fixtures_h
 
+#include <type_traits>
 #include "Names.hpp"
 
 namespace barrio
@@ -13,6 +14,10 @@ namespace barrio
             
             static entity::TypeOfSprite getTypeOfSprite(b2Fixture* fixture)
             {
+                Object* obj = nullptr;
+                obj = static_cast<Object*>(fixture->GetUserData());
+                return obj->getTypeOfSprite();
+                /*
                 b2Body* body = fixture->GetBody();
                 if (body->GetFixtureList()->GetType() == b2Shape::e_polygon)
                 {
@@ -38,10 +43,15 @@ namespace barrio
                     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "getFixtureTypeOfSprite: Shape no implemented");
                     return entity::TypeOfSprite::SPRT_NONE;
                 }
+                */
             }
             
             static entity::TypeOfShape getTypeOfShape(b2Fixture* fixture)
             {
+                Object* obj = nullptr;
+                obj = static_cast<Object*>(fixture->GetUserData());
+                return obj->getTypeOfShape();
+                /*
                 b2Body* body = fixture->GetBody();
                 if (body->GetFixtureList()->GetType() == b2Shape::e_polygon)
                 {
@@ -66,6 +76,7 @@ namespace barrio
                     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "getFixtureTypeOfShape: Shape no implemented");
                     return entity::TypeOfShape::SHP_NONE;
                 }
+                 */
             }
             
             static void* getCharcaterUserData(b2Body* body)
@@ -74,38 +85,35 @@ namespace barrio
                 for (b2Fixture* fixtureElement = body->GetFixtureList(); fixtureElement; fixtureElement = fixtureElement->GetNext())
                 {
                     obj = static_cast<Object*>(fixtureElement->GetUserData());
+                    if (obj->getTypeOfFixture() == entity::FIX_CHARACTER || obj->getTypeOfFixture() == entity::FIX_ENEMY)
+                        return obj->getRef();
+                    else
+                        continue;
+                    /*
                     if (obj->whoAmI() == Glob::Classes::CLASS_OBJECT)
                         continue;
                     else if (obj->whoAmI() == Glob::Classes::CLASS_TEXTURE)
                         return fixtureElement->GetUserData();
                     else
                         continue;
+                     */
                 }
                 return nullptr;
             }
             
             static entity::TypeOfFixture getTypeOfFixture(b2Fixture* fixture)
             {
+                Object* obj = nullptr;
+                obj = static_cast<Object*>(fixture->GetUserData());
+                return obj->getTypeOfFixture();
+                /*
                 b2Body* body = fixture->GetBody();
                 if (body->GetFixtureList()->GetType() == b2Shape::e_polygon)
                 {
-                    Sprite* sprite = nullptr;
-                    sprite = static_cast<Sprite*>(fixture->GetUserData());
-                    if (sprite != nullptr)
-                    {
-                        std::string name = getFixtureName(fixture);
-                        if(name.find(name::FOOT_NAME) != std::string::npos)
-                            return entity::TypeOfFixture::FIX_FOOT;
-                        else if (sprite->getBody()->getTypeOfSprite() == entity::TypeOfSprite::SPRT_CHARACTER)
-                            return entity::TypeOfFixture::FIX_CHARACTER;
-                        else if (sprite->getBody()->getTypeOfSprite() == entity::TypeOfSprite::SPRT_FURNITURE)
-                            return entity::TypeOfFixture::FIX_FURNITURE;
-                        else
-                            return entity::TypeOfFixture::FIX_NONE;
-                        
-                    }
-                    else
-                        return entity::TypeOfFixture::FIX_NONE;
+                    Object* obj = nullptr;
+                    obj = static_cast<Object*>(fixture->GetUserData());
+
+                    return (obj != nullptr)? obj->getTypeOfFixture() : entity::FIX_NONE;
                     
                 }
                 else if (body->GetFixtureList()->GetType() == b2Shape::e_circle)
@@ -128,6 +136,7 @@ namespace barrio
                     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "getFixtureTypeOfFixture: Shape no implemented");
                     return entity::TypeOfFixture::FIX_NONE;
                 }
+                 */
             }
             
             static std::string getFixtureName(b2Fixture* fixture)
@@ -136,28 +145,8 @@ namespace barrio
                 Object* obj = nullptr;
                 if (body->GetFixtureList()->GetType() == b2Shape::e_polygon)
                 {
-                    Sprite* sprite = nullptr;
                     obj = static_cast<Object*>(fixture->GetUserData());
-                    if (obj != nullptr && obj->getName().find(name::FOOT_NAME) != std::string::npos)
-                        return obj->getName();
-                    else
-                    {
-                        sprite = static_cast<Sprite*>(fixture->GetUserData());
-                        if (sprite != nullptr)
-                        {
-                            Object* obj = static_cast<Object*>(body->GetUserData());
-                            if (obj->getTypeOfFixture() == entity::TypeOfFixture::FIX_FURNITURE)
-                            {
-                                return obj->getName();
-                            }
-                            else
-                            {
-                                return  sprite->getBody()->getName();
-                            }
-                        }
-                        else
-                            return std::string();
-                    }
+                    return (obj != nullptr) ? obj->getName() : std::string();
                 }
                 else  if (body->GetFixtureList()->GetType() == b2Shape::e_circle)
                 {
@@ -175,7 +164,6 @@ namespace barrio
                     return "Nothing";
                 }
             }
-            
             
         };
     }

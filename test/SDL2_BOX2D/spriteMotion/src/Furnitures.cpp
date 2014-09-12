@@ -67,7 +67,7 @@ namespace barrio {
                     
                     furnituresPixelDimensions.insert(make_pair(it.key().asString(), rect));
                     obj = unique_ptr<Object>(new Object());
-                    obj->CreateObject(it.key().asString(), entity::TypeOfSprite::SPRT_FURNITURE, entity::TypeOfShape::SHP_POLYGON, entity::TypeOfFixture::FIX_FURNITURE);
+                    obj->CreateObject(it.key().asString(), this, entity::TypeOfSprite::SPRT_FURNITURE, entity::TypeOfShape::SHP_POLYGON, entity::TypeOfFixture::FIX_FURNITURE);
                     furnituresBodyObject.insert(std::make_pair(it.key().asString(), std::move(obj)));
                 }
             }
